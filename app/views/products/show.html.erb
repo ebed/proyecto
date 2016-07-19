@@ -1,0 +1,31 @@
+<h3>Datos del <%= @product.name %> <%= @product.marca.name %> </h3>
+
+Nota Promedio <%= @product.average_score %><br/>
+Menor precio <%= @product.price_since %>
+
+<p>
+<%= @product.specifications %>
+
+</p>
+Año de modelo<%= @product.year %>
+
+
+<h3>Vendedores</h3>
+<% @product.articles.each do |article| %>
+<p>
+  <%= article.seller.name %>  / <%= article.price %>
+</p>
+<% end %>
+
+<h3>Comentarios del producto(<%= @product.comments.count %>)</h3>
+<hr>
+<% @product.comments.each do |comment|%>
+
+  <p> <%= comment.title %> </p>
+  <p> <%= comment.created_at %> </p>
+  <p> <%= comment.body %> </p>
+
+  <p> <%= comment.user.nombre %> </p>
+
+<hr>
+<% end %>

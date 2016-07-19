@@ -1,0 +1,11 @@
+
+<%= semantic_form_for @comment do |f| %>
+
+  <%= f.input :title, :as => :text  %>
+  <%= f.input :body %>
+
+  <%= f.input :user, :as => :select, :collection => User.pluck(:nombre,:id) %>
+  <%= f.input :product, :as => :select, :collection => Product.pluck(:name, :id)  %>
+  <%= f.actions %>
+
+<% end %>

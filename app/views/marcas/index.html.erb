@@ -1,0 +1,13 @@
+
+<ul>
+<% Marca.all.each do |marca| %>
+  <li> <%= marca.name %>
+
+  <%= link_to "Edit", edit_marca_path(marca) %>
+  <%= link_to "Borrar", marca_path(marca), :method => :delete %>
+  </li>
+<% end %>
+
+</ul>
+
+<%= link_to "New Marca", new_marca_path %>

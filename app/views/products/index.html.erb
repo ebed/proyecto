@@ -1,0 +1,12 @@
+<ul>
+  <% Product.all.each do |product| %>
+
+    <li><%= link_to product.name, product_path(product) %>
+      <%= link_to "Edita", edit_product_path(product) %>
+       <%= link_to 'borrar', product_path(product), :method => :delete     %>
+    </li>
+
+
+  <% end %>
+</ul>
+<%= link_to "New Product", new_product_path %>

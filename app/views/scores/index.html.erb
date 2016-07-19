@@ -1,0 +1,19 @@
+<ul>
+<%  @scores.each do |score| %>
+
+  <li>
+    <%= score.value %>
+    <%= score.user.nombre %>
+    <%= score.product.name %>
+    <%= link_to "Ver", score_path(score) %>
+    <%= link_to "Edita", edit_score_path(score) %>
+    <%= link_to "Borrar", score_path(score), :method => :delete %>
+  </li>
+
+<% end %>
+
+
+
+</ul>
+
+<%= link_to "Nuevo score", new_score_path %>

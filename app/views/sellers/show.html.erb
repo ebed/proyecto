@@ -1,0 +1,13 @@
+<%= @seller.name %> (<%= @seller.articles.count %>)
+<p>
+
+<ul>
+  <% @seller.articles.each do |article| %>
+    <li>
+      <%= article.product.name %> |
+      <%= article.price %>
+    </li>
+  <% end %>
+</ul>
+<p>
+<%= link_to "Back to Sellers", sellers_path %>

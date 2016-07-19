@@ -1,0 +1,8 @@
+<%= semantic_form_for @article do |f| %>
+  <%= f.input :seller, :as => :select, :collection => Seller.pluck(:name,:id) %>
+  <%= f.input :price %>
+  <%= f.input :product, :as => :select, :collection => Product.pluck(:name, :id) %>
+  <%= f.actions %>
+
+<% end %>
+,

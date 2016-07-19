@@ -1,0 +1,20 @@
+<ul>
+<% Article.all.each do |article| %>
+
+<li>
+<%= link_to article.product.name, article_path(article) %>
+<%= article.price %>
+
+<%= article.seller.name %>
+
+
+ <%= link_to "Edita", edit_article_path(article) %>
+       <%= link_to 'borrar', article_path(article), :method => :delete     %>
+</li>
+
+<% end %>
+
+</ul>
+
+
+<%= link_to "Nuevo articulo", new_article_path %>

@@ -1,0 +1,18 @@
+<ul>
+  <% Seller.all.each do |seller| %>
+    <li>
+      <%= link_to seller.name, seller %>
+      <%=  seller.articles.count %>
+
+      <%= link_to 'edit', edit_seller_path(seller)     %>
+
+      <%= link_to 'borrar', seller_path(seller), :method => :delete     %>
+    </li>
+  <% end %>
+
+</ul>
+
+<%= link_to "New seller",new_seller_path %>
+
+
+
