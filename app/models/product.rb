@@ -12,4 +12,6 @@ class Product < ApplicationRecord
   def average_score
     self.scores.average(:value)
   end
+
+
 end
