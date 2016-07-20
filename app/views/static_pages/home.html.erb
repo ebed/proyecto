@@ -1,2 +1,12 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <% @main_articles.each do |art| %>
+      <div class="col-md-2">
+        <%= link_to art.product.name, product_path(art.product) %>
+      </div>
+    <% end %>
+    <div class="col-md-1">
+    </div>
+  </div>

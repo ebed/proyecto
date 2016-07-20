@@ -1,11 +1,11 @@
+<%= bootstrap_form_for(@comment) do |f| %>
+  <%= f.text_field :title , label: 'Asunto' %>
+  <%= f.text_area :body, label: 'Comentario' %>
 
-<%= semantic_form_for @comment do |f| %>
 
-  <%= f.input :title, :as => :text  %>
-  <%= f.input :body %>
 
-  <%= f.input :user, :as => :select, :collection => User.pluck(:nombre,:id) %>
-  <%= f.input :product, :as => :select, :collection => Product.pluck(:name, :id)  %>
-  <%= f.actions %>
 
+  <%= f.select :user,  User.pluck(:nombre,:id), label: 'Usuario'  %>
+  <%= f.select :product, Product.pluck(:name, :id) %>
+  <%= f.submit "Guardar" %>
 <% end %>

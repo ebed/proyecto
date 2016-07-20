@@ -4,7 +4,7 @@ Nota Promedio <%= @product.average_score %><br/>
 Menor precio <%= @product.price_since %>
 
 <p>
-<%= @product.specifications %>
+<%= raw @product.specifications %>
 
 </p>
 Año de modelo<%= @product.year %>
@@ -25,7 +25,15 @@ Año de modelo<%= @product.year %>
   <p> <%= comment.created_at %> </p>
   <p> <%= comment.body %> </p>
 
-  <p> <%= comment.user.nombre %> </p>
+  <p> <%= comment.user %> </p>
 
 <hr>
 <% end %>
+
+
+      <% if user_signed_in? %>
+        <%=  render :partial => 'comments/form' %>
+
+      <% end %>
+
+
