@@ -1,11 +1,28 @@
+<% if  user_signed_in?  and !@product.blank? %>
+
 <%= bootstrap_form_for(@comment) do |f| %>
+
+
+  <%= f.hidden_field :user_id, value: current_user.id  %>
+  Usuario: <%= f.label current_user.name %>
+
+
+  <%= f.hidden_field :product_id, value: @product.id %>
+  <p>
+  <%= f.label @product.name %>
+
+
+
   <%= f.text_field :title , label: 'Asunto' %>
   <%= f.text_area :body, label: 'Comentario' %>
 
 
 
 
-  <%= f.select :user,  User.pluck(:nombre,:id), label: 'Usuario'  %>
-  <%= f.select :product, Product.pluck(:name, :id) %>
   <%= f.submit "Guardar" %>
+<% end %>
+
+<% else %>
+
+<h3> Para crear comentarios se debe hacer desde un producto y autenticado como usuario</h3>
 <% end %>

@@ -1,0 +1,17 @@
+
+<%= bootstrap_form_for(@product) do |f| %>
+
+
+
+
+
+  <%= f.text_field :name %>
+
+  <%= f.text_area :specifications %>
+  <%= f.text_field :year %>
+
+
+
+
+  <%= f.submit "Guardar" %>
+<% end %>

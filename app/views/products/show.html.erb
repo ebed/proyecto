@@ -1,3 +1,9 @@
+<% if current_user.email == "ebedmail@gmail.com" %>
+
+  <%= link_to "Editar", edit_product_path(@product) %>
+
+<% end %>
+
 <h3>Datos del <%= @product.name %> <%= @product.marca.name %> </h3>
 
 Nota Promedio <%= @product.average_score %><br/>
@@ -17,8 +23,12 @@ Año de modelo<%= @product.year %>
 </p>
 <% end %>
 
-<h3>Comentarios del producto(<%= @product.comments.count %>)</h3>
-<hr>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">Comentarios del producto(<%= @product.comments.count %>)</div>
+<div class="panel-body">
+
 <% @product.comments.each do |comment|%>
 
   <p> <%= comment.title %> </p>
@@ -27,13 +37,19 @@ Año de modelo<%= @product.year %>
 
   <p> <%= comment.user %> </p>
 
-<hr>
+
 <% end %>
 
+</div>
+</div>
 
+<div class="panel panel-default">
+<div class="panel-heading">Nuevo Comentario</div>
+<div class="panel-body">
       <% if user_signed_in? %>
         <%=  render :partial => 'comments/form' %>
 
       <% end %>
-
+      </div>
+</div>
 
