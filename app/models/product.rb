@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   has_many :articles
   has_many :comments
   has_many :scores
+  has_many :imagenesarticulos
   belongs_to :marca
 
 

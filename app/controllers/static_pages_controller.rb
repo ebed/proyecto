@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @main_articles = Article.order(:created_at).limit(5)
+    @main_products = Product.order(:created_at).limit(5)
 
   end
 

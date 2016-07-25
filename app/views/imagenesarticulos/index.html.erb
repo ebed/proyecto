@@ -1,0 +1,12 @@
+<% @imagenes.each do |imagen| %>
+
+<%= link_to imagen.filename, imagenesarticulo_path(imagen) %>
+
+  <%= ('<img src="data:image/jpg;base64,%s"  width="100px">' % Base64.encode64(imagen.file_contents)).html_safe %>
+
+ <%= link_to 'x', imagenesarticulo_path(imagen), :method => :delete     %>
+<br/>
+<% end %>
+<p>
+
+<%= link_to "Nueva Imagen", new_imagenesarticulo_path %>

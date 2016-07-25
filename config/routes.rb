@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :scores
   resources :static_pages
-
+  resources :imagenesarticulos
   root 'static_pages#home'
 
   get 'about', to: 'static_pages#about', as: :about

@@ -1,7 +1,9 @@
-<% if current_user.email == "ebedmail@gmail.com" %>
+<% if user_signed_in? %>
+  <% if current_user.email == "ebedmail@gmail.com" %>
 
-  <%= link_to "Editar", edit_product_path(@product) %>
+    <%= link_to "Editar", edit_product_path(@product) %>
 
+  <% end %>
 <% end %>
 
 <h3>Datos del <%= @product.name %> <%= @product.marca.name %> </h3>
@@ -10,12 +12,14 @@ Nota Promedio <%= @product.average_score %><br/>
 Menor precio <%= @product.price_since %>
 
 <p>
-<%= raw @product.specifications %>
-
+  <%= raw @product.specifications %>
 </p>
 Año de modelo<%= @product.year %>
+<br/>
+<% @product.imagenesarticulos.each do |imagen| %>
 
-
+        <%= ('<img src="data:image/jpg;base64,%s"  width="100px">' % Base64.encode64(imagen.file_contents)).html_safe %>
+        <% end %>
 <h3>Vendedores</h3>
 <% @product.articles.each do |article| %>
 <p>

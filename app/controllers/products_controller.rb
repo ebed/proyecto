@@ -26,12 +26,14 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    producto = Product.create(product_params)
-    producto.save
+    producto = Product.new(product_params)
+    if producto.save
          flash[:notice] = "Se creo correctamente"
+      else
+          flash[:alert] = "Problema creando"
     redirect_to products_path
-  end
-
+   end
+ end
 
   def destroy
     @product.destroy
