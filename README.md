@@ -1,4 +1,10 @@
 # README
+
+
+Para trabajar: se debe manejar una branch para desarrollar. Una vez terminada la funcionalidad, se integrará el master en la branch propia y luego se pondrá en el Master para asegurar funcionamiento del merge.
+
+
+
 Información de la versión utilizada:
 
 Rails version: 5.0.0
