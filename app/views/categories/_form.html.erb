@@ -1,0 +1,10 @@
+<%= bootstrap_form_for(@category) do |f| %>
+
+
+      Categoria <%= f.text_field :name  %>
+      <br/>
+      Padre <%= f.select :category_id, @raiz.collect {|p| [ p.name, p.id ] },{:include_blank => 'SIN PADRE'} %>
+      <br/>
+      Sub Nivel <%= f.select :category_id, Category.where(:category_id => 11).collect {|p| [ p.name, p.id ] },{:include_blank => 'SIN PADRE'} %>
+      <%= f.submit "Guardar" %>
+<% end %>

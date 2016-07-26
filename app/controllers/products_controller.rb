@@ -23,16 +23,33 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def new
     @product = Product.new
+
   end
 
   def create
+
     producto = Product.new(product_params)
+
+
     if producto.save
+        p "Creacion OK"
          flash[:notice] = "Se creo correctamente"
+         redirect_to addimagesproduct_path producto
       else
+        p "Creacion fallida"
           flash[:alert] = "Problema creando"
-    redirect_to products_path
-   end
+          redirect_to products_path
+    end
+ end
+
+
+ def addimages
+   p "Creando la imagen"
+
+    p params
+    @imagen = Imagenesarticulo.new
+
+    ##imagen = Imagenesarticulo.new(imagen_params)
  end
 
   def destroy
@@ -49,6 +66,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   end
 
   def product_params
-    params.require(:product).permit(:name, :marca_id, :specifications, :year)
+    params.require(:product).permit(:name, :marca_id, :specifications, :year, :category_id)
   end
+
+
+  def imagen_params
+    params.require(:imagenesarticulo).permit(:file, :product_id, :order)
+  end
+
 end

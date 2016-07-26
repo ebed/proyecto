@@ -1,6 +1,15 @@
 class StaticPagesController < ApplicationController
   def home
-    @main_products = Product.order(:created_at).limit(5)
+    p "Home"
+    p params
+    if params[:id] != nil
+      p "FIltrado"
+      @main_products = Product.where(:category_id =>  params[:id])
+    else
+      p "SIn filtro"
+      @main_products = Product.sponsored
+    end
+
 
   end
 
@@ -9,5 +18,8 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+
+
 
 end

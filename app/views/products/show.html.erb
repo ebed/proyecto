@@ -5,32 +5,162 @@
 
   <% end %>
 <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3>Datos del <%= @product.name %> <%= @product.marca.name %> </h3></div>
 
-<h3>Datos del <%= @product.name %> <%= @product.marca.name %> </h3>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
 
-Nota Promedio <%= @product.average_score %><br/>
-Menor precio <%= @product.price_since %>
+        <div class="row">
+          <div class="col-md-12">
+          <%= image_tag @product.imagenprincipal.image.thumb('250x250#').url if @product.imagenprincipal.image_stored? %>
 
-<p>
-  <%= raw @product.specifications %>
-</p>
-Año de modelo<%= @product.year %>
-<br/>
-<% @product.imagenesarticulos.each do |imagen| %>
 
-        <%= ('<img src="data:image/jpg;base64,%s"  width="100px">' % Base64.encode64(imagen.file_contents)).html_safe %>
-        <% end %>
-<h3>Vendedores</h3>
-<% @product.articles.each do |article| %>
-<p>
-  <%= article.seller.name %>  / <%= article.price %>
-</p>
-<% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <% @product.imagenesarticulos.each do |imagen| %>
+                 <%= image_tag imagen.image.thumb('100x100#').url if imagen.image_stored? %>
+
+
+            <% end %>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-md-8">
+
+
+        <div class="row">
+          <div class="col-md-4">
+            PRODUCTO:
+          </div>
+          <div class="col-md-4">
+            <%= @product.name %>
+            <p></p>
+          </div>
+        </div>
+       <div class="row">
+          <div class="col-md-4">
+            MARCA:
+          </div>
+          <div class="col-md-4">
+             <%= @product.marca.name %>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            MEJOR PRECIO:
+          </div>
+          <div class="col-md-4">
+           <%= number_to_currency(@product.price_since, precision: 0) %>
+            <p></p>
+          </div>
+        </div>
+
+
+         <div class="row">
+          <div class="col-md-4">
+             Año de modelo
+          </div>
+          <div class="col-md-4">
+             <%= @product.year %>
+             <p></p>
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            PROVEEDOR:
+          </div>
+          <div class="col-md-4">
+            <%= @product.articleselected.seller.name %>
+            <p></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+             VALOR PROVEEDOR:
+          </div>
+          <div class="col-md-4">
+             <%= number_to_currency(@product.articleselected.price , precision: 0) %>
+             <p></p>
+          </div>
+
+
+
+
+        </div>
+<%= link_to "Escoger otros proveedores" %>
+<p></p>
+
+
+         <div class="row">
+          <div class="col-md-4">CALIFICACIÓN PRODUCTO</div>
+          <div class="col-md-4">
+            <div class="progress">
+
+                 <% if @product.average_score_percent > 50 %>
+                    <div class="progress-bar progress-bar-danger" style="width: 50%">
+                      <span class="sr-only"></span>
+                    </div>
+
+                    <% if @product.average_score_percent > 80 %>
+                      <div class="progress-bar progress-bar-warning" style="width: 30%">
+                       <span class="sr-only">20% Complete (warning)</span>
+                      </div>
+                      <div class="progress-bar progress-bar-success" style="width: <%= @product.average_score_percent - 80 %>%">
+                        <span class="sr-only">10% Complete (danger)</span>
+                      </div>
+                    <% else %>
+
+                          <div class="progress-bar progress-bar-warning" style="width: <%= @product.average_score_percent - 50 %>%">
+                           <span class="sr-only">20% Complete (warning)</span>
+                          </div>
+                    <% end %>
+                  <% else %>
+
+                    <div class="progress-bar progress-bar-danger" style="width: <%= @product.average_score_percent %>%">
+                      <span class="sr-only"></span>
+                    </div>
+                  <% end %>
+              </div>
+          </div>
+          <div class="col-md-4"><%= @product.average_score_percent %></div>
+         </div>
+
+
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-default">Agregar a Carro</button>
+          </div>
+          <div class="col-md-6">
+             <button type="button" class="btn btn-default">Lista deseos</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<div class="panel panel-default">
+  <div class="panel-heading"><h4>Especificaciones</h4></div>
+  <div class="panel-body">
+   <%= raw @product.specifications %>
+   </div>
+</div>
 
 
 
 <div class="panel panel-default">
-<div class="panel-heading">Comentarios del producto(<%= @product.comments.count %>)</div>
+<div class="panel-heading">Comentarios del producto <span class="badge"><%= @product.comments.count %></span></div>
 <div class="panel-body">
 
 <% @product.comments.each do |comment|%>
@@ -39,7 +169,7 @@ Año de modelo<%= @product.year %>
   <p> <%= comment.created_at %> </p>
   <p> <%= comment.body %> </p>
 
-  <p> <%= comment.user %> </p>
+  <p> <%= comment.user.name %> </p>
 
 
 <% end %>
@@ -47,13 +177,9 @@ Año de modelo<%= @product.year %>
 </div>
 </div>
 
-<div class="panel panel-default">
-<div class="panel-heading">Nuevo Comentario</div>
-<div class="panel-body">
+
       <% if user_signed_in? %>
         <%=  render :partial => 'comments/form' %>
 
       <% end %>
-      </div>
-</div>
 
