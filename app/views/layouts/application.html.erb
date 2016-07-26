@@ -9,25 +9,45 @@
   </head>
 
   <body>
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
 
-  <%= render 'layouts/navbar' %>
+    <%= render 'layouts/navbar' %>
 
 
 
 
+        <div class="row">
+          <div class="col-md-2">
+            <%= render 'layouts/categorias' %>
+          </div>
+
+          <div class="col-md-10">
+
+            <div class="container-fluid">
+              <div class="panel panel-default">
+                 <% if notice %>
+                    <p class="alert alert-success"><%= notice %></p>
+                  <% end %>
+                  <% if alert %>
+                    <p class="alert alert-danger"><%= alert %></p>
+                  <% end %>
 
 
-    <div class="container-fluid">
-      <div class="panel panel-default">
-      <%= yield %>
-      </div>
-    </div>
+                <%= yield %>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
 
   </body>
 </html>

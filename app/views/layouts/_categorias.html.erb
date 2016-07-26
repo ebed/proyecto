@@ -1,0 +1,32 @@
+  <!-- Primer nivel categorias -->
+<ul>
+  <% Category.where("category_id is null").order(:name).each do |category| %>
+    <li>
+      <%= link_to category.name, homecategories_path(category.id) %>
+    </li>
+    <ul>
+    <% category.hijos.order(:name).each do |hijo| %>
+      <li> <%= link_to hijo.name, homecategories_path(hijo.id) %>  </li>
+      <!-- Segundo nivel categorias -->
+      <ul>
+        <% if hijo.hijos.count > 0 %>
+          <%= hijo.hijos.order(:name).each do |hijo2| %>
+            <li><%= hijo2.name %></li>
+
+              <!-- Tercer nivel categorias -->
+               <ul>
+                <% if hijo2.hijos.count > 0 %>
+                  <%= hijo2.hijos.order(:name).each do |hijo3| %>
+                    <li><%= hijo3.name %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+
+          <% end %>
+        <% end %>
+
+      </ul>
+    <% end %>
+    </ul>
+  <% end %>
+</ul>
