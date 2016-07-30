@@ -1,12 +1,36 @@
-<ul>
-  <% Product.all.each do |product| %>
+<div class="panel panel-default">
+    <div class='panel-heading'>
+        <h3>PRODUCTOS</h3>
+    </div>
+    <table class="table table-bordered">
+     <tr class="active">
+        <th>NOMBRE</th>
+        <th>MARCA</th>
+        <th>CATEGORIA</th>
+        <th>
+          <%= link_to new_product_path do%>
+            <%= fa_icon 'plus-square-o' %>
+          <% end %>
+         </th>
+      </tr>
 
-    <li><%= link_to product.name, product_path(product) %>
-      <%= link_to "Edita", edit_product_path(product) %>
-       <%= link_to 'borrar', product_path(product), :method => :delete     %>
-    </li>
+    <% Product.all.each do |product| %>
+      <tr>
+        <td>  <%= product.name %> </td>
+        <td>  <%= product.marca.name %> </td>
+        <td>  <%= product.category.name %> </td>
+        <td>
+
+         <%= link_to edit_product_path(product) do %>
+                <%=  fa_icon 'edit'  %>
+            <% end %>
+            <%= link_to product_path(product),:method =>:delete do %>
+               <%=  fa_icon 'remove'  %>
+         <% end %>
+      </td>
+      </tr>
+    <% end %>
 
 
-  <% end %>
-</ul>
-<%= link_to "New Product", new_product_path %>
+    </table>
+</div>

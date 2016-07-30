@@ -1,0 +1,66 @@
+<div class='panel panel-default'>
+  <table class="table">
+   <thead>
+  <tr class="active"><th colspan='3' > <h3><%= @tienda.name %> </h3></th> </tr>
+  </thead>
+    <tr>
+        <td>
+          <div class="btn-group" role="group" aria-label="...">
+
+            <%= link_to "AGREGAR ARTICULO", addarticle_path(@tienda), class: "btn btn-default" %>
+            <%= link_to "MODIFICAR TIENDA", edit_tienda_path(@tienda), class: "btn btn-default" %>
+            <%= link_to "ELIMINAR TIENDA", tienda_path(@tienda), method: :delete, class: "btn btn-default" %>
+
+          </div>
+        </td>
+        <td></td>
+        <td align='right'>Creada el <%= @tienda.created_at.strftime("%d/%m/%Y ") %></td>
+    </tr>
+
+  <tr><td colspan='3'>
+
+      <div class="panel panel-default">
+        <table class='table table-default'>
+          <thead>
+            <tr class='active'><td>
+                ARTICULOS
+              </td>
+              <td>
+                PRECIO
+              </td>
+              <td colspan=2>
+                STOCK
+              </td></tr>
+          </thead>
+          <tbody>
+
+
+            <% @tienda.articles.each do |articulo| %>
+              <tr><td>
+                <%= articulo.product.name %>
+              </td>
+              <td>
+              <%= number_to_currency(articulo.price, precision: 0) %>
+
+
+              </td>
+              <td>
+                <%= articulo.stock %>
+              </td>
+              <td align='right'>
+                  <%= link_to  edit_article_path,  class:"btn btn-xs btn-default"  do %>
+                    <%=  fa_icon 'edit'  %>
+                  <% end %>
+                  <%= link_to article_path(articulo), method: :delete, class: "btn btn-xs btn-default" do %>
+                    <%=  fa_icon 'remove'  %>
+                  <% end %>
+
+              </td>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </td>
+  </tr>
+  </table>
+</div>

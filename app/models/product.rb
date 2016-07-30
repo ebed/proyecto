@@ -1,9 +1,9 @@
 class Product < ApplicationRecord
-  has_many :articles
-  has_many :comments
+  has_many :articles, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
 
-  has_many :scores
-  has_many :imagenesarticulos
+  has_many :scores, :dependent => :delete_all
+  has_many :imagenesarticulos, :dependent => :delete_all
   belongs_to :marca
   belongs_to :category
 
@@ -17,7 +17,11 @@ class Product < ApplicationRecord
   end
 
   def average_score_percent
-    self.scores.average(:value)*10
+    if self.scores.count > 0
+      return self.scores.average(:value)*10
+    else
+      return 0
+    end
   end
 
 
@@ -32,8 +36,8 @@ class Product < ApplicationRecord
 
   def articleselected
     self.articles.order(:price).take
-
   end
+
 
 
 

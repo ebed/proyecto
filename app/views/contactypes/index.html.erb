@@ -1,0 +1,36 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+
+
+        <h3>TIPOS DE CONTACTO
+          <%= link_to new_contactype_path do%>
+            <%= fa_icon 'plus-square-o' %>
+          <% end %>
+        </h3>
+
+
+
+  </div>
+    <table class="table table-default">
+
+<% @contactypes.all.each do |contactype| %>
+  <tr>
+    <td>  <%= contactype.name %> </td>
+    <td align='right'>
+      <%= link_to contactype do %>
+       <%=  fa_icon 'eye'  %>
+      <% end %>
+      <%= link_to edit_contactype_path(contactype) do %>
+            <%=  fa_icon 'edit'  %>
+      <% end %>
+      <%= link_to   contactype, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+           <%=  fa_icon 'remove'  %>
+      <% end %>
+  </td>
+  </tr>
+<% end %>
+
+
+</table>
+
+

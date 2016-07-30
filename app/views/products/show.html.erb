@@ -80,7 +80,7 @@
             PROVEEDOR:
           </div>
           <div class="col-md-4">
-            <%= @product.articleselected.seller.name %>
+            <%= @product.articleselected.tienda.name %>
             <p></p>
           </div>
         </div>
@@ -140,7 +140,9 @@
 
         <div class="row">
           <div class="col-md-6">
-            <button type="button" class="btn btn-default">Agregar a Carro</button>
+
+           <%= link_to 'Agregar a carro',new_carro_path(:art_id => @product.articleselected.id), class: "btn btn-default" %>
+
           </div>
           <div class="col-md-6">
              <button type="button" class="btn btn-default">Lista deseos</button>

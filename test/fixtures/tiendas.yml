@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  contac_id: 1
+  dob: 2016-07-28
+  seller_id: 1
+
+two:
+  name: MyString
+  contac_id: 1
+  dob: 2016-07-28
+  seller_id: 1
