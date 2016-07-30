@@ -1,0 +1,2 @@
+module ContactypesHelper
+end

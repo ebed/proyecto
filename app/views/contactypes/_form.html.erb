@@ -1,0 +1,13 @@
+<%= bootstrap_form_for(@contactype) do |f| %>
+
+    <%= f.text_field :name, label: "NOMBRE" %>
+
+
+
+    <%= f.submit "CREAR" %>
+    <%= link_to contactypes_path,  class: "btn btn-default" do %>
+  VOLVER
+  <% end %>
+
+
+<% end %>

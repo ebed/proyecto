@@ -22,12 +22,21 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    @raiz = Category.where("category_id is null")
+  end
+
+  def update
 
   end
 
   def destroy
-    @category.destroy
-    redirect_to categories_path
+    if @category.destroy
+    flash[:notice] = "Se a eliminado correctamente"
+      redirect_to categories_path
+    else
+      flash[:alert] = "Falló la eliminación"
+    end
+
   end
 
   private

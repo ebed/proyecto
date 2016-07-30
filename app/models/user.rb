@@ -3,10 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :comments
-  has_many :scores
-  has_one :seller
-  has_many :sells
+  has_many :comments, :dependent => :delete_all
+  has_many :scores, :dependent => :delete_all
+  has_one :seller, :dependent => :destroy
+  has_many :sells, :dependent => :delete_all
+
+  has_many :selectedarticles, :dependent => :delete_all
 
   def name
      self.nombre

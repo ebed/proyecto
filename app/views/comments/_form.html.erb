@@ -1,19 +1,25 @@
 
-<% if  user_signed_in?  and !@product.blank? %>
+<% if  user_signed_in?  %>
 
   <div class="panel panel-default">
-    <div class="panel-heading">Nuevo Comentario</div>
+    <div class="panel-heading">Comentario</div>
     <div class="panel-body">
     <%= bootstrap_form_for(@comment) do |f| %>
 
 
       <%= f.hidden_field :user_id, value: current_user.id  %>
-      Usuario: <%= f.label current_user.name %>
-
-
-      <%= f.hidden_field :product_id, value: @product.id %>
+      Usuario: <%= f.label current_user.nombre %>
+      <br/>
+      Producto:
+      <% if @product.blank? %>
+        <%= f.hidden_field :product_id, value: @comment.product_id %>
+        <%= f.label @comment.product.name %>
+      <% else %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.label @product.name %>
+      <% end %>
       <p></p>
-      <%= f.label @product.name %>
+
 
 
 
@@ -24,11 +30,12 @@
 
 
       <%= f.submit "Guardar" %>
+
     <% end %>
 
     <% else %>
 
-    <h3> Para crear comentarios se debe hacer desde un producto y autenticado como usuario</h3>
+    <h3> Para crear comentarios se debe hacer autenticado como usuario</h3>
     <% end %>
  </div>
 </div>

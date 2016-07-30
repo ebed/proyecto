@@ -7,4 +7,7 @@
       <br/>
       Sub Nivel <%= f.select :category_id, Category.where(:category_id => 11).collect {|p| [ p.name, p.id ] },{:include_blank => 'SIN PADRE'} %>
       <%= f.submit "Guardar" %>
+       <%= link_to categories_path, class:"btn btn-default" do %>
+              VOLVER
+          <% end %>
 <% end %>

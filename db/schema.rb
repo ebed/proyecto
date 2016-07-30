@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726171314) do
+ActiveRecord::Schema.define(version: 20160728231257) do
 
   create_table "articles", force: :cascade do |t|
     t.float    "price"
     t.integer  "product_id"
-    t.integer  "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "tienda_id"
+    t.integer  "stock"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -34,6 +35,20 @@ ActiveRecord::Schema.define(version: 20160726171314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "product_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "contactype_id"
+    t.string   "value"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "owner_id"
+  end
+
+  create_table "contactypes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "delivers", force: :cascade do |t|
@@ -87,6 +102,14 @@ ActiveRecord::Schema.define(version: 20160726171314) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "selectedarticles", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "qty"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sellers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -96,11 +119,19 @@ ActiveRecord::Schema.define(version: 20160726171314) do
 
   create_table "sells", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "seller_id"
     t.integer  "article_id"
     t.integer  "evaluation"
     t.text     "comment"
     t.integer  "payment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "tienda_id"
+  end
+
+  create_table "tiendas", force: :cascade do |t|
+    t.string   "name"
+    t.date     "dob"
+    t.integer  "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

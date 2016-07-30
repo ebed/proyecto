@@ -4,10 +4,10 @@ class StaticPagesController < ApplicationController
     p params
     if params[:id] != nil
       p "FIltrado"
-      @main_products = Product.where(:category_id =>  params[:id])
+      @main_products = Product.where(:category_id =>  params[:id]).joins(:articles)
     else
       p "SIn filtro"
-      @main_products = Product.sponsored
+      @main_products = Product.sponsored.joins(:articles)
     end
 
 
@@ -19,6 +19,9 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def faq
+
+  end
 
 
 
