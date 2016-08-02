@@ -5,12 +5,67 @@
 
       <p class="navbar-text pull-right">
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
 
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <ul class="nav navbar-nav navbar-right">
+
+          <li>
+             <p class="navbar-text">Has entrado como <strong><%= current_user.email %></strong>.</p>
+          </li>
+
+          <li>
+            <div class="dropdown navbar-btn">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    USUARIO
+                <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownusuario">
+                <li><%= link_to "EDITAR PERFIL",  edit_user_registration_path %></li>
+                <li><%= link_to "MIS COMENTARIOS",  comments_path %></li>
+                <li><%= link_to "MI HISTORIAL",  edit_user_registration_path %></li>
+              </ul>
+            </div>
+           </li>
+           <li>
+
+           <div class="dropdown navbar-btn">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    VENDEDOR
+                <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownusuario">
+                <li><%= link_to "ADMINISTRAR TIENDA", tiendas_path%></li>
+
+              </ul>
+            </div>
+           </li>
+           <li>
+
+            <div class="dropdown navbar-btn">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    ADMINISTRADOR
+                <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownusuario">
+                <li><%= link_to "TIPOS DE CONTACTO",  contactypes_path%></li>
+                <li> <%= link_to "CATEGORIAS",  categories_path%></li>
+                <li><%= link_to "PRODUCTOS",  products_path%></li>
+                <li><%= link_to "MARCAS",  marcas_path%></li>
+              </ul>
+            </div>
+
+           </li>
+             <li>
+             <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-danger navbar-btn'  %>
+            </li>
+
+        </ul>
+
+
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
     <% end %>
-

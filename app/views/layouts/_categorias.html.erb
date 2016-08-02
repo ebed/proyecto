@@ -1,18 +1,20 @@
-  <!-- Primer nivel categorias -->
-  <div class="btn-group-vertical" role="group" aria-label="..." ng-controller="appController">
+<!-- Uso de directiva para el slide show de categorias -->
 
 
-    <% Category.where("category_id is null").order(:name).each do |category| %>
+  <% Category.where("category_id is null").order(:name).each do |category| %>
 
-        <%= link_to category.name, homecategories_path(category.id), class: "btn btn-info", :'ng-click' => "changeCategory(#{category.id})" %>
+    <div class='btn btn-primary btn-block' slide-toggle="#categoria<%= category.id %>" >
+      <%=  category.name  %>
 
-       <% category.hijos.order(:name).each do |hijo| %>
+    </div>
+    <div id="categoria<%= category.id %>" class="slideable" easing="linear" duration="0.5s">
+      <div class="btn-group-vertical btn-block" role="group" aria-label="...">
 
-           <%= link_to hijo.name, homecategories_path(hijo.id), class: "btn btn-default", :'ng-show' => "showCategory()==#{category.id}"%>
+        <%= link_to "TODOS", homecategories_path(category.id), class: "btn btn-default btn-block"%>
+         <% category.hijos.order(:name).each do |hijo| %>
+             <%= link_to hijo.name, homecategories_path(hijo.id), class: "btn btn-default btn-block"%>
+          <% end %>
+       </div>
+    </div>
 
-            <% end %>
-        <% end %>
-  </div>
-
-
-
+    <% end %>
