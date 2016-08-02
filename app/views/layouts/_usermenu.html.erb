@@ -1,19 +1,27 @@
 <% if user_signed_in? %>
-    MENU USUARIO<br/>
 
-          <div class="btn-group-vertical" role="group" aria-label="...">
+<div class="panel panel-default">
+    <div class="panel-heading">
+       <strong> MI CARRO</strong>
+    </div>
+    <div class="panel-body">
+        TIENES X ARTICULOS <br/>
+        CON $$$ POR PAGAR
+
+         <%= link_to "VER CARRO",  carro_path(current_user), :class => "btn btn-default"%>
+    </div>
+
+</div>
 
 
-            <%= link_to "EDITAR PERFIL",  edit_user_registration_path,class:"btn btn-default"%>
-            <%= link_to "ADMINISTRAR TIENDA", tiendas_path,class:"btn btn-default"%>
-            <%= link_to "MI CARRO",  carro_path(current_user),class:"btn btn-default"%>
-            <%= link_to "MI HISTORIAL",  edit_user_registration_path,class:"btn btn-default"%>
-            <%= link_to "MIS COMENTARIOS",  comments_path,class:"btn btn-default"%>
 
 
-            <%= link_to "CATEGORIAS",  categories_path,class:"btn btn-default"%>
-            <%= link_to "PRODUCTOS",  products_path,class:"btn btn-default"%>
-            <%= link_to "MARCAS",  marcas_path,class:"btn btn-default"%>
-            <%= link_to "TIPOS DE CONTACTO",  contactypes_path,class:"btn btn-default"%>
-          </div>
+
+
+
+
+
 <% end %>
+
+
+
