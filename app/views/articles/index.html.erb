@@ -3,9 +3,10 @@
 
 <li>
 <%= link_to article.product.name, article_path(article) %>
-<%= article.price %>
+<%= number_to_currency(article.price, precision: 0) %>
 
-<%= article.seller.name %>
+
+<%= article.tienda_id  %>
 
 
  <%= link_to "Edita", edit_article_path(article) %>

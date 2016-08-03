@@ -1,1 +1,13 @@
 
+<%= bootstrap_form_for(@article) do |f| %>
+
+
+  <%= f.select :product_id,  Product.all.collect {|p| [ p.name, p.id ] } %>
+  <%= f.text_field :stock %>
+  <%= f.text_field :price %>
+
+  <%= f.hidden_field :tienda_id, value: params[:id] %>
+
+
+  <%= f.submit "Guardar" %>
+<% end %>

@@ -1,18 +1,47 @@
-<ul>
-<% @comentarios.each do |comentario| %>
-  <li>
+<div class="panel panel-default">
+    <div class='panel-heading'>
+        <h3>MIS COMENTARIOS</h3>
+    </div>
+    <table class="table table-bordered">
+     <tr class="active">
+        <th width='5%'>FECHA</th>
+        <th width='5%'>HORA</th>
+        <th>PRODUCTO</th>
+        <th>ASUNTO</th>
+        <th>COMENTARIO</th>
 
-    <%= comentario.title %>
-    <%= comentario.body %>
-    <%= comentario.created_at %>
+         <td width='5%'> </td>
+         </tr>
+    <% @comentarios.each do |comentario| %>
 
-    <%= link_to "Edit", edit_comment_path(comentario) %>
-    <%= link_to "Borrar", comment_path(comentario), :method =>:delete %>
+       <tr>
+        <td><%= comentario.created_at.strftime("%d/%m/%Y ") %></td>
+        <td><%= comentario.created_at.strftime("%H:%M ") %></td>
+        <td><%= comentario.product.name %></td>
+        <td> <%= comentario.title %> </td>
+        <td> <%= comentario.body %></td>
 
-  </li>
-<% end %>
+         <td>
+
+            <%= link_to edit_comment_path(comentario) do %>
+                <%=  fa_icon 'edit'  %>
+            <% end %>
+            <%= link_to comment_path(comentario), :method =>:delete do %>
+               <%=  fa_icon 'remove'  %>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+
+    <td colspan=5>
+      <div class="apple_pagination">
+       <%= will_paginate @comentarios , :container => false %>
+      </div>
+  </td>
+    </tr>
 
 
-</ul>
+    </table>
+</div>
 
-<%= link_to "nuevo", new_comment_path %>

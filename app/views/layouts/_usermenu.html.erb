@@ -1,0 +1,59 @@
+<% if user_signed_in? %>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+       <strong> MI CARRO</strong>
+    </div>
+    <div class="panel-body">
+
+        <div class='row'>
+            <div class='col-md-12'>
+               <strong> <%= current_user.name.upcase %></strong>
+            </div>
+
+        </div>
+
+        <div class='row'>
+            <div class='col-md-12'>
+                TIENES
+                <strong>
+                    <%= current_user.articulosSeleccionados %>
+                </strong>
+                <% if current_user.articulosSeleccionados > 1 %>
+                    ARTICULOS
+                <% else %>
+                    ARTICULO
+                <% end %>
+
+            </div>
+
+        </div>
+        <div class='row'>
+            <div class='col-md-12'>
+                CON UN VALOR DE
+                <strong>
+                 <%= number_to_currency(current_user.totalPagar , precision: 0) %>
+                 </strong>
+            </div>
+
+        </div>
+         <br/>
+
+
+         <%= link_to "VER CARRO",  carro_path(current_user), :class => "btn btn-default"%>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<% end %>
+
+
+

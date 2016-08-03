@@ -2,7 +2,7 @@
 
 <%= link_to imagen.filename, imagenesarticulo_path(imagen) %>
 
-  <%= ('<img src="data:image/jpg;base64,%s"  width="100px">' % Base64.encode64(imagen.file_contents)).html_safe %>
+  <%= image_tag imagen.image.thumb('400x200#').url if imagen.image_stored? %>
 
  <%= link_to 'x', imagenesarticulo_path(imagen), :method => :delete     %>
 <br/>

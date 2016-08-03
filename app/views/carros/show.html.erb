@@ -1,0 +1,46 @@
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>MI CARRO</h3>
+  </div>
+  <table class="table">
+
+  <tr class="active">
+    <td></td>
+    <td>Producto</td>
+    <td>Cantidad</td>
+    <td>Precio Unitario</td>
+    <td>Subtotal </td>
+    <td></td>
+
+
+  </tr>
+  <% @articulosseleccionados.each do |art| %>
+    <tr>
+      <td align='center'>  <%= image_tag art.article.product.imagenprincipal.image.thumb('50x50#').url %> </td>
+      <td> <%= art.article.product.name %></td>
+      <td>  <%= art.qty %> </td>
+      <td>  <%= number_to_currency(art.article.price  , precision: 0) %>  </td>
+      <td>    <%= number_to_currency(art.article.price * art.qty , precision: 0) %></td>
+      <td align='right'>
+        <%= link_to carro_path(art), :method => :delete, class: "btn btn-default"  do %>
+             <%=  fa_icon 'remove'  %>
+        <% end %>
+    </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan=3> </td>
+    <th> Total</th>
+    <td> <%= number_to_currency(current_user.totalPagar , precision: 0) %> </td>
+    <td align='right'>
+      <button  type="button" class="btn btn-primary" >Pagar</button>
+    </td>
+  </tr>
+
+  </table>
+
+
+
+</div>

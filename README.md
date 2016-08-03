@@ -21,7 +21,16 @@ https://github.com/plataformatec/devise
 La gema de bootstrap
 https://github.com/seyhunak/twitter-bootstrap-rails
 
-Se instalará pronto una gema de Angular 
+PAra la paginación se está usando la gema will_paginate
+https://github.com/mislav/will_paginate
+http://mislav.github.io/will_paginate/
+
+Para el editor html, se utiliza la gema CKEDITOR
+https://github.com/galetahub/ckeditor
+
+
+
+
 
 
 ******************

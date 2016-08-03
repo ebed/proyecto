@@ -1,5 +1,6 @@
 class ImagenesarticulosController < ApplicationController
   before_action :set_imagen, only: [:show, :edit, :destroy, :update]
+
   def show
 
   end
@@ -43,6 +44,6 @@ class ImagenesarticulosController < ApplicationController
   end
 
   def imagen_params
-    params.require(:imagenesarticulo).permit(:file, :product_id, :order)
+    params.require(:imagenesarticulo).permit(:file, :product_id, :order, :image)
   end
 end

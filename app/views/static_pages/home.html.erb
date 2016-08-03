@@ -2,12 +2,20 @@
   <div class="row">
     <div class="col-md-1">
     </div>
-    <% @main_products.each do |art| %>
+    <% @main_products.each do |producto| %>
       <div class="col-md-2">
-        <%= link_to art.name, product_path(art) %>
-        <% art.imagenesarticulos.each do |imagen| %>
-        <%= ('<img src="data:image/jpg;base64,%s"  width="100px">' % Base64.encode64(imagen.file_contents)).html_safe %>
-        <% end %>
+        <div class="thumbnail">
+
+        <%= image_tag producto.imagenprincipal.image.thumb('200x200#').url if producto.imagenprincipal.image_stored? %>
+
+           <div class="caption">
+          <center>
+            <h4>
+              <%= link_to producto.name, product_path(producto) %>
+            </h4>
+            </center>
+          </div>
+        </div>
       </div>
     <% end %>
     <div class="col-md-1">

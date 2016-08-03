@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :show, :destroy]
   def index
-    @comentarios = Comment.all
+    @comentarios = Comment.where(:user_id => current_user.id).paginate(page: params[:page], per_page: 2)
   end
 
 
@@ -28,8 +28,8 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "Se creo correctamente"
     end
-
- redirect_to comments_path
+    @product = @comment.product
+    redirect_to product_path(@product)
   end
 
   private

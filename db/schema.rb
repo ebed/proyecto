@@ -10,14 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725030002) do
+ActiveRecord::Schema.define(version: 20160802211519) do
 
   create_table "articles", force: :cascade do |t|
     t.float    "price"
     t.integer  "product_id"
-    t.integer  "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "tienda_id"
+    t.integer  "stock"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_uid",                  null: false
+    t.string   "data_name",                 null: false
+    t.string   "data_mime_type"
+    t.integer  "data_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type", limit: 30
+    t.string   "type",           limit: 30
+    t.integer  "data_width"
+    t.integer  "data_height"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -27,6 +51,20 @@ ActiveRecord::Schema.define(version: 20160725030002) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "product_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "contactype_id"
+    t.string   "value"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "owner_id"
+  end
+
+  create_table "contactypes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "delivers", force: :cascade do |t|
@@ -46,6 +84,8 @@ ActiveRecord::Schema.define(version: 20160725030002) do
     t.datetime "updated_at",    null: false
     t.integer  "order"
     t.integer  "product_id"
+    t.string   "image_uid"
+    t.string   "image_name"
   end
 
   create_table "marcas", force: :cascade do |t|
@@ -67,12 +107,21 @@ ActiveRecord::Schema.define(version: 20160725030002) do
     t.integer  "marca_id"
     t.text     "specifications"
     t.integer  "year"
+    t.integer  "subcategory_id"
   end
 
   create_table "scores", force: :cascade do |t|
     t.integer  "value"
     t.integer  "user_id"
     t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "selectedarticles", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "qty"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,11 +135,26 @@ ActiveRecord::Schema.define(version: 20160725030002) do
 
   create_table "sells", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "seller_id"
     t.integer  "article_id"
     t.integer  "evaluation"
     t.text     "comment"
     t.integer  "payment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "tienda_id"
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tiendas", force: :cascade do |t|
+    t.string   "name"
+    t.date     "dob"
+    t.integer  "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

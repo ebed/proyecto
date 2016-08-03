@@ -1,17 +1,14 @@
 
 <%= bootstrap_form_for(@product) do |f| %>
 
+  <%= f.text_field :name, :label => "NOMBRE" %>
+  <%= f.select :marca_id,  Marca.all.collect {|p| [ p.name, p.id ] }, :label => "MARCA"  %>
+  <%= f.select :category_id,  Category.optionsForSelect, :label => "CATEGORIA" %>
+  <%= f.select :subcategory_id,  Subcategory.all.collect {|p| [ p.name, p.id ] }, :label => "SUBCATEGORIA" %>
+  <%= f.text_field :year, :label => "AÑO" %>
+  <%= f.label "ESPECIFICACIONES" %>
+  <%= f.cktext_area :specifications %>
 
 
-
-
-  <%= f.text_field :name %>
-
-  <%= f.text_area :specifications %>
-  <%= f.text_field :year %>
-
-
-
-
-  <%= f.submit "Guardar" %>
+  <%= f.submit "Guardar", :class => "btn btn-primary" %>
 <% end %>

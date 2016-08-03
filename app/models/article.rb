@@ -1,8 +1,9 @@
 class Article < ApplicationRecord
   belongs_to :product
-  belongs_to :seller
-  has_many :sells
+  belongs_to :tienda
 
+  has_many :sells, :dependent => :delete_all
+  has_many :selectedarticles, :dependent => :delete_all
 
 
   def nombre

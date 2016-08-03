@@ -1,0 +1,18 @@
+<%= bootstrap_form_for(@category) do |f| %>
+
+
+      <%= f.text_field :name, :label => "NOMBRE CATEGORIA"  %>
+      <br/>
+
+      <%= f.select :category_id,
+        @raiz.collect {|p| [ p.name, p.id ] },
+        {:include_blank => 'SIN PADRE'},
+        :label => "CATEGORIA PADRE"
+      %>
+      <br/>
+
+      <%= f.submit "Guardar" %>
+       <%= link_to categories_path, class:"btn btn-default" do %>
+              VOLVER
+          <% end %>
+<% end %>

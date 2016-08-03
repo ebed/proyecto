@@ -1,0 +1,12 @@
+<%= bootstrap_nested_form_for(@tienda) do |f| %>
+
+  <%= f.text_field :name, label: "Nueva Tienda" %>
+  <%= f.hidden_field :seller_id, value: @vendedor.id %>
+  <%= f.fields_for :contacts do |contacto| %>
+    <%= contacto.select :contactype_id, Contactype.all.collect {|p| [ p.name, p.id ] } %>
+    <%= contacto.text_field :value %>
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,13 +1,30 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <h3>NOMBRE
+      <%= link_to new_marca_path do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+    </h3>
+  </div>
 
-<ul>
+<table class="table table-bordered">
+
+
 <% Marca.all.each do |marca| %>
-  <li> <%= marca.name %>
+  <tr>
+    <td>  <%= marca.name %> </td>
+    <td>
 
-  <%= link_to "Edit", edit_marca_path(marca) %>
-  <%= link_to "Borrar", marca_path(marca), :method => :delete %>
-  </li>
+     <%= link_to edit_marca_path(marca) do %>
+            <%=  fa_icon 'edit'  %>
+        <% end %>
+        <%= link_to  marca_path(marca),:method =>:delete do %>
+           <%=  fa_icon 'remove'  %>
+     <% end %>
+  </td>
+  </tr>
 <% end %>
 
-</ul>
 
-<%= link_to "New Marca", new_marca_path %>
+</table>
+
