@@ -33,7 +33,7 @@
   <tr>
     <td colspan=3> </td>
     <th> Total</th>
-    <td> <%= number_to_currency(@articulosseleccionados.totalapagar(current_user.id) , precision: 0) %> </td>
+    <td> <%= number_to_currency(current_user.totalPagar , precision: 0) %> </td>
     <td align='right'>
       <button  type="button" class="btn btn-primary" >Pagar</button>
     </td>

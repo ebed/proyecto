@@ -3,7 +3,7 @@
 
   <% Category.where("category_id is null").order(:name).each do |category| %>
 
-    <div class='btn btn-primary btn-block' slide-toggle="#categoria<%= category.id %>" >
+    <div class='btn btn-default btn-block' slide-toggle="#categoria<%= category.id %>" >
       <%=  category.name  %>
 
     </div>
@@ -11,8 +11,8 @@
       <div class="btn-group-vertical btn-block" role="group" aria-label="...">
 
         <%= link_to "TODOS", homecategories_path(category.id), class: "btn btn-default btn-block"%>
-         <% category.hijos.order(:name).each do |hijo| %>
-             <%= link_to hijo.name, homecategories_path(hijo.id), class: "btn btn-default btn-block"%>
+         <% category.subcategories.order(:name).each do |hijo| %>
+             <%= link_to hijo.name, homesubcategories_path(hijo.id), class: "btn btn-default btn-block"%>
           <% end %>
        </div>
     </div>

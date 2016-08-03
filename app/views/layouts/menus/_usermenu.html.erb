@@ -1,0 +1,12 @@
+ <div class="dropdown navbar-btn">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          USUARIO
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownusuario">
+      <li><%= link_to "EDITAR PERFIL",  edit_user_registration_path %></li>
+      <li><%= link_to "MIS COMENTARIOS",  comments_path %></li>
+      <li><%= link_to "MI HISTORIAL",  edit_user_registration_path %></li>
+    </ul>
+  </div>

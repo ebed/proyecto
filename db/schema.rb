@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728231257) do
+ActiveRecord::Schema.define(version: 20160802211519) do
 
   create_table "articles", force: :cascade do |t|
     t.float    "price"
@@ -26,6 +26,22 @@ ActiveRecord::Schema.define(version: 20160728231257) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_uid",                  null: false
+    t.string   "data_name",                 null: false
+    t.string   "data_mime_type"
+    t.integer  "data_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type", limit: 30
+    t.string   "type",           limit: 30
+    t.integer  "data_width"
+    t.integer  "data_height"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -91,7 +107,7 @@ ActiveRecord::Schema.define(version: 20160728231257) do
     t.integer  "marca_id"
     t.text     "specifications"
     t.integer  "year"
-    t.integer  "category_id"
+    t.integer  "subcategory_id"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -126,6 +142,13 @@ ActiveRecord::Schema.define(version: 20160728231257) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "tienda_id"
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tiendas", force: :cascade do |t|

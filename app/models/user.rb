@@ -17,4 +17,21 @@ class User < ApplicationRecord
   def isSeller?
     Seller.where(user_id: self.id).count > 0
   end
+
+  def articulosSeleccionados
+    Selectedarticle.where(:user_id => self.id).count
+  end
+
+
+  def totalPagar
+    carro = Selectedarticle.where(user_id: self.id)
+    total = 0
+    carro.each do |item|
+      total = total + (item.article.price * item.qty)
+    end
+    return total
+  end
+
+
+
 end

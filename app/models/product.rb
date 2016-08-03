@@ -5,8 +5,10 @@ class Product < ApplicationRecord
   has_many :scores, :dependent => :delete_all
   has_many :imagenesarticulos, :dependent => :delete_all
   belongs_to :marca
-  belongs_to :category
+  belongs_to :subcategory
 
+
+  attr_accessor :category_id
 
   def price_since
     self.articles.minimum(:price)

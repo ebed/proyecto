@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require angular/angular
 //= require angular-animate
  //= require twitter/bootstrap

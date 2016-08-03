@@ -1,8 +1,9 @@
+
 <div class='panel panel-default'>
   <div class='panel-heading'>
 
 
-        <h3>CATEGORIAS
+        <h3>LISTA CATEGORIAS
           <%= link_to new_category_path do%>
             <%= fa_icon 'plus-square-o' %>
           <% end %>
@@ -27,20 +28,21 @@
 
         </td>
       </tr>
-      <% category.hijos.each do |hijo| %>
-        <tr >
-        <td></td>
-          <td> <%= fa_icon "caret-right" %><%= fa_icon "caret-right" %>   <%= hijo.name %> </td>
-          <td align='right'>
-           <%= link_to edit_category_path(hijo) do %>
-                  <%=  fa_icon 'edit'  %>
-              <% end %>
-              <%= link_to category_path(hijo), :method =>:delete do %>
-                 <%=  fa_icon 'remove'  %>
-           <% end %>
-        </td>
-        </tr>
-      <% end %>
+        <% category.subcategories.order(:name).each do |hijo| %>
+
+          <tr >
+          <td></td>
+            <td> <%= fa_icon "caret-right" %><%= fa_icon "caret-right" %>   <%= hijo.name %> </td>
+            <td align='right'>
+             <%= link_to edit_category_path(hijo) do %>
+                    <%=  fa_icon 'edit'  %>
+                <% end %>
+                <%= link_to category_path(hijo), :method =>:delete do %>
+                   <%=  fa_icon 'remove'  %>
+             <% end %>
+          </td>
+          </tr>
+        <% end %>
 
       <% end %>
 

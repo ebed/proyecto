@@ -11,6 +11,7 @@ module Proyecto
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","angular-animate")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","stylesheets")
