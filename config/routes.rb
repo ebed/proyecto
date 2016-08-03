@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :contactypes
   devise_for :users
   get 'static_pages/home'
@@ -26,8 +27,9 @@ Rails.application.routes.draw do
   get 'contactsite', to: 'static_pages#contact', as: :contactsite
   get 'addimagenproduct/:id', to: 'products#addimages', as: :addimagesproduct
   get 'addarticle/:id', to: 'articles#new', as: :addarticle
-  get 'home/:id', to: 'static_pages#home', as: :homecategories
-
+  get 'home', to: 'static_pages#home', as: :home
+  get 'home_categories/:id', to: 'static_pages#home2', as: :homecategories
+  get 'home_subcategories/:id', to: 'static_pages#home3', as: :homesubcategories
 
 
 end

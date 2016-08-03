@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.where("category_id is null").order(:name)
+    @categories = Category.all.order(:name)
+
   end
 
   def new
@@ -12,7 +13,19 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    category = Category.new(category_params)
+
+
+    if category_params[:category_id] != nil
+
+      category = Subcategory.new(category_params)
+
+    else
+      category = Category.new(category_params)
+
+    end
+
+
+
     if category.save
       flash[:notice] = "Se a creado correctamente"
       redirect_to categories_path

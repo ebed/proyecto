@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'will_paginate', '~> 3.1.0'
+gem 'ckeditor'
 gem 'bower-rails'
 gem "font-awesome-rails"
 gem "therubyracer"
@@ -12,6 +13,7 @@ gem 'devise'
 gem 'coffee-rails'
 gem 'concurrent-ruby'
 gem 'bootstrap_form'
+gem 'sprockets', '3.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'

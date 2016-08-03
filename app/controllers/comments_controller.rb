@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :show, :destroy]
   def index
-    @comentarios = Comment.where(:user_id => current_user.id)
+    @comentarios = Comment.where(:user_id => current_user.id).paginate(page: params[:page], per_page: 2)
   end
 
 
