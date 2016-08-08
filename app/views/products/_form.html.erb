@@ -1,10 +1,17 @@
+<div ng-controller="appController">
 
 <%= bootstrap_form_for(@product) do |f| %>
 
   <%= f.text_field :name, :label => "NOMBRE" %>
   <%= f.select :marca_id,  Marca.all.collect {|p| [ p.name, p.id ] }, :label => "MARCA"  %>
-  <%= f.select :category_id,  Category.optionsForSelect, :label => "CATEGORIA" %>
-  <%= f.select :subcategory_id,  Subcategory.all.collect {|p| [ p.name, p.id ] }, :label => "SUBCATEGORIA" %>
+  <%= f.select :category_id,  Category.all.collect {|p| [ p.name, p.id ] }, :label => "CATEGORIA" %>
+
+  <%= f.select :subcategory_id do %>
+    <option value="1" data-size="2.8 million">Lisbon</option>
+    <option value="2" selected="selected" data-size="3.2 million">Madrid</option>
+  <% end %>
+
+
   <%= f.text_field :year, :label => "AÑO" %>
   <%= f.label "ESPECIFICACIONES" %>
   <%= f.cktext_area :specifications %>
@@ -12,3 +19,12 @@
 
   <%= f.submit "Guardar", :class => "btn btn-primary" %>
 <% end %>
+
+
+</div>
+<script type="text/javascript" charset="utf-8">
+  function test()
+ {
+    alert("test");
+  }
+ </script>

@@ -1,6 +1,8 @@
 <div class="panel panel-default">
     <div class='panel-heading'>
-        <h3>PRODUCTOS</h3>
+        <h3>PRODUCTOS<%= link_to new_product_path do%>
+            <%= fa_icon 'plus-square-o' %>
+          <% end %></h3>
     </div>
     <table class="table table-bordered">
      <tr class="active">
@@ -8,9 +10,7 @@
         <th>MARCA</th>
         <th>CATEGORIA</th>
         <th>
-          <%= link_to new_product_path do%>
-            <%= fa_icon 'plus-square-o' %>
-          <% end %>
+
          </th>
       </tr>
 
@@ -18,7 +18,7 @@
       <tr>
         <td>  <%= product.name %> </td>
         <td>  <%= product.marca.name %> </td>
-        <td>  <%= product.category.name %> </td>
+        <td>  <%= product.subcategory.category.name %> / <%= product.subcategory.name %> </td>
         <td>
 
          <%= link_to edit_product_path(product) do %>
