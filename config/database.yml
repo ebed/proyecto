@@ -51,4 +51,6 @@ production:
   adapter: mysql2
   encoding: utf8
   pool: 100
-  url: <%= ENV['DATABASE_URL'] %>
+  database_url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  username: b8ac043b9adca5
+  password: 71f4289b
