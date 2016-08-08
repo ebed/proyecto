@@ -49,6 +49,5 @@ test:
 #
 production:
   <<: *default
-  database: proyecto_production
-  username: sitio
-  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+
+  DATABASE_URL: <%= ENV['CLEARDB_DATABASE_URL'] %>
