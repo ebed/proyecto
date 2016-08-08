@@ -50,4 +50,4 @@ test:
 production:
   <<: *default
 
-  DATABASE_URL: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  URL: <%= ENV['DATABASE_URL'] %>
