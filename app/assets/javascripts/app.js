@@ -65,6 +65,17 @@ app.controller('appController', ['$rootScope','$scope','$animate', function($roo
     $scope.showCategory = function() {
       return  localStorage.getItem("categoryActive");
     }
+
+$scope.items = [{
+  id: 1,
+  label: 'aLabel',
+  subItem: { name: 'aSubItem' }
+}, {
+  id: 2,
+  label: 'bLabel',
+  subItem: { name: 'bSubItem' }
+}];
+
   }
 ]);
 
