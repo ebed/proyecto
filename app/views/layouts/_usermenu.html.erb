@@ -8,7 +8,12 @@
 
         <div class='row'>
             <div class='col-md-12'>
-               <strong> <%= current_user.name.upcase %></strong>
+               <strong> <% if current_user.name != nil %>
+                            <%= current_user.name.upcase %>
+                        <% else %>
+                            <%= link_to "EDITAR PERFIL", edit_user_registration_path %>
+                            <% end %>
+                            </strong>
             </div>
 
         </div>

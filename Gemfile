@@ -18,7 +18,7 @@ gem 'sprockets', '3.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2', '>= 0.3.13', '< 0.5'
+
 #gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -52,6 +52,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'mysql2', '>= 0.3.13', '< 0.5'
+
 end
 
 group :development do
@@ -65,7 +67,7 @@ end
 
 group :production do
   gem 'pg'
-  gem 'activerecord-mysql2-adapter'
+
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
