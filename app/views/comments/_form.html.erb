@@ -8,7 +8,7 @@
 
 
       <%= f.hidden_field :user_id, value: current_user.id  %>
-      Usuario: <%= f.label current_user.nombre %>
+      Usuario: <%= f.label current_user.email %>
       <br/>
       Producto:
       <% if @product.blank? %>
