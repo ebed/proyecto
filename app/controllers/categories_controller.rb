@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+>
 
   def index
     @categories = Category.all.order(:name)
@@ -14,12 +15,13 @@ class CategoriesController < ApplicationController
 
   def create
 
-
-    if category_params[:category_id] != nil
-
+    p category_params[:category_id].to_s.length
+    if category_params[:category_id].to_s.length > 0
+      p "Creando subcategoria"
       category = Subcategory.new(category_params)
 
     else
+      p "Creando categoria"
       category = Category.new(category_params)
 
     end

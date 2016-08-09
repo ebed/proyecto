@@ -4,12 +4,9 @@
 
   <%= f.text_field :name, :label => "NOMBRE" %>
   <%= f.select :marca_id,  Marca.all.collect {|p| [ p.name, p.id ] }, :label => "MARCA"  %>
-  <%= f.select :category_id,  Category.all.collect {|p| [ p.name, p.id ] }, :label => "CATEGORIA" %>
+  <%= f.select :subcategory_id,  Subcategory.all.collect {|p| [ p.name, p.id ] }, :label => "SUBCATEGORIA" %>
 
-  <%= f.select :subcategory_id do %>
-    <option value="1" data-size="2.8 million">Lisbon</option>
-    <option value="2" selected="selected" data-size="3.2 million">Madrid</option>
-  <% end %>
+
 
 
   <%= f.text_field :year, :label => "AÑO" %>

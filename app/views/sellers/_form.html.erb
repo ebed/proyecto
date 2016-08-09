@@ -1,1 +1,11 @@
+<%= bootstrap_nested_form_for(@seller) do |f| %>
+
+  <%= f.text_field :name, label: "NOMBRE" %>
+  <%= current_user.id  %>
+  <%= f.text_field :user_id%>
+
+
+  <%= f.submit %>
+
+<% end %>
 

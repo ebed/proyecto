@@ -2,8 +2,6 @@ class Category < ApplicationRecord
 
   has_many :subcategories,  :dependent => :delete_all
 
-  belongs_to :padre, class_name: "Category"
-  has_many :products, :dependent => :delete_all
 
 
 

@@ -1,12 +1,9 @@
 class TiendasController < ApplicationController
   def index
     if user_signed_in?
-      if current_user.id == 5
-        @tiendas = Tienda.all
-      else
-        vendedor = Seller.where(user_id: current_user.id)
+
+        vendedor = Seller.where(user_id: current_user.id).first
         @tiendas = Tienda.where(seller_id: vendedor.id)
-      end
 
     end
   end

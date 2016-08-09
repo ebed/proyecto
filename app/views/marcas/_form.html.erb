@@ -1,1 +1,13 @@
+<%= bootstrap_form_for(@marca) do |f| %>
 
+
+      <%= f.text_field :name, :label => "NOMBRE MARCA"  %>
+      <br/>
+
+
+
+      <%= f.submit "Guardar" %>
+       <%= link_to marcas_path, class:"btn btn-default" do %>
+              VOLVER
+          <% end %>
+<% end %>
