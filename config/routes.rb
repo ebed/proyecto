@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profiles
   mount Ckeditor::Engine => '/ckeditor'
   resources :contactypes
   devise_for :users
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   resources :carros
   resources :tiendas
   resources :contacts
+  resources :sells
 
   root 'static_pages#home'
 
@@ -30,6 +32,6 @@ Rails.application.routes.draw do
   get 'home', to: 'static_pages#home', as: :home
   get 'home_categories/:id', to: 'static_pages#home2', as: :homecategories
   get 'home_subcategories/:id', to: 'static_pages#home3', as: :homesubcategories
-
+  get 'search', to: 'static_pages#search', as: :search
 
 end

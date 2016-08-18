@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+
   has_many :articles, :dependent => :delete_all
   has_many :comments, :dependent => :delete_all
 
@@ -6,6 +7,8 @@ class Product < ApplicationRecord
   has_many :imagenesarticulos, :dependent => :delete_all
   belongs_to :marca
   belongs_to :subcategory
+
+
 
 
   attr_accessor :category_id
@@ -40,6 +43,10 @@ class Product < ApplicationRecord
     self.articles.order(:price).take
   end
 
+  def self.search(search,page)
+    wildcard_search = "%#{search}%"
+    joins(:marca).where("products.name LIKE ? or products.specifications LIKE ? or marcas.name LIKE ?", wildcard_search, wildcard_search, wildcard_search)
+  end
 
 
 

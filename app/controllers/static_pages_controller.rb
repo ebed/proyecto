@@ -26,6 +26,13 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def search
+    p "Buscando"
+    @main_products = Product.search params[:search],
+    page: params[:page], per_page: 10,
+    order: {starttime: :desc}
+  end
+
   def about
   end
 
@@ -39,3 +46,5 @@ class StaticPagesController < ApplicationController
 
 
 end
+
+

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :sells, :dependent => :delete_all
 
   has_many :selectedarticles, :dependent => :delete_all
+  belongs_to :profile
 
   def name
      self.nombre
@@ -31,7 +32,5 @@ class User < ApplicationRecord
     end
     return total
   end
-
-
 
 end

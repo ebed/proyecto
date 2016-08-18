@@ -10,6 +10,7 @@ class SellersController < ApplicationController
 
   def new
     @seller = Seller.new
+    @users = User.where.not(id: Seller.all.select(:user_id))
   end
 
   def edit
@@ -37,6 +38,6 @@ class SellersController < ApplicationController
   end
 
   def seller_params
-    params.require(:seller).permit(:name)
+    params.require(:seller).permit(:name, :user_id)
   end
 end

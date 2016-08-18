@@ -2,19 +2,32 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-       <strong> MI CARRO</strong>
+        <div class="row">
+            <div class="col-md-6">
+                <strong>
+                <% if current_user.name.present? %>
+                    <%= current_user.name %>
+                     <%= link_to  edit_user_path(current_user) do %>
+                        <%= fa_icon "edit" %>
+                     <%  end %>
+                <% else %>
+                    <%= link_to "Editar datos", edit_user_path(current_user) %>
+                <% end %>
+                </strong>
+            </div>
+            <div class="col-md-4"> &nbsp </div>
+            <div class="col-md-1">
+                <%= button_to   destroy_user_session_path, method: :delete, :class => 'btn btn-xs btn-danger' do  %>
+                    <%=  fa_icon 'sign-out'  %>
+                <% end %>
+            </div>
+        </div>
+
     </div>
     <div class="panel-body">
 
         <div class='row'>
-            <div class='col-md-12'>
-               <strong> <%= current_user.email %> </strong>
-            </div>
-
-        </div>
-
-        <div class='row'>
-            <div class='col-md-12'>
+            <div class='col-md-9'>
                 TIENES
                 <strong>
                     <%= current_user.articulosSeleccionados %>
@@ -26,6 +39,7 @@
                 <% end %>
 
             </div>
+
 
         </div>
         <div class='row'>
@@ -39,8 +53,14 @@
         </div>
          <br/>
 
+        <div class='col-md-5'>
+        </div>
+        <div class='col-md-6'>
+         <%= link_to carro_path(current_user), :class => "btn btn-default" do %>
+            MI CARRO <%=  fa_icon 'shopping-cart'  %>
+         <% end %>
+        </div>
 
-         <%= link_to "VER CARRO",  carro_path(current_user), :class => "btn btn-default"%>
     </div>
 
 </div>

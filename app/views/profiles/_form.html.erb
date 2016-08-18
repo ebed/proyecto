@@ -1,0 +1,11 @@
+
+<%= bootstrap_form_for(@profile) do |f| %>
+
+  <%= f.text_field :name,  placeholder: "Nombre Perfil"  %>
+  <%= f.check_box :canadmin, label: "Puede Administrar", class: 'radio1 js-switch' %>
+ <%= f.check_box :cansell, label: "Puede Vender", class: 'radio1 js-switch' %>
+  <%= f.check_box :canadminstore, label: "Puede Administrar Tiendas", class: 'radio1 js-switch' %>
+   <%= f.check_box :canbuy, label: "Puede Comprar", class: 'radio1 js-switch' %>
+      <%= f.submit %>
+
+<% end %>

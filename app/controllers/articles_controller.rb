@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
+    p params
   end
 
 
@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
 
 
   def update
+    p art_params
     @tienda = Tienda.find(@article.tienda_id)
    if @article.update(art_params)
     flash[:notice] = "Modificado exitosamente"

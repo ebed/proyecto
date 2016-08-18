@@ -48,7 +48,7 @@
                 <%= articulo.stock %>
               </td>
               <td align='right'>
-                  <%= link_to  edit_article_path,  class:"btn btn-xs btn-default"  do %>
+                  <%= link_to  edit_article_path(articulo),  class:"btn btn-xs btn-default"  do %>
                     <%=  fa_icon 'edit'  %>
                   <% end %>
                   <%= link_to article_path(articulo), method: :delete, class: "btn btn-xs btn-default" do %>

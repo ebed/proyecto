@@ -1,13 +1,17 @@
-<%= @seller.name %> (<%= @seller.articles.count %>)
-<p>
+<%= @seller.name %>
+<% if @seller.tiendas.present? %>
+    (<%= @seller.tiendas.articles.count %>)
 
-<ul>
-  <% @seller.articles.each do |article| %>
-    <li>
-      <%= article.product.name %> |
-      <%= article.price %>
-    </li>
-  <% end %>
-</ul>
-<p>
+  <p>
+
+  <ul>
+    <% @seller.tiendas.articles.each do |article| %>
+      <li>
+        <%= article.product.name %> |
+        <%= article.price %>
+      </li>
+    <% end %>
+  </ul>
+  <p>
+<% end %>
 <%= link_to "Back to Sellers", sellers_path %>

@@ -1,12 +1,31 @@
- <div class="dropdown navbar-btn">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          USUARIO
+ <div class="dropdown navbar-btn btn-group">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= fa_icon 'navicon' %>
       <span class="caret"></span>
+
     </button>
 
-    <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownusuario">
-      <li><%= link_to "EDITAR PERFIL",  edit_user_registration_path %></li>
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownusuario">
+    <% if current_user.present?  %>
+
+      <li><%= link_to "EDITAR PERFIL",  edit_user_path(current_user) %></li>
       <li><%= link_to "MIS COMENTARIOS",  comments_path %></li>
       <li><%= link_to "MI HISTORIAL",  edit_user_registration_path %></li>
+      <li role="separator" class="divider"></li>
+    <% end %>
+    <% if current_user.profile.present? && current_user.profile.canadminstore %>
+      <li><%= link_to "ADMINISTRAR TIENDA", tiendas_path%></li>
+      <li role="separator" class="divider"></li>
+    <% end %>
+     <% if current_user.profile.present? && current_user.profile.canadmin %>
+      <li><%= link_to "TIPOS DE CONTACTO",  contactypes_path%></li>
+      <li> <%= link_to "CATEGORIAS",  categories_path%></li>
+      <li><%= link_to "PRODUCTOS",  products_path%></li>
+      <li><%= link_to "MARCAS",  marcas_path%></li>
+      <li><%= link_to "VENDEDORES",  sellers_path%></li>
+      <li><%= link_to "PERFILES",  profiles_path%></li>
+      <li><%= link_to "USUARIOS",  users_path%></li>
+
+    <% end %>
     </ul>
   </div>

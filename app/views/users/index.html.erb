@@ -1,6 +1,11 @@
 <ul>
 <% @usuarios.each do |usuario| %>
-  <li><%= usuario.nombre %>
+  <li><%= usuario.id %> | <%= usuario.nombre %> | <%= usuario.email %> |
+  <% if usuario.profile.present? %>
+   <%= usuario.profile.name %>
+   <% end %>
+
+   <%= link_to "Edit", edit_user_path(usuario) %>
   </li>
 <% end %>
 

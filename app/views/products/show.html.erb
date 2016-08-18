@@ -1,12 +1,13 @@
-<% if user_signed_in? %>
-  <% if current_user.email == "ebedmail@gmail.com" %>
 
-    <%= link_to "Editar", edit_product_path(@product) %>
-
-  <% end %>
-<% end %>
 <div class="panel panel-default">
-  <div class="panel-heading"><h3>Datos del <%= @product.name %> <%= @product.marca.name %> </h3></div>
+  <div class="panel-heading"><h3><%= @product.name %> <%= @product.marca.name %>
+      <% if current_user.profile.present? && current_user.profile.canadmin %>
+       <%= link_to edit_product_path(@product)  do %>
+         <%=  fa_icon 'edit'  %>
+        <% end %>
+      <% end %>
+      </h3>
+  </div>
 
   <div class="panel-body">
     <div class="row">
@@ -140,12 +141,14 @@
 
         <div class="row">
           <div class="col-md-6">
-
+          <% if current_user.profile.canbuy %>
            <%= link_to 'Agregar a carro',new_carro_path(:art_id => @product.articleselected.id), class: "btn btn-default" %>
-
+          <% end %>
           </div>
           <div class="col-md-6">
+          <% if current_user.profile.canbuy %>
              <button type="button" class="btn btn-default">Lista deseos</button>
+          <% end   %>
           </div>
         </div>
 
@@ -184,4 +187,6 @@
         <%=  render :partial => 'comments/form' %>
 
       <% end %>
+
+</div>
 

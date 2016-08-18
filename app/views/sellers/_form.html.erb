@@ -1,8 +1,8 @@
 <%= bootstrap_nested_form_for(@seller) do |f| %>
 
-  <%= f.text_field :name, label: "NOMBRE" %>
-  <%= current_user.id  %>
-  <%= f.text_field :user_id%>
+  <%= f.text_field :name, label: "NOMBRE VENDEDOR" %>
+
+  <%= f.select :user_id,  @users.collect {|p| [ p.email, p.id ] }, :label => "Usuario a convertir Vendedor" %>
 
 
   <%= f.submit %>

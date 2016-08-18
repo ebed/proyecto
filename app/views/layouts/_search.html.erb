@@ -1,0 +1,16 @@
+
+<%= form_tag(search_path, :method => "get", id: "search-form") do %>
+ <div class="input-group">
+     <%= text_field_tag :search, params[:search], placeholder: "Buscar productos",class:'form-control' %>
+     <span class="input-group-btn">
+     <%= button_tag( :class => "btn btn-default") do %>
+        <span class='glyphicon glyphicon-search'></span>
+     <% end %>
+   </span>
+
+ </div>
+<% end %>
+
+
+
+

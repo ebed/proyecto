@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802211519) do
+ActiveRecord::Schema.define(version: 20160817154224) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",      limit: 24
@@ -110,6 +110,16 @@ ActiveRecord::Schema.define(version: 20160802211519) do
     t.integer  "subcategory_id"
   end
 
+  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.boolean  "canadmin"
+    t.boolean  "cansell"
+    t.boolean  "canadminstore"
+    t.boolean  "canbuy"
+  end
+
   create_table "scores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "value"
     t.integer  "user_id"
@@ -173,6 +183,7 @@ ActiveRecord::Schema.define(version: 20160802211519) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

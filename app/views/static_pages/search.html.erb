@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+
+  <div class="panel-body">
+
+
+    <% @main_products.each do |producto| %>
+     <div class="row">
+        <div class="col-md-1">
+          <div class="thumbnail">
+            <%= image_tag producto.imagenprincipal.image.thumb('75x75#').url if producto.imagenprincipal.image_stored? %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h4>
+            <%= link_to producto.name, product_path(producto) %>
+          </h4>
+        </div>
+      </div>
+
+    <% end %>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+

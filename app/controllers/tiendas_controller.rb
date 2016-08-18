@@ -3,7 +3,8 @@ class TiendasController < ApplicationController
     if user_signed_in?
 
         vendedor = Seller.where(user_id: current_user.id).first
-        @tiendas = Tienda.where(seller_id: vendedor.id)
+
+          @tiendas = Tienda.where(seller_id: vendedor.id)
 
     end
   end
