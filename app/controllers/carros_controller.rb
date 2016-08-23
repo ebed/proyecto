@@ -15,13 +15,19 @@ class CarrosController < ApplicationController
     p "agrega en CarrosController"
     p params
 
-    qty = Selectedarticle.where(:user_id => current_user.id, :article_id =>  params[:art_id]).count
-    if qty > 0
-       art = Selectedarticle.where(:user_id => current_user.id, :article_id =>  params[:art_id])
-       art.update(:qty => qty +1)
+    temp = Selectedarticle.where(:user_id => current_user.id, :article_id =>  params[:art_id]).first
+
+    if temp != nil && temp.qty > 0
+        qty = temp.qty
+        p "Se agregan items de articulos ya escogidos",qty
+        qty = qty +1
+        p "Se agregan items de articulos ya escogidos",qty
+       art = Selectedarticle.where(:user_id => current_user.id, :article_id =>  params[:art_id]).first
+        p art
+       art.update(:qty =>  qty)
 
     else
-      newitem = Selectedarticle.new(:article_id => params[:art_id], :qty => qty+1, :user_id => current_user.id)
+      newitem = Selectedarticle.new(:article_id => params[:art_id], :qty => 1, :user_id => current_user.id)
       if newitem.save
         flash[:notice]="Se agrego correctamente"
 

@@ -3,11 +3,11 @@
 
   <% Category.where("category_id is null").order(:name).each do |category| %>
 
-    <div class='btn btn-default btn-block' slide-toggle="#categoria<%= category.id %>" >
+    <a class='btn btn-primary btn-block' role="button" data-toggle="collapse" href="#categoria<%= category.id %>" aria-expanded="false" aria-controls="categoria<%= category.id %>" >
       <%=  category.name  %>
 
-    </div>
-    <div id="categoria<%= category.id %>" class="slideable" easing="linear" duration="0.5s">
+    </a>
+    <div id="categoria<%= category.id %>" class="collapse" easing="linear" duration="0.5s">
       <div class="btn-group-vertical btn-block" role="group" aria-label="...">
 
         <%= link_to "TODOS", homecategories_path(category.id), class: "btn btn-default btn-block"%>
@@ -18,3 +18,5 @@
     </div>
 
     <% end %>
+
+

@@ -4,6 +4,11 @@
   <div class="panel-heading">
     <h3>MI CARRO</h3>
   </div>
+
+  <% if current_user.tieneOrden? %>
+        <%= link_to "Ver Orden", order_path(current_user.orden), class: "btn btn-primary" %>
+      <% else %>
+
   <table class="table">
 
   <tr class="active">
@@ -35,12 +40,18 @@
     <th> Total</th>
     <td> <%= number_to_currency(current_user.totalPagar , precision: 0) %> </td>
     <td align='right'>
-      <button  type="button" class="btn btn-primary" >Pagar</button>
+
+
+
+
+
+        <%= link_to "Confirmar compra", new_sell_path, class: "btn btn-primary" %>
+
     </td>
   </tr>
 
   </table>
 
-
+      <% end %>
 
 </div>

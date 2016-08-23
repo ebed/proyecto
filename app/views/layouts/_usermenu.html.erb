@@ -56,9 +56,13 @@
         <div class='col-md-5'>
         </div>
         <div class='col-md-6'>
-         <%= link_to carro_path(current_user), :class => "btn btn-default" do %>
-            MI CARRO <%=  fa_icon 'shopping-cart'  %>
-         <% end %>
+            <% if current_user.tieneOrden? %>
+                <%= link_to "Ver Orden", order_path(current_user.orden), class: "btn btn-primary" %>
+            <% else %>
+                <%= link_to carro_path(current_user), :class => "btn btn-default" do %>
+                    MI CARRO <%=  fa_icon 'shopping-cart'  %>
+                <% end %>
+            <% end %>
         </div>
 
     </div>

@@ -1,4 +1,31 @@
-<%= bootstrap_form_for (@sell) %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>DETALLE ORDEN</strong>
+  </div>
 
 
-<% end %>
+  <table width="100%" class="table table-bordered">
+
+  <tr class="active">
+    <th>TIENDA</th>
+    <th>PRODUCTO</th>
+    <th>CANTIDAD</th>
+    <th>PRECIO</th>
+  </tr>
+
+    <%  current_user.selectedarticles.each do |art| %>
+    <tr>
+      <td><%= art.article.tienda.name %>
+      <td><%= art.article.product.name %></td>
+      <td> <%= art.qty %> </td>
+      <td> <%= number_to_currency( art.article.price, precision: 0)  %> </td>
+
+    </tr>
+    <% end %>
+    </table>
+
+
+
+
+</div>

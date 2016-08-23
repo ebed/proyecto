@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :scores, :dependent => :delete_all
   has_one :seller, :dependent => :destroy
   has_many :sells, :dependent => :delete_all
-
+  has_many :orders, :dependent => :delete_all
   has_many :selectedarticles, :dependent => :delete_all
   belongs_to :profile
 
@@ -20,9 +20,18 @@ class User < ApplicationRecord
   end
 
   def articulosSeleccionados
-    Selectedarticle.where(:user_id => self.id).count
+    arts=0;
+    Selectedarticle.where(:user_id => self.id).each do |art|
+      arts=arts+art.qty
+
+    end
+    return arts
   end
 
+
+  def destroyCarro
+    Selectedarticle.where(:user_id => self.id ).destroy_all
+  end
 
   def totalPagar
     carro = Selectedarticle.where(user_id: self.id)
@@ -33,4 +42,12 @@ class User < ApplicationRecord
     return total
   end
 
+  def tieneOrden?
+
+    self.selectedarticles.present? && self.selectedarticles.first.order_id != nil && self.selectedarticles.first.order_id > 0
+  end
+
+  def orden
+    self.selectedarticles.first.order
+  end
 end

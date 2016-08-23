@@ -19,12 +19,19 @@
     <% end %>
      <% if current_user.profile.present? && current_user.profile.canadmin %>
       <li><%= link_to "TIPOS DE CONTACTO",  contactypes_path%></li>
+      <li><%= link_to "METODOS DE PAGO",  paymentmethods_path%></li>
       <li> <%= link_to "CATEGORIAS",  categories_path%></li>
       <li><%= link_to "PRODUCTOS",  products_path%></li>
       <li><%= link_to "MARCAS",  marcas_path%></li>
       <li><%= link_to "VENDEDORES",  sellers_path%></li>
       <li><%= link_to "PERFILES",  profiles_path%></li>
+      <li><%= link_to "ESTADOS DE ORDENES",  statusorders_path %></li>
       <li><%= link_to "USUARIOS",  users_path%></li>
+
+    <% end %>
+
+    <% if current_user.profile.present? && ( current_user.profile.canadmin || current_user.profile.canadminstore )%>
+      <li><%= link_to "LISTA DE ORDENES",  orders_path%></li>
 
     <% end %>
     </ul>

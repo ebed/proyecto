@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+  <strong> ORDEN N°<%= @order.id %> </strong>
+  </div>
+
+  <%= render 'detail' %>
+
+  <div class="panel-body">
+    <%= render :partial => 'sells/form' %>
+  </div>
+
+
+<%= link_to "Volver", orders_path, class:"btn btn-primary" %>
+<%= link_to "Cancelar Orden", order_path(@order), :method =>:delete, class:"btn btn-primary"  %>
+
+</div>

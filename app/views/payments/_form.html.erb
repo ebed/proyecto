@@ -1,0 +1,7 @@
+<%= bootstrap_form_for (@payment) do |f| %>
+  <%= f.select :paymentmethod_id, Paymentmethod.all.collect {|p| [ p.name, p.id ] } , :label => "METODO DE PAGO" %>
+
+
+  <%= f.submit "Proceder Pago", class: "btn btn-primary" %>
+
+<% end %>

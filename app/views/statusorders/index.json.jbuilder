@@ -1,0 +1,1 @@
+json.array! @statusorders, partial: 'statusorders/statusorder', as: :statusorder
