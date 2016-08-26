@@ -69,6 +69,6 @@ class StatusordersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def statusorder_params
-      params.require(:statusorder).permit(:value)
+      params.require(:statusorder).permit(:value, :pending)
     end
 end

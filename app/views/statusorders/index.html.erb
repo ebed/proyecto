@@ -16,6 +16,12 @@
       <tr>
        <td><%= statusorder.id %></td>
         <td><%= statusorder.value %></td>
+        <td> <% if statusorder.pending == 1 %>
+              ESTADO ABIERTO
+            <% else %>
+              ESTADO CERRADO
+              <% end %>
+              </td>
         <td><%= link_to 'Show', statusorder %></td>
         <td><%= link_to 'Edit', edit_statusorder_path(statusorder) %></td>
         <td><%= link_to 'Destroy', statusorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>

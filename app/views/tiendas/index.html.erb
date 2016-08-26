@@ -19,14 +19,18 @@
 
     <% @tiendas.each do |tienda| %>
     <tr>
-      <td>  <%= tienda.name %></td>
+
+      <td> <%= link_to tienda_path(tienda) do %>
+             <%= tienda.name %>
+           <% end %>
+      </td>
       <td>  <%= tienda.created_at.strftime("%d/%m/%Y ")  %></td>
       <td>  <%= tienda.articles.count %></td>
       <td>  <%= tienda.seller.name %></td>
+
+
       <td>
-      <%= link_to tienda_path(tienda) do %>
-        <%=  fa_icon 'eye'  %>
-      <% end %>
+
        <%= link_to edit_tienda_path(tienda) do %>
         <%=  fa_icon 'edit'  %>
       <% end %>

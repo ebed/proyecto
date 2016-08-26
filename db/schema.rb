@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822223522) do
+ActiveRecord::Schema.define(version: 20160825201732) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",      limit: 24
@@ -71,9 +71,20 @@ ActiveRecord::Schema.define(version: 20160822223522) do
     t.integer  "status_id"
     t.string   "location"
     t.string   "haveIt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "order_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "main_order_id"
+  end
+
+  create_table "historico_compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "article_id"
+    t.date     "fechaentrega"
+    t.integer  "precio"
+    t.integer  "qty"
+    t.integer  "user_id"
+    t.integer  "tienda_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "imagenesarticulos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -95,6 +106,13 @@ ActiveRecord::Schema.define(version: 20160822223522) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "main_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.integer  "statusorder_id"
+  end
+
   create_table "marcas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -108,6 +126,9 @@ ActiveRecord::Schema.define(version: 20160822223522) do
     t.date     "fechacambio"
     t.integer  "statusorder_id"
     t.integer  "user_id"
+    t.integer  "tienda_id"
+    t.integer  "main_order_id"
+    t.integer  "qty"
   end
 
   create_table "paymentmethods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -172,11 +193,13 @@ ActiveRecord::Schema.define(version: 20160822223522) do
     t.integer  "user_id"
     t.integer  "article_id"
     t.integer  "evaluation"
-    t.text     "comment",    limit: 65535
+    t.text     "comment",      limit: 65535
     t.integer  "payment_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "tienda_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "order_id"
+    t.integer  "precio_venta"
+    t.integer  "cantidad"
   end
 
   create_table "statusorders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -184,6 +207,7 @@ ActiveRecord::Schema.define(version: 20160822223522) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "predecesor_id"
+    t.boolean  "pending"
   end
 
   create_table "subcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

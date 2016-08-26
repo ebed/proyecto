@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :contacts
   resources :sells
   resources :orders
+  resources :main_orders
   resources :payments
 
   root 'static_pages#home'
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
   get 'preparar_orden/:id', to: 'orders#preparar_orden', as: :preparar_orden
   get 'enviar_orden/:id', to: 'orders#enviar_orden', as: :enviar_orden
   get 'cerrar_orden/:id', to: 'orders#cerrar_orden', as: :cerrar_orden
-
+  get 'orders_tienda/:id', to: 'orders#orders_tienda', as: :orders_tienda
+  get 'productos_marca/:id', to: 'static_pages#listaxmarca', as: :productos_marca
 
 end

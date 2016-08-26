@@ -1,39 +1,44 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <strong>LISTA DE ORDENES</strong>
+    <strong>LISTA DE ORDENES
+    <% if @tienda.present? %>
+    DE LA TIENDA
+      <%= @tienda.name %>
+
+    <% end %>
+    </strong>
   </div>
 <table class="table table-bordered">
 
-  <% Order.all.each do |order| %>
+  <% @morders.each do |morder| %>
     <tr>
-      <td><%= order.id %></td>
-      <td><%= order.user.name %> </td>
+      <td><%= link_to order_path(morder) do %>
+          <%= morder.id %>
+        <% end %></td>
+      <td><%= morder.user.name %> </td>
       <td>
-        <%= number_to_currency(order.total , precision: 0) %>
+        <%= number_to_currency(morder.total , precision: 0) %>
        </td>
-      <td><%= order.fechacambio %></td>
-      <td><%= order.statusorder.value %></td>
+      <td><%= morder.fechacambio %></td>
+      <td><%= morder.statusorder.value %></td>
       <td>
-        <% case order.statusorder_id %>
+        <% case morder.statusorder_id %>
         <% when 2 %>
-          <%= link_to "Pagar orden", pagar_orden_path(order), class: 'btn btn-default' %>
+          <%= link_to "Pagar orden", pagar_orden_path(morder), class: 'btn btn-default' %>
         <% when 3 %>
-          <%= link_to "Preparar envio", preparar_orden_path(order), class: 'btn btn-default' %>
+          <%= link_to "Preparar envio", preparar_orden_path(morder), class: 'btn btn-default' %>
         <% when 6 %>
-          <%= link_to "Enviar paquete", enviar_orden_path(order), class: 'btn btn-default' %>
+          <%= link_to "Enviar paquete", enviar_orden_path(morder), class: 'btn btn-default' %>
         <% when 4 %>
-          <%= link_to "Paquete recepcionado", cerrar_orden_path(order), class: 'btn btn-default' %>
+          <%= link_to "Paquete recepcionado", cerrar_orden_path(morder), class: 'btn btn-default' %>
 
         <% end %>
 
       </td>
       <td>
-        <%= link_to order_path(order) do %>
-          <%= fa_icon 'eye'%>
-        <% end %>
-        <%= link_to order, method: :delete do %>
-        X
-          <%= fa_icon 'destroy'%>
+
+        <%= link_to morder, method: :delete do %>
+          <%= fa_icon 'remove'%>
         <% end %>
       </td>
 

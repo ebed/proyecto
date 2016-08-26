@@ -5,9 +5,9 @@ class StaticPagesController < ApplicationController
 
       p "SIn filtro"
       @masvendidos = []
-      @destacados = Product.sponsored.joins(:articles).take(8)
-      @ultimos = Product.joins(:articles).order(created_at: :desc).take(8)
-      listavendidos = Article.joins(:sells).group(:product_id).order('count_all desc').count.take(8)
+      @destacados = Product.sponsored.joins(:articles).take(18)
+      @ultimos = Product.joins(:articles).order(created_at: :desc).take(18)
+      listavendidos = Article.joins(:sells).group(:product_id).order('count_all desc').count.take(18)
       listavendidos.each do |masvend|
         @masvendidos<<Product.find(masvend[0])
       end
@@ -19,7 +19,7 @@ class StaticPagesController < ApplicationController
     p "Home 2"
     p params
 
-    @main_products = Product.joins(:subcategory).where(subcategories: {category_id: params[:id]}).select(:id, :name)
+    @main_products = Product.joins(:subcategory).where(subcategories: {category_id: params[:id]}).select(:id, :name, :marca_id)
     @categoria = Category.find(params[:id])
 
   end
@@ -36,6 +36,14 @@ class StaticPagesController < ApplicationController
     @main_products = Product.search params[:search],
     page: params[:page], per_page: 10,
     order: {starttime: :desc}
+  end
+
+  def listaxmarca
+    p "Productos de marca"
+
+    @productos = Product.where(:marca_id => params[:id])
+    @marca = Marca.find( params[:id])
+
   end
 
   def about

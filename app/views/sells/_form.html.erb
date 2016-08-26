@@ -14,12 +14,12 @@
     <th>PRECIO</th>
   </tr>
 
-    <%  current_user.selectedarticles.each do |art| %>
+    <%  @articulos.each do |art| %>
     <tr>
       <td><%= art.article.tienda.name %>
       <td><%= art.article.product.name %></td>
-      <td> <%= art.qty %> </td>
-      <td> <%= number_to_currency( art.article.price, precision: 0)  %> </td>
+      <td> <%= art.cantidad %> </td>
+      <td> <%= number_to_currency( art.precio_venta, precision: 0)  %> </td>
 
     </tr>
     <% end %>

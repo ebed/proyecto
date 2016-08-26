@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :scores, :dependent => :delete_all
   has_one :seller, :dependent => :destroy
   has_many :sells, :dependent => :delete_all
-  has_many :orders, :dependent => :delete_all
+  has_many :main_orders, :dependent => :delete_all
   has_many :selectedarticles, :dependent => :delete_all
   belongs_to :profile
 
@@ -48,6 +48,21 @@ class User < ApplicationRecord
   end
 
   def orden
-    self.selectedarticles.first.order
+    self.selectedarticles.first.order.main_order
+  end
+
+  def totalxtienda
+    resultado = []
+    Tienda.joins(articles: :selectedarticles).where(selectedarticles: {user_id: self.id}).each do |tienda|
+      total = 0
+      Selectedarticle.joins(:article).where(user_id: 1, articles: {tienda_id: tienda.id}).each do |sart|
+        total = total + sart.qty = sart.article.price
+
+      end
+      item = {tienda: tienda.id, total: total}
+      resultado << item
+    end
+    return resultado
+
   end
 end

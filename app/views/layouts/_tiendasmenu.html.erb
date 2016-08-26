@@ -1,0 +1,24 @@
+<% if current_user.present? && current_user.isSeller?  %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <strong>MIS TIENDAS</strong>
+  </div>
+  <div class="panel-body">
+    <table>
+      <tr>
+      <td colspan='2'> <%= link_to "TODAS MIS TIENDAS", orders_path %> </td>
+      </tr>
+      <% current_user.seller.tiendas.each do |tienda| %>
+        <tr>
+        <td>
+          <%= link_to tienda.name, orders_tienda_path(tienda) %>
+        </td>
+        <td>Tiene <%= tienda.contarordenespendientes %> orden(es) pendiente(s)</td>
+
+
+        </tr>
+      <% end %>
+     </table>
+  </div>
+</div>
+<% end %>

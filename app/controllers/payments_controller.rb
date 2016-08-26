@@ -2,13 +2,15 @@ class PaymentsController < ApplicationController
 
   def new
     @payment = Payment.new
+    @articulos = current_user.selectedarticles
   end
 
   def create
-    @order = Order.find(session[:order_id])
+    @morder = MainOrder.find(session[:order_id])
 
-    @order.statusorder_id = 2
-    @order.save
+
+    @morder.statusorder_id = 2
+    @morder.save
 
 
   end

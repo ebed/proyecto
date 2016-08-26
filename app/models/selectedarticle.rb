@@ -14,5 +14,12 @@ class Selectedarticle < ApplicationRecord
   end
 
 
+  def cantidad
+    self.qty
+  end
+
+  def precio_venta
+    self.article.price
+  end
 
 end

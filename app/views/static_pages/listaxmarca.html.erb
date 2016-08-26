@@ -1,21 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-<strong>
-      <%= link_to "INICIO ", root_path %> /
-      <% if @subcategoria.present? %>
-        <%= link_to  @subcategoria.category.name, homecategories_path(@subcategoria.category.id) %>
-        >
-        <%= @subcategoria.name %>
-      <% else %>
-
-         <%= @categoria.name %>
-
-      <% end %>
-</strong>
+    <%= @marca.name %>
   </div>
   <div class="panel-body">
 
-<% @main_products.each do |producto| %>
+
+    <% @productos.each do |producto| %>
      <div class="row">
         <div class="col-md-1">
             <%= link_to product_path(producto) do %>
