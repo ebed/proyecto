@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <td colspan="5">
+      <%= image_tag @product.imagenprincipal.image.thumb('250x250#').url if @product.imagenprincipal.image_stored? %>
+    </td>
+  </tr>
+  <tr>
+    <% @product.imagenesarticulos.each do |imagen| %>
+      <td>
+        <%= image_tag imagen.image.thumb('100x100#').url if imagen.image_stored? %>
+      </td>
+    <% end %>
+  </tr>
+</table>

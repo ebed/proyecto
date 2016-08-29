@@ -49,5 +49,11 @@ class Product < ApplicationRecord
   end
 
 
+  def tiendas
+    Tienda.joins(:articles).where(articles: {product_id: self.id})
+
+  end
+
+
 
 end

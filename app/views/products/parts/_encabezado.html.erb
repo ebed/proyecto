@@ -1,0 +1,8 @@
+<div class="panel-heading"><h3><%= @product.name %> <%= @product.marca.name %>
+  <% if current_user.profile.present? && current_user.profile.canadmin %>
+   <%= link_to edit_product_path(@product)  do %>
+     <%=  fa_icon 'edit'  %>
+    <% end %>
+  <% end %>
+  </h3>
+</div>

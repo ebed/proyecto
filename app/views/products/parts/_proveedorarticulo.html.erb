@@ -1,0 +1,55 @@
+<%= bootstrap_form_tag url:'/agregaracarro', :method => 'GET' do |f| %>
+  <%= f.select :proveedor, @product.tiendas.collect {|p| [ p.name, p.id ] } %>
+
+EVALUACIÓN TIENDA:
+        <div class="progress">
+          <% if @product.average_score_percent > 50 %>
+            <div class="progress-bar progress-bar-danger" style="width: 50%">
+              <span class="sr-only"></span>
+            </div>
+
+            <% if @product.average_score_percent > 80 %>
+              <div class="progress-bar progress-bar-warning" style="width: 30%">
+               <span class="sr-only">20% Complete (warning)</span>
+              </div>
+              <div class="progress-bar progress-bar-success" style="width: <%= @product.average_score_percent - 80 %>%">
+                <span class="sr-only">10% Complete (danger)</span>
+              </div>
+            <% else %>
+
+                  <div class="progress-bar progress-bar-warning" style="width: <%= @product.average_score_percent - 50 %>%">
+                   <span class="sr-only">20% Complete (warning)</span>
+                  </div>
+            <% end %>
+          <% else %>
+
+            <div class="progress-bar progress-bar-danger" style="width: <%= @product.average_score_percent %>%">
+              <span class="sr-only"></span>
+            </div>
+            <% end %>
+          </div>
+
+    <%= f.text_field :valor, :label =>'Precio Tienda', value: number_to_currency(@product.articleselected.price , precision: 0), :readonly => true %>
+     <%= f.text_field :cantidad %>
+
+
+     <%= f.hidden_field :producto, :value => @product.id %>
+
+      <% if current_user.profile.canbuy %>
+        <% if current_user.tieneOrden? %>
+          <strong>YA TIENE UNA ORDEN EN CURSO. <br/>FINALICELA O CANCELELA Y CREE UNA NUEVA </strong>
+        <% else %>
+          <%= f.submit "Agregar a carro", class: "btn btn-primary" %>
+
+
+        <% end %>
+      <% end %>
+
+      <% if current_user.profile.canbuy && false %>
+         <button type="button" class="btn btn-default" >Lista deseos</button>
+      <% end   %>
+
+
+<% end %>
+
+

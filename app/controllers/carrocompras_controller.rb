@@ -13,6 +13,7 @@ class CarrocomprasController < ApplicationController
     p "agrega"
     redirect_to root_path
   end
+
   def create
   end
 

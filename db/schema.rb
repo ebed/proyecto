@@ -76,17 +76,6 @@ ActiveRecord::Schema.define(version: 20160825201732) do
     t.integer  "main_order_id"
   end
 
-  create_table "historico_compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "article_id"
-    t.date     "fechaentrega"
-    t.integer  "precio"
-    t.integer  "qty"
-    t.integer  "user_id"
-    t.integer  "tienda_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "imagenesarticulos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "filename"
     t.string   "content_type"
@@ -97,13 +86,6 @@ ActiveRecord::Schema.define(version: 20160825201732) do
     t.integer  "product_id"
     t.string   "image_uid"
     t.string   "image_name"
-  end
-
-  create_table "itemsorders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "order_id"
-    t.integer  "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "main_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

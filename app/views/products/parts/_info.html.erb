@@ -1,0 +1,35 @@
+ <%= bootstrap_form_tag do |f| %>
+  <%= f.text_field :nombre, value: @product.name, :label => "Producto",:readonly => true %>
+  <%= f.text_field :marca, value: @product.marca.name , :label => "Marca",:readonly => true %>
+  <%= f.text_field :precio, value: number_to_currency(@product.price_since, precision: 0) , :label => "Mejor precio",:readonly => true %>
+  <%= f.label "Evaluación" %>
+  <div class="progress">
+     <% if @product.average_score_percent > 50 %>
+        <div class="progress-bar progress-bar-danger" style="width: 50%">
+          <span class="sr-only"></span>
+        </div>
+
+        <% if @product.average_score_percent > 80 %>
+          <div class="progress-bar progress-bar-warning" style="width: 30%">
+           <span class="sr-only">20% Complete (warning)</span>
+          </div>
+          <div class="progress-bar progress-bar-success" style="width: <%= @product.average_score_percent - 80 %>%">
+            <span class="sr-only">10% Complete (danger)</span>
+          </div>
+        <% else %>
+
+              <div class="progress-bar progress-bar-warning" style="width: <%= @product.average_score_percent - 50 %>%">
+               <span class="sr-only">20% Complete (warning)</span>
+              </div>
+        <% end %>
+      <% else %>
+
+        <div class="progress-bar progress-bar-danger" style="width: <%= @product.average_score_percent %>%">
+          <span class="sr-only"></span>
+        </div>
+      <% end %>
+  </div>
+
+ <% end %>
+
+

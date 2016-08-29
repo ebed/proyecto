@@ -44,5 +44,6 @@ Rails.application.routes.draw do
   get 'cerrar_orden/:id', to: 'orders#cerrar_orden', as: :cerrar_orden
   get 'orders_tienda/:id', to: 'orders#orders_tienda', as: :orders_tienda
   get 'productos_marca/:id', to: 'static_pages#listaxmarca', as: :productos_marca
+  get 'agregaracarro', to: 'products#agregaracarro', as: :agregaracarro
 
 end

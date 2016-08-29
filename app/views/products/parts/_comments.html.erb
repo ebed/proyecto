@@ -1,0 +1,21 @@
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Comentarios del producto <span class="badge"><%= @product.comments.count %></span></div>
+      <div class="panel-body">
+        <% @product.comments.each do |comment|%>
+
+          <p> <%= comment.title %> </p>
+          <p> <%= comment.created_at %> </p>
+          <p> <%= comment.body %> </p>
+
+          <p> <%= comment.user.name %> </p>
+        <% end %>
+
+      </div>
+  </div>
+
+
+    <% if user_signed_in? %>
+      <%=  render :partial => 'comments/form' %>
+
+    <% end %>

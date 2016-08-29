@@ -112,6 +112,9 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
+
+
+
   private
   def set_orden
     @order = MainOrder.find(params[:id])

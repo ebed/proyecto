@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
+  username: root
+  password: 123
+  host: localhost
 
 
 development:
   <<: *default
-  username: root
-  password: 123
-  host: localhost
   database: proyecto_development
 
 # Warning: The database defined as "test" will be erased and

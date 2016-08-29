@@ -53,7 +53,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'mysql2', '>= 0.3.13', '< 0.5'
+  gem 'rspec-rails'
 
+end
+
+group :test do
+  gem 'capybara'
 end
 
 group :development do
