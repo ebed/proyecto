@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
       art.inorder = false
       art.save
     end
-    @order = Order.find(params[:id])
+    @order = MainOrder.find(params[:id])
     @order.destroy
     redirect_to carro_path(current_user)
   end
