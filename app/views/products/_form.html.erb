@@ -1,6 +1,6 @@
 <div ng-controller="appController">
 
-<%= bootstrap_form_for(@product), :html => {:multipart => true} do |f| %>
+<%= bootstrap_form_for @product, :html => {:multipart => true} do |f| %>
 
   <%= f.text_field :name, :label => "NOMBRE" %>
   <%= f.select :marca_id,  Marca.all.collect {|p| [ p.name, p.id ] }, :label => "MARCA"  %>

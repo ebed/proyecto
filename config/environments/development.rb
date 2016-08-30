@@ -62,13 +62,12 @@ config.log_level = :debug # In any environment initializer, or
 
   config.paperclip_defaults = {
     storage: :s3,
-
     s3_region: "us-west-2",
     s3_credentials: {
       bucket: "ouzomdev",
       access_key_id: "AKIAJ7OODOKMLMQTJLSQ",
-      secret_access_key: "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",
-      :s3_host_name => 's3.amazonaws.com'
-    }
+      secret_access_key: "wLOWaFqaARFyMEhQg1IlkFi3Tmfm4lXb8Bm0njj/"
+    },
+     s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com"
   }
 end

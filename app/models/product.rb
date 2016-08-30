@@ -9,7 +9,17 @@ class Product < ApplicationRecord
   belongs_to :subcategory
 
 
-  has_attached_file :avatar, styles: { medium: "300x300>",thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar,
+                     styles: {
+                      thumb: '100x100>',
+                      square: '200x200#',
+                      medium: '300x300>'
+                    },
+
+                    default_url: "/images/:style/missing.png",
+                    :url => ":s3_domain_url",
+                    :path => 'products/avatars/000/000/003/:style/:basename.:extension'
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   attr_accessor :category_id
