@@ -12,7 +12,7 @@
   <%= f.text_field :year, :label => "AÑO" %>
   <%= f.label "ESPECIFICACIONES" %>
   <%= f.cktext_area :specifications %>
-
+  <%= f.file_field :avatar %>
 
   <%= f.submit "Guardar", :class => "btn btn-primary" %>
 <% end %>

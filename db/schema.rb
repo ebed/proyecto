@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825201732) do
+ActiveRecord::Schema.define(version: 20160830003205) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",      limit: 24
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20160825201732) do
     t.integer  "main_order_id"
   end
 
+  create_table "historico_compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "article_id"
+    t.date     "fechaentrega"
+    t.integer  "precio"
+    t.integer  "qty"
+    t.integer  "user_id"
+    t.integer  "tienda_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "imagenesarticulos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "filename"
     t.string   "content_type"
@@ -86,6 +97,13 @@ ActiveRecord::Schema.define(version: 20160825201732) do
     t.integer  "product_id"
     t.string   "image_uid"
     t.string   "image_name"
+  end
+
+  create_table "itemsorders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "order_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "main_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -128,12 +146,16 @@ ActiveRecord::Schema.define(version: 20160825201732) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "marca_id"
-    t.text     "specifications", limit: 65535
+    t.text     "specifications",      limit: 65535
     t.integer  "year"
     t.integer  "subcategory_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

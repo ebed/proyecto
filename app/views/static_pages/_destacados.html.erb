@@ -12,7 +12,8 @@
               <%= link_to dest do %>
                 <table class="table table-bordered">
                 <tr><td>
-                 <%= image_tag dest.imagenprincipal.image.thumb('200x200#').url, class: 'img-responsive', caption: 'articulo' if dest.imagenprincipal.image_stored?  %>
+
+                 <%= image_tag dest.avatar.url(:medium), class: 'img-responsive', caption: 'articulo'  %>
                  </td>
                  </tr>
                  <tr><td align="center">

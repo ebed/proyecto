@@ -1,6 +1,11 @@
 <table>
   <tr>
     <td colspan="5">
+      <%= image_tag @product.avatar.url %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5">
       <%= image_tag @product.imagenprincipal.image.thumb('250x250#').url if @product.imagenprincipal.image_stored? %>
     </td>
   </tr>

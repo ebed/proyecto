@@ -34,7 +34,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     if producto.save
         p "Creacion OK"
          flash[:notice] = "Se creo correctamente"
-         redirect_to addimagesproduct_path producto
+         redirect_to root_path
       else
         p "Creacion fallida"
           flash[:alert] = "Problema creando"
@@ -100,7 +100,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   end
 
   def product_params
-    params.require(:product).permit(:name, :marca_id, :specifications, :year, :category_id, :subcategory_id)
+    params.require(:product).permit(:name, :marca_id, :specifications, :year, :category_id, :subcategory_id, :avatar)
   end
 
 
