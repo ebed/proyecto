@@ -13,7 +13,8 @@ class Product < ApplicationRecord
                      styles: {
                       thumb: '100x100>',
                       square: '200x200#',
-                      medium: '300x300>'
+                      medium: '300x300>',
+                      big: '700x700>'
                     },
 
                     default_url: "/images/:style/missing.png",
