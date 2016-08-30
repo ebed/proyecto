@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :selectedarticles, :dependent => :delete_all
   belongs_to :profile
 
+
+
   def name
      self.nombre
   end

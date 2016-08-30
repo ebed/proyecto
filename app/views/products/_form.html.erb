@@ -1,6 +1,6 @@
 <div ng-controller="appController">
 
-<%= bootstrap_form_for(@product) do |f| %>
+<%= bootstrap_form_for(@product), :html => {:multipart => true} do |f| %>
 
   <%= f.text_field :name, :label => "NOMBRE" %>
   <%= f.select :marca_id,  Marca.all.collect {|p| [ p.name, p.id ] }, :label => "MARCA"  %>
@@ -19,9 +19,4 @@
 
 
 </div>
-<script type="text/javascript" charset="utf-8">
-  function test()
- {
-    alert("test");
-  }
- </script>
+
