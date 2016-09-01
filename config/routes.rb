@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :main_orders
   resources :payments
+  resources :product_images
 
   root 'static_pages#home'
 

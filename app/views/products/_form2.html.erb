@@ -1,9 +1,60 @@
-<%= bootstrap_form_for(@imagen) do |fim| %>
-    <%= fim.hidden_field :product_id, value: params[:id] %>
-    <%= fim.hidden_field :order %>
-    <%= fim.file_field :image %>
 
 
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <strong>GALERIA DE IMAGENES</strong>
+  </div>
+  <div class="panel-body">
 
-  <%= fim.submit "Guardar" %>
+      <div id="galeria">
+        <div class="row">
+      <%= render @product.product_images %>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="panel-footer">
+<%= form_for ProductImage.new,  html: { multipart: true } do |f| %>
+
+  <%= f.hidden_field :product_id, value:  @product.id %>
+  <%= f.file_field :image, multiple: true, name: "product_image[image]", id: "fileupload"%>
+
 <% end %>
+
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <center>
+        <h2>Cargando imagenes</h2><br/>
+        <i class="fa fa-spinner fa-spin" style="font-size:32px"></i>
+        </center>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body"><center>
+       <h2> Carga finalizada!</h2>
+       </center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -3,6 +3,9 @@ class Product < ApplicationRecord
   has_many :articles, :dependent => :delete_all
   has_many :comments, :dependent => :delete_all
 
+  has_many :product_images, :dependent => :delete_all
+
+
   has_many :scores, :dependent => :delete_all
   has_many :imagenesarticulos, :dependent => :delete_all
   belongs_to :marca

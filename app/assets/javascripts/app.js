@@ -50,11 +50,21 @@ app = angular.module('app',['ngAnimate']).directive('slideable', function () {
 
 
 
+
 app.controller('appController', ['$rootScope','$scope','$animate', function($rootScope,$scope) {
     var categoryActive=0;
 
 
+    $scope.imagen ="";
+    $scope.firsttime = true;
 
+    $scope.cambiaImagen = function(idImagen) {
+        console.log(idImagen);
+        console.log(gon.imagenesproducto[idImagen]);
+        $scope.imagen = gon.imagenesproducto[idImagen];
+        $scope.firsttime = false;
+
+    }
 
     $scope.changeCategory = function(idCategory) {
 
@@ -78,5 +88,4 @@ $scope.items = [{
 
   }
 ]);
-
 

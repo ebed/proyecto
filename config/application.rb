@@ -17,6 +17,7 @@ module Proyecto
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","stylesheets")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
     config.assets.initialize_on_precompile = false
+
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
   end
 end

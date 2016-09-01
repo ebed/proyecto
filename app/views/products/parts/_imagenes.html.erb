@@ -1,19 +1,33 @@
+<div ng-controller="appController">
+
+
+
 <table>
-  <tr>
-    <td colspan="5">
-      <%= image_tag @product.avatar.url %>
+ <tr>
+    <td  colspan="<%=  @product.product_images.length %>" align="center">
+      <div ng-if="firsttime">
+        <%= image_tag @product.product_images.first.image.url(:medium) %>
+      </div>
+      <div ng-if="!firsttime">
+        <img ng-src="{{imagen}}" >
+      </div>
+
     </td>
+
   </tr>
   <tr>
-    <td colspan="5">
-      <%= image_tag @product.imagenprincipal.image.thumb('250x250#').url if @product.imagenprincipal.image_stored? %>
-    </td>
-  </tr>
-  <tr>
-    <% @product.imagenesarticulos.each do |imagen| %>
+    <% @imagenes.each do |imagen| %>
       <td>
-        <%= image_tag imagen.image.thumb('100x100#').url if imagen.image_stored? %>
+        <button ng-click="cambiaImagen(<%= imagen.id %>)">
+        <%= image_tag imagen.image.url(:thumb), :class =>'img-thumbnail' %>
+        </button>
       </td>
     <% end %>
+
   </tr>
+
 </table>
+
+
+
+</div>

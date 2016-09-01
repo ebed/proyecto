@@ -1,0 +1,8 @@
+<% if @image.new_record? %>
+  alert('Failed');
+<% else %>
+  $(document.getElementById('galeria')).append("<%=j render(@image) %>");
+  $('#myModal').modal('hide')
+  $('#myModal2').modal('show')
+
+<% end %>

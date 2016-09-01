@@ -4,10 +4,24 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
   end
 
+
+
   def show
     @comment = Comment.new
+    @imagenesproducto = {:vacio => ""}
+    @imagenes = @product.product_images.take(5)
+     p @imagenes
+    @imagenes.each do |imagen|
+      @imagenesproducto[imagen.id] =imagen.image.url(:medium)
+    end
+
+    gon.imagenesproducto = @imagenesproducto
+
 
   end
+
+
+
 
   def edit
 
@@ -16,6 +30,12 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   def update
     @product.update(product_params)
     @product.save
+         if params[:images]
+            #===== The magic is here ;)
+            params[:images].each { |image|
+              @product.product_images.create(image: image)
+            }
+          end
          flash[:notice] = "Se actualizo correctamente"
     redirect_to products_path
 
@@ -32,9 +52,10 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
 
     if producto.save
+
         p "Creacion OK"
          flash[:notice] = "Se creo correctamente"
-         redirect_to root_path
+         redirect_to addimagesproduct_path(producto)
       else
         p "Creacion fallida"
           flash[:alert] = "Problema creando"
@@ -45,10 +66,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
  def addimages
    p "Creando la imagen"
-
-    p params
-    @imagen = Imagenesarticulo.new
-
+   @product = Product.find(params[:id])
     ##imagen = Imagenesarticulo.new(imagen_params)
  end
 

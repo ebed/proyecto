@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
+gem 'rails-gallery'
+gem 'gon'
+gem "jquery-fileupload-rails"
+gem 'bootstrap-addons-rails'
+
 gem 'will_paginate', '~> 3.1.0'
 gem 'ckeditor'
 gem 'bower-rails'

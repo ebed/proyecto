@@ -19,4 +19,18 @@
  //= require jquery_nested_form
 
 
+
+//= require jquery-fileupload/basic
+
+//= require jquery-fileupload/vendor/tmpl
+
+
+//= require bootstrap
+
+//= require bootstrap/load-image.min
+//= require bootstrap/image-gallery.min
+
 //= require_tree .
+
+
+
