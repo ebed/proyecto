@@ -9,7 +9,10 @@ class TiendasController < ApplicationController
     end
   end
 
+  def edit
+     @tienda = Tienda.find(params[:id])
 
+  end
 
 
   def show
