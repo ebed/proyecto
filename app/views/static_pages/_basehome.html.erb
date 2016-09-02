@@ -19,7 +19,8 @@
      <div class="row">
         <div class="col-md-1">
             <%= link_to product_path(producto) do %>
-              <%= image_tag producto.imagenprincipal.image.thumb('100x100#').url, class: "thumbnail" if producto.imagenprincipal.image_stored? %>
+
+              <%= image_tag producto.product_images.first.image.url(:thumb), class: "thumbnail"  %>
             <% end %>
         </div>
         <div class="col-md-1">

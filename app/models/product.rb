@@ -47,7 +47,7 @@ class Product < ApplicationRecord
 
 
   def self.sponsored
-    Product.joins(:imagenesarticulos).distinct.order(:created_at).limit(5)
+    Product.joins(:product_images).distinct.order(:created_at).limit(5)
   end
 
   def imagenprincipal
