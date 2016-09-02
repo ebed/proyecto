@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
+
   resources :statusorders
   resources :paymentmethods
   resources :profiles
   mount Ckeditor::Engine => '/ckeditor'
   resources :contactypes
-  devise_for :users
+
   get 'static_pages/home'
 
   get 'static_pages/about'
