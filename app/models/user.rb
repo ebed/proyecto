@@ -39,7 +39,9 @@ class User < ApplicationRecord
     carro = Selectedarticle.where(user_id: self.id)
     total = 0
     carro.each do |item|
-      total = total + (item.article.price * item.qty)
+      if item.present? and item.article.present? and item.article.price.present?
+        total = total + (item.article.price * item.qty)
+      end
     end
     return total
   end
