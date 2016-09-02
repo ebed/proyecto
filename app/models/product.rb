@@ -51,7 +51,7 @@ class Product < ApplicationRecord
   end
 
   def imagenprincipal
-    self.imagenesarticulos.first
+    self.product_images.first
   end
 
   def articleselected
@@ -60,7 +60,7 @@ class Product < ApplicationRecord
 
   def self.search(search,page)
     wildcard_search = "%#{search}%"
-    joins(:marca).where("products.name LIKE ? or products.specifications LIKE ? or marcas.name LIKE ?", wildcard_search, wildcard_search, wildcard_search)
+    joins(:marca, :subcategory).where("products.name LIKE ? or products.specifications LIKE ? or marcas.name LIKE ? or subcategories.name LIKE ?", wildcard_search, wildcard_search, wildcard_search, wildcard_search)
   end
 
 

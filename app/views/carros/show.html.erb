@@ -24,7 +24,7 @@
   </tr>
   <% @articulosseleccionados.each do |art| %>
     <tr>
-      <td align='center'>  <%= image_tag art.article.product.imagenprincipal.image.thumb('50x50#').url %> </td>
+      <td align='center'>  <%= image_tag art.article.product.imagenprincipal.image.url(:thumb) %> </td>
       <td> <%= art.article.product.name %></td>
       <td> <%= art.article.tienda.name %></td>
       <td>  <%= art.qty %> </td>
