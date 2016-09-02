@@ -15,14 +15,12 @@
 //= require ckeditor/init
 //= require angular/angular
 //= require angular-animate
- //= require twitter/bootstrap
- //= require jquery_nested_form
+//= require twitter/bootstrap
+//= require jquery_nested_form
 
 
 
 //= require jquery-fileupload/basic
-
-//= require jquery-fileupload/vendor/tmpl
 
 
 //= require bootstrap

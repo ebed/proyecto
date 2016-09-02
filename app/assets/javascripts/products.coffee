@@ -12,7 +12,7 @@ jQuery ->
         file = data.files[0]
         console.log("Antes de append fileupload")
         $('#fileupload').append(data.context)
-          console.log("Luego de append fileupload")
+        console.log("Luego de append fileupload")
         data.submit()
 
 
