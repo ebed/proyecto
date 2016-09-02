@@ -6,9 +6,13 @@ jQuery ->
   $('#fileupload').fileupload
     dataType: 'script'
     add: (e, data) ->
+        console.log("Antes de modal show")
         $('#myModal').modal('show')
+        console.log("Despues de modal show")
         file = data.files[0]
+        console.log("Antes de append fileupload")
         $('#fileupload').append(data.context)
+          console.log("Luego de append fileupload")
         data.submit()
 
 
