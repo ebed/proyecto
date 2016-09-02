@@ -35,7 +35,7 @@ EVALUACIÓN TIENDA:
 
      <%= f.hidden_field :producto, :value => @product.id %>
 
-      <% if current_user.profile.canbuy %>
+      <% if current_user.present? && current_user.profile.canbuy %>
         <% if current_user.tieneOrden? %>
           <strong>YA TIENE UNA ORDEN EN CURSO. <br/>FINALICELA O CANCELELA Y CREE UNA NUEVA </strong>
         <% else %>
@@ -45,7 +45,7 @@ EVALUACIÓN TIENDA:
         <% end %>
       <% end %>
 
-      <% if current_user.profile.canbuy && false %>
+      <% if current_user.present? && current_user.profile.canbuy && false %>
          <button type="button" class="btn btn-default" >Lista deseos</button>
       <% end   %>
 

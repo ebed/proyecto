@@ -4,3 +4,21 @@
   Static version of css will use Glyphicons sprites by default
   =require twitter-bootstrap-static/sprites
 */
+
+
+
+
+.imagenesThumb {
+
+  opacity: 1;
+
+  transition: all linear 0.5s;
+}
+
+.imagenesThumb:hover {
+  opacity: 0.4;
+
+}
+
+
+

@@ -5,22 +5,22 @@
 <table>
  <tr>
     <td  colspan="<%=  @product.product_images.length %>" align="center">
-      <div ng-if="firsttime">
-        <%= image_tag @product.product_images.first.image.url(:medium) %>
-      </div>
-      <div ng-if="!firsttime">
-        <img ng-src="{{imagen}}" >
-      </div>
+    <% index = 0 %>
+      <% @imagenes.each do |imagen| %>
+        <% index = index + 1 %>
 
-    </td>
+         <img src="<%=  imagen.image.url(:medium)  %>"  ng-show="isSelected(<%= imagen.id %>,<%= index %>)" class="animate-show">
+
+      <% end %>
+
 
   </tr>
   <tr>
     <% @imagenes.each do |imagen| %>
       <td>
-        <button ng-click="cambiaImagen(<%= imagen.id %>)">
-        <%= image_tag imagen.image.url(:thumb), :class =>'img-thumbnail' %>
-        </button>
+        <div ng-click="cambiaImagen(<%= imagen.id %>)" class="imagenesThumb">
+        <%= image_tag imagen.image.url(:thumb), :class =>' imagenesThumb' %>
+        </div>
       </td>
     <% end %>
 
@@ -31,3 +31,5 @@
 
 
 </div>
+
+

@@ -1,2 +1,22 @@
 <h1>StaticPages#about</h1>
 <p>Find me in app/views/static_pages/about.html.erb</p>
+
+
+
+
+
+
+Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
+<div>
+  Show:
+  <div class="check-element animate-show" ng-show="checked">
+    <span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.
+  </div>
+</div>
+<div>
+  Hide:
+  <div class="check-element animate-show" ng-hide="checked">
+    <span class="glyphicon glyphicon-thumbs-down"></span> I hide when your checkbox is checked.
+  </div>
+</div>
+
