@@ -85,9 +85,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.paperclip_defaults = {
 
-          :url => ":rails_env/:class/:attachment/:style/:basename.:extension",
-          :path => ":rails_root/public:url"
 end
 
