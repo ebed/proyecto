@@ -7,8 +7,8 @@ class ProductImage < ApplicationRecord
                       medium: '300x300>',
                       big: '700x700>'
                     },
-    :path => "public/products/:id/:styles/:filename",
-    :url  => ":s3_domain_url"
+                    :url => "/controllers/product_images/:style/:basename.:extension",
+                    :path => ":rails_root/public/controllers/product_images/:style/:basename.:extension"
 
   do_not_validate_attachment_file_type :image
 end

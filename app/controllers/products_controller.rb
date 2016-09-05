@@ -48,14 +48,14 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def create
 
-    producto = Product.new(product_params)
+    @producto = Product.new(product_params)
 
 
-    if producto.save
+    if @producto.save
 
         p "Creacion OK"
          flash[:notice] = "Se creo correctamente"
-         redirect_to addimagesproduct_path(producto)
+         redirect_to addimagesproduct_path(@producto)
       else
         p "Creacion fallida"
           flash[:alert] = "Problema creando"

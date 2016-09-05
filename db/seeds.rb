@@ -16,7 +16,7 @@ Profile.create(name: "ADMINISTRADOR",canadmin: true, cansell: true, canadminstor
 Profile.create(name: "USUARIO",canadmin: false, cansell: false, canadminstore: false, canbuy: true)
 Profile.create(name: "VENDEDOR",canadmin: false, cansell: true, canadminstore: true, canbuy: true)
 
-Contacttype.create(name: "CORREO")
+Contactype.create(name: "CORREO")
 
 
 Paymentmethod.create(name: "TRANSFERENCIA", description: "TRANSFERIR A CUENTA BANCARIA")
