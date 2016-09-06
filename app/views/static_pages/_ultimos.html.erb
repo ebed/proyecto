@@ -6,24 +6,24 @@
 
                <%= @ultimos %>
                <% if !@ultimos.empty?   %>
-                 <% @ultimos.each do |dest| %>
-                  <% if  dest.imagenprincipal.present? %>
+                 <% @ultimos.each do |producto| %>
+                  <% if  producto.imagenprincipal.present? %>
                    <% if i == 6 %>
                       </tr><tr>
                     <% end %>
                     <% i = i + 1 %>
                     <td>
-                      <%= link_to dest do %>
+                      <%= link_to producto do %>
                         <table class="table table-bordered">
                           <tr>
                             <td>
-                              <%= image_tag dest.imagenprincipal, class: 'img-responsive'   %>
+                              <%= image_tag producto.imagenprincipal, class: 'img-responsive'   %>
                             </td>
                           </tr>
                           <tr>
                             <td align="center">
                               <strong>Desde
-                                      <%= number_to_currency(dest.price_since , precision: 0) %>
+                                      <%= number_to_currency(producto.price_since , precision: 0) %>
                               </strong>
                             </td>
                           </tr>
