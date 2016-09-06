@@ -40,7 +40,7 @@ class Product < ApplicationRecord
     self.product_images.first.image.url(:square)
   end
 
-  def imagenprincipal
+  def imagenprincipalthumb
     self.product_images.first.image.url(:thumb)
   end
 
