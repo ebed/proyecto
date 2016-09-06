@@ -80,7 +80,7 @@ class OrdersController < ApplicationController
   end
 
  def preparar_orden
-    @order.statusorder_id = 6
+    @order.statusorder_id = 4
     @order.save
     @deliver = Deliver.create(:status_id => 1, :location => 'Bodega', :haveIt => false, :main_order_id => @order.id)
 
@@ -89,7 +89,7 @@ class OrdersController < ApplicationController
   end
 
  def enviar_orden
-    @order.statusorder_id = 4
+    @order.statusorder_id = 5
     @order.save
     deliver = @order.deliver
     deliver.status_id = 2
@@ -101,7 +101,7 @@ class OrdersController < ApplicationController
   end
 
   def cerrar_orden
-    @order.statusorder_id = 5
+    @order.statusorder_id = 6
     @order.save
     deliver = @order.deliver
     deliver.status_id = 3
