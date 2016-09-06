@@ -3,29 +3,36 @@
            <table>
             <tr>
               <% i = 0 %>
-               <% @ultimos.each do |dest| %>
-                 <% if i == 6 %>
-                    </tr><tr>
+
+               <%= @ultimos %>
+               <% if !@ultimos.empty? %>
+                 <% @ultimos.each do |dest| %>
+                   <% if i == 6 %>
+                      </tr><tr>
+                    <% end %>
+                    <% i = i + 1 %>
+                    <td>
+                      <%= link_to dest do %>
+                        <table class="table table-bordered">
+                          <tr>
+                            <td>
+                              <%= image_tag dest.imagenprincipal, class: 'img-responsive'   %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                              <strong>Desde
+                                      <%= number_to_currency(dest.price_since , precision: 0) %>
+                              </strong>
+                            </td>
+                          </tr>
+                        </table>
+                      <% end %>
+                    </td>
+
+
                   <% end %>
-                  <% i = i + 1 %>
-               <td>
-               <%= link_to dest do %>
-                <table class="table table-bordered">
-                <tr><td>
-
-                  <%= image_tag dest.imagenprincipal, class: 'img-responsive'   %>
-                </tr>
-                 <tr><td align="center">
-                 <strong>Desde
-                          <%= number_to_currency(dest.price_since , precision: 0) %>
-                        </strong>
-                  </td></tr>
-                 </table>
                 <% end %>
-                </td>
-
-
-              <% end %>
               </tr>
             </table>
              </div>

@@ -4,6 +4,7 @@
   <ul class="nav nav-pills" role="tablist">
     <li role="presentation" class="active"><a href="#destacados" aria-controls="home" role="tab" data-toggle="tab">DESTACADOS</a></li>
     <li role="presentation"><a href="#ultimos" aria-controls="ultimos" role="tab" data-toggle="tab">ULTIMOS PRODUCTOS</a></li>
+    <li role="presentation"><a href="#masvendidos" aria-controls="masvendidos" role="tab" data-toggle="tab">MAS VENDIDOS</a></li>
 
   </ul>
 
@@ -18,7 +19,9 @@
     <div role="tabpanel" class="tab-pane fade" id="ultimos">
       <%= render :partial => 'ultimos'%>
     </div>
-
+    <div role="tabpanel" class="tab-pane fade" id="masvendidos">
+      <%= render :partial => 'vendidos'%>
+    </div>
 
   </div>
 
