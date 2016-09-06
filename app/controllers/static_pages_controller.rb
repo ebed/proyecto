@@ -11,7 +11,12 @@ class StaticPagesController < ApplicationController
       listavendidos.each do |masvend|
         @masvendidos<<Product.find(masvend[0])
       end
-
+      p "Mas vendidos"
+      p @masvendidos
+      p "ultimos"
+      p @ultimos
+      p "destacados"
+      p @destacados
 
 
   end

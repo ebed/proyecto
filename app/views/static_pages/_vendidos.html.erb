@@ -3,7 +3,7 @@
         <table>
             <tr>
               <% i = 0 %>
-
+              <%= !@masvendidos.empty?  %>
               <% if !@masvendidos.empty? %>
                 <% @masvendidos.each do |dest| %>
                    <% if i == 6 %>
@@ -29,7 +29,8 @@
                     <% end %>
                   </td>
                   <% end %>
-
+                <% else %>
+                  VACIO
                 <% end %>
           </tr>
             </table>
