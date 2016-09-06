@@ -50,5 +50,5 @@ test:
 #
 production:
   adapter: mysql2
-  encoding: unicode
+
   url: <%= ENV['DB_URL'] %>
