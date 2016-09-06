@@ -28,8 +28,9 @@ EVALUACIÓN TIENDA:
             </div>
             <% end %>
           </div>
-
-    <%= f.text_field :valor, :label =>'Precio Tienda', value: number_to_currency(@product.articleselected.price , precision: 0), :readonly => true %>
+          <% if @product.articleselected.present? %>
+           <%= f.text_field :valor, :label =>'Precio Tienda', value: number_to_currency(@product.articleselected.price , precision: 0), :readonly => true %>
+           <% end %>
      <%= f.text_field :cantidad %>
 
 
