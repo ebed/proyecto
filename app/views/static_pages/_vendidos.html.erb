@@ -3,25 +3,27 @@
         <table>
             <tr>
               <% i = 0 %>
-              <% @vendidos.each do |dest| %>
-               <% if i == 6 %>
-                  </tr><tr>
-                <% end %>
-                <% i = i + 1 %>
-              <td>
-               <%= link_to dest do %>
-                <table class="table table-bordered">
-                <tr><td>
+              <% if @masvendidos.empty? %>
+                <% @masvendidos.each do |dest| %>
+                   <% if i == 6 %>
+                      </tr><tr>
+                    <% end %>
+                    <% i = i + 1 %>
+                  <td>
+                   <%= link_to dest do %>
+                    <table class="table table-bordered">
+                    <tr><td>
 
-                <%= image_tag dest.imagenprincipal , class: 'img-responsive'  %>
-              </tr>
-             <tr><td align="center">
-             <strong>Desde
-                      <%= number_to_currency(dest.price_since , precision: 0) %>
-                    </strong>
-                    </td></tr>
-             </table>
-            <% end %>
+                    <%= image_tag dest.imagenprincipal , class: 'img-responsive'  %>
+                  </tr>
+                 <tr><td align="center">
+                 <strong>Desde
+                          <%= number_to_currency(dest.price_since , precision: 0) %>
+                        </strong>
+                        </td></tr>
+                 </table>
+                <% end %>
+              <% end %>
             </td>
 
         <% end %>

@@ -13,6 +13,7 @@ class StaticPagesController < ApplicationController
       end
 
 
+
   end
 
  def home2
