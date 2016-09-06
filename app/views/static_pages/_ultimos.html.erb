@@ -7,7 +7,7 @@
                <%= @ultimos %>
                <% if !@ultimos.empty?   %>
                  <% @ultimos.each do |dest| %>
-                  <% if !dest.empty? or dest.imagenprincipal.present? %>
+                  <% if  dest.imagenprincipal.present? %>
                    <% if i == 6 %>
                       </tr><tr>
                     <% end %>
