@@ -40,6 +40,10 @@ class Product < ApplicationRecord
     self.product_images.first.image.url(:square)
   end
 
+  def imagenprincipal
+    self.product_images.first.image.url(:thumb)
+  end
+
   def articleselected
     self.articles.order(:price).take
   end
