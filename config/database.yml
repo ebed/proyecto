@@ -49,6 +49,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: mysql2
+  adapter: postgresql
 
   url: <%= ENV['DATABASEAWS_URL'] %>
