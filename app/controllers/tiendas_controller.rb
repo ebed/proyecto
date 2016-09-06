@@ -1,12 +1,15 @@
 class TiendasController < ApplicationController
   def index
-    if user_signed_in?
+    if user_signed_in? and current_user.isSeller?
 
         vendedor = Seller.where(user_id: current_user.id).first
-
-          @tiendas = Tienda.where(seller_id: vendedor.id)
+        @tiendas = Tienda.where(seller_id: vendedor.id)
+      else
+        flash[:alert] = "No puede ver tienda, no es un vendedor, hable con el administrador"
+        redirect_to root_path
 
     end
+
   end
 
   def edit
