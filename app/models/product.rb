@@ -37,7 +37,7 @@ class Product < ApplicationRecord
   end
 
   def imagenprincipal
-    self.product_images.first
+    dest.product_images.first.image.url(:square)
   end
 
   def articleselected
