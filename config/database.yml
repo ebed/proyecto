@@ -51,4 +51,4 @@ test:
 production:
   adapter: mysql2
 
-  url: <%= ENV['DB_URL'] %>
+  url: <%= ENV['DATABASEAWS_URL'] %>
