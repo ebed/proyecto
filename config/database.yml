@@ -50,8 +50,4 @@ test:
 #
 production:
   adapter: postgresql
-  username:  <%= ENV['DBUSER'] %>
-  password:  <%= ENV['DBPWD'] %>
-  host:  <%= ENV['HOSTPROD'] %>
-  database:  <%= ENV['DBPROD'] %>
-
+  url: <%= ENV['DATABASE_URL'] %>
