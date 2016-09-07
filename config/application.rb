@@ -14,7 +14,7 @@ module Proyecto
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
 
     config.assets.initialize_on_precompile = false
-
+    config.assets.precompile += Ckeditor.assets
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
   end
 end
