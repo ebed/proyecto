@@ -14,96 +14,38 @@
   </head>
 
   <body >
+  <div class="container-fluid">
+    <%= render 'layouts/parts/header' %>
+    <div class="row">
+      <div class="col-md-12">
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-2">
+
+        <%= render 'layouts/parts/columnaizq' %>
+      </div>
+      <div class="col-md-8">
+        <%= yield %>
+      </div>
+      <div class="col-md-2">
+        <%= render 'layouts/parts/columnader' %>
+      </div>
+    </div>
 
 
 
- <div class="container-fluid" >
-<%= render 'layouts/navbar' %>
-
-<p>
-
-        <div class="row">
-
-          <div class="col-md-2">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="well">
-                  <%= render 'layouts/search' %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <%= render 'layouts/categorias' %>
-                </div>
-              </div>
-            </div>
-
-          </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/parts/footer' %>
+      </div>
+    </div>
 
 
-          <div class="col-md-8">
-
-            <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-12">
-                    <%= render 'layouts/breadcrumb' %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                     <% if notice %>
-                        <p class="alert alert-success"><%= notice %></p>
-                      <% end %>
-                      <% if alert %>
-                        <p class="alert alert-danger"><%= alert %></p>
-                      <% end %>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <%= yield %>
-                  </div>
-                </div>
-
-
-
-            </div>
-
-          </div>
-
-          <div class="col-md-2">
-            <div class="container-fluid">
-
-              <div class="row">
-                <div class="col-md-12">
-                  <%= render 'layouts/usermenu' %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <%= render 'layouts/tiendasmenu' %>
-                </div>
-              </div>
-
-
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-
-
-    <%= render 'layouts/footer' %>
-
-</div>
-
+    </div>
   </body>
 </html>
 

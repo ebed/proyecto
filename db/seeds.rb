@@ -21,3 +21,4 @@ Contactype.create(name: "CORREO")
 
 Paymentmethod.create(name: "TRANSFERENCIA", description: "TRANSFERIR A CUENTA BANCARIA")
 Paymentmethod.create(name: "WEBPAY", description: "PAGO EN LINEA")
+

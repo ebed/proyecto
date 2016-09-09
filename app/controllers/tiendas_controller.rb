@@ -1,5 +1,6 @@
 class TiendasController < ApplicationController
   def index
+    p params
     if user_signed_in? and current_user.isSeller?
 
         vendedor = Seller.where(user_id: current_user.id).first

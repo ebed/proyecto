@@ -2,8 +2,8 @@
   <div class='panel-heading'>
 
 
-        <h3>MIS TIENDAS
-        <%= link_to new_tienda_path  do %>
+        <h3 class="titulos">MIS TIENDAS
+        <%= link_to new_tienda_path, class: "enlaces3"  do %>
          <%=  fa_icon 'plus-square-o'  %>
         <% end %>
 
@@ -18,9 +18,9 @@
     <tr class='active'><td>Nombre</td><td>Fecha creación</td><td>Cantidad articulos</td><td>Vendedor</td><td></td></tr>
 
     <% @tiendas.each do |tienda| %>
-    <tr>
+    <tr class="rowarticulos">
 
-      <td> <%= link_to tienda_path(tienda) do %>
+      <td> <%= link_to tienda_path(tienda), class: "enlaces" do %>
              <%= tienda.name %>
            <% end %>
       </td>
@@ -31,10 +31,10 @@
 
       <td>
 
-       <%= link_to edit_tienda_path(tienda) do %>
+       <%= link_to edit_tienda_path(tienda), class: "enlaces3"  do %>
         <%=  fa_icon 'edit'  %>
       <% end %>
-       <%= link_to tienda_path(tienda), method: :delete do %>
+       <%= link_to tienda_path(tienda), method: :delete, class: "enlaces3"  do %>
         <%=  fa_icon 'remove'  %>
       <% end %>
       </td>

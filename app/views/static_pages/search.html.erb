@@ -7,10 +7,10 @@
 
 
     <% @main_products.each do |producto| %>
-     <div class="row">
+     <div class="row rowarticulos">
         <div class="col-md-1">
             <%= link_to product_path(producto) do %>
-              <%= image_tag producto.imagenprincipal.image.thumb('100x100#').url, class: "thumbnail" if producto.imagenprincipal.image_stored? %>
+              <%= image_tag producto.imagenprincipalthumb, class: "thumbnail"  %>
             <% end %>
         </div>
         <div class="col-md-1">
@@ -18,12 +18,12 @@
         <div class="col-md-10">
           <div class="row">
             <div class="col-md-12">
-             <b> <h4><%= link_to producto.name, product_path(producto) %></h4> </b>
+             <b> <h4><%= link_to producto.name, product_path(producto), class: "enlaces" %></h4> </b>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <%= link_to productos_marca_path(producto.marca) do %>
+              <%= link_to productos_marca_path(producto.marca), class: "enlaces2" do %>
                 <%= producto.marca.name %>
               <% end %>
                 <br/>

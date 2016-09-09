@@ -4,7 +4,6 @@
             <tr>
               <% i = 0 %>
 
-               <%= @ultimos %>
                <% if !@ultimos.empty?   %>
                  <% @ultimos.each do |producto| %>
                   <% if  producto.imagenprincipal.present? %>
@@ -14,7 +13,7 @@
                     <% i = i + 1 %>
                     <td>
                       <%= link_to producto do %>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered imagenes_inicio">
                           <tr>
                             <td>
                               <%= image_tag producto.imagenprincipal, class: 'img-responsive'   %>

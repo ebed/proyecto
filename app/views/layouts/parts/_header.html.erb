@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default navbar-fixed">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <div class="textoMarca">OU<font class="zmarca" >Z</font>OM</div>
+      </a>
+       <p class="navbar-text pull-right">
+
+    </div>
+     <% if user_signed_in? %>
+
+        <ul class="nav navbar-nav navbar-right">
+
+
+             <li>
+
+            </li>
+            <li>
+            <%= render 'layouts/menus/usermenu' %>
+           </li>
+
+        </ul>
+
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      </p>
+  </div>
+  </nav>

@@ -1,0 +1,46 @@
+<div class="panel panel-default panel-lateral">
+  <div class="panel-heading panel-lateral-heading">
+    RODRIGO MERINO
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-10">
+                    TIENES  <strong>
+                    <%= current_user.articulosSeleccionados %>
+                </strong>
+                <% if current_user.articulosSeleccionados > 1 %>
+                    ARTICULOS
+                <% else %>
+                    ARTICULO
+                <% end %>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-10">
+        Con un valor de
+        <strong>$0</strong>
+      </div>
+    </div>
+     <div class="row">
+     <div class="col-md-12">&nbsp;</div>
+      </div>
+    <div class="row">
+      <div class="col-md-6">
+        <% if current_user.tieneOrden? %>
+                <%= button_to "Ver Orden", order_path(current_user.orden), class: "btn btn-block btn-default" %>
+            <% end %>
+
+      </div>
+       <div class="col-md-6">
+          <%= button_to carro_path(current_user), :method => "get", :class => "btn btn-block btn-default" do %>
+                    MI CARRO <%=  fa_icon 'shopping-cart'  %>
+                    <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>

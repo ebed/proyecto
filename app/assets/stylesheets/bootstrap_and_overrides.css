@@ -5,7 +5,15 @@
   =require twitter-bootstrap-static/sprites
 */
 
+body {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important!;
 
+}
+h3 {
+  color: #777 !important;
+  font-weight: bold;
+}
 
 
 .imagenesThumb {
@@ -22,3 +30,319 @@
 
 
 
+
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:4px !important;
+    padding-bottom:0 !important;
+    height: 36px;
+}
+.navbar {min-height:36px !important;}
+
+
+
+
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+@font-face {
+    font-family: 'Opificio'; /*a name to be used later*/
+    src: url('Opificio_regular.otf'); /*URL to font*/
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.navbar-default{ /* assigning the top bar to the entire navbar div element */
+
+     text-align: center;
+     background-color: #fff;
+     height: 60px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+    background-color: #AAA;
+    box-shadow: inset 0px 6px 0px #000; /* switch to a darker color on hover */
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: gray;
+    box-shadow: inset 0px 6px 0px #AAA; /* switch to a lighter color for active element */
+}
+
+.panel-default {
+  border-color: #fafafa !important;
+}
+.navbar-default .textoMarca {
+  position: relative;
+  top: 15px ;
+  color: black;
+
+  font-size: 45px;
+  transition: 0.4s;
+  font-family: 'Opificio';
+}
+
+.navbar-default .textoMarca:hover {
+  opacity: 0.3;
+  font-size: 45px;
+
+}
+
+.navbar-default .textoMarca .zmarca {
+  color:red;
+  font-size: 64px !important;
+  position: relative;
+  top: 6px;
+}
+
+.panel-categorias {
+border-width: 1px;
+border-color:#fafafa;
+}
+
+.panel-heading-categorias {
+  background-color: #fafafa;
+  border-color:#f3f3f3;
+  color: #888;
+  transition: 0.5s;
+  padding: 10px !important;
+}
+
+
+.panel-heading-categorias:hover {
+  background-color: #f0f0f0;
+  border-width: 4px;
+  border-color: #f11;
+  color: #222;
+}
+
+.botoncategoria {
+  background-color: black;
+}
+
+.panel-heading-personal a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color:#aaa !important;
+
+    border-width: 0px !important;
+    border-color: #fafafa !important;
+}
+
+.panel-body-categoria {
+  border-width: 0px;
+  border-color: #FFF;
+  padding: 0 !important;
+}
+.list-categories {
+  margin-bottom: 5px !important;
+}
+
+
+.list-group-item  {
+
+  border: 0px solid #FFF !important;
+  padding: 0;
+  margin: 0;
+  transition: 0.5s;
+
+}
+
+ .panel-body-categories {
+  padding: 0;
+}
+
+ .list-categories-item  {
+  border-width: 1px !important;
+  border-color: #fafafa !important;
+
+}
+
+
+ .list-categories-item:hover  {
+  border-width: 1px !important;
+  background-color: #fff !important;
+  color: red !important;
+}
+
+.panel-tabs {
+  background-color: #fff !important;
+  padding: 0;
+
+}
+
+.panel-group-categorias {
+  margin-bottom: 5px !important;
+}
+
+.panel-main-tabs {
+  border-width: 0;
+}
+
+
+
+.panel-lateral {
+  border-width: 1px;
+  border-color: #fafafa;
+
+  transition: all 0.5s;
+
+}
+
+.panel-lateral:hover {
+  border-width: 1px;
+  border-color: #e0e0e0;
+  color: #aaa;
+}
+
+.panel-heading {
+  border-width: 0px !important;
+
+}
+
+.panel-heading-tabs {
+  padding: 0px !important;
+  margin: 0px;
+}
+
+
+.panel-lateral-heading {
+ border-width: 0px !important;
+ border-color: #fafafa !important;
+ color: #888 !important;
+ font-weight: bold;
+}
+
+.rowtienda {
+
+}
+
+.inputs-personal {
+  transition: 1s;
+}
+
+
+.inputs-personal:hover {
+  color: #fff !important;
+  background-color: #aaa;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: #faa !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: red !important;
+
+}
+
+.panel-title {
+  font-size: 12px;
+}
+
+.pilltab>a {
+
+  transition: 0.2s;
+}
+.pilltab>a:hover {
+  border-width: 0.5px !important;
+  border-color: #999 !important;
+  color: red !important;
+  transition: 0.5s;
+}
+
+
+.linea-ordenes {
+  border-width: 1px  !important;
+  border-color: black !important;
+}
+
+.enlacespie{
+  transition: 0.5s;
+}
+.enlacespie:hover {
+  background-color: #eee !important;
+  border-color: white !important;
+}
+
+
+.btn {
+  font-size: 12px;
+}
+
+
+.imagenes_inicio {
+
+  transition: 0.5s;
+}
+
+.imagenes_inicio:hover {
+  opacity: 0.5;
+
+  border-color: #555;
+  transition: 0.3s;
+}
+
+
+.rowarticulos {
+  vertical-align: middle !important;
+  transition: 0.5s;
+
+}
+
+
+.rowarticulos:hover {
+  opacity: 0.8;
+  border-width: 0.5px  !important;
+  border-color: black !important;
+  transition: 0.5s;
+  background-color: #fafafa !important;
+
+}
+
+.enlaces{
+  font-weight: bold !important;
+  transition: 0.5s;
+}
+.enlaces:hover{
+  background-color: #fff !important;
+  color: #222 !important;
+  transition: 0.5s;
+
+}
+
+.enlaces2{
+  transition: 0.5s;
+
+}
+.enlaces2:hover{
+  background-color: #fff !important;
+  color: #222 !important;
+  transition: 0.5s;
+}
+
+
+.enlaces3{
+  font-size: 22px;
+  transition: 0.5s;
+
+
+
+}
+.enlaces3:hover{
+  background-color: #f5f5f5 !important;
+  font-weight: bold;
+  color: red !important;
+  transition: 0.5s;
+}
