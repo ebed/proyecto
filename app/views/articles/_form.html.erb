@@ -3,6 +3,11 @@
 
 
   <%= f.select :product_id,  Product.all.collect {|p| [ p.name, p.id ] } %>
+  <%= f.text_field :talla %>
+  <%= f.text_field :color  %>
+  <%= f.text_field :segmento %>
+
+  <%= f.text_field :sexo %>
   <%= f.text_field :stock %>
   <%= f.text_field :price %>
   <% if @article.tienda_id.present? %>

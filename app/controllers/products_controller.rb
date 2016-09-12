@@ -17,6 +17,20 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     gon.imagenesproducto = @imagenesproducto
 
+    @colores = []
+    @product.articles.each do |articulo|
+      @colores << [articulo.color, articulo.talla, articulo.sexo]
+    end
+
+    @tallas = []
+    @product.articles.each do |articulo|
+      @tallas << [articulo.talla, articulo.color, articulo.sexo]
+    end
+
+    @sexo = []
+    @product.articles.each do |articulo|
+      @sexo << [articulo.sexo, articulo.talla, articulo.sexo]
+    end
 
   end
 

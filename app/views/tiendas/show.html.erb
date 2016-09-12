@@ -26,6 +26,18 @@
                 ARTICULOS
               </td>
               <td>
+                COLOR
+              </td>
+              <td>
+                TALLA
+              </td>
+              <td>
+                SEGMENTO
+              </td>
+              <td>
+                SEXO
+              </td>
+              <td>
                 PRECIO
               </td>
               <td colspan=2>
@@ -36,8 +48,20 @@
 
 
             <% @tienda.articles.each do |articulo| %>
-              <tr><td>
+              <tr class="rowarticulos"><td>
                 <%= articulo.product.name %>
+              </td>
+              <td>
+                <%= articulo.color %>
+              </td>
+              <td>
+                <%= articulo.talla %>
+              </td>
+              <td>
+                <%= articulo.segmento %>
+              </td>
+              <td>
+                <%= articulo.sexo %>
               </td>
               <td>
               <%= number_to_currency(articulo.price, precision: 0) %>

@@ -5,6 +5,7 @@ class Tienda < ApplicationRecord
   has_many :sells,:dependent => :delete_all
   has_many :articles,:dependent => :delete_all
   has_many :orders, :dependent => :delete_all
+  has_many :specific_product
 
   def contarordenespendientes
 

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'segments/index'
+
+  get 'segments/update'
+
+  get 'segments/destroy'
+
+  get 'segments/create'
+
+  get 'segments/new'
+
   devise_for :users, :controllers => {:registrations => "registrations"}
 
 
@@ -31,6 +41,11 @@ Rails.application.routes.draw do
   resources :main_orders
   resources :payments
   resources :product_images
+
+
+
+  resources :colors
+  resources :tallas
 
   root 'static_pages#home'
 
