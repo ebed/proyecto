@@ -30,10 +30,13 @@
      <div class="col-md-12">&nbsp;</div>
       </div>
     <div class="row">
+     <% if current_user.present? %>
       <div class="col-md-6">
+
         <% if current_user.tieneOrden? %>
                 <%= button_to "Ver Orden", order_path(current_user.orden), class: "btn btn-block btn-default" %>
-            <% end %>
+           <% end %>
+
 
       </div>
        <div class="col-md-6">
@@ -42,6 +45,7 @@
                     <% end %>
 
       </div>
+       <% end %>
     </div>
 
   </div>
