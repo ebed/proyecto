@@ -6,14 +6,16 @@
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-10">
+              <% if current_user.present? %>
                     TIENES  <strong>
-                    <%= current_user.articulosSeleccionados %>
+                    <%=  current_user.articulosSeleccionados %>
                 </strong>
                 <% if current_user.articulosSeleccionados > 1 %>
                     ARTICULOS
                 <% else %>
                     ARTICULO
                 <% end %>
+              <% end %>
 
       </div>
     </div>
