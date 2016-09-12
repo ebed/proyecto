@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'angularjs-rails'
+
 gem 'rails-gallery'
 gem 'gon'
 gem "jquery-fileupload-rails"
