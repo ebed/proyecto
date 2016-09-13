@@ -21,4 +21,3 @@ module Proyecto
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
   end
 end
-
