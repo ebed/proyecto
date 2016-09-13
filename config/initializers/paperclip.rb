@@ -12,7 +12,7 @@ if Rails.env.production?
     s3_region: ENV['AWS_REGION'],
     s3_credentials: {
       bucket: ENV['S3_BUCKET_NAME'],
-      :s3_host_name => 's3.amazonaws.com'
+      :s3_host_name => 's3.amazonaws.com', :access_key_id => ENV['AWS_ACCESS_KEY'], :secret_access_key => ENV['AWS_SECRET_KEY']
     }
   })
 end
