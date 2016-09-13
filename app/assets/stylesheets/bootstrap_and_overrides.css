@@ -57,7 +57,8 @@ a:hover {
 
 @font-face {
     font-family: 'Opificio'; /*a name to be used later*/
-    src: url('Opificio_regular.otf'); /*URL to font*/
+    src: asset_url('fonts/Opificio_regular.eot');
+
     font-weight: normal;
     font-style: normal;
 }
