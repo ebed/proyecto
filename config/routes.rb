@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
 
 
+
+
   resources :statusorders
   resources :paymentmethods
   resources :profiles

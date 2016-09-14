@@ -63,6 +63,17 @@ a:hover {
 
     font-weight: normal;
     font-style: normal;
+    font-size: 12px;
+}
+
+.btn-personal {
+  transition: 0.5s;
+}
+
+
+.btn-personal:hover {
+  background-color: #ddd !important;
+  border-color: #eee;
 }
 
 
@@ -117,6 +128,12 @@ a:hover {
   top: 6px;
 }
 
+
+.btn-login{
+  width: 95px;
+}
+
+
 .panel-categorias {
 border-width: 1px;
 border-color:#fafafa;
@@ -126,8 +143,8 @@ border-color:#fafafa;
   background-color: #fafafa;
   border-color:#f3f3f3;
   color: #888;
-  transition: 0.5s;
   padding: 10px !important;
+  transition: 0.5s all;
 }
 
 
@@ -214,7 +231,7 @@ border-color:#fafafa;
 .panel-lateral:hover {
   border-width: 1px;
   border-color: #e0e0e0;
-  color: #aaa;
+  color: #faa;
 }
 
 .panel-heading {
@@ -246,7 +263,7 @@ border-color:#fafafa;
 
 .inputs-personal:hover {
   color: #fff !important;
-  background-color: #aaa;
+  background-color: #aaa !important;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {

@@ -1,93 +1,106 @@
-<div class="panel panel-default panel-lateral">
-  <div class="panel-heading panel-lateral-heading">
-   <strong>
-              <% if current_user.present? %>
 
-                <div class="row">
-                    <div class="col-md-10">
-                       <% if current_user.name.present? %>
-                            <%= current_user.name %>
-                             <%= link_to  edit_user_path(current_user) do %>
-                                <%= fa_icon "edit" %>
-                             <%  end %>
-                        <% else %>
-                            <%= link_to "Editar datos", edit_user_path(current_user) %>
-                        <% end %>
-                        </div>
 
-                        <div col-md-1>
-                        </strong>   <%= button_to   destroy_user_session_path, method: :delete, :class => 'btn btn-xs btn-danger' do  %>
-                            <%=  fa_icon 'sign-out'  %>
-                        <% end %>
-                        </div>
+ <div class="panel-group panel-group-categorias " id="accordion" role="tablist" aria-multiselectable="false">
+  <div class="panel panel-default panel-categorias  panel-lateral">
+    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#carrosectionbody" aria-expanded="false" aria-controls="carrosectionbody" >
 
-                </div>
-              <% else %>
-                <strong>REGISTRO</strong>
-              <% end %>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-10">
-          <% if current_user.present? %>
-              <% if current_user.present? %>
-                    TIENES  <strong>
-                    <%=  current_user.articulosSeleccionados %>
-                </strong>
-                <% if current_user.articulosSeleccionados > 1 %>
-                    ARTICULOS
+          <div class="panel-heading panel-heading-categorias" role="tab" id="carrosection">
+
+                <% if current_user.present? %>
+
+                  <div class="row">
+
+                      <div class="col-md-10">
+                       <h4 class="panel-title">
+                         <% if current_user.name.present? %>
+                              <%= current_user.name %>
+                               <%= link_to  edit_user_path(current_user) do %>
+                                  <%= fa_icon "edit" %>
+                               <%  end %>
+                          <% else %>
+                              <%= link_to "Editar datos", edit_user_path(current_user) %>
+                          <% end %>
+                          </div>
+
+                          <div col-md-1>
+                            <%= button_to destroy_user_session_path, method: :delete, :class => 'btn btn-xs btn-danger' do  %>
+                              <%=  fa_icon 'sign-out'  %>
+                          <% end %>
+                          </div>
+                        </h4>
+                  </div>
                 <% else %>
-                    ARTICULO
+                 <h4 class="panel-title">  REGISTRO  </h4>
                 <% end %>
-              <% end %>
-
-              <% else %>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= link_to new_user_registration_path do %>
-                    <button type="button"  class="btn btn-default">REGISTRARSE</button>
-                  <% end %>
-              </div>
-              <div class="col-md-6">
-                  <%= link_to  new_user_session_path do %>
-                    <button type="button"  class="btn btn-default">INGRESAR</button>
-                  <% end %>
-              </div>
-          <% end %>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-10">
-        <% if current_user.present? %>
-              Con un valor de
-              <strong>$0</strong>
-        <% end %>
-      </div>
-    </div>
-     <div class="row">
-     <div class="col-md-12">&nbsp;</div>
-      </div>
-    <div class="row">
-     <% if current_user.present? %>
-      <div class="col-md-6">
-
-        <% if current_user.tieneOrden? %>
-                <%= button_to "Ver Orden", order_path(current_user.orden), class: "btn btn-block btn-default" %>
-           <% end %>
+          </div>
+          </a>
 
 
-      </div>
-       <div class="col-md-6">
-          <%= button_to carro_path(current_user), :method => "get", :class => "btn btn-block btn-default" do %>
-                    MI CARRO <%=  fa_icon 'shopping-cart'  %>
+
+    <div id="carrosectionbody" class="panel-collapse collapse" role="tabpanel" aria-labelledby="carrosection">
+
+
+
+
+        <div class="panel-body">
+          <div class="row">
+
+            <div class="col-md-12 ">
+                <% if current_user.present? %>
+                    <% if current_user.present? %>
+                          TIENES  <strong>
+                          <%=  current_user.articulosSeleccionados %>
+                      </strong>
+                      <% if current_user.articulosSeleccionados > 1 %>
+                          ARTICULOS
+                      <% else %>
+                          ARTICULO
+                      <% end %>
                     <% end %>
 
-      </div>
-     <% end %>
-    </div>
+                    <% else %>
 
-  </div>
-  </div>
+
+
+                   <%= render 'layouts/parts/login' %>
+
+                    <% end %>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+              <% if current_user.present? %>
+                    Con un valor de
+                    <strong>$0</strong>
+              <% end %>
+            </div>
+          </div>
+           <div class="row">
+           <div class="col-md-12">&nbsp;</div>
+            </div>
+          <div class="row">
+           <% if current_user.present? %>
+            <div class="col-md-6">
+
+              <% if current_user.tieneOrden? %>
+                      <%= button_to "Ver Orden", order_path(current_user.orden), class: "btn btn-block btn-default" %>
+                 <% end %>
+
+
+            </div>
+             <div class="col-md-6">
+                <%= button_to carro_path(current_user), :method => "get", :class => "btn btn-block btn-default" do %>
+                          MI CARRO <%=  fa_icon 'shopping-cart'  %>
+                          <% end %>
+
+            </div>
+           <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
