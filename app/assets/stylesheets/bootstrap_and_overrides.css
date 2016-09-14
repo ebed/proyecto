@@ -115,7 +115,7 @@ a:hover {
    font-weight: normal !important;
 }
 .panel-default {
-  border-color: #fafafa !important;
+  border-color: #eaeaea !important;
 }
 .navbar-default .textoMarca {
   position: relative;
@@ -337,14 +337,14 @@ border-color:#fafafa;
 
   background-position:  0 100% ;
   background-repeat: no-repeat;
-  -webkit-background-size: 100% 5px;
-  -moz-background-size: 100% 5px;
-  background-size: 100% 5px;
+  -webkit-background-size: 100% 2px;
+  -moz-background-size: 100% 2px;
+  background-size: 100% 2px;
 
-  background-image: -webkit-linear-gradient(left, #000 0%, #fff 100%), -webkit-linear-gradient(left, #000 0%, #fff 100%);
-  background-image: -moz-linear-gradient(left, #000 0%, #fff 100%), -moz-linear-gradient(left, #000 0%, #fff 100%);
-  background-image: -o-linear-gradient(left, #000 0%, #fff 100%), -o-linear-gradient(left, #000 0%, #fff 100%);
-  background-image: linear-gradient(to right, #000 0%, #fff 100%), linear-gradient(to right, #000 0%, #fff 100%);
+  background-image: -webkit-linear-gradient(left, #000 0%, #fff 80%), -webkit-linear-gradient(left, #000 0%, #fff 100%);
+  background-image: -moz-linear-gradient(left, #000 0%, #fff 80%), -moz-linear-gradient(left, #000 0%, #fff 100%);
+  background-image: -o-linear-gradient(left, #000 0%, #fff 80%), -o-linear-gradient(left, #000 0%, #fff 100%);
+  background-image: linear-gradient(to right, #000 0%, #fff 80%), linear-gradient(to right, #000 0%, #fff 100%);
 }
 
 
