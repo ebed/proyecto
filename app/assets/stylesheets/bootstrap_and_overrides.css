@@ -269,26 +269,33 @@ border-color:#fafafa;
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: #faa !important;
   color: #fff !important;
-  font-weight: bold;
+
+  transition: 0.5s;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: red !important;
-
+  font-weight: normal !important;
 }
 
 .panel-title {
-  font-size: 12px;
+  font-size: 12px !important;
+}
+.tabspersonal {
+
 }
 
 .pilltab>a {
-
+  font-size: 12px !important;
+  border-width: 0.1px !important;
   transition: 0.2s;
 }
+
 .pilltab>a:hover {
-  border-width: 0.5px !important;
-  border-color: #999 !important;
+
+  border-color: #f99 !important;
   color: red !important;
+  font-weight: normal !important;
   transition: 0.5s;
 }
 
