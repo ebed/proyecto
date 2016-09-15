@@ -3,7 +3,17 @@
 
 <div class="panel panel-default panel-lateral">
   <div class="panel-heading panel-lateral-heading">
-    MIS TIENDAS
+    <div class="row">
+      <div class="col-md-8">
+        MIS TIENDAS
+      </div>
+      <div class="col-md-1">
+        <div class="caret_down">
+            <a  role="button" data-toggle="collapse" data-parent="#accordion" href="#carrosectionbody" aria-expanded="false" aria-controls="carrosectionbody" ><%= fa_icon " 2x caret-square-o-down" %>
+         </a>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="panel-body">
       <% current_user.seller.tiendas.each do |tienda| %>

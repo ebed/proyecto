@@ -16,9 +16,16 @@
 
             </li>
             <li>
-            <%= render 'layouts/menus/usermenu' %>
+
+           </li>
+           <% if current_user.present? %>
+           <li>
+
+              <div class="navbar-text">Registrado como </div>
+              <%= render 'layouts/menus/usermenu'%>
            </li>
 
+           <% end %>
         </ul>
 
       <% else %>

@@ -1,38 +1,48 @@
  <div class="dropdown navbar-btn btn-group">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= fa_icon 'navicon' %>
-      <span class="caret"></span>
+      <strong><%= current_user.name %></strong>
+      <%= fa_icon ' caret-square-o-down' %>
 
     </button>
-
+<% if current_user.present?  %>
     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownusuario">
-    <% if current_user.present?  %>
+    <li class="dropdown-header">OPCIONES USUARIO</li>
 
-      <li><%= link_to "EDITAR PERFIL",  edit_user_path(current_user) %></li>
-      <li><%= link_to "MIS COMENTARIOS",  comments_path %></li>
-      <li><%= link_to "MI HISTORIAL",  edit_user_registration_path %></li>
+      <li class="menudrop"><%= link_to "EDITAR PERFIL",  edit_user_path(current_user) %></li>
+      <li class="menudrop"><%= link_to "MIS COMENTARIOS",  comments_path %></li>
+      <li class="menudrop"><%= link_to "MI HISTORIAL",  edit_user_registration_path %></li>
+      <li class="menudrop"><%= link_to "MIS ORDENES",  orders_path %></li>
       <li role="separator" class="divider"></li>
-    <% end %>
+
     <% if current_user.profile.present? && current_user.profile.canadminstore %>
-      <li><%= link_to "ADMINISTRAR TIENDA", tiendas_path%></li>
+      <li class="dropdown-header">OPCIONES VENDEDOR</li>
+      <li class="menudrop"><%= link_to "ADMINISTRAR TIENDA", tiendas_path%></li>
+       <li class="menudrop"><%= link_to "MIS ORDENES",  orders_path %></li>
+       <li class="menudrop"><a href="#">Mis Evaluaciones</a></li>
+       <li class="menudrop"><a href="#">MIs Comentarios</a></li>
       <li role="separator" class="divider"></li>
     <% end %>
      <% if current_user.profile.present? && current_user.profile.canadmin %>
-      <li><%= link_to "TIPOS DE CONTACTO",  contactypes_path%></li>
-      <li><%= link_to "METODOS DE PAGO",  paymentmethods_path%></li>
-      <li> <%= link_to "CATEGORIAS",  categories_path%></li>
-      <li><%= link_to "PRODUCTOS",  products_path%></li>
-      <li><%= link_to "MARCAS",  marcas_path%></li>
-      <li><%= link_to "VENDEDORES",  sellers_path%></li>
-      <li><%= link_to "PERFILES",  profiles_path%></li>
-      <li><%= link_to "ESTADOS DE ORDENES",  statusorders_path %></li>
-      <li><%= link_to "USUARIOS",  users_path%></li>
+     <li class="dropdown-header">OPCIONES ADMINISTRADOR</li>
+      <li class="menudrop"><%= link_to "TIPOS DE CONTACTO",  contactypes_path%></li>
+      <li class="menudrop"><%= link_to "METODOS DE PAGO",  paymentmethods_path%></li>
+      <li class="menudrop"> <%= link_to "CATEGORIAS",  categories_path%></li>
+      <li class="menudrop"><%= link_to "PRODUCTOS",  products_path%></li>
+      <li class="menudrop"><%= link_to "MARCAS",  marcas_path%></li>
+      <li class="menudrop"><%= link_to "VENDEDORES",  sellers_path%></li>
+      <li class="menudrop"><%= link_to "PERFILES",  profiles_path%></li>
+      <li class="menudrop"><%= link_to "ESTADOS DE ORDENES",  statusorders_path %></li>
+      <li class="menudrop"><%= link_to "USUARIOS",  users_path%></li>
 
     <% end %>
 
-    <% if current_user.profile.present? && ( current_user.profile.canadmin || current_user.profile.canadminstore )%>
-      <li><%= link_to "LISTA DE ORDENES",  orders_path%></li>
 
-    <% end %>
+
+      <li role="separator" class="divider"></li>
+       <li  class="menudrop menudrop-salir"><%= link_to  destroy_user_session_path, method: :delete do %>
+       <%= fa_icon "sign-out" %>  SALIR
+         <% end %>
+       </li>
     </ul>
+     <% end %>
   </div>

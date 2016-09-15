@@ -1,428 +1,457 @@
-/*
-  =require twitter-bootstrap-static/bootstrap
+  /*
+    =require twitter-bootstrap-static/bootstrap
 
-  Static version of css will use Glyphicons sprites by default
-  =require twitter-bootstrap-static/sprites
-*/
-
-body {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-
-}
-h3 {
-  color: #777 !important;
-  font-weight: bold;
-}
-
-a:hover {
-  background-color: transparent !important;
-  font-weight: bold;
-  color: red! important;
-}
-
-.imagenesThumb {
-
-  opacity: 1;
-
-  transition: all linear 0.5s;
-}
-
-.imagenesThumb:hover {
-  opacity: 0.4;
-
-}
-
-
-.navbar-top-personal {
-    text-align: center;
-    background-color: transparent;
-    height: 60px !important;
-    border-width: 0px;
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-    padding-bottom: 70px;
-
-}
-
-
-.navbar-nav > li > a, .navbar-brand {
-    padding-top:4px !important;
-    padding-bottom:0 !important;
-    height: 36px;
-}
-.navbar {min-height:36px !important;}
-
-
-.navbar-brand {
-  font-weight: normal;
-}
-
-/*
-  =require twitter-bootstrap-static/bootstrap
-
-  Use Font Awesome icons (default)
-  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
-  =require twitter-bootstrap-static/fontawesome
+    Static version of css will use Glyphicons sprites by default
+    =require twitter-bootstrap-static/sprites
   */
 
-@font-face {
-    font-family: 'Opificio'; /*a name to be used later*/
+  body {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
 
-    src: url('Opificio_regular.otf'); /*URL to font*/
-    src: url('https://s3-us-west-2.amazonaws.com/ouzomprod/fonts/Opificio_regular.otf');
+  }
+  h3 {
+    color: #777 !important;
+    font-weight: bold;
+  }
 
-    font-weight: normal;
-    font-style: normal;
-    font-size: 12px;
-}
-
-.btn-personal {
-  transition: 0.5s;
-}
-
-
-.btn-personal:hover {
-  background-color: #ddd !important;
-  border-color: #eee;
-}
-
-
-.navbar-default{ /* assigning the top bar to the entire navbar div element */
-      font-weight: normal !important;
-     text-align: center;
-     background-color: #fff;
-     height: 60px !important;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: white;
-    background-color: #AAA;
-    box-shadow: inset 0px 6px 0px #000; /* switch to a darker color on hover */
-    font-weight: normal !important;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    color: white;
+  a:hover {
     background-color: transparent !important;
+    font-weight: bold;
+    color: red! important;
+  }
+
+  .imagenesThumb {
+
+    opacity: 1;
+
+    transition: all linear 0.5s;
+  }
+
+  .imagenesThumb:hover {
+    opacity: 0.4;
+
+  }
+
+
+  .navbar-top-personal {
+      text-align: center;
+      background-color: transparent;
+      height: 60px !important;
+      border-width: 0px;
+      padding-right: 0px !important;
+      padding-left: 0px !important;
+      padding-bottom: 70px;
+
+  }
+
+
+  .navbar-nav > li > a, .navbar-brand {
+      padding-top:4px !important;
+      padding-bottom:0 !important;
+      height: 36px;
+  }
+  .navbar {min-height:36px !important;}
+
+
+  .navbar-brand {
+    font-weight: normal;
+  }
+
+  /*
+    =require twitter-bootstrap-static/bootstrap
+
+    Use Font Awesome icons (default)
+    To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+    =require twitter-bootstrap-static/fontawesome
+    */
+
+  @font-face {
+      font-family: 'Opificio'; /*a name to be used later*/
+
+      src: url('Opificio_regular.otf'); /*URL to font*/
+      src: url('https://s3-us-west-2.amazonaws.com/ouzomprod/fonts/Opificio_regular.otf');
+
+      font-weight: normal;
+      font-style: normal;
+      font-size: 12px;
+  }
+
+  .btn-personal {
+    transition: 0.5s;
+  }
+
+
+  .btn-personal:hover {
+    background-color: #ddd !important;
+    border-color: #eee;
+  }
+
+
+  .navbar-default{ /* assigning the top bar to the entire navbar div element */
+       font-weight: normal !important;
+       text-align: center;
+       background-color: #fff;
+       height: 60px !important;
+  }
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus {
+      color: white;
+      background-color: #AAA;
+      box-shadow: inset 0px 6px 0px #000; /* switch to a darker color on hover */
+      font-weight: normal !important;
+  }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+      color: white;
+      background-color: transparent !important;
+      font-weight: normal !important;
+      box-shadow: inset 0px 6px 0px #AAA; /* switch to a lighter color for active element */
+  }
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+     height: 60px !important;
+     background-color: transparent !important;
+     font-weight: normal !important;
+  }
+  .panel-default {
+    border-color: #eaeaea !important;
+  }
+  .navbar-default .textoMarca {
+    position: relative;
+    top: 15px ;
+    color: black;
     font-weight: normal !important;
-    box-shadow: inset 0px 6px 0px #AAA; /* switch to a lighter color for active element */
-}
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-   height: 60px !important;
-   background-color: transparent !important;
-   font-weight: normal !important;
-}
-.panel-default {
-  border-color: #eaeaea !important;
-}
-.navbar-default .textoMarca {
-  position: relative;
-  top: 15px ;
-  color: black;
-  font-weight: normal !important;
-  font-size: 45px;
-  transition: 0.5s;
-  font-family: 'Opificio';
-}
+    font-size: 45px;
+    transition: 0.5s;
+    font-family: 'Opificio';
+  }
 
-.navbar-bottom-personal {
-  background-color: black;
+  .navbar-bottom-personal {
+    background-color: black !important;
 
-}
+  }
 
-.navbar-default .textoMarca:hover {
-  transition: 0.5s;
-  opacity: 0.3;
-  font-size: 45px;
-  font-weight: normal !important;
-  background-color: #fafafa !important;
+  .navbar-default .textoMarca:hover {
+    transition: 0.5s;
+    opacity: 0.3;
+    font-size: 45px;
+    font-weight: normal !important;
+    background-color: #white !important;
 
-}
+  }
 
-.navbar-default .textoMarca .zmarca {
-  color:red;
-  font-size: 64px !important;
-  position: relative;
-  top: 6px;
-}
+  .navbar-default .textoMarca .zmarca {
+    color:red;
+    font-size: 64px !important;
+    position: relative;
+    top: 6px;
+  }
 
 
-.btn-login{
-  width: 95px;
-}
+  .btn-login{
+    width: 95px;
+  }
+
+  .btn-block {
+    font-size: 11px !important;
+    padding: 3px !important;
+  }
 
 
-.panel-categorias {
-border-width: 1px;
-border-color:#fafafa;
-}
+  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: white !important;
+  background-color: #ff2929 !important;
+  }
 
-.panel-heading-categorias {
-  background-color: #fafafa;
-  border-color:#f3f3f3;
-  color: #888;
-  padding: 10px !important;
-  transition: 0.5s all;
-}
+  .dropdown-header {
+    font-weight: bold;
+  }
+
+  .color-logout {
+
+    color: #d9534f !important;
+  }
+
+  .carets-down {
+    top: -10px;
+  }
+  .panel-categorias {
+  border-width: 1px;
+  border-color:#fafafa;
+  }
+
+  .panel-heading-categorias {
+    background-color: #fafafa;
+    border-color:#f3f3f3;
+    color: #888;
+    padding: 10px !important;
+    transition: 0.5s all;
+  }
 
 
-.panel-heading-categorias:hover {
-  background-color: #f0f0f0;
-  border-width: 4px;
-  border-color: #f11;
-  color: #222;
-}
+  .panel-heading-categorias:hover {
+    background-color: #f0f0f0;
+    border-width: 4px;
+    border-color: #f11;
+    color: #222;
+  }
 
-.botoncategoria {
-  background-color: black;
-}
+  .botoncategoria {
+    background-color: black;
+  }
 
-.panel-heading-personal a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
-    color:#aaa !important;
+  .panel-heading-personal a:hover, a:visited, a:link, a:active
+  {
+      text-decoration: none;
+      color:#aaa !important;
 
-    border-width: 0px !important;
+      border-width: 0px !important;
+      border-color: #fafafa !important;
+  }
+
+  .panel-body-categoria {
+    border-width: 0px;
+    border-color: #FFF;
+    padding: 0px !important;
+  }
+  .list-categories {
+    margin-bottom: 5px !important;
+  }
+
+
+  .list-group-item  {
+
+    border: 0px solid #FFF !important;
+    padding: 0;
+    margin: 0;
+    transition: 0.5s;
+
+  }
+
+
+   .list-categories-item  {
+    border-width: 1px !important;
     border-color: #fafafa !important;
-}
 
-.panel-body-categoria {
-  border-width: 0px;
-  border-color: #FFF;
-  padding: 0 !important;
-}
-.list-categories {
-  margin-bottom: 5px !important;
-}
+  }
 
 
-.list-group-item  {
+   .list-categories-item:hover  {
+    border-width: 1px !important;
+    background-color: #fff !important;
+    border-color: red !important;
+  }
 
-  border: 0px solid #FFF !important;
-  padding: 0;
-  margin: 0;
-  transition: 0.5s;
+  .panel-tabs {
+    background-color: #fff !important;
+    padding: 0;
 
-}
+  }
 
- .panel-body-categories {
-  padding: 0;
-}
+  .panel-group-categorias {
+    margin-bottom: 5px !important;
+  }
 
- .list-categories-item  {
-  border-width: 1px !important;
-  border-color: #fafafa !important;
+  .panel-main-tabs {
+    border-width: 0;
+  }
 
-}
 
 
- .list-categories-item:hover  {
-  border-width: 1px !important;
-  background-color: #fff !important;
-  color: red !important;
-}
+  .panel-lateral {
+    border-width: 1px;
+    border-color: #fafafa;
 
-.panel-tabs {
-  background-color: #fff !important;
-  padding: 0;
+    transition: all 0.5s;
 
-}
+  }
 
-.panel-group-categorias {
-  margin-bottom: 5px !important;
-}
+  .panel-lateral:hover {
+    border-width: 1px;
+    border-color: #e0e0e0;
+    color: #faa;
+  }
 
-.panel-main-tabs {
-  border-width: 0;
-}
+  .panel-heading {
+    border-width: 0px !important;
 
+  }
 
+  .panel-heading-tabs {
+    padding: 0px !important;
+    margin: 0px;
+  }
 
-.panel-lateral {
-  border-width: 1px;
-  border-color: #fafafa;
 
-  transition: all 0.5s;
+  .panel-lateral-heading {
+   border-width: 0px !important;
+   border-color: #fafafa !important;
+   color: #888 !important;
+   font-weight: bold;
+  }
 
-}
+  .rowtienda {
 
-.panel-lateral:hover {
-  border-width: 1px;
-  border-color: #e0e0e0;
-  color: #faa;
-}
+  }
 
-.panel-heading {
-  border-width: 0px !important;
+  .inputs-personal {
+    transition: 1s;
+  }
 
-}
 
-.panel-heading-tabs {
-  padding: 0px !important;
-  margin: 0px;
-}
+  .inputs-personal:hover {
+    color: #fff !important;
+    background-color: #aaa !important;
+  }
 
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
 
-.panel-lateral-heading {
- border-width: 0px !important;
- border-color: #fafafa !important;
- color: #888 !important;
- font-weight: bold;
-}
+    color: #fff !important;
+    background-color: red !important;
+    font-weight: normal !important;
+    transition: 0.5s;
+  }
 
-.rowtienda {
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
 
-}
+  }
 
-.inputs-personal {
-  transition: 1s;
-}
+  .panel-title {
+    font-size: 12px !important;
+  }
+  .tabspersonal {
 
+  }
 
-.inputs-personal:hover {
-  color: #fff !important;
-  background-color: #aaa !important;
-}
+  .pilltab>a {
+    font-size: 12px !important;
+    border-width: 0.1px !important;
+    transition: 0.2s;
+  }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  .pilltab>a:hover {
 
-  color: #fff !important;
-  background-color: red !important;
-  font-weight: normal !important;
-  transition: 0.5s;
-}
+    border-color: #f99 !important;
+    color: red !important;
+    font-weight: normal !important;
+    transition: 0.5s;
+  }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
 
-}
+  .linea-ordenes {
+    border-width: 1px  !important;
+    border-color: black !important;
+  }
 
-.panel-title {
-  font-size: 12px !important;
-}
-.tabspersonal {
+  .navbar-nav>li>.enlacespie{
+    color: white !important;
+    transition: 0.5s;
+  }
 
-}
+  .left-to-right {
 
-.pilltab>a {
-  font-size: 12px !important;
-  border-width: 0.1px !important;
-  transition: 0.2s;
-}
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 
-.pilltab>a:hover {
+    background-position:  0 100% ;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 2px;
+    -moz-background-size: 100% 2px;
+    background-size: 100% 2px;
 
-  border-color: #f99 !important;
-  color: red !important;
-  font-weight: normal !important;
-  transition: 0.5s;
-}
+    background-image: -webkit-linear-gradient(left, #000 0%, #fff 80%), -webkit-linear-gradient(left, #000 0%, #fff 100%);
+    background-image: -moz-linear-gradient(left, #000 0%, #fff 80%), -moz-linear-gradient(left, #000 0%, #fff 100%);
+    background-image: -o-linear-gradient(left, #000 0%, #fff 80%), -o-linear-gradient(left, #000 0%, #fff 100%);
+    background-image: linear-gradient(to right, #000 0%, #fff 80%), linear-gradient(to right, #000 0%, #fff 100%);
+  }
 
 
-.linea-ordenes {
-  border-width: 1px  !important;
-  border-color: black !important;
-}
+  .navbar-bottom-personal .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+      color: #fafafa;
+    background-color: #444 !important;
+    border-color: red !important;
+    border-width: 1px;
 
-.navbar-nav>li>.enlacespie{
-  color: white !important;
-  transition: 0.5s;
-}
+    transition: 0.5s;
+  }
 
-.left-to-right {
+  .btn {
+    font-size: 12px;
+  }
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
 
-  background-position:  0 100% ;
-  background-repeat: no-repeat;
-  -webkit-background-size: 100% 2px;
-  -moz-background-size: 100% 2px;
-  background-size: 100% 2px;
+  .imagenes_inicio {
 
-  background-image: -webkit-linear-gradient(left, #000 0%, #fff 80%), -webkit-linear-gradient(left, #000 0%, #fff 100%);
-  background-image: -moz-linear-gradient(left, #000 0%, #fff 80%), -moz-linear-gradient(left, #000 0%, #fff 100%);
-  background-image: -o-linear-gradient(left, #000 0%, #fff 80%), -o-linear-gradient(left, #000 0%, #fff 100%);
-  background-image: linear-gradient(to right, #000 0%, #fff 80%), linear-gradient(to right, #000 0%, #fff 100%);
-}
+    transition: 0.5s;
+  }
 
+  .imagenes_inicio:hover {
+    opacity: 0.5;
 
-.navbar-bottom-personal .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
-    color: #fafafa;
-  background-color: #444 !important;
-  border-color: red !important;
-  border-width: 1px;
+    transition: 0.5s;
+  }
 
-  transition: 0.5s;
-}
 
-.btn {
-  font-size: 12px;
-}
+  .rowarticulos {
+    vertical-align: middle !important;
+    transition: 0.5s;
 
+  }
 
-.imagenes_inicio {
 
-  transition: 0.5s;
-}
+  .rowarticulos:hover {
+    opacity: 0.8;
+    border-width: 0.5px  !important;
+    border-color: black !important;
+    transition: 0.5s;
+    background-color: #fafafa !important;
 
-.imagenes_inicio:hover {
-  opacity: 0.5;
+  }
 
-  border-color: #555;
-  transition: 0.3s;
-}
+  .enlaces{
+    font-weight: bold !important;
+    transition: 0.5s;
+  }
+  .enlaces:hover{
+    background-color: #fff !important;
+    color: #222 !important;
+    transition: 0.5s;
 
+  }
 
-.rowarticulos {
-  vertical-align: middle !important;
-  transition: 0.5s;
+  .enlaces2{
+    transition: 0.5s;
 
-}
+  }
+  .enlaces2:hover{
+    background-color: #fff !important;
+    color: #222 !important;
+    transition: 0.5s;
+  }
 
 
-.rowarticulos:hover {
-  opacity: 0.8;
-  border-width: 0.5px  !important;
-  border-color: black !important;
-  transition: 0.5s;
-  background-color: #fafafa !important;
+  .enlaces3{
+    font-size: 22px;
+    transition: 0.5s;
 
-}
 
-.enlaces{
-  font-weight: bold !important;
-  transition: 0.5s;
-}
-.enlaces:hover{
-  background-color: #fff !important;
-  color: #222 !important;
-  transition: 0.5s;
 
-}
+  }
+  .enlaces3:hover{
+    background-color: #f5f5f5 !important;
+    font-weight: bold;
+    color: red !important;
+    transition: 0.5s;
+  }
 
-.enlaces2{
-  transition: 0.5s;
 
-}
-.enlaces2:hover{
-  background-color: #fff !important;
-  color: #222 !important;
-  transition: 0.5s;
-}
+  .menudrop {
+    font-size: 11px;
 
+  }
+  .menudrop-salir {
+    font-size: 12px;
 
-.enlaces3{
-  font-size: 22px;
-  transition: 0.5s;
-
-
-
-}
-.enlaces3:hover{
-  background-color: #f5f5f5 !important;
-  font-weight: bold;
-  color: red !important;
-  transition: 0.5s;
-}
+    color: #222 !important;
+  }

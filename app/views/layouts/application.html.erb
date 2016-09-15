@@ -28,6 +28,14 @@
 
         <%= render 'layouts/parts/columnaizq' %>
       </div>
+
+<% if current_user.present?  %>
+
+     <div class="col-md-10">
+        <%= yield %>
+      </div>
+
+<% else %>
       <div class="col-md-8">
         <%= yield %>
       </div>
@@ -37,6 +45,7 @@
     </div>
 
 
+ <% end %>
 
     <div class="row">
       <div class="col-md-12">
