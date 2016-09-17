@@ -14,13 +14,14 @@
   </head>
 
   <body >
+
+  <% if current_user.present? %>
+    <%= render 'layouts/parts/carritocompra' %>
+  <% end %>
+
   <div class="container-fluid">
     <%= render 'layouts/parts/header' %>
-    <div class="row">
-      <div class="col-md-12">
 
-      </div>
-    </div>
 
 
     <div class="row">
@@ -32,6 +33,11 @@
 <% if current_user.present?  %>
 
      <div class="col-md-10">
+     <div class="row">
+      <div class="col-md-12">
+       <%= render partial: "layouts/parts/flash_messages", flash: flash %>
+      </div>
+    </div>
         <%= yield %>
       </div>
 
@@ -52,7 +58,6 @@
         <%= render 'layouts/parts/footer' %>
       </div>
     </div>
-
 
     </div>
   </body>

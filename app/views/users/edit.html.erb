@@ -1,6 +1,8 @@
 <%= bootstrap_nested_form_for(@user) do |f| %>
 
   <%= f.text_field :nombre %>
+  <%= f.text_field :apellidos %>
+
   <% if current_user.profile.present? && current_user.profile.canadmin %>
     <%= f.select :profile_id, Profile.all.collect {|p| [ p.name, p.id ] } %>
   <% end %>

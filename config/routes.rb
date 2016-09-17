@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
 
 
+get '/404', to: 'errors#not_found'
+get '/500', to: 'errors#server_error'
+
 
 
   resources :statusorders

@@ -8,7 +8,9 @@ class SessionsController < Devise::SessionsController
   end
 
   def create
+
     super
+
   end
 
   def destroy
@@ -26,4 +28,6 @@ class SessionsController < Devise::SessionsController
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+
 end

@@ -27,19 +27,20 @@
           <%= link_to "Pagar orden", pagar_orden_path(morder), class: 'btn btn-default' %>
         <% when 3 %>
           <%= link_to "Preparar envio", preparar_orden_path(morder), class: 'btn btn-default' %>
-        <% when 6 %>
-          <%= link_to "Enviar paquete", enviar_orden_path(morder), class: 'btn btn-default' %>
         <% when 4 %>
+          <%= link_to "Enviar paquete", enviar_orden_path(morder), class: 'btn btn-default' %>
+        <% when 5 %>
           <%= link_to "Paquete recepcionado", cerrar_orden_path(morder), class: 'btn btn-default' %>
 
         <% end %>
 
       </td>
       <td>
-
+      <% if morder.statusorder_id < 6 %>
         <%= link_to morder, method: :delete do %>
           <%= fa_icon 'remove'%>
         <% end %>
+      <% end %>
       </td>
 
     </tr>

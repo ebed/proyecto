@@ -14,7 +14,8 @@ module Proyecto
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
 
     config.assets.initialize_on_precompile = false
-
+#    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib/classes)
     #config.assets.precompile += Ckeditor.assets
 
     config.assets.precompile += %w( ckeditor/* )

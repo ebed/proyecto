@@ -455,3 +455,76 @@
 
     color: #222 !important;
   }
+
+
+  .notice {
+
+    background-color: #d7ffce;
+    border-color: #99FF99;
+    transition: 0.5s;
+  }
+  .notice:hover {
+    background-color: #d7ffce;
+    opacity: 0.7;
+  }
+
+  .error {
+
+    background-color: #ff0000;
+    border-color: #99FF99;
+    transition: 0.5s;
+  }
+  .error:hover {
+    background-color: #ff0000;
+    opacity: 0.7;
+  }
+  .success {
+    background-color: #00ff00;
+    border-color: #99FF99;
+    transition: 0.5s;
+  }
+  .success:hover {
+    background-color: #00ff00;
+    opacity: 0.7;
+  }
+
+
+
+
+  .alert {
+    width: 80%;
+    border-width: 1px;
+    z-index: 2000;
+    opacity: 0.7 !important;
+
+    transition: 0.5s;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: navy;
+  }
+  .alert:hover {
+
+    opacity: 0.9;
+  }
+
+.carroflotante {
+  border-width: 1px;
+  border-color: black;
+  color: red;
+  right: 48px;
+  position: fixed;
+  top: 70px;
+  font-size: 9px;
+  z-index: 1000;
+
+
+  transition: 1s;
+}
+
+
+.carroflotante:hover {
+  opacity: 0.5;
+  color: black;
+  border-color: red;
+   }

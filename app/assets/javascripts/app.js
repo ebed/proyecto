@@ -52,6 +52,8 @@ app = angular.module('app',['ngAnimate']).directive('slideable', function () {
 
 
 app.controller('appController', ['$rootScope','$scope','$animate', function($rootScope,$scope) {
+
+
     var categoryActive=0;
 
     $scope.currentIndexImage=-1;
