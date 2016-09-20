@@ -1,4 +1,4 @@
-|class ProductsController < ApplicationController
+class ProductsController < ApplicationController
 before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -44,13 +44,13 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   def update
     @product.update(product_params)
     @product.save
-         if params[:images]
-            #===== The magic is here ;)
-            params[:images].each { |image|
-              @product.product_images.create(image: image)
-
-          end
-         flash[:notice] = "Se actualizo correctamente"
+     if params[:images]
+        #===== The magic is here ;)
+        params[:images].each do |image|
+          @product.product_images.create(image: image)
+        end
+      end
+      flash[:notice] = "Se actualizo correctamente"
     redirect_to products_path
 
   end
