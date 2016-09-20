@@ -19,17 +19,17 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     @colores = []
     @product.articles.each do |articulo|
-      @colores << [articulo.color, articulo.talla, articulo.sexo]
+      @colores << [articulo.color]
     end
 
     @tallas = []
     @product.articles.each do |articulo|
-      @tallas << [articulo.talla, articulo.color, articulo.sexo]
+      @tallas << [articulo.talla]
     end
 
     @sexo = []
     @product.articles.each do |articulo|
-      @sexo << [articulo.sexo, articulo.talla, articulo.sexo]
+      @sexo << [articulo.sexo]
     end
 
   end
@@ -95,11 +95,11 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     p "Agrega a carro"
     p params
 
-    articulo = Article.where(:product_id => params[:producto], :tienda_id => params[:proveedor]).first
-
+    articulo = Article.where(:product_id => params[:producto], :tienda_id => params[:proveedor], :sexo => params[:sexo], :color => params[:color], :talla => params[:talla] ).first
+    p articulo
     temp = Selectedarticle.where(:user_id => current_user.id, :article_id =>  articulo.id).first
 
-    if temp != nil && temp.qty > 0
+    if !temp.nil?
         qty = temp.qty
         p "Se agregan items de articulos ya escogidos",qty
         qty = qty + params[:cantidad].to_f
@@ -132,7 +132,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   end
 
   def product_params
-    params.require(:product).permit(:name, :marca_id, :specifications, :year, :category_id, :subcategory_id, :avatar)
+    params.require(:product).permit(:name, :marca_id, :specifications, :year, :category_id, :subcategory_id, :avatar, :tienda_id, :sexo, :color, :talla)
   end
 
 

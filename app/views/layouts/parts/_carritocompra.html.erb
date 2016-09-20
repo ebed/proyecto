@@ -1,9 +1,35 @@
 <div class="carroflotante">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-        <%= fa_icon '2x opencart' %>
-        CARRO
-        </div>
-        <div class="panel-body">CUERPO CARRO</div>
-      </div>
+ <a class="btn btn-carro" role="button" data-toggle="collapse" href="#collapseCarro" aria-expanded="false" aria-controls="collapseCarro">
+  CARRO DE COMPRA
+</a>
+
+<div class="collapse" id="collapseCarro">
+  <div class="well">
+      <table>
+            <tr>
+              <td><%= current_user.articulosSeleccionados %> ARTICULOS </td>
+            </tr>
+            <tr>
+              <td>
+
+                <%= number_to_currency(current_user.totalPagar, precision: 0) %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+              <%= button_to do %>
+               VER <%= fa_icon 'opencart' %>
+
+              <% end %>
+              </td>
+            </tr>
+
+            </table>
+
+
+
+
   </div>
+</div>
+</div>

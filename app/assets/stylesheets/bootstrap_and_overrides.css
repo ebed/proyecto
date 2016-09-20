@@ -508,10 +508,11 @@
     opacity: 0.9;
   }
 
-.carroflotante {
+.carroflotante  {
+  opacity: 0.8;
   border-width: 1px;
   border-color: black;
-  color: red;
+
   right: 48px;
   position: fixed;
   top: 70px;
@@ -524,7 +525,19 @@
 
 
 .carroflotante:hover {
-  opacity: 0.5;
+  opacity: 1;
   color: black;
   border-color: red;
    }
+
+.btn-carro {
+  background-color: red;
+  color: white !important;
+
+  font-weight: bold;
+  transition: 0.5s;
+}
+.btn-carro:hover {
+  color: black !important;
+  background-color: #FF8888 !important;
+}
