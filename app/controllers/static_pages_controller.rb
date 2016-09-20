@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
       p "SIn filtro"
       @masvendidos = []
       @destacados = Product.sponsored.joins(:articles).take(18)
-      @ultimos = Product.joins(:articles).group('articles.product_id').order(created_at: :desc).take(18)
+      @ultimos = Product.joins(:articles).group('id').order(created_at: :desc).take(18)
       listavendidos = Article.joins(:sells).group(:product_id).order('count_all desc').count.take(18)
       listavendidos.each do |masvend|
         @masvendidos<<Product.find(masvend[0])
