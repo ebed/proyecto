@@ -50,7 +50,7 @@ app.directive('slideToggle', function() {
     }
 });
 
-app.factory('Sexos',function($resource) {
+app.factory('Sexos',['$resource',function($resource) {
     return $resource(
         '/api/sexos',
         {},
@@ -58,10 +58,10 @@ app.factory('Sexos',function($resource) {
             get: { method: 'GET',isArray:true}
         }
         )
-});
+}]);
 
 
-app.factory('Colores',function($resource) {
+app.factory('Colores',['$resource',function($resource) {
     return $resource(
         '/api/colores',
         {},
@@ -69,9 +69,9 @@ app.factory('Colores',function($resource) {
             get: { method: 'GET',isArray:true}
         }
         )
-});
+}]);
 
-app.factory('Tallas',function($resource) {
+app.factory('Tallas',['$resource',function($resource) {
     return $resource(
         '/api/tallas',
         {},
@@ -79,10 +79,10 @@ app.factory('Tallas',function($resource) {
             get: { method: 'GET',isArray:true}
         }
         )
-});
+}]);
 
 
-app.factory('Tiendas',function($resource) {
+app.factory('Tiendas',['$resource',function($resource) {
     return $resource(
         '/api/tiendas',
         {},
@@ -90,11 +90,11 @@ app.factory('Tiendas',function($resource) {
             get: { method: 'GET',isArray:true}
         }
         )
-});
+}]);
 
 
 
-app.factory('Articulos',function($resource) {
+app.factory('Articulos',['$resource',function($resource) {
     return $resource(
         '/api/articulos',
         {},
@@ -102,10 +102,12 @@ app.factory('Articulos',function($resource) {
             get: { method: 'GET'}
         }
         )
-});
+}]);
 
 
-app.controller('appController', ['$rootScope','$scope','$animate','$resource','Sexos', 'Colores', 'Tallas', 'Tiendas','Articulos', function($rootScope,$scope,$animate,$resource, Sexos, Colores, Tallas, Tiendas, Articulos) {
+app.controller('appController',
+        ['$rootScope','$scope','$animate','$resource','Sexos', 'Colores', 'Tallas', 'Tiendas','Articulos',
+        function($rootScope,$scope,$animate,$resource, Sexos, Colores, Tallas, Tiendas, Articulos) {
 
 
     var categoryActive=0;
