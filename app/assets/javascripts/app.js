@@ -1,6 +1,7 @@
 
 
-app=angular.module('app',["ngAnimate","ngResource"]).directive('slideable', function () {
+app=angular.module('app',["ngAnimate","ngResource"]);
+app.directive('slideable', function () {
     return {
         restrict:'C',
         compile: function (element, attr) {
@@ -22,8 +23,8 @@ app=angular.module('app',["ngAnimate","ngResource"]).directive('slideable', func
             };
         }
     };
-})
-.directive('slideToggle', function() {
+});
+app.directive('slideToggle', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
