@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ColoresController <  ApplicationController
+    class ColoresController <  ApiController
 
       def index
         @colores=[]

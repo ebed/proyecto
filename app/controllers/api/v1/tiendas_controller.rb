@@ -1,6 +1,6 @@
 module Api
   module V1
-    class TiendasController <  ApplicationController
+    class TiendasController <  ApiController
 
       def index
 

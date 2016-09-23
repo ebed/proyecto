@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ArticulosController <  ApplicationController
+    class ArticulosController <  ApiController
 
       def index
 

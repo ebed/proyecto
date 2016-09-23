@@ -1,6 +1,6 @@
 module Api
   module V1
-    class TallasController <  ApplicationController
+    class TallasController <  ApiController
 
       def index
         @tallas=[]

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class SexosController <  ApplicationController
+    class SexosController <  ApiController
 
       def index
         @sexo=[];
