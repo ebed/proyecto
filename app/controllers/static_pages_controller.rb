@@ -32,7 +32,7 @@ class StaticPagesController < ApplicationController
 
  def home3
     p "Home 3"
-      @main_products = Product.where(:subcategory_id =>  params[:id]).joins(:articles)
+      @main_products = Product.where(:subcategory_id =>  params[:id]).joins(:articles).distinct
       @subcategoria = Subcategory.find(params[:id])
 
   end
