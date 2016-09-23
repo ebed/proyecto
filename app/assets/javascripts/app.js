@@ -1,4 +1,6 @@
-app = angular.module('app',['ngAnimate']).directive('slideable', function () {
+
+
+app=angular.module('app',["ngAnimate","ngResource"]).directive('slideable', function () {
     return {
         restrict:'C',
         compile: function (element, attr) {
@@ -47,18 +49,130 @@ app = angular.module('app',['ngAnimate']).directive('slideable', function () {
     }
 });
 
+app.factory('Sexos',function($resource) {
+    return $resource(
+        '/api/sexos',
+        {},
+        {
+            get: { method: 'GET',isArray:true}
+        }
+        )
+});
+
+
+app.factory('Colores',function($resource) {
+    return $resource(
+        '/api/colores',
+        {},
+        {
+            get: { method: 'GET',isArray:true}
+        }
+        )
+});
+
+app.factory('Tallas',function($resource) {
+    return $resource(
+        '/api/tallas',
+        {},
+        {
+            get: { method: 'GET',isArray:true}
+        }
+        )
+});
+
+
+app.factory('Tiendas',function($resource) {
+    return $resource(
+        '/api/tiendas',
+        {},
+        {
+            get: { method: 'GET',isArray:true}
+        }
+        )
+});
 
 
 
+app.factory('Articulos',function($resource) {
+    return $resource(
+        '/api/articulos',
+        {},
+        {
+            get: { method: 'GET'}
+        }
+        )
+});
 
-app.controller('appController', ['$rootScope','$scope','$animate', function($rootScope,$scope) {
+
+app.controller('appController', ['$rootScope','$scope','$animate','$resource','Sexos', 'Colores', 'Tallas', 'Tiendas','Articulos', function($rootScope,$scope,$animate,$resource, Sexos, Colores, Tallas, Tiendas, Articulos) {
 
 
     var categoryActive=0;
-
+    $scope.colores={};
+    $scope.test ="TEST";
     $scope.currentIndexImage=-1;
     $scope.imagen ="";
     $scope.firsttime = true;
+
+    $scope.habilitadoSexo=false;
+    $scope.habilitadoColor=false;
+    $scope.habilitadoTalla=false;
+    $scope.habilitadoCantidad=false;
+    $scope.habilitadoAgrega=false;
+
+    Tiendas.get({id: gon.id_producto}, function(result) {
+        $scope.tiendas = result;
+    })
+
+    $scope.pueblaSexos = function() {
+        console.log("Cambiando combos ");
+        $scope.habilitadoSexo=true;
+       Sexos.get({id:gon.id_producto, proveedor: $scope.proveedorescogido}, function(result) {
+        $scope.sexos=result;
+    });
+    }
+
+
+
+
+    $scope.pueblaComboColores = function() {
+        $scope.habilitadoColor=true;
+        console.log("Poblando los colores para el sexo ", $scope.sexoescogido);
+        Colores.get({id: gon.id_producto, sexo: $scope.sexoescogido, proveedor: $scope.proveedorescogido}, function(result) {
+
+            $scope.colores = result;
+
+
+        } )
+
+    }
+
+
+    $scope.pueblaComboTallas = function() {
+        $scope.habilitadoTalla=true;
+        console.log("Poblando los colores para el sexo ", $scope.sexoescogido, " y el color ", $scope.colorescogido);
+        Tallas.get({id: gon.id_producto, sexo: $scope.sexoescogido, color: $scope.colorescogido, proveedor: $scope.proveedorescogido}, function(result) {
+
+            $scope.tallas = result;
+        })
+    }
+
+    $scope.activaCantidad = function() {
+        $scope.habilitadoCantidad=true;
+    }
+
+    $scope.buscaPrecio = function() {
+        $scope.habilitadoAgrega=true;
+        console.log("Buscando el precio del articulo ");
+        var valor = 0;
+        Articulos.get({id: gon.id_producto, sexo: $scope.sexoescogido, color: $scope.colorescogido, proveedor: $scope.proveedorescogido, talla: $scope.tallaescogida}, function(result) {
+            console.log(result);
+            $scope.valorarticulo=$scope.cantidadescogida*result.price;
+        })
+
+    }
+
+
 
     $scope.isSelected = function(idImagen, index) {
         if (idImagen == $scope.currentIndexImage) {
@@ -101,4 +215,3 @@ $scope.items = [{
 
   }
 ]);
-

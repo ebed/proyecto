@@ -1,6 +1,11 @@
-<%= bootstrap_form_tag url:'/agregaracarro', :method => 'GET' do |f| %>
-  <%= f.select :proveedor, @product.tiendas.collect {|p| [ p.name, p.id ] } %>
+<div ng-controller="appController">
 
+<%= bootstrap_form_tag url:'/agregaracarro', :method => 'GET' do |f| %>
+
+   <select name="proveedor" class="form-control" id="proveedores" ng-model="proveedorescogido" ng-change='pueblaSexos()' >
+      <option value="" selected disabled>Seleccione Tienda</option>
+      <option ng-repeat="option in tiendas" value="{{option.id}}">{{option.name}}</option>
+    </select>
 EVALUACIÓN TIENDA:
         <div class="progress">
           <% if @product.average_score_percent > 50 %>
@@ -31,25 +36,43 @@ EVALUACIÓN TIENDA:
 
 
 
-     <%= f.select :sexo, @sexo %>
-
-     <%= f.select :color, @colores %>
 
 
-     <%= f.select :talla,  @tallas%>
+     <select name="sexo" class="form-control" id="sexos" ng-model="sexoescogido" ng-change='pueblaComboColores()' ng-show="habilitadoSexo">
+       <option value="" selected disabled>Seleccione el Sexo</option>
+       <option ng-repeat="option in sexos">{{option[0]}}</option>
+     </select>
+
+     <select name="color" class="form-control" id="colores" ng-model="colorescogido" ng-change='pueblaComboTallas()' ng-show="habilitadoColor">
+      <option value="" selected disabled>Seleccione el Color</option>
+      <option ng-repeat="option in colores">{{option[0]}}</option>
+     </select>
+
+      <select name="talla" class="form-control" id="tallas" ng-model="tallaescogida" ng-change='activaCantidad()' ng-show="habilitadoTalla">
+       <option value="" selected disabled>Seleccione la Talla</option>
+       <option ng-repeat="option in tallas">{{option[0]}}</option>
+     </select>
 
 
 
+      <input type="text" name="cantidad" class="form-control" ng-model="cantidadescogida" ng-change='buscaPrecio()' ng-show="habilitadoCantidad" placeholder="INGRESE CANTIDAD"  autocomplete="off" />
 
-     <%= f.text_field :cantidad %>
+
+
 
 
      <%= f.hidden_field :producto, :value => @product.id %>
 
 
+    <div ng-show="habilitadoAgrega">
     <% if @product.articleselected.present? %>
-           <%= f.text_field :valor, :label =>'Precio Tienda', value: number_to_currency(@product.articleselected.price , precision: 0), :readonly => true %>
-           <% end %>
+      <div class="input-group">
+        <span class="input-group-addon">TOTAL: </span>
+          <input type="text" class="form-control" id="valor" ng-model="valorarticulo" readonly="true"/>
+
+      </div>
+
+    <% end %>
 
 
 
@@ -57,15 +80,17 @@ EVALUACIÓN TIENDA:
         <% if current_user.tieneOrden? %>
           <strong>YA TIENE UNA ORDEN EN CURSO. <br/>FINALICELA O CANCELELA Y CREE UNA NUEVA </strong>
         <% else %>
+
           <%= f.submit "Agregar a carro", class: "btn btn-primary" %>
 
 
         <% end %>
       <% end %>
-
+</div>
       <% if current_user.present? && current_user.profile.canbuy && false %>
          <button type="button" class="btn btn-default" >Lista deseos</button>
       <% end   %>
 <% end %>
 
+  </div>
 

@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
-//= require angular/angular
+
+//= require angular
 //= require angular-animate
+//= require angular-resource
+
 //= require twitter/bootstrap
 //= require jquery_nested_form
 

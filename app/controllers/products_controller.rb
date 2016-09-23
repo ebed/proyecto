@@ -17,20 +17,10 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     gon.imagenesproducto = @imagenesproducto
 
-    @colores = []
-    @product.articles.each do |articulo|
-      @colores << [articulo.color]
-    end
 
-    @tallas = []
-    @product.articles.each do |articulo|
-      @tallas << [articulo.talla]
-    end
 
-    @sexo = []
-    @product.articles.each do |articulo|
-      @sexo << [articulo.sexo]
-    end
+    gon.id_producto = params[:id]
+
 
   end
 
@@ -95,7 +85,8 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     p "Agrega a carro"
     p params
 
-    articulo = Article.where(:product_id => params[:producto], :tienda_id => params[:proveedor], :sexo => params[:sexo], :color => params[:color], :talla => params[:talla] ).first
+
+    articulo = Article.articulo(params[:producto], params[:proveedor], params[:sexo],  params[:color], params[:talla] )
     p articulo
     temp = Selectedarticle.where(:user_id => current_user.id, :article_id =>  articulo.id).first
 

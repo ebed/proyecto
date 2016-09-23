@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+
+
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v1 do
+      resources :colores
+      resources :tallas
+      resources :sexos
+      resources :tiendas
+      resources :articulos
+    end
+
+  end
+
+
   get 'segments/index'
 
   get 'segments/update'
@@ -70,5 +84,11 @@ get '/500', to: 'errors#server_error'
   get 'orders_tienda/:id', to: 'orders#orders_tienda', as: :orders_tienda
   get 'productos_marca/:id', to: 'static_pages#listaxmarca', as: :productos_marca
   get 'agregaracarro', to: 'products#agregaracarro', as: :agregaracarro
+
+
+
+
+
+
 
 end
