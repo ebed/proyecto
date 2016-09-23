@@ -86,7 +86,10 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     p params
 
 
-    articulo = Article.articulo(params[:producto], params[:proveedor], params[:sexo],  params[:color], params[:talla] )
+    articulo = Article.articulo(params[:producto], params[:talla] , params[:color],params[:proveedor], params[:sexo]   )
+    p articulo
+    articulos = Article.where(:product_id => params[:producto], :tienda_id => params[:proveedor])
+
     p articulo
     temp = Selectedarticle.where(:user_id => current_user.id, :article_id =>  articulo.id).first
 

@@ -1,0 +1,23 @@
+.animacionFadeOn {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  opacity:1;
+
+}
+.animacionFadeOn.ng-hide {
+  opacity:0;
+}
+
+
+.animate-img-show {
+-webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  opacity:1;
+}
+
+.animate-img-show.ng-hide {
+  -webkit-transition:all linear 0s;
+  transition:all linear 0s;
+  opacity:0;
+}
+

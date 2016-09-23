@@ -4,9 +4,9 @@
     <title>Proyecto</title>
     <%= include_gon %>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'application' %>
+
     <%= javascript_include_tag Ckeditor.cdn_url%>
 
 
@@ -37,8 +37,9 @@
       <div class="col-md-12">
        <%= render partial: "layouts/parts/flash_messages", flash: flash %>
       </div>
-    </div>
+      </div>
         <%= yield %>
+        <br/><br/>
       </div>
 
 <% else %>

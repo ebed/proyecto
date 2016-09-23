@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'angularjs-rails'
+
 gem 'rails-gallery'
 gem 'gon'
 gem "jquery-fileupload-rails"
@@ -7,6 +7,7 @@ gem 'bootstrap-addons-rails'
 
 gem 'will_paginate', '~> 3.1.0'
 gem 'ckeditor'
+gem 'angular-rails-templates'
 gem 'bower-rails'
 gem "font-awesome-rails"
 gem "therubyracer"

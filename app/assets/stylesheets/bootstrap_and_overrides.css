@@ -24,7 +24,7 @@
   .imagenesThumb {
 
     opacity: 1;
-
+    float: left;
     transition: all linear 0.5s;
   }
 
@@ -540,4 +540,13 @@
 .btn-carro:hover {
   color: black !important;
   background-color: #FF8888 !important;
+}
+
+
+.contenedorimagen {
+float: left;
+position: relative;
+}
+.contenedorthumbs {
+float: left;
 }

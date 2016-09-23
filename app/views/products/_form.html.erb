@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" ng-controller="appControllerNewProduct">
    <%= bootstrap_form_for @product, :html => {:multipart => true} do |f| %>
 
 
@@ -7,11 +7,19 @@
 
       <%= f.text_field :name, :label => "NOMBRE" %>
       <%= f.select :marca_id,  Marca.all.collect {|p| [ p.name, p.id ] }, :label => "MARCA"  %>
-      <%= f.select :subcategory_id,  Subcategory.all.collect {|p| [ p.name, p.id ] }, :label => "SUBCATEGORIA" %>
 
-
-
-
+      <label>CATEGORIA</label>
+      <select name="category_id" class="form-control" id="tallas" ng-model="categoriaseleccionada" ng-change='activaSubcategoria()'>
+         <option value="" selected disabled>Seleccione una Categoria</option>
+         <option ng-repeat="option in categorias" value="{{option.id}}">{{option.name}}</option>
+       </select>
+       <br/>
+      <label ng-show="habilitadoSubcategoria" class="animacionFadeOn">SUB-CATEGORIA</label>
+      <select name="subcategory_id" class="form-control animacionFadeOn" id="tallas" ng-model="subcategoriaseleccionada" ng-change='activaSubmit()' ng-show="habilitadoSubcategoria">
+         <option value="" selected disabled>Seleccione una Categoria</option>
+         <option ng-repeat="option in subcategorias" value={{option.id}}>{{option.name}}</option>
+       </select>
+       <br/>
 
 
       <%= f.text_field :year, :label => "AÑO" %>

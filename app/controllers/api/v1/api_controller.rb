@@ -2,7 +2,7 @@ module Api
   module V1
     class ApiController <  ApplicationController
 
-before_filter :add_cors_headers
+        before_filter :add_cors_headers
 
 
         def add_cors_headers

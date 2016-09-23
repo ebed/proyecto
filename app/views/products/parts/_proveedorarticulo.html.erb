@@ -1,5 +1,6 @@
 <div ng-controller="appController">
 
+
 <%= bootstrap_form_tag url:'/agregaracarro', :method => 'GET' do |f| %>
 
    <select name="proveedor" class="form-control" id="proveedores" ng-model="proveedorescogido" ng-change='pueblaSexos()' >
@@ -38,24 +39,24 @@ EVALUACIÓN TIENDA:
 
 
 
-     <select name="sexo" class="form-control" id="sexos" ng-model="sexoescogido" ng-change='pueblaComboColores()' ng-show="habilitadoSexo">
+     <select name="sexo" class="form-control animacionFadeOn" id="sexos" ng-model="sexoescogido" ng-change='pueblaComboColores()' ng-show="habilitadoSexo" >
        <option value="" selected disabled>Seleccione el Sexo</option>
        <option ng-repeat="option in sexos">{{option[0]}}</option>
      </select>
 
-     <select name="color" class="form-control" id="colores" ng-model="colorescogido" ng-change='pueblaComboTallas()' ng-show="habilitadoColor">
+     <select name="color" class="form-control animacionFadeOn" id="colores" ng-model="colorescogido" ng-change='pueblaComboTallas()' ng-show="habilitadoColor">
       <option value="" selected disabled>Seleccione el Color</option>
       <option ng-repeat="option in colores">{{option[0]}}</option>
      </select>
 
-      <select name="talla" class="form-control" id="tallas" ng-model="tallaescogida" ng-change='activaCantidad()' ng-show="habilitadoTalla">
+      <select name="talla" class="form-control animacionFadeOn" id="tallas" ng-model="tallaescogida" ng-change='activaCantidad()' ng-show="habilitadoTalla">
        <option value="" selected disabled>Seleccione la Talla</option>
        <option ng-repeat="option in tallas">{{option[0]}}</option>
      </select>
 
 
 
-      <input type="text" name="cantidad" class="form-control" ng-model="cantidadescogida" ng-change='buscaPrecio()' ng-show="habilitadoCantidad" placeholder="INGRESE CANTIDAD"  autocomplete="off" />
+      <input type="text" name="cantidad" class="form-control animacionFadeOn" ng-model="cantidadescogida" ng-change='buscaPrecio()' ng-show="habilitadoCantidad" placeholder="INGRESE CANTIDAD"  autocomplete="off" />
 
 
 
@@ -64,11 +65,11 @@ EVALUACIÓN TIENDA:
      <%= f.hidden_field :producto, :value => @product.id %>
 
 
-    <div ng-show="habilitadoAgrega">
+    <div ng-show="habilitadoAgrega" class="animacionFadeOn">
     <% if @product.articleselected.present? %>
       <div class="input-group">
         <span class="input-group-addon">TOTAL: </span>
-          <input type="text" class="form-control" id="valor" ng-model="valorarticulo" readonly="true"/>
+          <input type="text" class="form-control" id="valor"  format="nfcurrency"  ng-model="valorarticulo" readonly="true"/>
 
       </div>
 

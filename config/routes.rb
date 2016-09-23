@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :sexos
       resources :tiendas
       resources :articulos
+      resources :categorias
+      resources :subcategorias
     end
 
   end
