@@ -3,7 +3,7 @@ module Api
     class ApiController <  ApplicationController
 
 before_filter :add_cors_headers
-before_filter {authenticate_user! unless request.method == "OPTIONS"}
+
 
         def add_cors_headers
           origin = request.headers["Origin"]
