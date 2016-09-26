@@ -3,10 +3,19 @@
 
 <%= bootstrap_form_tag url:'/agregaracarro', :method => 'GET' do |f| %>
 
-   <select name="proveedor" class="form-control" id="proveedores" ng-model="proveedorescogido" ng-change='pueblaSexos()' >
-      <option value="" selected disabled>Seleccione Tienda</option>
-      <option ng-repeat="option in tiendas" value="{{option.id}}">{{option.name}}</option>
-    </select>
+
+    <div ng-if="tiendaunica" >
+      <input type="text" class="form-control" disabled="true" value="{{firsttienda}}">
+      <input type="hidden"  value="{{proveedorescogido}}" name="proveedor" >
+    </div>
+    <div ng-if="!tiendaunica" >
+
+       <select name="proveedor" class="form-control" id="proveedores" ng-model="proveedorescogido" ng-change='pueblaSexos()' >
+          <option value="" selected disabled>Seleccione Tienda</option>
+          <option ng-repeat="option in tiendas" value="{{option.id}}">{{option.name}}</option>
+        </select>
+
+    </div>
 EVALUACIÓN TIENDA:
         <div class="progress">
           <% if @product.average_score_percent > 50 %>
@@ -36,24 +45,43 @@ EVALUACIÓN TIENDA:
           </div>
 
 
+    <div ng-if="sexounico" >
+      <input class="form-control" disabled="true" value="{{sexoescogido}}" name="sexo" >
+    </div>
+    <div ng-if="!sexounico" >
+
+       <select name="sexo" class="form-control animacionFadeOn" id="sexos" ng-model="sexoescogido" ng-change='pueblaComboColores()' ng-show="habilitadoSexo" >
+
+
+         <option value="" selected disabled>Seleccione el Sexo</option>
+         <option ng-repeat="option in sexos">{{option[0]}}</option>
+       </select>
+     </div>
 
 
 
-     <select name="sexo" class="form-control animacionFadeOn" id="sexos" ng-model="sexoescogido" ng-change='pueblaComboColores()' ng-show="habilitadoSexo" >
-       <option value="" selected disabled>Seleccione el Sexo</option>
-       <option ng-repeat="option in sexos">{{option[0]}}</option>
-     </select>
 
-     <select name="color" class="form-control animacionFadeOn" id="colores" ng-model="colorescogido" ng-change='pueblaComboTallas()' ng-show="habilitadoColor">
-      <option value="" selected disabled>Seleccione el Color</option>
-      <option ng-repeat="option in colores">{{option[0]}}</option>
-     </select>
+    <div ng-if="colorunico" >
+      <input class="form-control" disabled="true" value="{{colorescogido}}" name="color" >
+    </div>
+    <div ng-if="!colorunico" >
 
-      <select name="talla" class="form-control animacionFadeOn" id="tallas" ng-model="tallaescogida" ng-change='activaCantidad()' ng-show="habilitadoTalla">
-       <option value="" selected disabled>Seleccione la Talla</option>
-       <option ng-repeat="option in tallas">{{option[0]}}</option>
-     </select>
+       <select name="color" class="form-control animacionFadeOn" id="colores" ng-model="colorescogido" ng-change='pueblaComboTallas(colorescogido)' ng-show="habilitadoColor">
+        <option value="" selected disabled>Seleccione el Color</option>
+        <option ng-repeat="option in colores" ng-value="{{option[0]}}">{{option[0]}}</option>
+       </select>
+      </div>
 
+      <div ng-if="tallaunica" >
+          <input class="form-control" disabled="true" value="{{tallaescogida}}" name="talla" >
+        </div>
+        <div ng-if="!tallaunica" >
+
+          <select name="talla" class="form-control animacionFadeOn" id="tallas" ng-model="tallaescogida" ng-change='activaCantidad()' ng-show="habilitadoTalla">
+           <option value="" selected disabled>Seleccione la Talla</option>
+           <option ng-repeat="option in tallas">{{option[0]}}</option>
+         </select>
+         </div>
 
 
       <input type="text" name="cantidad" class="form-control animacionFadeOn" ng-model="cantidadescogida" ng-change='buscaPrecio()' ng-show="habilitadoCantidad" placeholder="INGRESE CANTIDAD"  autocomplete="off" />

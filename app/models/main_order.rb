@@ -1,6 +1,6 @@
 class MainOrder < ApplicationRecord
-  has_many :orders,:dependent => :delete_all
-  has_one :deliver, :dependent => :delete
+  has_many :orders,:dependent => :destroy
+  has_one :deliver, :dependent => :destroy
   belongs_to :user
   belongs_to :statusorder
 

@@ -25,7 +25,7 @@ class User < ApplicationRecord
   def articulosSeleccionados
     arts=0;
     Selectedarticle.where(:user_id => self.id).each do |art|
-      if (art.qty.present?)
+      if (art.qty.present? and !art.order_id.present?)
         arts=arts+art.qty
       end
     end
@@ -41,7 +41,7 @@ class User < ApplicationRecord
     carro = Selectedarticle.where(user_id: self.id)
     total = 0
     carro.each do |item|
-      if item.present? and item.article.present? and item.article.price.present? and item.qty.present?
+      if item.present? and item.article.present? and item.article.price.present? and item.qty.present?  and !item.order_id.present?
 
         total = total + (item.article.price * item.qty)
       end

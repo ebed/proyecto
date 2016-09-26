@@ -1,7 +1,13 @@
 class MainOrdersController < ApplicationController
   before_action :set_main_order, only: [:destroy]
   def destroy
-    @mainorder.destroy
+    if @mainorder.destroy
+      flash[:notice]="Orden eliminada correctamente"
+    else
+      flash[:alert]="Problemas eliminando orden"
+
+    end
+    redirect_to orders_path
   end
 
 

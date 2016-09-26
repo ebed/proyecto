@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  has_many :selectedarticles, :dependent => :delete_all
-  has_one :sell, :dependent => :delete
+  has_many :selectedarticles, :dependent => :destroy
+  has_one :sell, :dependent => :destroy
 
   belongs_to :main_order
   belongs_to :tienda
