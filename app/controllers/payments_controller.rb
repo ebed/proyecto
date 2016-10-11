@@ -3,9 +3,11 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
     @articulos = current_user.selectedarticles
+
   end
 
   def create
+
     @morder = MainOrder.find(session[:order_id])
 
 

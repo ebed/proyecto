@@ -15,7 +15,7 @@
        </select>
        <br/>
       <label ng-show="habilitadoSubcategoria" class="animacionFadeOn">SUB-CATEGORIA</label>
-      <select name="subcategory_id" class="form-control animacionFadeOn" id="tallas" ng-model="subcategoriaseleccionada" ng-change='activaSubmit()' ng-show="habilitadoSubcategoria">
+      <select name="product.subcategory_id" class="form-control animacionFadeOn" id="tallas" ng-model="subcategoriaseleccionada" ng-change='activaSubmit()' ng-show="habilitadoSubcategoria">
          <option value="" selected disabled>Seleccione una Categoria</option>
          <option ng-repeat="option in subcategorias" value={{option.id}}>{{option.name}}</option>
        </select>

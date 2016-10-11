@@ -15,7 +15,15 @@ class TiendasController < ApplicationController
 
   def edit
      @tienda = Tienda.find(params[:id])
+     @vendedor = Seller.where(user_id: current_user.id).first
 
+  end
+
+  def update
+    @tienda = Tienda.find(params[:id])
+    p tienda_params
+    @tienda.update(tienda_params)
+    redirect_to @tienda
   end
 
 
@@ -26,8 +34,9 @@ class TiendasController < ApplicationController
 
   def new
     @vendedor = Seller.where(user_id: current_user.id).first
-    p @vendedor
+
     @tienda = Tienda.new
+    @tienda.contacts.new
     @contact = Contact.new
   end
 
@@ -35,8 +44,9 @@ class TiendasController < ApplicationController
   def create
     p tienda_params
     tienda = Tienda.new(tienda_params)
+
     if tienda.save
-      flash[:notice] = "Se a creado correctamente"
+    #  flash[:notice] = "Se a creado correctamente"
       redirect_to tiendas_path
     else
       flash[:alert]
@@ -44,6 +54,9 @@ class TiendasController < ApplicationController
 
   end
 
+  def all
+    @tiendas = Tienda.all
+  end
 
   def destroy
     if Tienda.find(params[:id]).destroy
@@ -54,8 +67,21 @@ class TiendasController < ApplicationController
     end
   end
 
+
+  def dashboard
+    @tienda = Tienda.find(params[:id])
+
+    @data = [{day: '1', value: 12}, {day: '2', value: 18}]
+
+
+  end
+
+
   private
   def tienda_params
-    params.require(:tienda).permit(:name, :seller_id, {:contact => [:contactype_id, :value]})
+    params.require(:tienda).permit(:name, :seller_id, :imagen,  contacts_attributes:[:contactype_id, :value])
   end
+
 end
+
+

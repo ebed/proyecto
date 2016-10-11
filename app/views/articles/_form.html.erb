@@ -10,6 +10,7 @@
   <%= f.text_field :sexo %>
   <%= f.text_field :stock %>
   <%= f.text_field :price %>
+  <%= f.text_field :price_buy %>
   <% if @article.tienda_id.present? %>
     <%= f.hidden_field :tienda_id, value: @article.tienda_id %>
   <% else %>

@@ -5,6 +5,8 @@ class MainOrder < ApplicationRecord
   belongs_to :statusorder
 
 
+
+
   def total
     totalMainOrder=0
     Order.where(:main_order_id => self.id).each do |ord|

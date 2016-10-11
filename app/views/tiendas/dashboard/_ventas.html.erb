@@ -1,0 +1,3 @@
+<%= line_chart Sell.joins(:article).where(articles:{:tienda_id => params[:id]}).group_by_day("sells.updated_at").sum(:cantidad) %>
+
+

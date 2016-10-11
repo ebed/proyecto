@@ -46,8 +46,9 @@
 
 
 
-
+    <% if @articulosseleccionados.count > 0 %>
         <%= link_to "Confirmar compra", new_sell_path, class: "btn btn-carro" %>
+    <% end %>
 
     </td>
   </tr>

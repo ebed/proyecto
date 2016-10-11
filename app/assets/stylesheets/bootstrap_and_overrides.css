@@ -550,3 +550,9 @@ position: relative;
 .contenedorthumbs {
 float: left;
 }
+
+
+
+.contenedorImagenTienda {
+    height: 80px;
+}

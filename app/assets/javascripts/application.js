@@ -26,6 +26,7 @@
 
 //= require jquery-fileupload/basic
 
+//= require chartkick
 
 //= require bootstrap
 

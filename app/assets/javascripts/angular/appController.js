@@ -1,7 +1,7 @@
 
 app.controller('appController',
-        ['$rootScope','$scope','$resource','Sexos', 'Colores', 'Tallas', 'Tiendas','Articulos',
-        function($rootScope,$scope,$resource, Sexos, Colores, Tallas, Tiendas, Articulos) {
+        ['$rootScope','$scope','$resource','Sexos', 'Colores', 'Tallas', 'Tiendas','Articulos', 'Stocks',
+        function($rootScope,$scope,$resource, Sexos, Colores, Tallas, Tiendas, Articulos, Stocks) {
 
 
     var categoryActive=0;
@@ -16,7 +16,7 @@ app.controller('appController',
     $scope.habilitadoTalla=false;
     $scope.habilitadoCantidad=false;
     $scope.habilitadoAgrega=false;
-
+    $scope.cantidadescogida;
     $scope.muestra = false;
 
     $scope.tiendaunica = false;
@@ -32,6 +32,7 @@ app.controller('appController',
     $scope.tallaunica=false;
     $scope.tallaescogida="";
 
+    $scope.stock=0;
 
     $scope.toggleDiv = function() {
         $scope.muestra = !$scope.muestra;
@@ -43,13 +44,17 @@ app.controller('appController',
 
         if (count > 1) {
             $scope.tiendaunica=false;
+            $scope.tiendas = result;
+            $scope.proveedorescogido = gon.tiendaprecargada.id;
+            if (gon.tiendaprecargada.id > 0){
+                $scope.pueblaSexos();
+            }
         } else      {
             $scope.tiendaunica=true;
             $scope.firsttienda=result[0].name;
             $scope.proveedorescogido=result[0].id;
             $scope.pueblaSexos();
         }
-        $scope.tiendas = result;
 
 
     })
@@ -142,8 +147,13 @@ app.controller('appController',
         }
 
 
-        console.log("Poblando los tallas para el sexo ", $scope.sexoescogido, ", el color ", $scope.colorescogido, ", y la talla ", $scope.tallaescogida);
+        console.log("Poblando los tallas para el sexo ", $scope.sexoescogido, ", el color ", $scope.colorescogido, ", y la talla ", $scope.tallaescogida, " y producto id : ", gon.id_producto);
+        Stocks.get({id: gon.id_producto, sexo: $scope.sexoescogido, color: $scope.colorescogido, talla: $scope.tallaescogida, proveedor: $scope.proveedorescogido}, function(result) {
+            $scope.stock = result[0].stock;
+            console.log(result[0]);
+            console.log(result.stock);
 
+        })
         $scope.habilitadoCantidad=true;
     }
 
@@ -153,7 +163,7 @@ app.controller('appController',
         console.log("Buscando el precio del articulo ");
         var valor = 0;
         Articulos.get({id: gon.id_producto, sexo: $scope.sexoescogido, color: $scope.colorescogido, proveedor: $scope.proveedorescogido, talla: $scope.tallaescogida}, function(result) {
-            console.log(result);
+            console.log("VAlor escogido de precio ",result.price, "CAntidad ", $scope.cantidadescogida);
             $scope.valorarticulo=$scope.cantidadescogida*result.price;
         })
 

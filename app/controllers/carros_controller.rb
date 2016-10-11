@@ -45,7 +45,11 @@ class CarrosController < ApplicationController
   end
 
   def destroy
+    @articulo = @art.article
+    @articulo.stock = @articulo.stock + @art.qty
+
     @art.destroy
+    @articulo.save
     redirect_to carro_path
   end
 

@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>METRICAS</strong>
+  </div>
+  <div class="panel-body">
+
+    <table class="table">
+      <tr>
+        <th>CANTIDAD PRODUCTOS</th>
+        <td>
+          <%= @tienda.cantidadArticulos %>
+        </td>
+      </tr>
+      <tr>
+        <th>STOCK TOTAL</th>
+        <td> <%= @tienda.stockTotal %></td>
+      </tr>
+      <tr>
+        <th>ARTICULOS VENDIDOS</th>
+        <td><%= @tienda.totalVentas %> </td>
+      </tr>
+      <tr>
+        <th>ARTICULO MAS VENDIDO</th>
+        <td><% if @tienda.artMasVendido.present? %>
+              <%= @tienda.artMasVendido.product.name %>
+            <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>ARTICULO MENOS VENDIDO</th>
+        <td>
+          <% if @tienda.artMenosVendido.present? %>
+            <%= @tienda.artMenosVendido.product.name %></td>
+          <% end %>
+      </tr>
+      <tr>
+        <th>ARTICULO CON MENOR STOCK</th>
+        <td><%= @tienda.artMenorStock.product.name %> <%= @tienda.artMenorStock.stock %></td>
+      </tr>
+      <tr>
+        <th>ARTICULO SIN VENTAS</th>
+        <td><%= @tienda.sinVentas.count %></td>
+      </tr>
+    </table>
+
+
+
+  </div>
+</div>

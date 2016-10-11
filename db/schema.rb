@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917014632) do
+ActiveRecord::Schema.define(version: 20161005234335) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",              limit: 24
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160917014632) do
     t.string   "color"
     t.string   "talla"
     t.string   "segmento"
+    t.float    "price_buy",          limit: 24
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -241,8 +242,12 @@ ActiveRecord::Schema.define(version: 20160917014632) do
     t.string   "name"
     t.date     "dob"
     t.integer  "seller_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

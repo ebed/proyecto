@@ -9,6 +9,16 @@ app.factory('Sexos',['$resource',function($resource) {
         )
 }]);
 
+app.factory('Stocks',['$resource',function($resource) {
+    return $resource(
+        '/api/stocks',
+        {},
+        {
+            get: { method: 'GET',isArray:true}
+        }
+    )
+}]);
+
 
 app.factory('Colores',['$resource',function($resource) {
     return $resource(

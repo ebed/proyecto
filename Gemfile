@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem "chartkick"
+gem 'groupdate'
+gem 'webpay_rails'
 gem 'rails-gallery'
 gem 'gon'
 gem "jquery-fileupload-rails"

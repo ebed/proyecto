@@ -1,24 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-<strong>
-      <%= link_to "INICIO ", root_path %> /
-      <% if @subcategoria.present? %>
-        <%= link_to  @subcategoria.category.name, homecategories_path(@subcategoria.category.id) %>
-        >
-        <%= @subcategoria.name %>
-      <% else %>
-
-         <%= @categoria.name %>
-
-      <% end %>
-</strong>
+  <h4><%= @textobuscado %></h4>
   </div>
   <div class="panel-body">
 
 <% @main_products.each do |producto| %>
      <div class="row">
         <div class="col-md-1">
-            <%= link_to product_path(producto) do %>
+            <%= link_to product_path(producto,:idtienda => @idtienda) do %>
 
               <%= image_tag producto.product_images.first.image.url(:thumb), class: "thumbnail"  %>
             <% end %>
@@ -28,7 +17,7 @@
         <div class="col-md-10">
           <div class="row">
             <div class="col-md-12">
-             <b> <h4><%= link_to producto.name, product_path(producto) %></h4> </b>
+             <b> <h4><%= link_to producto.name, product_path(producto,:idtienda => @idtienda) %></h4> </b>
             </div>
           </div>
           <div class="row">

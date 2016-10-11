@@ -1,6 +1,7 @@
 # config/initializers/paperclip.rb
 #Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
 #Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename'
+
 if Rails.env.production?
   # See http://rubydoc.info/gems/paperclip/Paperclip/Storage/S3
   Paperclip.options[:image_magick_path] = "/usr/bin/"
@@ -24,6 +25,4 @@ unless Rails.env.production?
     :path => ":rails_root/public:url"
   })
 end
-
-
 

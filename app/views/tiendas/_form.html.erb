@@ -1,11 +1,15 @@
-<%= bootstrap_nested_form_for(@tienda) do |f| %>
+<%= bootstrap_form_for  @tienda,:html => { :multipart => true }  do |f| %>
 
-  <%= f.text_field :name, label: "Nueva Tienda" %>
+  <%= f.text_field :name, label: "Nombre Tienda" %>
+  <%= f.file_field :imagen %>
   <%= f.hidden_field :seller_id, value: @vendedor.id %>
-  <%= f.fields_for :contacts do |contacto| %>
-    <%= contacto.select :contactype_id, Contactype.all.collect {|p| [ p.name, p.id ] } %>
-    <%= contacto.text_field :value %>
+
+
+  <%= f.fields_for :contacts do |contact_form| %>
+    <%= contact_form.select :contactype_id, Contactype.all.collect {|p| [ p.name, p.id ] } %>
+    <%= contact_form.text_field :value %>
   <% end %>
+
 
   <%= f.submit %>
 

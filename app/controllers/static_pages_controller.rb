@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
     p params
 
     @main_products = Product.joins(:subcategory).where(subcategories: {category_id: params[:id]}).select(:id, :name, :marca_id)
-    @categoria = Category.find(params[:id])
+    @textobuscado= Category.find(params[:id]).name
 
   end
 
@@ -34,6 +34,7 @@ class StaticPagesController < ApplicationController
     p "Home 3"
       @main_products = Product.where(:subcategory_id =>  params[:id]).joins(:articles).distinct
       @subcategoria = Subcategory.find(params[:id])
+      @textobuscado = @subcategoria.name
 
   end
 
@@ -50,6 +51,12 @@ class StaticPagesController < ApplicationController
     @productos = Product.where(:marca_id => params[:id])
     @marca = Marca.find( params[:id])
 
+  end
+
+  def articulostienda
+    @main_products = Product.joins(:articles).where(articles: {:tienda_id => params[:id]}).distinct
+    @textobuscado = "TIENDA  "+Tienda.find(params[:id]).name
+    @idtienda = params[:id]
   end
 
   def about

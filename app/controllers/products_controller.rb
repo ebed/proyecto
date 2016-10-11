@@ -7,6 +7,8 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
 
   def show
+    p params
+
     @comment = Comment.new
     @imagenesproducto = {:vacio => ""}
     @imagenes = @product.product_images.take(5)
@@ -14,7 +16,10 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     @imagenes.each do |imagen|
       @imagenesproducto[imagen.id] =imagen.image.url(:medium)
     end
-
+    if params[:idtienda].present?
+      gon.tiendaprecargada = Tienda.find(params[:idtienda])
+    else gon.tiendaprecargada =0
+    end
     gon.imagenesproducto = @imagenesproducto
 
 
@@ -52,8 +57,14 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def create
 
-    @producto = Product.new(product_params)
 
+    #recupero variable subcategoria que se seteo por angular
+
+    product_params[:subcategory_id] = params[:subcategory_id]
+    p params[:subcategory_id]
+
+    @producto = Product.new(product_params)
+    @producto.subcategory_id = params[:subcategory_id]
 
     if @producto.save
 
@@ -85,33 +96,40 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     p "Agrega a carro"
     p params
 
+    idProveedor= params[:proveedor].split(':')[1]
 
     articulo = Article.articulo(params[:producto], params[:talla] , params[:color],params[:proveedor], params[:sexo]   )
     p articulo
-    articulos = Article.where(:product_id => params[:producto], :tienda_id => params[:proveedor])
+  #  articulos = Article.where(:product_id => params[:producto], :tienda_id => params[:proveedor])
 
-    p articulo
     temp = Selectedarticle.where(:user_id => current_user.id, :article_id =>  articulo.id).first
 
-    if !temp.nil?
-        qty = temp.qty
-        p "Se agregan items de articulos ya escogidos",qty
-        qty = qty + params[:cantidad].to_f
-        p "Se agregan items de articulos ya escogidos",qty
-       art = Selectedarticle.where(:user_id => current_user.id, :article_id =>  articulo.id).first
-        p art
-       art.update(:qty =>  qty)
-      flash[:notice]="Se agregaron los articulos a su carro correctamente"
-
-    else
-      newitem = Selectedarticle.new(:article_id => articulo.id, :qty => params[:cantidad], :user_id => current_user.id)
-      if newitem.save
-        flash[:notice]="Se agrego correctamente"
+      if !temp.nil?
+          qty = temp.qty
+          p "Se agregan items de articulos ya escogidos",qty
+          qty = qty + params[:cantidad].to_f
+          p "Se agregan items de articulos ya escogidos",qty
+         art = Selectedarticle.where(:user_id => current_user.id, :article_id =>  articulo.id).first
+          p art
+         art.update(:qty =>  qty)
+         articulo.stock = articulo.stock - params[:cantidad].to_f
+         articulo.save
+        flash[:notice]="Se agregaron los articulos a su carro correctamente"
 
       else
-        flash[:notice]="Problemas agregando al carro"
+        newitem = Selectedarticle.new(:article_id => articulo.id, :qty => params[:cantidad], :user_id => current_user.id)
+
+        if newitem.save
+          articulo.stock = articulo.stock - params[:cantidad].to_f
+          articulo.save
+          flash[:notice]="Se agrego correctamente"
+
+        else
+          flash[:notice]="Problemas agregando al carro"
+        end
+
       end
-    end
+
 
     redirect_to Product.find(params[:producto])
 

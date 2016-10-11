@@ -27,4 +27,20 @@ class Article < ApplicationRecord
 
   end
 
+  def porcentajeganancia
+    if self.price_buy.present?
+      ((self.price - self.price_buy) / self.price_buy ) * 100
+    else
+      0
+    end
+  end
+
+  def gananciaesperada
+    if self.price_buy.present?
+       (self.price - self.price_buy) * self.stock
+    else
+      0
+    end
+
+  end
 end

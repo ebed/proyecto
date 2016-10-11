@@ -1,26 +1,33 @@
 <div class='panel panel-default'>
   <table class="table">
    <thead>
-  <tr class="active"><th colspan='3' > <h3><%= @tienda.name %> </h3></th> </tr>
+  <tr >
+<th>
+     <%= image_tag @tienda.imagen.url, width: '150'%>
+    </th>
+    <th colspan='2' width="100%" >
+       <h3><%= @tienda.name %> </h3>
+     </th>
+  </tr>
   </thead>
     <tr>
-        <td>
+        <td colspan=3>
+
           <div class="btn-group" role="group" aria-label="...">
 
-            <%= link_to "AGREGAR ARTICULO", addarticle_path(@tienda), class: "btn btn-default" %>
+            <%= link_to "AGREGAR ARTICULO", addarticle_path(@tienda), class: "btn btn-default", role: "button" %>
             <%= link_to "MODIFICAR TIENDA", edit_tienda_path(@tienda), class: "btn btn-default" %>
             <%= link_to "ELIMINAR TIENDA", tienda_path(@tienda), method: :delete, class: "btn btn-default" %>
-
+            <%= link_to "DASHBOARD TIENDA", dashboard_path(@tienda), class: "btn btn-default" %>
           </div>
         </td>
-        <td></td>
         <td align='right'>Creada el <%= @tienda.created_at.strftime("%d/%m/%Y ") %></td>
     </tr>
 
-  <tr><td colspan='3'>
+  <tr><td colspan='4'>
 
       <div class="panel panel-default">
-        <table class='table table-default'>
+        <table class='table table-default table-bordered'>
           <thead>
             <tr class='active'><td>
                 ARTICULOS
@@ -40,9 +47,20 @@
               <td>
                 PRECIO
               </td>
-              <td colspan=2>
+
+              <td>
+                PRECIO COMPRA
+              </td>
+              <td>
+                PORCENTAJE GANANCIA
+              </td>
+              <td >
                 STOCK
-              </td></tr>
+              </td>
+              <td>
+                GANANCIA ESPERADA
+              </td>
+            </tr>
           </thead>
           <tbody>
 
@@ -69,7 +87,16 @@
 
               </td>
               <td>
+                <%= number_to_currency(articulo.price_buy, precision: 0) %>
+              </td>
+              <td>
+                <%= number_to_percentage(articulo.porcentajeganancia, precision: 1) %>
+              </td>
+              <td>
                 <%= articulo.stock %>
+              </td>
+              <td>
+                <%= number_to_currency(articulo.gananciaesperada, precision: 0)  %>
               </td>
               <td align='right'>
                   <%= link_to  edit_article_path(articulo),  class:"btn btn-xs btn-default"  do %>
@@ -88,3 +115,7 @@
   </tr>
   </table>
 </div>
+
+
+<%= link_to "Volver a tiendas", tiendas_path %>
+

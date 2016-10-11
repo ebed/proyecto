@@ -1,0 +1,2 @@
+<%= bar_chart Sell.joins(article: :product).where(articles:{:tienda_id => params[:id]}).group(:name).sum(:cantidad), colors: ["red", "#999"] %>
+

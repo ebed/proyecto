@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :articulos
       resources :categorias
       resources :subcategorias
+      resources :stocks
     end
 
   end
@@ -86,11 +87,7 @@ get '/500', to: 'errors#server_error'
   get 'orders_tienda/:id', to: 'orders#orders_tienda', as: :orders_tienda
   get 'productos_marca/:id', to: 'static_pages#listaxmarca', as: :productos_marca
   get 'agregaracarro', to: 'products#agregaracarro', as: :agregaracarro
-
-
-
-
-
-
-
+  get 'alltiendas', to: 'tiendas#all', as: :alltiendas
+  get 'articulostienda/:id', to: 'static_pages#articulostienda', as: :articulostienda
+  get 'dashboard/:id', to: 'tiendas#dashboard', as: :dashboard
 end

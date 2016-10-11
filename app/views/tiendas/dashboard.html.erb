@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong> DASHBOARD <%= Tienda.find(params[:id]).name %> </strong>
+  </div>
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-md-4">
+
+        <%= render :partial => 'tiendas/dashboard/metricas' %>
+
+      </div>
+      <div class="col-md-4">
+        <%= render :partial => 'tiendas/dashboard/ventas' %>
+      </div>
+      <div class="col-md-4">
+        <%= render :partial => 'tiendas/dashboard/distribucionventa' %>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

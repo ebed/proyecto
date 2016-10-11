@@ -1,3 +1,4 @@
+
 <div ng-controller="appController">
 
 
@@ -10,9 +11,9 @@
     </div>
     <div ng-if="!tiendaunica" >
 
-       <select name="proveedor" class="form-control" id="proveedores" ng-model="proveedorescogido" ng-change='pueblaSexos()' >
-          <option value="" selected disabled>Seleccione Tienda</option>
-          <option ng-repeat="option in tiendas" value="{{option.id}}">{{option.name}}</option>
+       <select name="proveedor" class="form-control" id="proveedores" ng-model="proveedorescogido" ng-change='pueblaSexos()' ng-options="tienda.id as tienda.name for tienda in tiendas"  >
+       <option value="" selected disabled>Seleccione tienda</option>
+
         </select>
 
     </div>
@@ -83,9 +84,14 @@ EVALUACIÓN TIENDA:
          </select>
          </div>
 
-
-      <input type="text" name="cantidad" class="form-control animacionFadeOn" ng-model="cantidadescogida" ng-change='buscaPrecio()' ng-show="habilitadoCantidad" placeholder="INGRESE CANTIDAD"  autocomplete="off" />
-
+    <div class="input-group" ng-show="habilitadoCantidad">
+            <span class="input-group-addon" id="basic-addon3">STOCK:</span>
+            <input type="text" name="stockactual"  class="form-control animacionFadeOn" ng-model="stock" readonly="true">
+          </div>
+          <div class="input-group" ng-show="habilitadoCantidad">
+            <span class="input-group-addon" id="basic-addon4">CANT</span>
+            <input type="text" name="cantidad" class="form-control animacionFadeOn" ng-model="cantidadescogida" ng-change='buscaPrecio()'  placeholder="INGRESE CANTIDAD"  autocomplete="off" />
+          </div>
 
 
 
