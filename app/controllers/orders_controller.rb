@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_orden, only: [:show, :pagar_orden, :preparar_orden, :enviar_orden, :cerrar_orden]
+  before_action :set_orden, only: [:show, :pagar_orden, :preparar_orden, :enviar_orden, :cerrar_orden, :evaluar_orden]
 
   def create
     p "creando la orden y se va a seleccionar medio de pago"
@@ -112,7 +112,10 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
+  def evaluar_orden
 
+
+  end
 
 
   private

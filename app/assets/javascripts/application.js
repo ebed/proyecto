@@ -19,6 +19,8 @@
 //= require angular
 //= require angular-animate
 //= require angular-resource
+//= require angular-backtop
+//= require angular-input-stars
 //= require twitter/bootstrap
 //= require jquery_nested_form
 

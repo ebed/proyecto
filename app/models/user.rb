@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :comments, :dependent => :delete_all
   has_many :scores, :dependent => :delete_all
+  has_many :score_tiendas, :dependent=> :delete_all
+
   has_one :seller, :dependent => :destroy
   has_many :sells, :dependent => :delete_all
   has_many :main_orders, :dependent => :delete_all

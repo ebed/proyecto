@@ -3,7 +3,7 @@
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <% i = 0 %>
-    <% @main_products.each do |producto| %>
+    <% Banner.all.each do |banner| %>
       <% if i == 0 %>
         <li data-target="#carousel-home" data-slide-to="<%= i %>" class="active"></li>
       <% else %>
@@ -17,13 +17,13 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
   <% i = 0 %>
-  <% @main_products.each do |producto| %>
+  <% Banner.all.each do |banner| %>
     <% if i == 0 %>
       <div class="item active">
         <center>
-        <%= image_tag producto.imagenprincipal.image.thumb('300x300#').url if producto.imagenprincipal.image_stored? %>
+        <%= image_tag banner.imagen.url , class: "img-responsive" %>
         <div class="carousel-caption">
-          <h4> <%= producto.name %> </h4>
+          <h4> <%= banner.descripcion %> </h4>
         </div>
         </center>
       </div>
@@ -31,7 +31,7 @@
      <% else %>
       <div class="item">
         <center>
-        <%= image_tag producto.imagenprincipal.image.thumb('300x300#').url if producto.imagenprincipal.image_stored? %>
+        <%= image_tag banner.imagen.url , class: "img-responsive" %>
         <div class="carousel-caption">
 
         </div>

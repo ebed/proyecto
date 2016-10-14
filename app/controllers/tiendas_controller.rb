@@ -29,6 +29,7 @@ class TiendasController < ApplicationController
 
   def show
     @tienda = Tienda.find(params[:id])
+    @scores = ScoreTienda.where(:tienda_id => @tienda.id)
 
   end
 

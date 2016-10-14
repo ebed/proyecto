@@ -17,53 +17,44 @@
   </head>
 
   <body >
+  <a name="top" />
 
-  <% if current_user.present? %>
-    <%= render 'layouts/parts/carritocompra' %>
-  <% end %>
 
-  <div class="container-fluid">
+ <div class="container-fluid">
     <%= render 'layouts/parts/header' %>
 
+    <%= render "layouts/parts/centro" %>
+    <div class="row">
+      <div class="col-md-12">
 
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
 
     <div class="row">
-      <div class="col-md-2">
-
-        <%= render 'layouts/parts/columnaizq' %>
-      </div>
-
-<% if current_user.present?  %>
-
-     <div class="col-md-10">
-     <div class="row">
       <div class="col-md-12">
-       <%= render partial: "layouts/parts/flash_messages", flash: flash %>
-      </div>
-      </div>
-        <%= yield %>
-        <br/><br/>
-      </div>
-
-<% else %>
-      <div class="col-md-8">
-        <%= yield %>
-      </div>
-      <div class="col-md-2">
-        <%= render 'layouts/parts/columnader' %>
+        <%= render partial: "layouts/parts/flash_messages", flash: flash %>
       </div>
     </div>
 
 
- <% end %>
-
+    </div>
     <div class="row">
       <div class="col-md-12">
         <%= render 'layouts/parts/footer' %>
       </div>
     </div>
 
-    </div>
+
   </body>
 </html>
 

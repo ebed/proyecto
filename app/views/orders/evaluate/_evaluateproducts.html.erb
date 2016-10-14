@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+                <div class="panel-heading"> <STRONG>EVALUAR PRODUCTO</STRONG></div>
+                <div class="panel-body" >
+                <table>
+
+                <tr>
+                  <td>EVALUACIÓN:</td>
+
+                  <td>
+                    <input-stars max="10"
+                      ng-click="
+                        rateProduct(
+                          appCtrl.scoreproduct[<%=venta.article.product.id%>],
+                          <%=venta.article.product.id%>,
+                          <%= current_user.id %>)"
+                        ng-model="appCtrl.scoreproduct[<%=venta.article.product.id%>]" >
+                    </input-stars>
+                  </td>
+                </tr>
+                <tr>
+                <td colspan=2>
+
+
+
+                {{appCtrl.scoreproduct[<%=venta.article.product.id%>]}}
+                   <input type="hidden" ng-model="producto<%=venta.article.product.id%>" id="<%=venta.article.product.id%>" value="<%=venta.article.product.id%>">
+                   <textarea cols="50" rows="8"  ng-model="comentarioprod<%=venta.article.product.id%>"></textarea>
+
+                    </td>
+                    </tr>
+                    <tr><td></td>
+                    <td> <button ng-click="submitEvaluationProduct(
+                      <%=venta.article.product.id%>,
+                      <%= current_user.id %>,
+                      comentarioprod<%=venta.article.product.id%>
+                      )">GUARDAR</button>
+                      </td></tr>
+                    </table>
+                </div>

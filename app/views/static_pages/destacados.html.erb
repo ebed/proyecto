@@ -1,8 +1,17 @@
+
+<div class="well" align="center">
+
+<%= render 'static_pages/componentes/carrusel' %>
+
+</div>
+
+
       <div class="panel panel-default">
         <div class="panel-body">
         <table>
           <tr>
             <% i = 0 %>
+            <% if @destacados.present? %>
             <% @destacados.each do |producto| %>
             <% if i == 6 %>
               </tr><tr>
@@ -24,6 +33,7 @@
                  </table>
               <% end %>
               </td>
+            <% end %>
             <% end %>
           </tr>
         </table>

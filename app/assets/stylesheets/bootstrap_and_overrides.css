@@ -5,9 +5,22 @@
     =require twitter-bootstrap-static/sprites
   */
 
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { .home-search { width: 400px !important; }}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { .home-search { width: 600px !important; } }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .home-search { width: 1000px !important; } }
+
+
+
   body {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
+
 
   }
   h3 {
@@ -36,7 +49,7 @@
 
   .navbar-top-personal {
       text-align: center;
-      background-color: transparent;
+      background-color: #aeaeae;
       height: 60px !important;
       border-width: 0px;
       padding-right: 0px !important;
@@ -91,7 +104,7 @@
   .navbar-default{ /* assigning the top bar to the entire navbar div element */
        font-weight: normal !important;
        text-align: center;
-       background-color: #fff;
+       background-color: #eaeaea;
        height: 60px !important;
   }
   .navbar-default .navbar-nav > li > a:hover,
@@ -128,9 +141,14 @@
   }
 
   .navbar-bottom-personal {
-    background-color: black !important;
+    background-color: #4c232a  !important;
 
   }
+  .navbar-bottom-backtop-personal {
+    background-color: #612a35 !important;
+
+  }
+
 
   .navbar-default .textoMarca:hover {
     transition: 0.5s;
@@ -204,7 +222,7 @@
   .panel-heading-personal a:hover, a:visited, a:link, a:active
   {
       text-decoration: none;
-      color:#aaa !important;
+      color:#aaa ;
 
       border-width: 0px !important;
       border-color: #fafafa !important;
@@ -276,13 +294,27 @@
   .panel-heading {
     border-width: 0px !important;
 
+
   }
 
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 0px;
+    font-weight: bolder !important;
+    background-color: transparent;
+}
   .panel-heading-tabs {
     padding: 0px !important;
     margin: 0px;
+    margin-bottom: 10px;
   }
 
+
+.well {
+
+    background-color: #fff !important;
+  }
 
   .panel-lateral-heading {
    border-width: 0px !important;
@@ -295,14 +327,55 @@
 
   }
 
+  .searchfield {
+
+    position: relative;
+    top: 5px;
+  }
+  .form-control {
+    height: 40px;
+  }
+
+  .loginbar {
+    position: relative;
+    top: 10px;
+  }
+
+  .fa-2x {
+    font-size: 2em;
+    top: 3px;
+    position: relative;
+  }
+  .searchinput {
+    display: inline-block;
+    height: 40px;
+    margin-left: 50px;
+  }
+  .textohead {
+    position: relative;
+    top: -10px;
+  }
   .inputs-personal {
     transition: 1s;
+
+  }
+
+  .textorojo {
+    background-color:  red;
+  }
+  .textobadgecarro {
+    position: relative;
+    top: -10px;
   }
 
 
   .inputs-personal:hover {
     color: #fff !important;
     background-color: #aaa !important;
+  }
+
+  .pilltab {
+
   }
 
   .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
@@ -317,6 +390,12 @@
 
   }
 
+  .nav-tabs > li > a {
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   .panel-title {
     font-size: 12px !important;
   }
@@ -326,7 +405,8 @@
 
   .pilltab>a {
     font-size: 12px !important;
-    border-width: 0.1px !important;
+    border-width: 0.5px !important;
+    border-color: black !important;
     transition: 0.2s;
   }
 
@@ -349,22 +429,6 @@
     transition: 0.5s;
   }
 
-  .left-to-right {
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-
-    background-position:  0 100% ;
-    background-repeat: no-repeat;
-    -webkit-background-size: 100% 2px;
-    -moz-background-size: 100% 2px;
-    background-size: 100% 2px;
-
-    background-image: -webkit-linear-gradient(left, #000 0%, #fff 80%), -webkit-linear-gradient(left, #000 0%, #fff 100%);
-    background-image: -moz-linear-gradient(left, #000 0%, #fff 80%), -moz-linear-gradient(left, #000 0%, #fff 100%);
-    background-image: -o-linear-gradient(left, #000 0%, #fff 80%), -o-linear-gradient(left, #000 0%, #fff 100%);
-    background-image: linear-gradient(to right, #000 0%, #fff 80%), linear-gradient(to right, #000 0%, #fff 100%);
-  }
 
 
   .navbar-bottom-personal .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
@@ -420,6 +484,14 @@
 
   }
 
+  .enlaces1 {
+    color: #aaa !important;
+
+    transition: 0.5s;
+  }
+  .enlaces1:hover {
+    color: #fff !important;
+  }
   .enlaces2{
     transition: 0.5s;
 
@@ -555,4 +627,52 @@ float: left;
 
 .contenedorImagenTienda {
     height: 80px;
+}
+
+
+
+
+
+
+.navbar {
+  border: 1px transparent !important;
+}
+
+
+
+
+.pie {
+  color: white;
+  font-weight: bolder;
+  position: absolute;
+
+  width: 99%;
+}
+
+
+.pie1 {
+background-color: #612a35;
+padding: 10px;
+font-size: 10px;
+transition: 0.5s;
+}
+
+.pie1:hover {
+background-color: #723b46;
+
+}
+
+.pie2 {
+
+background-color: #4c232a;
+padding: 10px;
+}
+
+.footlink {
+  list-style-type: none;
+}
+
+.celdasinpadding {
+  padding: 0px;
+  margin: 0px;
 }

@@ -1,0 +1,35 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>BANNERS SITIO
+      <%= link_to new_banner_path do %>
+        NUEVO
+      <%end%>
+    </strong>
+  </div>
+
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">Descripcion</div>
+      <div class="col-md-3">Articulo</div>
+      <div class="col-md-3"></div>
+    </div>
+    <% @banners.each do |banner| %>
+
+      <div class="row">
+        <div class="col-md-3"><%= image_tag banner.imagen(:thumb) %></div>
+        <div class="col-md-3"><%= banner.descripcion %></div>
+        <div class="col-md-3"> </div>
+        <div class="col-md-3"> ENLACES</div>
+      </div>
+
+
+    <% end %>
+
+  </div>
+
+
+</div>
+

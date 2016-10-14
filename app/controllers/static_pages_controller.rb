@@ -38,6 +38,28 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def destacados
+ @main_products = Product.joins(:subcategory).where(subcategories: {category_id: params[:id]}).select(:id, :name, :marca_id)
+      @destacados = Product.sponsored.joins(:articles).take(18)
+
+  end
+
+  def ultimos
+      @ultimos = Product.joins(:articles).group('id').order(created_at: :desc).take(18)
+
+  end
+
+
+  def masvendidos
+      @masvendidos = []
+
+      listavendidos = Article.joins(:sells).group(:product_id).order('count_all desc').count.take(18)
+      listavendidos.each do |masvend|
+        @masvendidos<<Product.find(masvend[0])
+      end
+
+  end
+
   def search
     p "Buscando"
     @main_products = Product.search params[:search],

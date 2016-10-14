@@ -2,12 +2,12 @@ module Api
   module V1
     class ApiController <  ApplicationController
 
-        before_filter :add_cors_headers
-
+        before_action :add_cors_headers
+        skip_before_action :verify_authenticity_token, only: [:create]
 
         def add_cors_headers
           origin = request.headers["Origin"]
-          unless (not origin.nil?) and (origin == "http://localhost" or origin.starts_with? "http://localhost:")
+          unless (not origin.nil?) and (origin == "http://localhost" or origin.starts_with? "http://localhost:3000")
             origin = "http://ouzomprod.pzs9xutiam.us-west-2.elasticbeanstalk.com"
           end
           headers['Access-Control-Allow-Origin'] = origin

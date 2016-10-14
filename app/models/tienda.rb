@@ -7,6 +7,7 @@ class Tienda < ApplicationRecord
   has_many :articles,:dependent => :delete_all
   has_many :orders, :dependent => :delete_all
   has_many :specific_product
+  has_many :score_tiendas, :dependent=> :delete_all
 
   accepts_nested_attributes_for :contacts
 

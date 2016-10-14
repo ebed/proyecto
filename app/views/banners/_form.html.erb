@@ -1,0 +1,6 @@
+<%= bootstrap_form_for @banner, url: banners_path, html: { multipart: true } do |form| %>
+  <%= form.text_field :descripcion %>
+  <%= form.file_field :imagen %>
+
+  <%= form.submit %>
+<% end %>

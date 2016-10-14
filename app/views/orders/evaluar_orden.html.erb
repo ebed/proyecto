@@ -1,0 +1,140 @@
+<div class="panel panel-default" ng-controller="appControllerScores as appCtrl">
+
+  <div class="panel-heading">
+  <h4>Orden N°<%= @order.id %></h4>
+  </div>
+
+  <div class="panel-body">
+
+    <% @order.orders.each do |orden| %>
+
+      <table class="table table-bordered">
+        <tr><td>
+<div class="panel panel-default">
+                <div class="panel-heading"> <STRONG>  <%= orden.tienda.name %> </STRONG></div>
+                <div class="panel-body" >
+                <table>
+
+                <tr>
+                  <td>EVALUACIÓN:</td>
+
+                  <td>
+                    <input-stars max="10"
+                      ng-click="
+                        rateProduct(
+                          appCtrl.scoretienda[<%= orden.tienda_id%>],
+                          <%=orden.id%>,
+                          <%= current_user.id %>)"
+                        ng-model="appCtrl.scoretienda[<%= orden.tienda_id%>]" >
+                    </input-stars>
+                  </td>
+                </tr>
+                <tr>
+                <td colspan=2>
+
+
+
+                {{appCtrl.scoretienda[<%=orden.tienda_id%>]}}
+                   <input type="hidden" ng-model="tienda<%= orden.tienda_id%>" id="<%= orden.tienda_id%>" value="<%=orden.tienda_id%>">
+                   <textarea cols="50" rows="8"  ng-model="comentariotienda<%= orden.tienda_id%>"></textarea>
+
+                    </td>
+                    </tr>
+                    <tr><td></td>
+                    <td> <button ng-click="submitEvaluationTienda(
+                      <%= orden.tienda_id%>,
+                      <%= orden.id%>,
+                      <%= current_user.id %>,
+                      comentariotienda<%= orden.tienda_id%>
+                      )">GUARDAR</button>
+                      </td></tr>
+                    </table>
+                </div>
+          </td></tr>
+
+        <% orden.sells.each do |venta| %>
+          <tr>
+            <td colspan=2>
+              <div class="panel panel-default">
+              <div class="panel-heading"> <STRONG><%= venta.article.product.name %></STRONG></div>
+              <div class="panel-body" >
+              <table class="table">
+                <tr>
+                  <td>
+                    <table>
+
+                      <tr>
+                        <td colspan=2><strong>FECHA</strong></td>
+                        <td colspan=4><%= orden.updated_at %></td>
+                      </tr>
+                      <tr>
+                        <td colspan=2><strong>CANTIDAD</strong></td>
+                        <td colspan=4><%= orden.qty %></td>
+                      </tr>
+                      <tr>
+                        <td colspan=2><strong>PRECIO</strong></td>
+                        <td colspan=4><%= orden.total %></td>
+                      </tr>
+                      </table>
+                    </td>
+                    <td>
+
+                <table>
+
+                <tr>
+                  <td>EVALUACIÓN:</td>
+
+                  <td>
+                    <input-stars max="10"
+                      ng-click="
+                        rateProduct(
+                          appCtrl.scoreproduct[<%=venta.article.product.id%>],
+                          <%=venta.article.product.id%>,
+                          <%= current_user.id %>)"
+                        ng-model="appCtrl.scoreproduct[<%=venta.article.product.id%>]" >
+                    </input-stars>
+                  </td>
+                </tr>
+                <tr>
+                <td colspan=2>
+
+
+
+                {{appCtrl.scoreproduct[<%=venta.article.product.id%>]}}
+                   <input type="hidden" ng-model="producto<%=venta.article.product.id%>" id="<%=venta.article.product.id%>" value="<%=venta.article.product.id%>">
+                   <textarea cols="50" rows="8"  ng-model="comentarioprod<%=venta.article.product.id%>"></textarea>
+
+                    </td>
+                    </tr>
+                    <tr><td></td>
+                    <td> <button ng-click="submitEvaluationProduct(
+                      <%=venta.article.product.id%>,
+                      <%= current_user.id %>,
+                      comentarioprod<%=venta.article.product.id%>
+                      )">GUARDAR</button>
+                      </td></tr>
+                    </table>
+
+
+
+                    </td>
+
+                </tr>
+              </table>
+              </div>
+              </div>
+            </td>
+
+
+          </tr>
+          <% end %>
+
+      </table>
+
+
+
+    <% end %>
+
+  </div>
+
+</div>

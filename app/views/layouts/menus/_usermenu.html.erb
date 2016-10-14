@@ -1,7 +1,7 @@
  <div class="dropdown navbar-btn btn-group">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <strong><%= current_user.name %></strong>
-      <%= fa_icon ' caret-square-o-down' %>
+
+      <%= fa_icon ' caret-square-o-down 2x' %>
 
     </button>
 <% if current_user.present?  %>
@@ -33,6 +33,7 @@
       <li class="menudrop"><%= link_to "PERFILES",  profiles_path%></li>
       <li class="menudrop"><%= link_to "ESTADOS DE ORDENES",  statusorders_path %></li>
       <li class="menudrop"><%= link_to "USUARIOS",  users_path%></li>
+      <li class="menudrop"><%= link_to "BANNERS",  banners_path%></li>
 
     <% end %>
 

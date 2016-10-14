@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :categorias
       resources :subcategorias
       resources :stocks
+      resources :evaluaciones
     end
 
   end
@@ -63,13 +64,14 @@ get '/500', to: 'errors#server_error'
   resources :main_orders
   resources :payments
   resources :product_images
+  resources :banners
 
 
 
   resources :colors
   resources :tallas
 
-  root 'static_pages#home'
+  root 'static_pages#destacados'
 
   get 'about', to: 'static_pages#about', as: :about
   get 'faq', to: 'static_pages#faq', as: :faq
@@ -90,4 +92,8 @@ get '/500', to: 'errors#server_error'
   get 'alltiendas', to: 'tiendas#all', as: :alltiendas
   get 'articulostienda/:id', to: 'static_pages#articulostienda', as: :articulostienda
   get 'dashboard/:id', to: 'tiendas#dashboard', as: :dashboard
+  get 'evaluar_orden/:id', to: 'orders#evaluar_orden', as: :evaluar_orden
+  get 'destacados', to: 'static_pages#destacados', as: :destacados
+  get 'ultimos', to: 'static_pages#ultimos', as: :ultimos
+  get 'masvendidos', to: 'static_pages#masvendidos', as: :masvendidos
 end

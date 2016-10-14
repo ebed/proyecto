@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005234335) do
+ActiveRecord::Schema.define(version: 20161013231629) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",              limit: 24
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20161005234335) do
     t.string   "talla"
     t.string   "segmento"
     t.float    "price_buy",          limit: 24
+  end
+
+  create_table "banners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "descripcion"
+    t.integer  "articulo_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -185,12 +196,23 @@ ActiveRecord::Schema.define(version: 20161005234335) do
     t.boolean  "canbuy"
   end
 
+  create_table "score_tiendas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "score"
+    t.integer  "user_id"
+    t.integer  "tienda_id"
+    t.string   "comentario"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id"
+  end
+
   create_table "scores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "value"
     t.integer  "user_id"
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "comment"
   end
 
   create_table "selectedarticles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

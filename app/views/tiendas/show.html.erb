@@ -117,5 +117,25 @@
 </div>
 
 
-<%= link_to "Volver a tiendas", tiendas_path %>
+<%= link_to "Volver a tiendas", tiendas_path, class: "btn btn-default"%>
 
+<div class="panel panel-default" ng-controller="appControllerScores">
+  <div class="panel-heading">
+    COMENTARIOS Y EVALUACIONES
+  </div>
+  <div class="panel-body">
+
+      <% @scores.each do |score| %>
+        <%= score.user.name %>
+        <%= score.score %>
+        <%= score.comentario %>
+
+
+      <% end %>
+
+
+
+  </div>
+
+
+</div>

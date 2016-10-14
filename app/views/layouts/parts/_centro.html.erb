@@ -1,24 +1,53 @@
-<div class="panel panel-default panel-main-tabs">
+  <ul class="panel-heading panel-tabs nav nav-tabs nav-pills panel-heading-tabs" role="tablist">
+    <li role="presentation" class="pilltab ">
+      <%= link_to destacados_path, class: "pilltab", role:"tab" do %>
+        DESTACADOS
+      <% end %>
 
-      <!-- Nav tabs -->
-      <ul class="panel-heading panel-tabs nav nav-tabs nav-pills" role="tablist">
-        <li role="presentation" class="pilltab active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-        <li role="presentation" class="pilltab"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-        <li role="presentation" class="pilltab"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-        <li role="presentation" class="pilltab"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-      </ul>
+    </li>
+    <li role="presentation" class="pilltab" >
+      <%= link_to ultimos_path, class: "pilltab", role:"tab" do %>
+        ULTIMOS PRODUCTOS
+      <% end %>
 
-    <div class="panel-body panel-tabs-body">
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade active" id="home">...</div>
-        <div role="tabpanel" class="tab-pane fade " id="profile">...</div>
-        <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
-        <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
+
+    </li>
+    <li role="presentation" class="pilltab" >
+      <%= link_to masvendidos_path, class: "pilltab", role:"tab" do %>
+        MAS VENDIDOS
+      <% end %>
+
+
+    </li>
+
+
+    <% Category.all.order(:name).each do |categoria| %>
+      <li class="pilltab">
+        <%= link_to homecategories_path(categoria), class: "pilltab", role: "tab" do %>
+          <%= categoria.name %>
+        <% end %>
+      </li>
+    <% end %>
+
+
+
+    <li role="presentation" class="pilltab" >
+      <a class="tabs-personal" href="#promociones" aria-controls="promociones" role="tab" data-toggle="tab">
+        PROMOCIONES
+      </a>
+    </li>
+
+  </ul>
+
+
+
+
+
+ <div class="row">
+      <div class="col-md-12">
+      <%= yield %>
       </div>
-
     </div>
 
 
 
-</div>

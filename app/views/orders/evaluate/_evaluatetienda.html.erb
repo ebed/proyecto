@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+                <div class="panel-heading"> <STRONG>EVALUAR TIENDA</STRONG></div>
+                <div class="panel-body" >
+                <table>
+
+                <tr>
+                  <td>EVALUACIÓN:</td>
+
+                  <td>
+                    <input-stars max="10"
+                      ng-click="
+                        rateProduct(
+                          appCtrl.scoretienda[<%= orden.tienda_id%>],
+                          <%=orden.id%>,
+                          <%= current_user.id %>)"
+                        ng-model="appCtrl.scoretienda[<%= orden.tienda_id%>]" >
+                    </input-stars>
+                  </td>
+                </tr>
+                <tr>
+                <td colspan=2>
+
+
+
+                {{appCtrl.scoretienda[<%=orden.tienda_id%>]}}
+                   <input type="hidden" ng-model="tienda<%= orden.tienda_id%>" id="<%= orden.tienda_id%>" value="<%=orden.tienda_id%>">
+                   <textarea cols="50" rows="8"  ng-model="comentariotienda<%= orden.tienda_id%>"></textarea>
+
+                    </td>
+                    </tr>
+                    <tr><td></td>
+                    <td> <button ng-click="submitEvaluationTienda(
+                      <%= orden.tienda_id%>,
+                      <%= orden.id%>,
+                      <%= current_user.id %>,
+                      comentariotienda<%= orden.tienda_id%>
+                      )">GUARDAR</button>
+                      </td></tr>
+                    </table>
+                </div>

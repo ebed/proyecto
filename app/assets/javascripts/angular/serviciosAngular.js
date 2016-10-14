@@ -85,3 +85,13 @@ app.factory('Subcategorias',['$resource',function($resource) {
         }
         )
 }]);
+
+app.factory('Scores',['$resource',function($resource) {
+    return $resource(
+        '/api/evaluaciones',
+        {},
+        {
+            get: {method: 'GET' },
+            put: {method: 'POST'}
+        })
+}])

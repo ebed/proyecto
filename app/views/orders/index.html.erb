@@ -31,7 +31,8 @@
           <%= link_to "Enviar paquete", enviar_orden_path(morder), class: 'btn btn-default' %>
         <% when 5 %>
           <%= link_to "Paquete recepcionado", cerrar_orden_path(morder), class: 'btn btn-default' %>
-
+        <% when 6 %>
+          <%= link_to "Evaluar orden", evaluar_orden_path(morder), class: 'btn btn-default' %>
         <% end %>
 
       </td>
