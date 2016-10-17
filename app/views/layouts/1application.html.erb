@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html  ng-app="app">
+  <head>
+    <title>Proyecto</title>
+    <%= include_gon %>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
+
+    <%= javascript_include_tag 'application' %>
+
+    <%= javascript_include_tag Ckeditor.cdn_url%>
+
+
+
+  </head>
+
+  <body >
+  <a name="top" />
+
+
+ <div class="container-fluid">
+    <%= render 'layouts/parts/header' %>
+
+    <%= render "layouts/parts/centro" %>
+    <div class="row">
+      <div class="col-md-12">
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= render partial: "layouts/parts/flash_messages", flash: flash %>
+      </div>
+    </div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/parts/footer' %>
+      </div>
+    </div>
+
+
+  </body>
+</html>
+
+
