@@ -8,34 +8,27 @@
 
       <div class="panel panel-default">
         <div class="panel-body">
-        <table>
-          <tr>
-            <% i = 0 %>
-            <% if @destacados.present? %>
-            <% @destacados.each do |producto| %>
-            <% if i == 6 %>
-              </tr><tr>
-            <% end %>
-            <% i = i + 1 %>
-            <td>
-              <%= link_to producto do %>
-                <table class="table table-bordered imagenes_inicio">
-                <tr><td>
+          <% if @destacados.present? %>
+              <% @destacados.each do |producto| %>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                  <%= link_to producto do %>
+                    <table class="table table-bordered imagenes_inicio">
+                    <tr>
+                      <td>
+                        <%= image_tag producto.imagenprincipal , class: 'img-responsive', caption: 'articulo'  %>
+                     </td>
+                     </tr>
+                     <tr><td align="center">
+                        <strong>Desde
+                          <%= number_to_currency(producto.price_since , precision: 0) %>
+                        </strong>
+                      </td></tr>
+                     </table>
+                  <% end %>
+                </div>
 
-                 <%= image_tag producto.imagenprincipal , class: 'img-responsive', caption: 'articulo'  %>
-                 </td>
-                 </tr>
-                 <tr><td align="center">
-                    <strong>Desde
-                      <%= number_to_currency(producto.price_since , precision: 0) %>
-                    </strong>
-                  </td></tr>
-                 </table>
               <% end %>
-              </td>
             <% end %>
-            <% end %>
-          </tr>
-        </table>
+
         </div>
       </div>

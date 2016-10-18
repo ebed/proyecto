@@ -23,6 +23,12 @@
  <div class="container-fluid">
     <%= render 'layouts/parts/header' %>
 
+    <div class="row">
+      <div class="col-md-12">
+        <%= render partial: "layouts/parts/flash_messages", flash: flash %>
+      </div>
+    </div>
+
     <%= render "layouts/parts/centro" %>
     <div class="row">
       <div class="col-md-12">
@@ -37,12 +43,6 @@
 
 
 
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <%= render partial: "layouts/parts/flash_messages", flash: flash %>
       </div>
     </div>
 

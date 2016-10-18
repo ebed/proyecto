@@ -61,8 +61,8 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
     #recupero variable subcategoria que se seteo por angular
 
     product_params[:subcategory_id] = params[:subcategory_id]
-    p params[:subcategory_id]
-
+    p "ID subcategoria", params[:subcategory_id]
+    p params
     @producto = Product.new(product_params)
     @producto.subcategory_id = params[:subcategory_id]
 
