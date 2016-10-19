@@ -1,21 +1,20 @@
-<nav class="navbar navbar-default navbar-top-personal navbar-fixed left-to-right">
-  <div class="container-fluid">
+
+  <div class="row cabecera">
+  <div class="col-lg-2 col-md-3 col-xs-12">
+    <a class="navbar-brand" href="/">
+      <div class="textoMarca">OU<font class="zmarca" >Z</font>OM</div>
+    </a>
+
+  </div>
 
 
-
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <div class="textoMarca">OU<font class="zmarca" >Z</font>OM</div>
-      </a>
-    </div>
-
-
-
-  <div class="collapse navbar-collapse navbar-right col-md-8" >
+  <div class="col-lg-7 col-md-6 col-xs-12">
+    <div class="container-fluid"
      <%= form_tag(search_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
 
       <div class="form-group" >
        <div class="input-group searchfield " >
+
            <%= text_field_tag :search, params[:search], placeholder: "Buscar productos",class:'form-control  inputs-personal home-search' %>
            <span class="input-group-addon  inputs-personal">
 
@@ -26,59 +25,61 @@
        </div>
     <% end %>
 
-
-     <% if user_signed_in? %>
-
-        <ul class="nav navbar-nav navbar-right">
-           <% if current_user.present? %>
-           <li>
-              <div class="navbar-text  textohead"> <%= fa_icon("user 2x") %>
-
-                <%= current_user.name %>
-
-                <%= render 'layouts/menus/usermenu'%>
-              </div>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-             <div class="navbar-text">
-              <%= link_to carro_path(current_user), :method => "get" do %>
-               <%= fa_icon("shopping-cart 2x") %> <span class="badge textorojo textobadgecarro"><%= current_user.articulosSeleccionados %></span>
-              <% end %>
-
-             </div>
-           </li>
-
-
-           <% end %>
-        </ul>
-
-      <% else %>
-
-       <ul class="nav navbar-nav navbar-right loginbar">
-
-           <li>
-              <div class="navbar-text textohead ">
-
-
-                <%= link_to  "#", :id => 'login', class: "enlaces", "data-toggle" => "modal", 'data-target' => '#loginModal' do %>
-                  <%= fa_icon("user 2x") %>
-
-                      IDENTIFICATE
-
-                  <% end %>
-                |
-                <%= link_to "REGISTRATE", new_user_registration_path, class: "enlaces" %>
-              </div>
-            </li>
-            <li role="separator" class="divider"></li>
-
-      </ul>
-
-      <% end %>
-      </div>
   </div>
-</nav>
+  </div>
+  <div class="col-lg-3 col-md-3">
+    <div class="loginarea">
+      <% if user_signed_in? %>
+
+             <% if current_user.present? %>
+
+                <table width="100%">
+                  <tr>
+                    <td align="right">
+                      <%= render 'layouts/menus/usermenu'%>
+                    </td>
+                    <td>
+                     |
+                     </td>
+                    <td  align="left">
+                <%= link_to carro_path(current_user), :method => "get", class: " enlaces enlaces-header" do %>
+                 <%= fa_icon("shopping-cart 2x") %> <span class="badge textorojo textobadgecarro"><%= current_user.articulosSeleccionados %></span>
+                <% end %>
+                  </td>
+                  </tr>
+                </table>
+             <% end %>
+
+
+        <% else %>
+
+
+                <table width="100%">
+                  <tr>
+                    <td align="right">
+                      <%= link_to  "#", :id => 'login', class: "enlaces enlaces-header", "data-toggle" => "modal", 'data-target' => '#loginModal' do %>
+                        <%= fa_icon("user ") %>
+
+                            Identifícate
+
+                        <% end %>
+                    </td>
+                    <td class="enlaces-header">|</td>
+                    <td align="left">
+                      <%= link_to "Registrate", new_user_registration_path, class: "enlaces  enlaces-header" %>
+                      </td>
+                      </tr>
+                      </table>
+
+        <% end %>
+      </div>
+
+
+  </div>
+
+</div>
+
+
 
 
 
@@ -88,7 +89,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">IDENTIFICATE</h4>
+        <h4 class="modal-title" id="myModalLabel">Identifícate</h4>
       </div>
 
 
@@ -108,7 +109,7 @@
 
 
       <div class="modal-footer">
-        <%= f.submit "INGRESAR", class:" btn btn-default btn-personal"%>
+        <%= f.submit "Ingresar", class:" btn btn-default btn-personal"%>
       </div>
       <% end %>
     </div>

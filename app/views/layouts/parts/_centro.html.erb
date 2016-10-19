@@ -1,46 +1,51 @@
-<div class="menusuperior">
-    <ul class="panel-heading panel-tabs nav nav-tabs nav-pills panel-heading-tabs" role="tablist">
-      <li role="presentation" class="pilltab ">
-        <%= link_to destacados_path, class: "pilltab", role:"tab" do %>
-          DESTACADOS
-        <% end %>
 
-      </li>
-      <li role="presentation" class="pilltab" >
-        <%= link_to ultimos_path, class: "pilltab", role:"tab" do %>
-          ULTIMOS PRODUCTOS
-        <% end %>
+      <div class="row menusuperior">
+          <div class="itemcategoria">
+              <%= link_to destacados_path, class: "pilltab", role:"tab" do %>
+                Destacados
+              <% end %>
 
-
-      </li>
-      <li role="presentation" class="pilltab" >
-        <%= link_to masvendidos_path, class: "pilltab", role:"tab" do %>
-          MAS VENDIDOS
-        <% end %>
+            </div>
+            <div class="itemcategoria">
+              <%= link_to ultimos_path, class: "pilltab", role:"tab" do %>
+                Lo último
+              <% end %>
 
 
-      </li>
+            </div>
+            <div class="itemcategoria">
+              <%= link_to masvendidos_path, class: "pilltab", role:"tab" do %>
+                Mas vendidos
+              <% end %>
 
 
-      <% Category.all.order(:name).each do |categoria| %>
-        <li class="pilltab">
-          <%= link_to homecategories_path(categoria), class: "pilltab", role: "tab" do %>
-            <%= categoria.name %>
-          <% end %>
-        </li>
-      <% end %>
+            </div>
+
+
+            <% Category.all.order(:name).each do |categoria| %>
+              <div class="itemcategoria">
+                <%= link_to homecategories_path(categoria), class: "pilltab", role: "tab" do %>
+                  <%= categoria.name %>
+                <% end %>
+              </div>
+            <% end %>
 
 
 
-      <li role="presentation" class="pilltab" >
-        <a class="tabs-personal" href="#promociones" aria-controls="promociones" role="tab" data-toggle="tab">
-          PROMOCIONES
-        </a>
-      </li>
+            <div class="itemcategoria">
+              <a class="tabs-personal" href="#promociones" aria-controls="promociones" role="tab" data-toggle="tab">
+                Promociones
+              </a>
+            </div>
 
-    </ul>
-</div>
+            <div class="itemcategoria">
+              <a class="tabs-personal" href="#promociones" aria-controls="ayuda" role="tab" data-toggle="tab">
+                Ayuda
+              </a>
+            </div>
 
+
+      </div>
 
  <div class="row">
       <div class="col-md-12">
