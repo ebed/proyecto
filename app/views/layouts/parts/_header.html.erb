@@ -41,10 +41,10 @@
                     <td>
                      |
                      </td>
-                    <td  align="left">
-                <%= link_to carro_path(current_user), :method => "get", class: " enlaces enlaces-header" do %>
-                 <%= fa_icon("shopping-cart 2x") %> <span class="badge textorojo textobadgecarro"><%= current_user.articulosSeleccionados %></span>
-                <% end %>
+                    <td  align="left" class="iconocarrito">
+                      <%= link_to carro_path(current_user), :method => "get", class: " enlaces enlaces-header" do %>
+                       <%= fa_icon("shopping-cart 2x") %> <span class="badge textorojo textobadgecarro"><%= current_user.articulosSeleccionados %></span>
+                      <% end %>
                   </td>
                   </tr>
                 </table>
