@@ -8,27 +8,37 @@
     </strong>
   </div>
 
-  <div class="panel-body">
 
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-3">Descripcion</div>
-      <div class="col-md-3">Articulo</div>
-      <div class="col-md-3"></div>
-    </div>
-    <% @banners.each do |banner| %>
+  <table class="table">
+    <thead>
+      <tr>
+        <td></td>
+        <td>Descripción</td>
+        <td>Articulo</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @banners.each do |banner| %>
 
-      <div class="row">
-        <div class="col-md-3"><%= image_tag banner.imagen(:thumb) %></div>
-        <div class="col-md-3"><%= banner.descripcion %></div>
-        <div class="col-md-3"> </div>
-        <div class="col-md-3"> ENLACES</div>
-      </div>
+        <tr>
+          <td><%= image_tag banner.imagen(:thumb) %></td>
+          <td><%= banner.descripcion %></td>
+          <td> </td>
+          <td>
+            <%= link_to edit_banner_path(banner)  do %>
+              <%=  fa_icon 'edit'  %>
+            <% end %>
+            <%= link_to banner_path(banner), :method =>:delete do %>
+              <%=  fa_icon 'remove'  %>
+            <% end %></td>
+        </tr>
 
 
-    <% end %>
+      <% end %>
+      </tbody>
+  </table>
 
-  </div>
 
 
 </div>

@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <strong>EDITAR BANNER</strong>
+
+  </div>
+
+  <div class="panel-body">
+
+   <% if @banner.imagen.present? %>
+      <%= image_tag @banner.imagen.url(:medium) %>
+    <% end %>
+
+    <%= bootstrap_form_for @banner, url: banner_path, html: { multipart: true } do |form| %>
+      <%= form.text_field :descripcion %>
+
+
+      <%= form.file_field :imagen %>
+
+      <%= form.submit %>
+    <% end %>
+    <p>
+    <%= link_to banners_path, class: "enlaces" do %>
+      <%= fa_icon "arrow-left 2x" %>Volver a Lista de Banners<% end %>
+    </p>
+
+
+
+
+  </div>
+
+</div>

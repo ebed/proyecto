@@ -11,4 +11,11 @@ class Category < ApplicationRecord
 
   self.per_page = 10
 
+
+  def self.cantidadColumnas
+    predefinidas=5
+    total = Category.all.order(:name).count+5
+    cien = 100.to_f
+    return cien/total
+  end
 end

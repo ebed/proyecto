@@ -17,9 +17,9 @@
   body {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
+    font-family: 'Montserrat', sans-serif, 'Roboto', sans-serif !important;
+    font-weight: bold;
 
-      font-family: 'Roboto', sans-serif;
-      font-size: 48px;
 
   }
   h3 {
@@ -99,6 +99,23 @@
       font-style: normal;
       font-size: 12px;
   }
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+  @font-face {
+      font-family: 'tangerine'; /*a name to be used later*/
+
+      src: url('https://fonts.googleapis.com/css?family=Tangerine');
+
+      font-weight: normal;
+      font-style: normal;
+      font-size: 12px;
+  }
+
 
   .btn-personal {
     transition: 0.5s;
@@ -746,11 +763,11 @@ padding: 10px;
   border-left: 0;
 }
 .itemcategoria {
-    width: 13%;
+
     text-align: center;
     float: left;
     padding: 10px 20px 10px 20px;
-    margin-right: 10px;
+    margin-right: 0px;
     border-left: 1px solid #eaeaea;
     white-space: nowrap;
     overflow: hidden;
