@@ -334,6 +334,14 @@
     font-weight: bolder !important;
     background-color: transparent;
 }
+.carousel-caption h4 {
+    background-color: white!important;
+    opacity: 0.9 !important;
+    color: #555 !important;
+    font-weight: bold !important;
+    border-radius: 25px;
+    font-size: 24px;
+}
   .panel-heading-tabs {
     padding: 0px !important;
     margin: 0px;
