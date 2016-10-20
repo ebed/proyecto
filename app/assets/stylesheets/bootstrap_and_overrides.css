@@ -162,9 +162,9 @@
 
 
   .container-fluid-cuerpo {
-    padding-left: 90px;
-    padding-right: 90px;
-    margin: 30px;
+    padding-left: 90px !important;
+    padding-right: 90px !important;
+    margin: 30px !important;
 
   }
 
@@ -362,8 +362,9 @@
 
     background-color: #fff !important;
   }
+
  .well-carrusel {
-  padding: 0;
+  padding: 0 !important;
   margin-top: -6px !important;
  }
   .panel-lateral-heading {
