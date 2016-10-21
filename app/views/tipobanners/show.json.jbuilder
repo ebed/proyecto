@@ -1,0 +1,1 @@
+json.partial! "tipobanners/tipobanner", tipobanner: @tipobanner

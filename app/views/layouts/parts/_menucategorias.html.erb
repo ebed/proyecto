@@ -1,0 +1,58 @@
+     <div class="row menusuperior hidden-xs" ng-controller="categoryController as ctl">
+          <%= link_to destacados_path, class: "pilltab", role:"tab" do %>
+          <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;"
+          ng-class="{'tabselecionado' : estaSeleccionado('destacados')}">
+
+                Destacados
+                {{selectedoption}}
+
+
+            </div>
+             <% end %>
+
+             <%= link_to ultimos_path, class: "pilltab", role:"tab" do %>
+            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;"
+          ng-class="{'tabselecionado' : estaSeleccionado('ultimo')}">
+
+                Lo último
+
+            </div>
+             <% end %>
+
+
+             <%= link_to masvendidos_path, class: "pilltab", role:"tab" do %>
+            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;"
+          ng-class="{'tabselecionado' : estaSeleccionado('vendidos')}">
+
+                Mas vendidos
+
+            </div>
+            <% end %>
+
+            <% Category.all.order(:name).each do |categoria| %>
+
+            <%= link_to homecategories_path(categoria), class: "pilltab", role: "tab" do %>
+              <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;"   ng-class="{'tabselecionado' : estaSeleccionado(<%=categoria.id %>)}">
+
+                  <%= categoria.name.capitalize %>
+
+              </div>
+                <% end %>
+            <% end %>
+
+
+
+            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
+              <a class="tabs-personal" href="#promociones" aria-controls="promociones" role="tab" data-toggle="tab">
+                Promociones
+              </a>
+            </div>
+
+            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
+              <a class="tabs-personal" href="#promociones" aria-controls="ayuda" role="tab" data-toggle="tab">
+                Ayuda
+              </a>
+            </div>
+
+
+      </div>

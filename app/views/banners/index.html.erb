@@ -14,6 +14,9 @@
       <tr>
         <td></td>
         <td>Descripción</td>
+
+        <td>Tipo Banner</td>
+        <td>Operativo</td>
         <td>Articulo</td>
         <td></td>
       </tr>
@@ -24,6 +27,12 @@
         <tr>
           <td><%= image_tag banner.imagen(:thumb) %></td>
           <td><%= banner.descripcion %></td>
+          <td>
+            <% unless banner.tipobanner.blank? %>
+              <%= banner.tipobanner.name %>
+            <% end %>
+          </td>
+          <td><%= banner.operativo %></td>
           <td> </td>
           <td>
             <%= link_to edit_banner_path(banner)  do %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tipobanners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipobanners.each do |tipobanner| %>
+      <tr>
+        <td><%= tipobanner.name %></td>
+        <td><%= link_to 'Show', tipobanner %></td>
+        <td><%= link_to 'Edit', edit_tipobanner_path(tipobanner) %></td>
+        <td><%= link_to 'Destroy', tipobanner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tipobanner', new_tipobanner_path %>

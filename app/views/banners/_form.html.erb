@@ -4,7 +4,8 @@
 
 <%= bootstrap_form_for @banner, url: banners_path, html: { multipart: true } do |form| %>
   <%= form.text_field :descripcion %>
-
+  <%= form.select :tipobanner_id,  Tipobanner.all.collect {|p| [ p.name, p.id ] } %>
+  <%= form.check_box :operativo %>
 
   <%= form.file_field :imagen %>
 

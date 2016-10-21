@@ -1,0 +1,1 @@
+json.array! @tipobanners, partial: 'tipobanners/tipobanner', as: :tipobanner

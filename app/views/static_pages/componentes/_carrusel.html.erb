@@ -3,7 +3,7 @@
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <% i = 0 %>
-    <% Banner.all.each do |banner| %>
+    <% @carrusel.all.each do |banner| %>
       <% if i == 0 %>
         <li data-target="#carousel-home" data-slide-to="<%= i %>" class="active"></li>
       <% else %>
@@ -17,7 +17,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
   <% i = 0 %>
-  <% Banner.all.each do |banner| %>
+  <% @carrusel.all.each do |banner| %>
     <% if i == 0 %>
       <div class="item active">
         <center>

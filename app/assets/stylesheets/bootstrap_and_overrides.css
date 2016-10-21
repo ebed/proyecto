@@ -789,9 +789,10 @@ padding: 10px;
     float: left;
     padding: 10px 20px 10px 20px;
     margin-right: 0px;
-    border-left: 1px solid #eaeaea;
+
     white-space: nowrap;
     overflow: hidden;
+    border-radius: 10px;
     transition: 0.5s;
 }
 
@@ -816,4 +817,19 @@ padding: 10px;
     width: 100%;
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+.tablaimagenes {
+  padding: 20px;
+  margin: 20px;
+  transition: 0.5s;
+}
+
+.tablaimagenes:hover {
+  opacity:  0.5;
+}
+
+.itemcategoria.tabselecionado {
+    background-color: #d8d8d8;
+
 }

@@ -3,4 +3,14 @@ class ApplicationController < ActionController::Base
 
 
 
+
+  def setmenucategorias
+    @menucategorias = 1
+  end
+
+  def paginaActual(pagina)
+    gon.paginaActual=pagina
+  end
+
+
 end

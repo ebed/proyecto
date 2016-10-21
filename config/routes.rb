@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :tipobanners
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1 do
       resources :colores

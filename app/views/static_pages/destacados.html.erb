@@ -12,17 +12,13 @@
               <% @destacados.each do |producto| %>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                   <%= link_to producto do %>
-                    <table class="table table-bordered imagenes_inicio">
+                    <table class="tablaimagenes">
                     <tr>
                       <td align="center">
                         <%= image_tag producto.imagenprincipal , class: 'img-responsive', caption: 'articulo'  %>
                      </td>
                      </tr>
-                     <tr><td align="center">
-                        <strong>Desde
-                          <%= number_to_currency(producto.price_since , precision: 0) %>
-                        </strong>
-                      </td></tr>
+
                      </table>
                   <% end %>
                 </div>

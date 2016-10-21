@@ -1,51 +1,9 @@
 
-      <div class="row menusuperior hidden-xs">
-          <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
-              <%= link_to destacados_path, class: "pilltab", role:"tab" do %>
-                Destacados
-              <% end %>
+<% if @menucategorias.present? and @menucategorias = 1 %>
 
-            </div>
-            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
-              <%= link_to ultimos_path, class: "pilltab", role:"tab" do %>
-                Lo último
-              <% end %>
+  <%= render "layouts/parts/menucategorias" %>
 
-
-            </div>
-            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
-              <%= link_to masvendidos_path, class: "pilltab", role:"tab" do %>
-                Mas vendidos
-              <% end %>
-
-
-            </div>
-
-
-            <% Category.all.order(:name).each do |categoria| %>
-              <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
-                <%= link_to homecategories_path(categoria), class: "pilltab", role: "tab" do %>
-                  <%= categoria.name.capitalize %>
-                <% end %>
-              </div>
-            <% end %>
-
-
-
-            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
-              <a class="tabs-personal" href="#promociones" aria-controls="promociones" role="tab" data-toggle="tab">
-                Promociones
-              </a>
-            </div>
-
-            <div class="itemcategoria" style="width: <%= Category.cantidadColumnas%>%;">
-              <a class="tabs-personal" href="#promociones" aria-controls="ayuda" role="tab" data-toggle="tab">
-                Ayuda
-              </a>
-            </div>
-
-
-      </div>
+<% end %>
 
  <div class="row">
       <div class="col-md-12">
