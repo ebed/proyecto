@@ -6,17 +6,9 @@ app.controller('categoryController',
           $scope.selectedoption;
 
           $scope.estaSeleccionado=function(validado) {
-
             if (gon.paginaActual == validado)  {
-
-
               return true;
             }
             return false;
           }
-
-
-
-
-
-        }]);
+}]);

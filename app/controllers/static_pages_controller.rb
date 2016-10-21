@@ -44,15 +44,15 @@ class StaticPagesController < ApplicationController
 
     @main_products = Product.joins(:subcategory).where(subcategories: {category_id: params[:id]}).select(:id, :name, :marca_id)
     @destacados = Product.sponsored.joins(:articles).take(18)
-    @carrusel = Banner.joins(:tipobanner).where(tipobanners: {:name.capitalize  => "CARRUSEL"}, :operativo => true).order(:updated_at)
-    @banner = Banner.joins(:tipobanner).where(tipobanners: {:name.capitalize  => "DESTACADO"}, :operativo => true).order(:updated_at).first
+    @carrusel = Banner.joins(:tipobanner).where(tipobanners: {:name => "CARRUSEL"}, :operativo => true).order(:updated_at)
+    @banner = Banner.joins(:tipobanner).where(tipobanners: {:name => "DESTACADO"}, :operativo => true).order(:updated_at).first
 
     paginaActual("destacados")
   end
 
   def ultimos
       @ultimos = Product.joins(:articles).group('id').order(created_at: :desc).take(18)
-      @banner = Banner.joins(:tipobanner).where(tipobanners: {:name.capitalize => "ULTIMOS"}, :operativo => true).order(:updated_at).first
+      @banner = Banner.joins(:tipobanner).where(tipobanners: {:name=> "ULTIMOS"}, :operativo => true).order(:updated_at).first
       paginaActual("ultimo")
   end
 
@@ -64,7 +64,7 @@ class StaticPagesController < ApplicationController
       listavendidos.each do |masvend|
         @masvendidos<<Product.find(masvend[0])
       end
-      @banner = Banner.joins(:tipobanner).where(tipobanners: {:name.capitalize  => "MASVENDIDOS"}, :operativo => true).order(:updated_at).first
+      @banner = Banner.joins(:tipobanner).where(tipobanners: {:name => "MASVENDIDOS"}, :operativo => true).order(:updated_at).first
       paginaActual("vendidos")
 
   end
