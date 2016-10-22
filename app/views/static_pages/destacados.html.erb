@@ -11,15 +11,19 @@
           <% if @destacados.present? %>
               <% @destacados.each do |producto| %>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                  <%= link_to producto do %>
-                    <table class="tablaimagenes">
-                    <tr>
-                      <td align="center">
-                        <%= image_tag producto.imagenprincipal , class: 'img-responsive', caption: 'articulo'  %>
-                     </td>
-                     </tr>
+                  <%= link_to producto, { :class => 'tooltips', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => '', 'data-original-title' =>  producto.name.capitalize   + " | "+ producto.marca.name.capitalize}  do %>
 
-                     </table>
+                      <table class="tablaimagenes">
+                      <tr>
+                        <td align="center">
+
+                          <%= image_tag producto.imagenprincipal , class: 'img-responsive', caption: 'articulo'  %>
+
+                       </td>
+                       </tr>
+
+                       </table>
+
                   <% end %>
                 </div>
 

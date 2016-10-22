@@ -587,7 +587,7 @@ text-align: center;
 
   .enlaces1 {
     color: #aaa !important;
-
+    list-style-type: none;
     transition: 0.5s;
   }
   .enlaces1:hover {
@@ -894,4 +894,22 @@ padding: 10px;
     font-size: 11px;
     font-weight: bold;
     font-family: Opificio;
+}
+
+.thumbnail {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.celdacategorias {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.celdacategoriasprecio {
+  color: red !important;
+  font-weight: bolder;
 }

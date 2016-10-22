@@ -15,7 +15,7 @@
                     <% end %>
                     <% i = i + 1 %>
                     <td>
-                      <%= link_to producto do %>
+                      <%= link_to producto, { :class => 'tooltips', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => '', 'data-original-title' =>  producto.name.capitalize   + " | "+ producto.marca.name.capitalize}  do %>
                         <table class=" tablaimagenes imagenes_inicio">
                           <tr>
                             <td>

@@ -17,6 +17,10 @@ class Product < ApplicationRecord
     self.articles.minimum(:price)
   end
 
+  def diferent_prices?
+    self.articles.group(:price).count.count > 1
+  end
+
   def average_score
     self.scores.average(:value)
   end
