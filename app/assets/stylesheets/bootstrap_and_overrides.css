@@ -26,6 +26,10 @@
     margin: 0px !important;
 
   }
+
+  td {
+    font-family: 'Montserrat', sans-serif !important;
+  }
   h3 {
     color: #777 !important;
     font-weight: bold;
@@ -874,4 +878,20 @@ padding: 10px;
 .itemcategoria.tabselecionado {
     background-color: #d8d8d8;
 
+}
+
+.enlacefooter {
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 12px;
+}
+.encabezadofooter {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 12px;
+}
+.dropdown-toggle.nombreusuario {
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Opificio;
 }
