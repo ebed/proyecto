@@ -3,17 +3,20 @@
   <div class='panel-heading'>
 
 
-        <h3>LISTA CATEGORIAS
+        <h4>LISTA CATEGORIAS
           <%= link_to new_category_path do%>
             <%= fa_icon 'plus-square-o' %>
           <% end %>
-        </h3>
+        </h4>
 
 
 
   </div>
-    <table class="table">
-
+    <table class="table table-bordered">
+      <tr class="active">
+        <th colspan=2>Nombre</th>
+        <th></th>
+      </tr>
      <% @categories.each do |category| %>
       <tr >
         <td colspan=2><%= fa_icon "caret-right" %><%= category.name %></td>

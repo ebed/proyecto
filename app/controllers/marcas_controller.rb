@@ -1,5 +1,6 @@
 class MarcasController < ApplicationController
   before_action :set_marca, only: [:show, :update, :destroy, :edit]
+  before_action :setMantenedores
 
   def index
 
@@ -48,7 +49,7 @@ class MarcasController < ApplicationController
   end
 
   def marca_params
-    params.require(:marca).permit(:name)
+    params.require(:marca).permit(:name, :logo)
   end
 
 

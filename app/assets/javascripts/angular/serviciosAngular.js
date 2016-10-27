@@ -95,3 +95,28 @@ app.factory('Scores',['$resource',function($resource) {
             put: {method: 'POST'}
         })
 }])
+
+
+
+app.factory('SellersCreate',['$resource',function($resource) {
+    return $resource(
+        '/api/sellers',
+        {user_id: '@user_id'},
+        {
+
+            put: {method: 'POST'},
+
+        })
+}])
+
+app.factory('Sellers',['$resource',function($resource) {
+    return $resource(
+        '/api/sellers/:user_id',
+        {user_id: '@user_id'},
+        {
+
+
+            get: {method: 'GET' },
+            delete: {method: 'DELETE'}
+        })
+}])

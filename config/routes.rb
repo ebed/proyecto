@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :subcategorias
       resources :stocks
       resources :evaluaciones
+      resources :sellers
     end
 
   end

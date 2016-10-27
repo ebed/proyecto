@@ -211,6 +211,7 @@
     padding-left: 90px !important;
     padding-right: 90px !important;
     margin: 30px !important;
+    margin-top: 0px !important;
 
   }
 
@@ -747,7 +748,10 @@ float: left;
   font-weight: bolder;
   position: absolute;
   bottom: -471px !important;
-  width: 99%;
+  width: 100%;
+  border-width: 0px;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }
 
 
@@ -792,8 +796,9 @@ padding: 10px;
   display: inline-block;
   width: 100%;
   margin: 0;
-  border: 1px solid #eaeaea;
-  padding-top:5px;
+  height: 70px;
+
+  padding-top:15px !important;
 
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -807,7 +812,7 @@ padding: 10px;
   .cabecera {
       text-align: center;
       background-color: #e8e8e8 ;
-
+      height: 70px;
       border-width: 0px;
       padding-right: 0px !important;
       padding-left: 0px !important;

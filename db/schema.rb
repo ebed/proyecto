@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021141802) do
+ActiveRecord::Schema.define(version: 20161026152319) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",              limit: 24
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161021141802) do
     t.datetime "imagen_updated_at"
     t.integer  "tipobanner_id"
     t.boolean  "operativo"
+    t.string   "pagina"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -134,8 +135,12 @@ ActiveRecord::Schema.define(version: 20161021141802) do
 
   create_table "marcas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -232,6 +237,7 @@ ActiveRecord::Schema.define(version: 20161021141802) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.boolean  "habilitado"
   end
 
   create_table "sells", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

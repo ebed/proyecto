@@ -1,12 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
-<h1>Statusorders</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Estados de Ordenes
+      <%= link_to new_statusorder_path do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+    </h4>
+  </div>
 
-<table>
+<table class="table table-bordered">
   <thead>
-    <tr>
+    <tr class="active">
       <th>id</th>
-      <th>Value</th>
+      <th>Nombre</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,16 +22,24 @@
     <% @statusorders.each do |statusorder| %>
       <tr>
        <td><%= statusorder.id %></td>
-        <td><%= statusorder.value %></td>
-        <td> <% if statusorder.pending == 1 %>
+        <td><%= link_to statusorder  do %>
+              <%= statusorder.value %>
+            <% end %>
+              </td>
+        <td> <% if statusorder.pending  %>
               ESTADO ABIERTO
             <% else %>
               ESTADO CERRADO
               <% end %>
               </td>
-        <td><%= link_to 'Show', statusorder %></td>
-        <td><%= link_to 'Edit', edit_statusorder_path(statusorder) %></td>
-        <td><%= link_to 'Destroy', statusorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+         <%= link_to edit_statusorder_path(statusorder) do %>
+                <%=  fa_icon 'edit'  %>
+            <% end %>
+            <%= link_to  statusorder, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+               <%=  fa_icon 'remove'  %>
+         <% end %>
+         </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +47,3 @@
 
 <br>
 
-<%= link_to 'New Statusorder', new_statusorder_path %>

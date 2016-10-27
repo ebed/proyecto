@@ -1,6 +1,6 @@
 class StatusordersController < ApplicationController
   before_action :set_statusorder, only: [:show, :edit, :update, :destroy]
-
+  before_action :setMantenedores
   # GET /statusorders
   # GET /statusorders.json
   def index
@@ -42,7 +42,7 @@ class StatusordersController < ApplicationController
   def update
     respond_to do |format|
       if @statusorder.update(statusorder_params)
-        format.html { redirect_to @statusorder, notice: 'Statusorder was successfully updated.' }
+        format.html { redirect_to statusorders_path, notice: 'Statusorder was successfully updated.' }
         format.json { render :show, status: :ok, location: @statusorder }
       else
         format.html { render :edit }

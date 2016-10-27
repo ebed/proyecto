@@ -26,8 +26,11 @@ class StaticPagesController < ApplicationController
     p "Home 2"
     p params
 
+
+
     @main_products = Product.joins(:subcategory).where(subcategories: {category_id: params[:id]}).select(:id, :name, :marca_id)
     @textobuscado= Category.find(params[:id]).name
+    @banner = Banner.where(:pagina=> @textobuscado, :operativo => true).order(:updated_at).first
 
     paginaActual(params[:id])
   end

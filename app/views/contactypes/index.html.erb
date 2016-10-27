@@ -2,16 +2,21 @@
   <div class='panel-heading'>
 
 
-        <h3>TIPOS DE CONTACTO
+        <h4>TIPOS DE CONTACTO
           <%= link_to new_contactype_path do%>
             <%= fa_icon 'plus-square-o' %>
           <% end %>
-        </h3>
+        </h4>
 
 
 
   </div>
-    <table class="table table-default">
+    <table class="table table-bordered">
+
+     <tr class="active">
+        <th>Nombre</th>
+        <th></th>
+     </tr>
 
 <% @contactypes.all.each do |contactype| %>
   <tr>

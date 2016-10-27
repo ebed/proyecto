@@ -1,4 +1,6 @@
 class TiendasController < ApplicationController
+  before_action :setMantenedores
+
   def index
     p params
     if user_signed_in? and current_user.isSeller?

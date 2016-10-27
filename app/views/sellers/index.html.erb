@@ -1,18 +1,40 @@
-<ul>
-  <% Seller.all.each do |seller| %>
-    <li>
-      <%= link_to seller.name, seller %>
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h4>LISTA DE VENDEDORES
+    <%= link_to new_seller_path do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+    </h4>
+  </div>
+
+    <table class="table table-bordered">
+      <tr class="active"><td>NOMBRE</td><td align="center">TOTAL ARTICULOS</td><td></td></tr>
+      <% Seller.all.each do |seller| %>
+        <tr>
+          <td>
+          <%= link_to seller.name, seller %>
+          </td>
+          <td align="center">
+          <%= seller.totalarticulos %>
+          </td>
+          <td>
+
+           <%= link_to edit_seller_path(seller) do %>
+            <%=  fa_icon 'edit'  %>
+           <% end %>
+           <%= link_to seller_path(seller), :method => :delete  do %>
+             <%=  fa_icon 'remove'  %>
+           <% end %>
+
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
 
 
-      <%= link_to 'edit', edit_seller_path(seller)     %>
-
-      <%= link_to 'borrar', seller_path(seller), :method => :delete     %>
-    </li>
-  <% end %>
-
-</ul>
-
-<%= link_to "New seller",new_seller_path %>
 
 
 
+</div>

@@ -4,16 +4,18 @@
   </div>
   <div class="panel-body">
 
+<%= render "static_pages/componentes/banner" %>
+
 <div class="row">
 <% @main_products.each do |producto| %>
        <%= link_to product_path(producto,:idtienda => @idtienda) do %>
-        <div class="col-md-1 center-block imagenesThumb">
+        <div class="col-md-2 center-block imagenesThumb">
 
           <table width="100%">
             <tr><td align="center">
 
 
-              <%= image_tag producto.product_images.first.image.url(:thumb), class: "thumbnail"  %>
+              <%= image_tag producto.imagenprincipal, class: 'img-responsive'   %>
 
           </td></tr>
           <tr><td align="center" class="celdacategorias"><b> <h5><%= link_to producto.name.capitalize, product_path(producto,:idtienda => @idtienda) %></h5> </b></td></tr>

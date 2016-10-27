@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :setMantenedores
   def edit
 
   end
@@ -17,7 +18,13 @@ class UsersController < ApplicationController
   end
 
   def index
+     @habilitadosTemp = {}
     @usuarios = User.all
+    @usuarios.each do |u|
+      @habilitadosTemp[u.id] = u.habilitadoVendedor?
+    end
+
+    gon.habilitadosVendedores = @habilitadosTemp
   end
 
   def show

@@ -1,10 +1,11 @@
 class TipobannersController < ApplicationController
   before_action :set_tipobanner, only: [:show, :edit, :update, :destroy]
-
+  before_action :setMantenedores
   # GET /tipobanners
   # GET /tipobanners.json
   def index
     @tipobanners = Tipobanner.all
+
   end
 
   # GET /tipobanners/1

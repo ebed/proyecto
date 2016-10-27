@@ -12,5 +12,7 @@ class ApplicationController < ActionController::Base
     gon.paginaActual=pagina
   end
 
-
+  def setMantenedores
+   @mantenedores = true
+ end
 end

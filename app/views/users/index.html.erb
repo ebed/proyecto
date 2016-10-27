@@ -1,15 +1,57 @@
-<ul>
-<% @usuarios.each do |usuario| %>
-  <li><%= usuario.id %> | <%= usuario.nombre %> | <%= usuario.email %> |
-  <% if usuario.profile.present? %>
-   <%= usuario.profile.name %>
-   <% end %>
 
-   <%= link_to "Edit", edit_user_path(usuario) %>
-  </li>
-<% end %>
+<div class="panel panel-default" ng-controller="userAppController as appCtl">
+  <div class="panel-heading">
+    <h4>USUARIOS
+      <%= link_to new_user_path do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+    </h4>
+  </div>
 
 
-</ul>
+    <table class="table table-bordered">
+      <tr class="active">
+        <td align="center">N° USUARIO</td>
+        <td align="center">NOMBRE</td>
+        <td align="center">CORREO</td>
+        <td align="center">PERFIL</td>
+        <td align="center">HABILITADO PARA TENER TIENDAS</td>
+        <td></td>
+      </tr>
 
-<%= link_to "nuevo", new_user_path %>
+      <% @usuarios.each do |usuario| %>
+        <tr>
+          <td align="center"><%= usuario.id %></td>
+          <td align="center"> <%= usuario.nombre %> </td>
+          <td align="center"> <%= usuario.email %> </td>
+          <td align="center">
+        <% if usuario.profile.present? %>
+         <%= usuario.profile.name %>
+         </td>
+
+         <td align="center">
+          <button ng-click="changeStatus(<%= usuario.id %>)">
+            {{estaHabilitado(<%= usuario.id %>)}}
+          </button>
+        </td>
+         <td>
+         <%= link_to edit_user_path(usuario)  do %>
+                <%=  fa_icon 'edit'  %>
+            <% end %>
+
+         </td>
+
+         <% end %>
+
+
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+<div class="well">
+    <% if current_user.profile.present? && current_user.profile.canadminstore %>
+      <li class="dropdown-header">VENDEDOR</li>
+      <li class="menudrop"><%= link_to "ADMINISTRAR TIENDA", tiendas_path%></li>
+       <li class="menudrop"><%= link_to "MIS ORDENES",  orders_path %></li>
+       <li class="menudrop"><a href="#">Mis Evaluaciones</a></li>
+       <li class="menudrop"><a href="#">MIs Comentarios</a></li>
+      <li role="separator" class="divider"></li>
+    <% end %>
+</div>

@@ -1,6 +1,6 @@
  <%= bootstrap_form_tag do |f| %>
-  <%= f.text_field :nombre, value: @product.name, :label => "Producto",:readonly => true %>
-  <%= f.text_field :marca, value: @product.marca.name , :label => "Marca",:readonly => true %>
+  <%= f.text_field :nombre, value: @product.name.capitalize, :label => "Producto",:readonly => true %>
+  <%= f.text_field :marca, value: @product.marca.name.capitalize , :label => "Marca",:readonly => true %>
   <%= f.text_field :precio, value: number_to_currency(@product.price_since, precision: 0) , :label => "Mejor precio",:readonly => true %>
   <%= f.label "Evaluación" %>
   <div class="progress">

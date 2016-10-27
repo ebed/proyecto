@@ -1,5 +1,7 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :destroy, :edit, :update]
+  before_action :setMantenedores
+
 
   def show
 
@@ -14,7 +16,7 @@ class SellersController < ApplicationController
   end
 
   def edit
-
+    @users = User.where.not(id: Seller.all.select(:user_id))
   end
 
   def create

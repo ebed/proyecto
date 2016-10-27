@@ -1,21 +1,21 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <strong>BANNERS SITIO
+    <h4>BANNERS SITIO
       <%= link_to new_banner_path do %>
-        NUEVO
+        <%= fa_icon 'plus-square-o' %>
       <%end%>
-    </strong>
+    </h4>
   </div>
 
 
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr class="active">
         <td></td>
         <td>Descripción</td>
 
-        <td>Tipo Banner</td>
+        <td>Pagina</td>
         <td>Operativo</td>
         <td>Articulo</td>
         <td></td>
@@ -28,8 +28,8 @@
           <td><%= image_tag banner.imagen(:thumb) %></td>
           <td><%= banner.descripcion %></td>
           <td>
-            <% unless banner.tipobanner.blank? %>
-              <%= banner.tipobanner.name %>
+            <% unless banner.pagina.blank? %>
+              <%= banner.pagina %>
             <% end %>
           </td>
           <td><%= banner.operativo %></td>

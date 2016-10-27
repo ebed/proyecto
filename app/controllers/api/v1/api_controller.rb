@@ -3,7 +3,7 @@ module Api
     class ApiController <  ApplicationController
 
         before_action :add_cors_headers
-        skip_before_action :verify_authenticity_token, only: [:create]
+        skip_before_action :verify_authenticity_token, only: [:create, :destroy]
 
         def add_cors_headers
           origin = request.headers["Origin"]

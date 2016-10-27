@@ -1,17 +1,16 @@
 <div class="panel-body">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-4 center-block">
        <%= render :partial => 'products/parts/imagenes' %>
       </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 center-block">
           <%= render :partial => 'products/parts/info' %>
         </div>
-      <div class="col-md-1">
-      </div>
+
        <% if current_user.present? && current_user.profile.canbuy  %>
-      <div class="col-md-2 well">
+      <div class="col-md-4 well center-block">
 
           <%= render :partial => 'products/parts/proveedorarticulo' %>
 

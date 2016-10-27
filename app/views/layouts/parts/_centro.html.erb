@@ -5,11 +5,28 @@
 
 <% end %>
 
+
 <div class="row">
-  <div class="col-md-12">
-    <%= yield %>
-  </div>
+
+  <% if @mantenedores and (current_user.isAdmin? or current_user.isSeller?) %>
+    <div class="col-md-2">
+      <% if current_user.isAdmin? %>
+        <%= render "layouts/parts/menuadmin" %>
+      <% end %>
+      <% if current_user.isSeller? %>
+        <%= render "layouts/parts/menuvendedor" %>
+      <% end %>
+    </div>
+    <div class="col-md-10">
+      <%= yield %>
+    </div>
+
+
+  <% else %>
+    <div class="col-md-12">
+      <%= yield %>
+    </div>
+
+  <% end %>
+
 </div>
-
-
-

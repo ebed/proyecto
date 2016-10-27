@@ -15,6 +15,9 @@ class User < ApplicationRecord
   belongs_to :profile
 
 
+  def habilitadoVendedor?
+    self.seller.habilitado
+  end
 
   def name
      self.nombre
@@ -22,6 +25,10 @@ class User < ApplicationRecord
 
   def isSeller?
     Seller.where(user_id: self.id).count > 0
+  end
+
+  def isAdmin?
+    self.profile.canadmin
   end
 
   def articulosSeleccionados

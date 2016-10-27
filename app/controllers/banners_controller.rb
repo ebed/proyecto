@@ -1,6 +1,6 @@
 class BannersController < ApplicationController
   before_action :set_banner, only: [:show, :destroy, :edit, :update]
-
+  before_action :setMantenedores
   def index
     @banners = Banner.all
   end
@@ -12,6 +12,11 @@ class BannersController < ApplicationController
 
   def new
     @banner = Banner.new
+    @paginas_array = Category.all.map { |category| [category.name] }
+    @paginas_array << ["ULTIMOS"]
+    @paginas_array << ["DESTACADOS"]
+    @paginas_array << ["CARRUSEL"]
+    @paginas_array << ["MASVENDIDOS"]
 
   end
 
@@ -45,6 +50,6 @@ class BannersController < ApplicationController
   end
 
   def banner_params
-    params.require(:banner).permit(:imagen, :descripcion, :tipobanner_id, :operativo)
+    params.require(:banner).permit(:imagen, :descripcion, :tipobanner_id, :operativo,:pagina)
   end
 end

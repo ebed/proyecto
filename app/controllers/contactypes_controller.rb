@@ -1,6 +1,6 @@
 class ContactypesController < ApplicationController
   before_action :set_contactype, only: [:show, :edit, :update, :destroy]
-
+before_action :setMantenedores
   # GET /contactypes
   # GET /contactypes.json
   def index

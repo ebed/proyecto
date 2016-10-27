@@ -1,15 +1,15 @@
 <div ng-controller="appController">
 
 
-<table>
+<table width="100%">
 <tr>
-<td class="contenedorimagen">
+<td class="contenedorimagen" align="center">
 
       <% index = 0 %>
       <% @imagenes.each do |imagen| %>
         <% index = index + 1 %>
 
-         <img src="<%=  imagen.image.url(:medium)  %>" ng-show="isSelected(<%= imagen.id %>,<%= index %>)" class="animate-img-show" >
+         <img src="<%=  imagen.image.url(:medium)  %>" ng-show="isSelected(<%= imagen.id %>,<%= index %>)" class="animate-img-show img-responsive" >
 
       <% end %>
 
@@ -21,7 +21,7 @@
     <% @imagenes.each do |imagen| %>
 
         <div ng-click="cambiaImagen(<%= imagen.id %>)" class="imagenesThumb">
-        <%= image_tag imagen.image.url(:thumb), :class =>' imagenesThumb' %>
+        <%= image_tag imagen.image.url(:thumb), :class =>' imagenesThumb img-responsive' %>
         </div>
 
     <% end %>

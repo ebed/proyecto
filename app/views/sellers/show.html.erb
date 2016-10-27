@@ -1,15 +1,18 @@
 <%= @seller.name %>
 <% if @seller.tiendas.present? %>
-    (<%= @seller.tiendas.articles.count %>)
+    (<%= @seller.totalarticulos %>)
 
   <p>
 
   <ul>
-    <% @seller.tiendas.articles.each do |article| %>
-      <li>
-        <%= article.product.name %> |
-        <%= article.price %>
-      </li>
+    <% @seller.tiendas.each do |tienda| %>
+      <h4><%= tienda.name %></h4>
+      <% tienda.articles.each do |article| %>
+        <li>
+          <%= article.product.name %> |
+          <%= article.price %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
   <p>

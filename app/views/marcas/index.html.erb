@@ -12,6 +12,7 @@
 
 <% Marca.all.each do |marca| %>
   <tr>
+    <td> <%= image_tag marca.logo(:thumb) %> </td>
     <td>  <%= marca.name %> </td>
     <td>
 

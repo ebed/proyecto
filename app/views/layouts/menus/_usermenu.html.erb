@@ -16,26 +16,14 @@
       <li role="separator" class="divider"></li>
 
     <% if current_user.profile.present? && current_user.profile.canadminstore %>
-      <li class="dropdown-header">OPCIONES VENDEDOR</li>
-      <li class="menudrop"><%= link_to "ADMINISTRAR TIENDA", tiendas_path%></li>
-       <li class="menudrop"><%= link_to "MIS ORDENES",  orders_path %></li>
-       <li class="menudrop"><a href="#">Mis Evaluaciones</a></li>
-       <li class="menudrop"><a href="#">MIs Comentarios</a></li>
+
+      <li class="menudrop"><%= link_to "ADMINISTRAR MIS TIENDAS", tiendas_path%></li>
+
       <li role="separator" class="divider"></li>
     <% end %>
      <% if current_user.profile.present? && current_user.profile.canadmin %>
-     <li class="dropdown-header">OPCIONES ADMINISTRADOR</li>
-      <li class="menudrop"><%= link_to "TIPOS DE CONTACTO",  contactypes_path%></li>
-      <li class="menudrop"><%= link_to "METODOS DE PAGO",  paymentmethods_path%></li>
-      <li class="menudrop"> <%= link_to "CATEGORIAS",  categories_path%></li>
-      <li class="menudrop"><%= link_to "PRODUCTOS",  products_path%></li>
-      <li class="menudrop"><%= link_to "MARCAS",  marcas_path%></li>
-      <li class="menudrop"><%= link_to "VENDEDORES",  sellers_path%></li>
-      <li class="menudrop"><%= link_to "PERFILES",  profiles_path%></li>
-      <li class="menudrop"><%= link_to "ESTADOS DE ORDENES",  statusorders_path %></li>
-      <li class="menudrop"><%= link_to "USUARIOS",  users_path%></li>
-      <li class="menudrop"><%= link_to "BANNERS",  banners_path%></li>
-      <li class="menudrop"><%= link_to "TIPOS DE BANNERS",  tipobanners_path%></li>
+
+      <li class="menudrop"><%= link_to "ADMINISTRAR SITIO",  contactypes_path%></li>
 
     <% end %>
 
