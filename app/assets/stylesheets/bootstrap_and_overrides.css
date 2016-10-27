@@ -840,7 +840,7 @@ padding: 10px;
     float: left;
     padding: 10px 20px 10px 20px;
     margin-right: 0px;
-
+    border: 0.1px solid #e8e8e8;
     white-space: nowrap;
     overflow: hidden;
     border-radius: 10px;
