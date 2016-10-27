@@ -87,16 +87,24 @@
 
               </td>
               <td>
-                <%= number_to_currency(articulo.price_buy, precision: 0) %>
+                <% unless articulo.price_buy.blank? %>
+                  <%= number_to_currency(articulo.price_buy, precision: 0) %>
+                <% end %>
               </td>
               <td>
-                <%= number_to_percentage(articulo.porcentajeganancia, precision: 1) %>
+                <% unless articulo.price_buy.blank? %>
+                  <%= number_to_percentage(articulo.porcentajeganancia, precision: 1) %>
+                <% end %>
               </td>
               <td>
-                <%= articulo.stock %>
+                <% unless articulo.stock.blank? %>
+                  <%= articulo.stock %>
+                <% end %>
               </td>
               <td>
-                <%= number_to_currency(articulo.gananciaesperada, precision: 0)  %>
+                <% unless articulo.price_buy.blank? %>
+                  <%= number_to_currency(articulo.gananciaesperada, precision: 0)  %>
+                <% end %>
               </td>
               <td align='right'>
                   <%= link_to  edit_article_path(articulo),  class:"btn btn-xs btn-default"  do %>
