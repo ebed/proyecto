@@ -208,9 +208,7 @@
 
 
   .container-fluid-cuerpo {
-    padding-left: 12% !important;
-    padding-right: 12% !important;
-    margin: 4% !important;
+
     margin-top: 0px !important;
     width: 88%;
 
@@ -390,6 +388,7 @@
     padding-bottom: 0px;
     font-weight: bolder !important;
     background-color: transparent;
+    bottom: 0 !important;
 }
 .carousel-caption h4 {
     background-color: white!important;
