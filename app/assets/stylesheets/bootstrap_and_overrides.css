@@ -382,10 +382,11 @@
 
   }
 
+
   .carousel-caption {
     left: 20%;
     right: 20%;
-    padding-bottom: 0px;
+    padding-bottom: 0px !important;
     font-weight: bolder !important;
     background-color: transparent;
     bottom: 0 !important;
