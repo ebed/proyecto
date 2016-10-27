@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026152319) do
+ActiveRecord::Schema.define(version: 20161027215144) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.float    "price",              limit: 24
+    t.float    "price",              limit: 24, default: 0.0
     t.integer  "product_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "tienda_id"
-    t.integer  "stock"
+    t.integer  "stock",                         default: 0
     t.integer  "specificproduct_id"
     t.string   "sexo"
     t.string   "color"
     t.string   "talla"
     t.string   "segmento"
-    t.float    "price_buy",          limit: 24
+    t.float    "price_buy",          limit: 24, default: 0.0
   end
 
   create_table "banners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

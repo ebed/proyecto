@@ -4,13 +4,6 @@ class Article < ApplicationRecord
 
   has_many :sells, :dependent => :delete_all
   has_many :selectedarticles, :dependent => :delete_all
-  after_initialize :init
-
-  def init
-    self.stock ||= 0
-    self.price_buy ||=0
-    self.price ||=0
-  end
 
   def nombre
      self.product.name
