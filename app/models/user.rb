@@ -32,7 +32,11 @@ class User < ApplicationRecord
   end
 
   def isAdmin?
-    self.profile.canadmin
+    if self.profile.blank?
+      return false
+    else
+      self.profile.canadmin
+    end
   end
 
   def articulosSeleccionados
