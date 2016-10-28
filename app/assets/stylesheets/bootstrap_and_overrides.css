@@ -29,6 +29,8 @@
 
   td {
     font-family: 'Montserrat', sans-serif !important;
+    font-size: 11px !important;
+    vertical-align: middle !important;
   }
   h3 {
     color: #777 !important;

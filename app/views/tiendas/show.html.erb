@@ -8,6 +8,7 @@
     <th colspan='2' width="100%" >
        <h3><%= @tienda.name %> </h3>
      </th>
+     <th></th>
   </tr>
   </thead>
     <tr>
@@ -15,7 +16,7 @@
 
           <div class="btn-group" role="group" aria-label="...">
 
-            <%= link_to "AGREGAR ARTICULO", addarticle_path(@tienda), class: "btn btn-default", role: "button" %>
+            <%= link_to "AGREGAR ARTICULO", addarticle_path(@tienda), class: "btn btn-default ", role: "button" %>
             <%= link_to "MODIFICAR TIENDA", edit_tienda_path(@tienda), class: "btn btn-default" %>
             <%= link_to "ELIMINAR TIENDA", tienda_path(@tienda), method: :delete, class: "btn btn-default" %>
             <%= link_to "DASHBOARD TIENDA", dashboard_path(@tienda), class: "btn btn-default" %>
@@ -29,37 +30,40 @@
       <div class="panel panel-default">
         <table class='table table-default table-bordered'>
           <thead>
-            <tr class='active'><td>
+            <tr class='active'><th>
                 ARTICULOS
-              </td>
-              <td>
+              </th>
+              <th>
                 COLOR
-              </td>
-              <td>
+              </th>
+              <th>
                 TALLA
-              </td>
-              <td>
+              </th>
+              <th>
                 SEGMENTO
-              </td>
-              <td>
+              </th>
+              <th>
                 SEXO
-              </td>
-              <td>
+              </th>
+              <th>
                 PRECIO
-              </td>
+              </th>
 
-              <td>
+              <th>
                 PRECIO COMPRA
-              </td>
-              <td>
+              </th>
+              <th>
                 PORCENTAJE GANANCIA
-              </td>
-              <td >
+              </th>
+              <th >
                 STOCK
-              </td>
-              <td>
+              </th>
+              <th>
                 GANANCIA ESPERADA
-              </td>
+              </th>
+              <th>
+
+              </th>
             </tr>
           </thead>
           <tbody>
