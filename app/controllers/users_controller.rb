@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def index
-     @habilitadosTemp = {}
+    @habilitadosTemp = {}
     @usuarios = User.all
     @usuarios.each do |u|
       @habilitadosTemp[u.id] = u.habilitadoVendedor?

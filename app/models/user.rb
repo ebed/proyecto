@@ -16,7 +16,11 @@ class User < ApplicationRecord
 
 
   def habilitadoVendedor?
-    self.seller.habilitado
+    if self.seller.habilitado.blank?
+        return false
+      else
+        return self.seller.habilitado
+      end
   end
 
   def name
