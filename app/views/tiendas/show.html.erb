@@ -1,29 +1,6 @@
 <div class='panel panel-default'>
   <table class="table">
-   <thead>
-  <tr >
-<th>
-     <%= image_tag @tienda.imagen.url, width: '150'%>
-    </th>
-    <th colspan='2' width="100%" >
-       <h3><%= @tienda.name %> </h3>
-     </th>
-     <th></th>
-  </tr>
-  </thead>
-    <tr>
-        <td colspan=3>
-
-          <div class="btn-group" role="group" aria-label="...">
-
-            <%= link_to "AGREGAR ARTICULO", addarticle_path(@tienda), class: "btn btn-default ", role: "button" %>
-            <%= link_to "MODIFICAR TIENDA", edit_tienda_path(@tienda), class: "btn btn-default" %>
-            <%= link_to "ELIMINAR TIENDA", tienda_path(@tienda), method: :delete, class: "btn btn-default" %>
-            <%= link_to "DASHBOARD TIENDA", dashboard_path(@tienda), class: "btn btn-default" %>
-          </div>
-        </td>
-        <td align='right'>Creada el <%= @tienda.created_at.strftime("%d/%m/%Y ") %></td>
-    </tr>
+    <%= render :partial => "tiendas/cabeceratienda" %>
 
   <tr><td colspan='4'>
 

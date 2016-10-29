@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       resources :stocks
       resources :evaluaciones
       resources :sellers
+      resources :permisos
+      resources :users
     end
 
   end
@@ -94,6 +96,7 @@ get '/500', to: 'errors#server_error'
   get 'alltiendas', to: 'tiendas#all', as: :alltiendas
   get 'articulostienda/:id', to: 'static_pages#articulostienda', as: :articulostienda
   get 'dashboard/:id', to: 'tiendas#dashboard', as: :dashboard
+  get 'editarAccesos/:id', to: 'tiendas#editarAccesos', as: :editarAccesos
   get 'evaluar_orden/:id', to: 'orders#evaluar_orden', as: :evaluar_orden
   get 'destacados', to: 'static_pages#destacados', as: :destacados
   get 'ultimos', to: 'static_pages#ultimos', as: :ultimos

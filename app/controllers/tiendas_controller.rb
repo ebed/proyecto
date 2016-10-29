@@ -1,8 +1,9 @@
 class TiendasController < ApplicationController
   before_action :setMantenedores
 
+
+
   def index
-    p params
     if user_signed_in? and current_user.isSeller?
 
         vendedor = Seller.where(user_id: current_user.id).first
@@ -12,7 +13,6 @@ class TiendasController < ApplicationController
         redirect_to root_path
 
     end
-
   end
 
   def edit
@@ -80,7 +80,17 @@ class TiendasController < ApplicationController
   end
 
 
+  def editarAccesos
+    @tienda = Tienda.find(params[:id])
+    @scores = ScoreTienda.where(:tienda_id => @tienda.id)
+    gon.tienda_id = @tienda.id
+
+  end
+
   private
+
+
+
   def tienda_params
     params.require(:tienda).permit(:name, :seller_id, :imagen,  contacts_attributes:[:contactype_id, :value])
   end

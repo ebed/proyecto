@@ -120,3 +120,35 @@ app.factory('Sellers',['$resource',function($resource) {
             delete: {method: 'DELETE'}
         })
 }])
+
+
+app.factory('Permisos',['$resource',function($resource) {
+    return $resource(
+        '/api/permisos',
+        {},
+        {
+            query: {method: 'GET',isArray:true },
+            put: {method: 'POST'}
+        })
+}])
+
+
+app.factory('Permisos2',['$resource',function($resource) {
+    return $resource(
+        '/api/permisos/:user_id',
+        {user_id: '@user_id'},
+        {
+
+            delete: {method: 'DELETE'}
+        })
+}])
+
+
+app.factory('Users',['$resource',function($resource) {
+    return $resource(
+        '/api/users',
+        {},
+        {
+            query: {method: 'GET',isArray:true }
+        })
+}])

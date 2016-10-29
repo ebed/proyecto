@@ -1,0 +1,35 @@
+<div class='panel panel-default' >
+  <table class="table">
+      <%= render :partial => "tiendas/cabeceratienda" %>
+
+    <tr class="active">
+      <th colspan='4'>
+        <center><h4>ACCESOS A TIENDA</h4></center>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <div class="panel panel-default" ng-controller="accesosTiendaController as accesos">
+          <div class="panel-heading">
+            <select  ng-options="usuario as usuario.nombre for usuario in usuariosSelect track by usuario.id"  ng-model="selectedValue">
+
+            </select>
+
+            <button ng-click="agregaUsuario()">Agrega</button>
+          </div>
+          <div class="panel-body">
+
+            <div ng-repeat="usuario in usuarios">
+              -  {{usuario.nombre}}
+              - <button ng-click="elimina(usuario)">Elimina</button>
+              </div>
+
+          </div>
+        </div>
+
+      </td>
+    </tr>
+
+  </table>
+
+  </div>
