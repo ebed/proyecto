@@ -12,7 +12,7 @@ module Api
           if usuariosexistentes.blank?
             usuariosexistentes= Tienda.where(:id => params[:tienda_id])).joins(seller: :user).pluck("users.id")
           else
-            usuariosexistentes = usuarioexistentes + Tienda.where(:id => params[:tienda_id])).joins(seller: :user).pluck("users.id")
+            usuariosexistentes = usuarioexistentes + Tienda.where(:id => params[:tienda_id]).joins(seller: :user).pluck("users.id")
           end
           if !usuariosexistentes.blank?
             users = User.where('id not in (?)', usuariosexistentes)
