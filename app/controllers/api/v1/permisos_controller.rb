@@ -11,6 +11,12 @@ module Api
         p "Crear permiso"
         p params
         permiso = Permiso.new(tienda_id: params[:tienda_id], user_id: params[:user_id], :canadmin => true)
+        usuario = User.find(params[:user_id])
+        usuario.profile.cansell = true
+
+        usuario.profile.canadminstore= true
+        usuario.profile.save
+
         permiso.save
         render :json => {resultado: "ok"}
       end
@@ -19,6 +25,13 @@ module Api
         p "Elimina"
         permiso = Permiso.where(:user_id => params[:id], :tienda_id => params[:tienda_id]).first
         permiso.destroy
+
+        usuario = User.find(params[:id])
+        usuario.profile.cansell = false
+
+        usuario.profile.canadminstore= false
+        usuario.profile.save
+
         render :json => {resultado: "ok"}
 
       end

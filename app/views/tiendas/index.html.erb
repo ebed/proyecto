@@ -12,12 +12,47 @@
 
 
   </div>
-<table class="table table-bordered">
 
+<% unless @tiendas.blank? %>
+  <table class="table table-bordered">
 
+    <tr class='active'><th colspan="5">MIS TIENDAS</th></tr>
     <tr class='active'><th>Nombre</th><th>Fecha creación</th><th>Cantidad articulos</th><th>Vendedor</th><th></th></tr>
 
-    <% @tiendas.each do |tienda| %>
+
+      <% @tiendas.each do |tienda| %>
+        <tr class="rowarticulos">
+
+          <td> <%= link_to tienda_path(tienda), class: "enlaces" do %>
+                 <%= tienda.name %>
+               <% end %>
+          </td>
+          <td  align="center">  <%= tienda.created_at.strftime("%d/%m/%Y ")  %></td>
+          <td  align="center">  <%= tienda.articles.count %></td>
+          <td  align="center">  <%= tienda.seller.name %></td>
+
+
+          <td>
+
+           <%= link_to edit_tienda_path(tienda), class: "enlaces3"  do %>
+            <%=  fa_icon 'edit'  %>
+          <% end %>
+           <%= link_to tienda_path(tienda), method: :delete, class: "enlaces3"  do %>
+            <%=  fa_icon 'remove'  %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+</table>
+<p><hr>
+ <% end %>
+<table class="table table-bordered">
+
+    <tr class='active'><th colspan="5">TIENDAS APOYO</th></tr>
+    <tr class='active'><th>Nombre</th><th>Fecha creación</th><th>Cantidad articulos</th><th>Vendedor</th><th></th></tr>
+
+    <% @tiendas_secundarias.each do |tienda| %>
       <tr class="rowarticulos">
 
         <td> <%= link_to tienda_path(tienda), class: "enlaces" do %>

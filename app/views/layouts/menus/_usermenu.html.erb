@@ -15,7 +15,7 @@
       <li class="menudrop"><%= link_to "MIS ORDENES",  orders_path %></li>
       <li role="separator" class="divider"></li>
 
-    <% if current_user.profile.present? && current_user.profile.canadminstore %>
+    <% if current_user.isSeller? %>
 
       <li class="menudrop"><%= link_to "ADMINISTRAR MIS TIENDAS", tiendas_path%></li>
 

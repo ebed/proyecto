@@ -17,14 +17,21 @@
 
             <button ng-click="agregaUsuario()">Agrega</button>
           </div>
-          <div class="panel-body">
 
-            <div ng-repeat="usuario in usuarios">
-              -  {{usuario.nombre}}
-              - <button ng-click="elimina(usuario)">Elimina</button>
-              </div>
 
-          </div>
+            <table class="table table-bordered">
+
+                <tr ng-repeat="usuario in usuarios">
+                <td>
+               {{usuario.nombre}}
+                </td>
+                <td>
+              <button ng-click="elimina(usuario)">Elimina</button>
+                </td>
+                </tr>
+
+            </table>
+
         </div>
 
       </td>

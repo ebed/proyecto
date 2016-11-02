@@ -29,8 +29,10 @@ class User < ApplicationRecord
   end
 
   def isSeller?
-    Seller.where(user_id: self.id).count > 0
+    Seller.where(user_id: self.id).count > 0 or self.profile.cansell or self.profile.canadminstore
   end
+
+
 
   def isAdmin?
     if self.profile.blank?

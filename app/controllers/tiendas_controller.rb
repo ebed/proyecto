@@ -7,7 +7,13 @@ class TiendasController < ApplicationController
     if user_signed_in? and current_user.isSeller?
 
         vendedor = Seller.where(user_id: current_user.id).first
-        @tiendas = Tienda.where(seller_id: vendedor.id)
+        tienda_ids = Permiso.where(user_id: current_user.id).pluck(:tienda_id)
+        @tiendas_secundarias =  Tienda.where(id: tienda_ids)
+        if vendedor.blank?
+          @tiendas = nil
+        else
+          @tiendas = Tienda.where(seller_id: vendedor.id)
+        end
       else
         flash[:alert] = "No puede ver tienda, no es un vendedor, hable con el administrador"
         redirect_to root_path

@@ -28,14 +28,28 @@ class OrdersController < ApplicationController
 
   def index
 
+
+
     if current_user.profile.canadmin
       @morders = MainOrder.all
     else
-      if current_user.profile.cansell
-        @morders = current_user.seller.orders
+      if current_user.isSeller?
+        if current_user.seller.present?
+          @morders = current_user.seller.orders
+        end
+        tiendas = Permiso.where(:user_id => current_user.id).pluck(:tienda_id)
+        if tiendas.present?
+          if @morders.present?
+            @morders = @morders + MainOrder.joins(:orders).where(orders: {tienda_id: tiendas})
+          else
+            @morders = MainOrder.joins(:orders).where(orders: {tienda_id: tiendas})
+        end
+
       end
     end
   end
+end
+
 
   def orders_tienda
      @morders = MainOrder.joins(:orders).where(orders: {tienda_id: params[:id]})
