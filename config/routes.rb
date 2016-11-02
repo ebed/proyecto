@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :sellers
       resources :permisos
       resources :users
+      resources :ubicacions
     end
 
   end
