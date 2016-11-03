@@ -167,7 +167,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    pg (0.19.0)
     puma (3.6.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -323,7 +322,6 @@ DEPENDENCIES
   mysql2
   nested_form
   paperclip
-  pg
   puma (~> 3.0)
   rails (~> 5.0.0)
   rails-gallery
@@ -345,4 +343,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.5
+   1.13.6
