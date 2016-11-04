@@ -29,7 +29,15 @@ class User < ApplicationRecord
   end
 
   def isSeller?
-    Seller.where(user_id: self.id).count > 0 or self.profile.cansell or self.profile.canadminstore
+    if Seller.where(user_id: self.id).count > 0
+      return true
+      else
+        if self.profile.blank?
+          return false
+        else
+          return (self.profile.cansell or self.profile.canadminstore)
+        end
+      end
   end
 
 
