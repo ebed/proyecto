@@ -8,9 +8,9 @@ class QuitaProductosAtributosArticulos < ActiveRecord::Migration[5.0]
 	add_column :articles, :talla, :string
 	add_column :articles, :segmento, :string
 
-	drop_table :colors
-	drop_table :tallas
-	drop_table :segments
+	#drop_table :colors
+	#drop_table :tallas
+	#drop_table :segments
 
   end
 end
