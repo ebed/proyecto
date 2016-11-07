@@ -61,8 +61,12 @@ class Tienda < ApplicationRecord
       cantidad = cantidad + venta.cantidad
       total = total + (venta.precio_venta - venta.article.price_buy)
     end
-    total = total / cantidad
-    return total
+    if cantidad.blank?
+      return 0
+    else
+      total = total / cantidad
+      return total
+    end
   end
 
   def totalEsperadoVentas
