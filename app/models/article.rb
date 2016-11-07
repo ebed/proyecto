@@ -9,6 +9,13 @@ class Article < ApplicationRecord
      self.product.name
   end
 
+  def textoaqr
+     texto = self.id.to_s+";"+self.nombre + ";"+self.product.marca.name+";"+self.tienda.id.to_s+";"+self.tienda.name
+
+     textoEnc = Digest::MD5.hexdigest( texto )
+     return RQRCode::QRCode.new( texto, :size => 4, :level => :h )
+  end
+
   def self.articulo(product_id, talla, color, tienda_id, sexo)
     articulos = Article.where(:product_id => product_id, :tienda_id => tienda_id)
     if talla.present?

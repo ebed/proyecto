@@ -7,7 +7,7 @@ gem 'rails-gallery'
 gem 'gon'
 gem "jquery-fileupload-rails"
 gem 'bootstrap-addons-rails'
-
+gem 'rqrcode'
 gem 'will_paginate', '~> 3.1.0'
 gem 'ckeditor'
 gem 'angular-rails-templates'

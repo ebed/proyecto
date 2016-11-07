@@ -53,6 +53,34 @@ class Tienda < ApplicationRecord
   end
 
 
+  def totalGananciaRealVentas
+    total = 0
+    cantidad = 0
+    ventas = Sell.joins(order: :main_order).where(orders: {tienda_id: self.id }, main_orders: {statusorder_id: 6})
+    ventas.each do |venta|
+      cantidad = cantidad + venta.cantidad
+      total = total + (venta.precio_venta - venta.article.price_buy)
+    end
+    total = total / cantidad
+    return total
+  end
+
+  def totalEsperadoVentas
+    total = 0
+    Article.where(tienda_id: self.id).each do |articulo|
+      total = total + (articulo.price - articulo.price_buy)*articulo.stock_inicial
+    end
+    return total
+  end
+
+  def totalPorVender
+    total = 0
+    Article.where(tienda_id: self.id).each do |articulo|
+      total = total + (articulo.price - articulo.price_buy)*articulo.stock
+    end
+    return total
+  end
+
   def artMasVendido
     resultado = self.ventas.first
     if resultado.present?

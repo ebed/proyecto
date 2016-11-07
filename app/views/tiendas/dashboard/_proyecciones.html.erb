@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>GANANCIAS RESUMEN</strong>
+  </div>
+  <div class="panel-body">
+
+    <table class="table">
+
+     <tr>
+        <th>GANANCIA PROYECTADA INICIO</th>
+        <td>
+          <%= number_to_currency(@tienda.totalEsperadoVentas, precision: 0) %>
+        </td>
+      </tr>
+
+      <tr>
+        <th>GANANCIA PROYECTADA ACTUAL</th>
+        <td>
+          <%= number_to_currency(@tienda.totalPorVender, precision: 0) %>
+        </td>
+      </tr>
+      <tr>
+        <th>GANANCIA ACTUAL</th>
+        <td> <%= number_to_currency(@tienda.totalGananciaRealVentas, precision: 0) %></td>
+
+      </tr>
+
+
+    </table>
+
+
+
+  </div>
+</div>

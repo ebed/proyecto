@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102231306) do
+ActiveRecord::Schema.define(version: 20161107214838) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",              limit: 24, default: 0.0
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161102231306) do
     t.string   "talla"
     t.string   "segmento"
     t.float    "price_buy",          limit: 24, default: 0.0
+    t.integer  "stock_inicial",                 default: 0
   end
 
   create_table "banners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

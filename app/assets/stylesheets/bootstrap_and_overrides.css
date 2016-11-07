@@ -8,12 +8,6 @@
   */
 
 
-  .home-search {
-      display: inline-block;
-      width: auto; // Prevent
-    }
-
-
   body {
     margin-top: 0px !important;
     margin-bottom: 0px !important;

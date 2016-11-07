@@ -33,10 +33,16 @@
                 PORCENTAJE GANANCIA
               </th>
               <th >
+                STOCK INICIAL
+              </th>
+              <th >
                 STOCK
               </th>
               <th>
                 GANANCIA ESPERADA
+              </th>
+              <th>
+                CODIGO QR
               </th>
               <th>
 
@@ -78,6 +84,11 @@
                 <% end %>
               </td>
               <td>
+                <% unless articulo.stock_inicial.blank? %>
+                  <%= articulo.stock_inicial %>
+                <% end %>
+              </td>
+              <td>
                 <% unless articulo.stock.blank? %>
                   <%= articulo.stock %>
                 <% end %>
@@ -86,6 +97,11 @@
                 <% unless articulo.price_buy.blank? %>
                   <%= number_to_currency(articulo.gananciaesperada, precision: 0)  %>
                 <% end %>
+              </td>
+              <td>
+              <%= raw articulo.textoaqr.as_svg(offset: 0, color: '000',
+                    shape_rendering: 'crispEdges',
+                    module_size: 11) %>
               </td>
               <td align='right'>
                   <%= link_to  edit_article_path(articulo),  class:"btn btn-xs btn-default"  do %>
