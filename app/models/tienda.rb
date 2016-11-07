@@ -68,7 +68,7 @@ class Tienda < ApplicationRecord
   end
 
    def ventas
-    resultado = Sell.select("article_id, sum(cantidad) as cantidad").joins(order: :main_order).where(orders: {tienda_id: self.id}, main_orders: {statusorder_id: 6}).group(:article_id).order(:cantidad)
+    resultado = Sell.select("article_id, sum(cantidad) as cantidad").joins(order: :main_order).where(orders: {tienda_id: self.id}, main_orders: {statusorder_id: 6}).group("article_id").order("cantidad")
   end
 
   def sinVentas
