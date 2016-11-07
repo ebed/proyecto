@@ -61,7 +61,7 @@ class Tienda < ApplicationRecord
       cantidad = cantidad + venta.cantidad
       total = total + (venta.precio_venta - venta.article.price_buy)
     end
-    if cantidad.blank?
+    if cantidad.blank? or cantidad = 0
       return 0
     else
       total = total / cantidad
