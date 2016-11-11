@@ -63,6 +63,20 @@ class Product < ApplicationRecord
   end
 
 
+  def imagenes
+
+    articulos = Product.find(self.id).articles
+
+    @imagenes=[]
+
+    articulos.each do |articulo|
+      articulo.imagenes_articulos.each do |imagen|
+        p imagen
+        @imagenes << imagen
+      end
+    end
+    return @imagenes
+  end
 
 end
 

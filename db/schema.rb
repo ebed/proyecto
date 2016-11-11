@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107214838) do
+ActiveRecord::Schema.define(version: 20161111015506) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",              limit: 24, default: 0.0
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20161107214838) do
     t.string   "segmento"
     t.float    "price_buy",          limit: 24, default: 0.0
     t.integer  "stock_inicial",                 default: 0
+    t.float    "altura",             limit: 24
+    t.float    "anchura",            limit: 24
+    t.float    "profundidad",        limit: 24
+    t.float    "peso",               limit: 24
   end
 
   create_table "banners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -113,6 +117,16 @@ ActiveRecord::Schema.define(version: 20161107214838) do
     t.integer  "tienda_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "imagenes_articulos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "article_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
   end
 
   create_table "imagenesarticulos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -305,10 +319,9 @@ ActiveRecord::Schema.define(version: 20161107214838) do
   create_table "ubicacions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "longitud"
     t.string   "latitud"
-    t.integer  "order_id"
-    t.integer  "despachador_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "despacho_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

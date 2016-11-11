@@ -9,7 +9,7 @@
       <% @imagenes.each do |imagen| %>
         <% index = index + 1 %>
 
-         <img src="<%=  imagen.image.url(:medium)  %>" ng-show="isSelected(<%= imagen.id %>,<%= index %>)" class="animate-img-show img-responsive" >
+         <img src="<%=  imagen.imagen.url(:medium)  %>" ng-show="isSelected(<%= imagen.id %>,<%= index %>)" class="animate-img-show img-responsive" >
 
       <% end %>
 
@@ -18,13 +18,13 @@
 
 <tr>
 <td class="contenedorthumbs">
-    <% @imagenes.each do |imagen| %>
+    <div ng-repeat="imagen in imagenesThumb" style="float: left;">
+      <div ng-click="cambiaImagen(imagen.id)" class="imagenesThumb">
 
-        <div ng-click="cambiaImagen(<%= imagen.id %>)" class="imagenesThumb">
-        <%= image_tag imagen.image.url(:thumb), :class =>' imagenesThumb img-responsive' %>
-        </div>
+          <img ng-src="{{imagen.url}}" class="animate-img-show img-responsive" />
 
-    <% end %>
+      </div>
+    </div>
 
   </td></tr>
   </table>

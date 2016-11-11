@@ -31,8 +31,9 @@ class ArticlesController < ApplicationController
     else
       flash[:alert] = "problemas creando"
     end
-    redirect_to tienda_path(@tienda)
+    redirect_to addimagenarticle_path(@article)
   end
+
 
 
   def update
@@ -46,6 +47,7 @@ class ArticlesController < ApplicationController
     redirect_to tienda_path(@tienda)
   end
 
+
   def destroy
     @tienda = Tienda.find(@article.tienda_id)
     if @article.destroy
@@ -56,13 +58,18 @@ class ArticlesController < ApplicationController
     redirect_to tienda_path(@tienda)
   end
 
+  def addimages
+    @article = Article.find(params[:id])
+  end
+
+
   private
   def set_article
     @article = Article.find(params[:id])
   end
 
   def art_params
-    params.require(:article).permit(:price, :product_id, :tienda_id, :marca_id, :stock, :color, :segmento, :talla, :sexo, :price_buy, :stock_inicial)
+    params.require(:article).permit(:price, :product_id, :tienda_id, :marca_id, :stock, :color, :segmento, :talla, :sexo, :price_buy, :stock_inicial, :altura, :anchura, :profundidad, :peso)
   end
 
 end

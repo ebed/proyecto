@@ -12,6 +12,12 @@
   <%= f.text_field :stock %>
   <%= f.text_field :price %>
   <%= f.text_field :price_buy %>
+
+  <%= f.text_field :altura %>
+  <%= f.text_field :anchura %>
+  <%= f.text_field :profundida %>
+  <%= f.text_field :peso %>
+
   <% if @article.tienda_id.present? %>
     <%= f.hidden_field :tienda_id, value: @article.tienda_id %>
   <% else %>

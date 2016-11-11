@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       resources :permisos
       resources :users
       resources :ubicacions
+
+      resources :imagenes
     end
 
   end
@@ -71,6 +73,7 @@ get '/500', to: 'errors#server_error'
   resources :product_images
   resources :banners
 
+  resources :imagenes_articulos
 
 
   resources :colors
@@ -102,4 +105,5 @@ get '/500', to: 'errors#server_error'
   get 'destacados', to: 'static_pages#destacados', as: :destacados
   get 'ultimos', to: 'static_pages#ultimos', as: :ultimos
   get 'masvendidos', to: 'static_pages#masvendidos', as: :masvendidos
+  get 'addimagenarticle/:id', to: 'articles#addimages', as: :addimagenarticle
 end

@@ -1,0 +1,11 @@
+branch-defaults:
+  master:
+    environment: ouzomdev
+    group_suffix: null
+global:
+  application_name: ouzomV1
+  default_ec2_keyname: ouzomkp
+  default_platform: Ruby 2.3 (Puma)
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git

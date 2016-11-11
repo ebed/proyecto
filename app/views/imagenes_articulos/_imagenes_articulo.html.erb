@@ -1,0 +1,5 @@
+<div class="col-md-2">
+  <%= link_to imagenes_articulo, method: :delete,  :title => 'Presione para eliminar', :rel => 'tooltip', "data-placement" => "bottom" do %>
+   <%= image_tag imagenes_articulo.imagen.url(:thumb), :class=> "img-thumbnail" %>
+  <% end %>
+</div>

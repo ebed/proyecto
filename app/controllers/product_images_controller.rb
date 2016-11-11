@@ -2,7 +2,7 @@ class ProductImagesController < ApplicationController
 
   def create
     p params
-
+    p "En create imagen de producto ProdrctImages Create"
     @image = ProductImage.create(product_images)
 
   end

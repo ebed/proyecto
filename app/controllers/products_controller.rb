@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_action :set_product, only: [:show, :edit, :update, :destroy]
+before_action :set_product, only: [ :edit, :update, :destroy]
 before_action :setmenucategorias, only: [:show]
 before_action :setMantenedores, only: [:index, :new, :create, :edit, :update, :destroy]
   def index
@@ -9,13 +9,13 @@ before_action :setMantenedores, only: [:index, :new, :create, :edit, :update, :d
 
   def show
     p params
-
+  @product = Product.find(params[:id])
     @comment = Comment.new
     @imagenesproducto = {:vacio => ""}
-    @imagenes = @product.product_images.take(5)
+    @imagenes = @product.imagenes
      p @imagenes
     @imagenes.each do |imagen|
-      @imagenesproducto[imagen.id] =imagen.image.url(:medium)
+      @imagenesproducto[imagen.id] =imagen.imagen.url(:medium)
     end
     if params[:idtienda].present?
       gon.tiendaprecargada = Tienda.find(params[:idtienda])

@@ -7,7 +7,10 @@
       <div class="panel panel-default">
         <table class='table table-default table-bordered'>
           <thead>
-            <tr class='active'><th>
+            <tr class='active'>
+              <th>
+              </th>
+              <th>
                 ARTICULOS
               </th>
               <th>
@@ -53,7 +56,18 @@
 
 
             <% @tienda.articles.each do |articulo| %>
-              <tr class="rowarticulos"><td>
+              <tr class="rowarticulos">
+              <td>
+              <%= link_to addimagenarticle_path(articulo) do %>
+                <% if articulo.imagenes_articulos.blank? %>
+                  EDITAR IMAGENES
+                <% else %>
+                  <%= image_tag articulo.imagenes_articulos.first.imagen.url(:thumb) %>
+                <% end %>
+
+              <% end %>
+              </td>
+              <td>
                 <%= articulo.product.name %>
               </td>
               <td>
@@ -101,7 +115,7 @@
               <td>
               <%= raw articulo.textoaqr.as_svg(offset: 0, color: '000',
                     shape_rendering: 'crispEdges',
-                    module_size: 11) %>
+                    module_size: 2) %>
               </td>
               <td align='right'>
                   <%= link_to  edit_article_path(articulo),  class:"btn btn-xs btn-default"  do %>

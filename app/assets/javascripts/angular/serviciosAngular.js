@@ -152,3 +152,14 @@ app.factory('Users',['$resource',function($resource) {
             query: {method: 'GET',isArray:true }
         })
 }])
+
+
+
+app.factory('Imagenes',['$resource',function($resource) {
+    return $resource(
+        '/api/imagenes',
+        {},
+        {
+            query: {method: 'GET',isArray:true }
+        })
+}])

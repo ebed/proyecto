@@ -7,11 +7,11 @@
 
     <div ng-if="tiendaunica" >
       <input type="text" class="form-control" disabled="true" value="{{firsttienda}}">
-      <input type="hidden"  value="{{proveedorescogido}}" name="proveedor" >
+      <input type="hidden"  value="{{objcolorescogido.proveedorescogido}}" name="proveedor" >
     </div>
     <div ng-if="!tiendaunica" >
 
-       <select name="proveedor" class="form-control" id="proveedores" ng-model="proveedorescogido" ng-change='pueblaSexos()' ng-options="tienda.id as tienda.name for tienda in tiendas"  >
+       <select name="proveedor" class="form-control" id="proveedores" ng-model="objcolorescogido.proveedorescogido" ng-change='pueblaSexos(objcolorescogido.proveedorescogido)' ng-options="tienda.id as tienda.name for tienda in tiendas"  >
        <option value="" selected disabled>Seleccione tienda</option>
 
         </select>
@@ -47,11 +47,11 @@ EVALUACIÓN TIENDA:
 
 
     <div ng-if="sexounico" >
-      <input class="form-control" disabled="true" value="{{sexoescogido}}" name="sexo" >
+      <input class="form-control" disabled="true" value="{{objsexoescogido.sexoescogido}}" name="sexo" >
     </div>
     <div ng-if="!sexounico" >
 
-       <select name="sexo" class="form-control animacionFadeOn" id="sexos" ng-model="sexoescogido" ng-change='pueblaComboColores()' ng-show="habilitadoSexo" >
+       <select name="sexo" class="form-control animacionFadeOn" id="sexos" ng-model="objsexoescogido.sexoescogido" ng-change='pueblaComboColores()' ng-show="habilitadoSexo" >
 
 
          <option value="" selected disabled>Seleccione el Sexo</option>
@@ -63,22 +63,22 @@ EVALUACIÓN TIENDA:
 
 
     <div ng-if="colorunico" >
-      <input class="form-control" disabled="true" value="{{colorescogido}}" name="color" >
+      <input class="form-control" disabled="true" value="{{objcolorescogido.colorescogido}}" name="color" >
     </div>
     <div ng-if="!colorunico" >
 
-       <select name="color" class="form-control animacionFadeOn" id="colores" ng-model="colorescogido" ng-change='pueblaComboTallas(colorescogido)' ng-show="habilitadoColor">
+       <select name="color" class="form-control animacionFadeOn" id="colores" ng-model="objcolorescogido.colorescogido" ng-change='pueblaComboTallas(objcolorescogido.colorescogido)' ng-show="habilitadoColor">
         <option value="" selected disabled>Seleccione el Color</option>
         <option ng-repeat="option in colores" ng-value="{{option[0]}}">{{option[0]}}</option>
        </select>
       </div>
 
       <div ng-if="tallaunica" >
-          <input class="form-control" disabled="true" value="{{tallaescogida}}" name="talla" >
+          <input class="form-control" disabled="true" value="{{objtallaescogida.tallaescogida}}" name="talla" >
         </div>
         <div ng-if="!tallaunica" >
 
-          <select name="talla" class="form-control animacionFadeOn" id="tallas" ng-model="tallaescogida" ng-change='activaCantidad()' ng-show="habilitadoTalla">
+          <select name="talla" class="form-control animacionFadeOn" id="tallas" ng-model="objtallaescogida.tallaescogida" ng-change='activaCantidad()' ng-show="habilitadoTalla">
            <option value="" selected disabled>Seleccione la Talla</option>
            <option ng-repeat="option in tallas">{{option[0]}}</option>
          </select>

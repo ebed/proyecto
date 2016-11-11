@@ -4,9 +4,22 @@ module Api
 
 
       def create
-        Ubicacion.create(longitud: params[:longitud], latitud: params[:latitud], order_id: params[:order_id], despachador_id: params[:despachador_id])
+        p params
+        ub = Ubicacion.new(longitud: params[:longitud], latitud: params[:latitud], despacho_id: params[:despacho_id])
+
+        if ub.save
+          render :json => {status: 'OK'}
+
+        else
+          render :json => {status: 'NOK'}
+        end
+
       end
 
+      def index
+        ubicaciones = Ubicacion.all
+        render :json => ubicaciones
+      end
     end
   end
 end
