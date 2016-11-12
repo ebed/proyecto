@@ -30,14 +30,14 @@ module Api
             sell.paquete_id = paquete.id
 
             sell.save
-            resultado = {status: 200, descripcion: "Creacion exitosa"}
+            resultado = {code: 200, descripcion: "Creacion exitosa"}
           else
-            resultado = {status: 400, descripcion: "Creacion fallida"}
+            resultado = {code: 400, descripcion: "Creacion fallida"}
           end
         else
             descripcion=descripcion + " - Se requiere ingresar 1 venta (sell_id) para crear el paquete inicial"
            error = true
-           resultado={status: 417, descripcion: descripcion}
+           resultado={code: 417, descripcion: descripcion}
         end
 
 
@@ -49,7 +49,7 @@ module Api
 
 
       def index
-        render json: Paquete.all.to_json
+        render  json: {:code => 200, :paquetes => Paquete.all.to_json}
       end
 
 
@@ -59,9 +59,9 @@ module Api
         sell.paquete_id = params[:id]
 
         if sell.save
-          resultado = {status: 200, descripcion: "Creacion exitosa"}
+          resultado = {code: 200, descripcion: "Creacion exitosa"}
         else
-          resultado = {status: 400, descripcion: "Creacion fallida"}
+          resultado = {code: 400, descripcion: "Creacion fallida"}
         end
 
         render :json => resultado
@@ -73,7 +73,7 @@ module Api
         p "en show de paquete"
         paquete = Paquete.find(params[:id])
         p paquete
-        render :json => paquete.as_json(include: {sells: {only: [:id]}})
+        render :json => {:code => 200, paquete: paquete.as_json(include: {sells: {only: [:id]}})}
       end
 
 
