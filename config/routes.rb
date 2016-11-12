@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :ubicacions
 
       resources :imagenes
+      resources :despachos
     end
 
   end

@@ -5,9 +5,11 @@ module Api
 
       def create
         p params
-        ub = Ubicacion.new(longitud: params[:longitud], latitud: params[:latitud], despacho_id: params[:despacho_id])
+
+        ub = Ubicacion.new(despacho_id: params[:despacho_id])
 
         if ub.save
+          loc =Location.create(ubicacion_id: ub.id, longitud: params[:longitud], latitud: params[:latitud])
           render :json => {status: 'OK'}
 
         else
@@ -17,8 +19,19 @@ module Api
       end
 
       def index
-        ubicaciones = Ubicacion.all
-        render :json => ubicaciones
+        @ubicaciones = Ubicacion.all
+        render :json => @ubicaciones.as_json( include: { location: {only: [:latitud, :longitud]}})
+      end
+
+
+      def show
+        if params[:despacho_id].present?
+          render :json => Ubicacion.where(:despacho_id => params[:despacho_id])
+        else
+          render :json => Ubicacion.find(params[:id])
+        end
+
+
       end
     end
   end

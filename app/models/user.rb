@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :selectedarticles, :dependent => :delete_all
   has_one :contact, :dependent => :destroy
   has_many :permisos, :dependent => :destroy
+  has_one :despachador, :dependent => :destroy
+
   belongs_to :profile
 
 

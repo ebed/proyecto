@@ -5,5 +5,7 @@ class Sell < ApplicationRecord
 
   belongs_to :order
 
+  belongs_to :paquete
+
 
 end
