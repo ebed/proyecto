@@ -10,18 +10,17 @@ module Api
 
       def create
 
-        if params[:despachador_id].present? and params[:paquete_id].present?
+        if params[:despachador_id].present?
           desp = Despacho.new(despachador_id: params[:despachador_id], estado_id: 1)
           if desp.save
-            paq = Paquete.find(params[:paquete_id])
-            paq.despacho_id = desp.id
-            render :json => {:code => 200, :despachador => desp.to_json}
+
+            render :json => {:code => 200, :descripcion => "Creacion exitosa"}
           else
             render :json => {:code => 400, :descripcion => "Problemas creando el despacho"}
           end
 
         else
-          render :json => {:code => 417, :descripcion => "Falta un parametro, tiene que venir: paquete_id y despachador_id"}
+          render :json => {:code => 417, :descripcion => "Falta un parametro, tiene que venir: despachador_id"}
         end
       end
 
