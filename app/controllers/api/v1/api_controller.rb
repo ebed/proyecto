@@ -5,6 +5,16 @@ module Api
         before_action :add_cors_headers
         skip_before_action :verify_authenticity_token, only: [:create, :destroy]
 
+        rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+
+
+        protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
+
+        def record_not_found
+          render :json =>  {:status => 200, :descripcion => "Ubicación con el id "+params[:id]+" no existe"} # Assuming you have a template named 'record_not_found'
+        end
+
+
         def add_cors_headers
           origin = request.headers["Origin"]
           unless (not origin.nil?) and (origin == "http://localhost" or origin.starts_with? "http://localhost:3000")

@@ -15,9 +15,9 @@ class Despacho < ApplicationRecord
                       :cantidad =>  venta.cantidad,
                       :nOrden => venta.order_id,
                       :comprador => venta.user_id,
-                      :destino => venta.direccion,
-                      :latitud => venta.ubicacions.latitud,
-                      :longitud => venta.ubicacions.longitud
+                      :destino => venta.user.direccion.direccion,
+                      :latitud => venta.user.direccion.location.latitud,
+                      :longitud => venta.user.direccion.location.longitud
                       }
       end
 

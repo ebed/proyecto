@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
       resources :imagenes
       resources :despachos
+      resources :paquetes
     end
 
   end

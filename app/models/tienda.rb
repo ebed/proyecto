@@ -10,6 +10,10 @@ class Tienda < ApplicationRecord
   has_many :score_tiendas, :dependent=> :delete_all
   has_many :permisos, :dependent => :destroy
 
+  has_many :bodegas, :dependent => :delete_all
+
+  belongs_to :location
+
   accepts_nested_attributes_for :contacts
 
   has_attached_file :imagen,
@@ -61,7 +65,7 @@ class Tienda < ApplicationRecord
       cantidad = cantidad + venta.cantidad
       total = total + (venta.precio_venta - venta.article.price_buy)
     end
-    if cantidad.blank? or cantidad = 0
+    if cantidad.blank? or cantidad == 0
       return 0
     else
       total = total / cantidad
