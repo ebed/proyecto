@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112173411) do
+ActiveRecord::Schema.define(version: 20161112231546) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",              limit: 24, default: 0.0
@@ -120,16 +120,6 @@ ActiveRecord::Schema.define(version: 20161112173411) do
     t.integer  "despachador_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-  end
-
-  create_table "direccions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "location_id"
-    t.string   "direccion"
-    t.string   "comuna"
-    t.string   "ciudad"
-    t.string   "pais"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "estadodespachos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -394,7 +384,6 @@ ActiveRecord::Schema.define(version: 20161112173411) do
     t.integer  "profile_id"
     t.string   "apellidos"
     t.string   "contact_id"
-    t.integer  "direccion_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
