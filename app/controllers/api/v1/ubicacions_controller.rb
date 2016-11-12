@@ -11,14 +11,14 @@ module Api
 
           if ub.save
             loc =Location.create(ubicacion_id: ub.id, longitud: params[:longitud], latitud: params[:latitud])
-            render :json => {status: 'OK'}
+            render :json => {code: 200, status: 'OK'}
           else
-            render :json => {status: 'NOK'}
+            render :json => {code: 400, status: 'NOK'}
           end
 
 
         else
-          render :json => {:status => 200, :descripcion => "Para registrar una nueva ubicacion, Se requieren los parametros: despacho_id, longitud y latitud "}
+          render :json => {:code => 417, :descripcion => "Para registrar una nueva ubicacion, Se requieren los parametros: despacho_id, longitud y latitud "}
         end
       end
 
@@ -40,10 +40,11 @@ module Api
 
 
           else
-            resultado={:status => 200, :descripcion => "Se debe enviar solo id para recuperar la ubicacion con ese ID, y al enviar parametro despacho_id se recupera la ubicacion de un despacho particular "}
+            render :json => {:code => 417, :descripcion => "Se debe enviar solo id para recuperar la ubicacion con ese ID, y al enviar parametro despacho_id se recupera la ubicacion de un despacho particular "}
+            return
           end
         end
-        render :json => resultado.as_json(include: {location: {only: [:latitud, :longitud], paquetes: {only: [:id]}}})
+        render :json => { :code => 200, :resultado =>resultado.as_json(include: {location: {only: [:latitud, :longitud], paquetes: {only: [:id]}}})}
       end
 
 

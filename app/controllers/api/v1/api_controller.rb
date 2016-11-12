@@ -11,7 +11,7 @@ module Api
         protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
         def record_not_found
-          render :json =>  {:status => 200, :descripcion => "Ubicación con el id "+params[:id]+" no existe"} # Assuming you have a template named 'record_not_found'
+          render :json =>  {:code => 200, :descripcion => self.class.name+" con el id "+params[:id]+" no existe"} # Assuming you have a template named 'record_not_found'
         end
 
 
