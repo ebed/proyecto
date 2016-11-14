@@ -11,8 +11,9 @@
     </div>
     <div ng-if="!tiendaunica" >
 
-       <select name="proveedor" class="form-control" id="proveedores" ng-model="objcolorescogido.proveedorescogido" ng-change='pueblaSexos(objcolorescogido.proveedorescogido)' ng-options="tienda.id as tienda.name for tienda in tiendas"  >
+       <select name="proveedor" class="form-control" id="proveedores" ng-model="objcolorescogido.proveedorescogido" ng-change='pueblaSexos(objcolorescogido.proveedorescogido)' >
        <option value="" selected disabled>Seleccione tienda</option>
+       <option ng-repeat="tienda in tiendas" value="{{tienda.id}}"> {{tienda.name}}</option>
 
         </select>
 

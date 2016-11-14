@@ -55,6 +55,7 @@ app.controller('appController',
         if (count > 1) {
             $scope.tiendaunica=false;
             $scope.tiendas = result;
+            console.log("TIendas : ",result[0].id);
             $scope.objproveedorescogido.proveedorescogido = gon.tiendaprecargada.id;
             if (gon.tiendaprecargada.id > 0){
                 $scope.pueblaSexos();
