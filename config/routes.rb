@@ -61,6 +61,7 @@ get '/500', to: 'errors#server_error'
   resources :users
   resources :comments
   resources :scores
+  resources :despachos
   resources :categories
   resources :static_pages
   resources :imagenesarticulos

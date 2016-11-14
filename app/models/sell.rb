@@ -7,6 +7,7 @@ class Sell < ApplicationRecord
 
   belongs_to :paquete
 
+  belongs_to :estadoitemdespacho
 
 
 end

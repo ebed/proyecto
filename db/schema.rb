@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112231546) do
+ActiveRecord::Schema.define(version: 20161114212113) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float    "price",              limit: 24, default: 0.0
@@ -120,10 +120,17 @@ ActiveRecord::Schema.define(version: 20161112231546) do
     t.integer  "despachador_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "location_id"
   end
 
   create_table "estadodespachos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "estadoitemdespachos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -177,9 +184,8 @@ ActiveRecord::Schema.define(version: 20161112231546) do
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "longitud"
     t.string   "latitud"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "ubicacion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "main_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -316,14 +322,15 @@ ActiveRecord::Schema.define(version: 20161112231546) do
     t.integer  "user_id"
     t.integer  "article_id"
     t.integer  "evaluation"
-    t.text     "comment",      limit: 65535
+    t.text     "comment",               limit: 65535
     t.integer  "payment_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "order_id"
     t.integer  "precio_venta"
     t.integer  "cantidad"
     t.integer  "paquete_id"
+    t.integer  "estadoitemdespacho_id"
   end
 
   create_table "statusorders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

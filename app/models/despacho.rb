@@ -1,8 +1,9 @@
 class Despacho < ApplicationRecord
   has_many :paquetes, :dependent => :delete_all
-  has_one :despachador
-  belongs_to :estadodespachos, :foreign_key => "estado_id"
-  has_one :location, :dependent => :destroy
+  belongs_to :despachador
+  belongs_to :estadodespacho, :foreign_key => :estado_id
+  belongs_to :location
+
 
   def crea_json
     paquetes = []
@@ -28,4 +29,13 @@ class Despacho < ApplicationRecord
     return  mensaje
   end
 
+
+  def cantidadarticulos
+    total = 0
+    self.paquetes.each do |paq|
+      total = total + Sell.where(:paquete_id => paq.id).sum(:cantidad)
+    end
+
+    return total
+  end
 end

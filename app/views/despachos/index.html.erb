@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+  LISTADO DE DESPACHOS
+  </div>
+  <table class="table">
+    <tr>
+      <th>ID DESPACHO</th>
+      <th>DESPACHADOR</th>
+      <th>FECHA CREACIÓN</th>
+      <th>ESTADO</th>
+      <th>UBICACION</th>
+      <th></th>
+
+    </tr>
+
+    <% @despachos.each do |desp| %>
+      <tr>
+        <td><%= desp.id %></td>
+        <td><%= desp.despachador.user.nombre %></td>
+        <td><%= desp.created_at %></td>
+        <td><%= desp.estadodespacho.nombre %></td>
+        <td><%= desp.location.longitud %>,<%= desp.location.latitud %></td>
+        <td>
+        <%= link_to desp do %>
+          VER DETALLE DESPACHO
+
+        <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

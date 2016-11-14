@@ -1,0 +1,78 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+   <strong> DESPACHO NUMERO <%= @despacho.id %> </strong>
+  </div>
+
+
+  <table class="table table-bordered">
+    <tr>
+      <th>DESPACHADOR</th>
+      <td> <%= @despacho.despachador.user.name %> </td>
+      <th>ESTADO</th>
+      <td> <%= @despacho.estadodespacho.nombre %> </td>
+    </tr>
+    <tr>
+      <th>UBICACIÓN</th>
+      <td> <%= @despacho.location.longitud %> , <%= @despacho.location.latitud %> </td>
+      <th>CANTIDAD DE PAQUETES</th>
+      <td> <%= @despacho.paquetes.count %></td>
+      <th>CANTIDAD DE ARTICULOS</th>
+      <td> <%= @despacho.cantidadarticulos %></td>
+    </tr>
+
+    <% @despacho.paquetes.each do |paquete| %>
+
+      <tr>
+        <td colspan=12>
+          <table class="table table-bordered" width="100%">
+            <tr>
+              <th colspan="10" class="active">PAQUETE NUMERO <%= paquete.id %></th>
+            </tr>
+
+            <tr>
+              <th>BODEGA:</th><td><%= paquete.bodega.direccion %></td>
+            </tr>
+
+
+            <% articulospaq = Sell.where(:paquete_id => paquete.id) %>
+            <% if articulospaq.present? and articulospaq.count > 0 %>
+              <tr class="active"><th colspan="10" >ARTICULOS PAQUETE</th></tr>
+              <tr class="active">
+                <th>NOMBRE</th>
+                <th>PRECIO VENTA</th>
+                <th>CANTIDAD</th>
+                <th>COLOR / TALLA / SEXO </th>
+                <th>DIMENSIONES </th>
+                <th>PESO</th>
+                <th>ESTADO</th>
+                </tr>
+            <% end %>
+
+
+            <% articulospaq.each do |sell| %>
+              <tr>
+              <td><strong> <%= sell.article.product.name %></strong></td>
+              <td><%= sell.precio_venta %></td>
+
+              <td><%= sell.cantidad %></td>
+              <td> <%= sell.article.color %> / <%= sell.article.talla %> / <%= sell.article.sexo %></td>
+              <td> <%= sell.article.altura %> X <%= sell.article.anchura %> X <%= sell.article.profundidad %> </td>
+              <td> <%= sell.article.peso%> </td>
+              <td> <%= sell.estadoitemdespacho.estado %> </td>
+              </tr>
+
+            <% end %>
+
+          </table>
+        </td>
+      </tr>
+
+    <% end %>
+
+  </table>
+
+
+</div>
+
+
