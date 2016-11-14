@@ -74,8 +74,8 @@ app.controller('appController',
         console.log("Cargando imagenes nuevas");
         Imagenes.query(
             {id: gon.id_producto, sexo: $scope.objsexoescogido.sexoescogido, color: $scope.objcolorescogido.colorescogido, talla: $scope.objtallaescogida.tallaescogida, proveedor: $scope.objproveedorescogido.proveedorescogido, tam: "thumb"}, function(result) {
-                     $scope.imagenesThumb=result;
-            })
+                    console.log("Resultado servicio colores: ", result)
+                    });
 
         };
 

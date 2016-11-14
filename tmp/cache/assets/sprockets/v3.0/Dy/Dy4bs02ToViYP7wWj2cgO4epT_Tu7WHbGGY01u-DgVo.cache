@@ -1,0 +1,24 @@
+I"I(function() {
+  jQuery(function() {
+    return $('#fileupload').fileupload({
+      dataType: 'script',
+      add: function(e, data) {
+        var file;
+        console.log("Antes de modal show");
+        $('#myModal').modal('show');
+        console.log("Despues de modal show");
+        file = data.files[0];
+        console.log("Antes de append fileupload1");
+        $('#fileupload').append(data.context);
+        console.log("Luego de append fileupload");
+        return data.submit();
+      }
+    });
+  });
+
+  jQuery(function() {
+    return $('a').tooltip();
+  });
+
+}).call(this);
+:ET

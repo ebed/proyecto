@@ -18,7 +18,7 @@ module Api
           prod = prod.where(:talla => params[:talla])
         end
         prod.select(:color).distinct.each do |articulo|
-          @colores << [articulo.color]
+          @colores << {:color => articulo.color}
         end
         render :json => @colores
       end

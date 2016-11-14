@@ -69,7 +69,7 @@ EVALUACIÓN TIENDA:
 
        <select name="color" class="form-control animacionFadeOn" id="colores" ng-model="objcolorescogido.colorescogido" ng-change='pueblaComboTallas(objcolorescogido.colorescogido)' ng-show="habilitadoColor">
         <option value="" selected disabled>Seleccione el Color</option>
-        <option ng-repeat="option in colores" ng-value="{{option[0]}}">{{option[0]}}</option>
+        <option ng-repeat="option in colores" >{{option.color}}</option>
        </select>
       </div>
 
