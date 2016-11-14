@@ -20,7 +20,7 @@ module Api
           end
 
         else
-          render :json => {:code => 417, :descripcion => "Falta un parametro, tiene que venir: despachador_id"}
+          render :json => {:code => 417, :descripcion => "Falta un parametro, tiene que venir: m nmnmnmnm nbggdespachador_id"}
         end
       end
 
