@@ -7,10 +7,12 @@ module Api
         p params
         if params[:despacho_id].present? and params[:longitud].present? and params[:latitud].present?
 
-          ub = Ubicacion.new(despacho_id: params[:despacho_id])
+          despacho = Despacho.find(params[:despacho_id])
+          loc =Location.create(ubicacion_id: ub.id, longitud: params[:longitud], latitud: params[:latitud])
+          despacho.location = loc
 
-          if ub.save
-            loc =Location.create(ubicacion_id: ub.id, longitud: params[:longitud], latitud: params[:latitud])
+          if despacho.save
+
             render :json => {code: 200, status: 'OK'}
           else
             render :json => {code: 400, status: 'NOK'}
@@ -23,20 +25,21 @@ module Api
       end
 
       def index
-        @ubicaciones = Ubicacion.all
-        render :json => @ubicaciones.as_json( include: { location: {only: [:latitud, :longitud]}})
+        @ubicaciones = Location.all
+        render :json => @ubicaciones.as_json
       end
 
 
       def show
         resultado ={}
         if params[:despacho_id].present?
-          resultado =Ubicacion.where(:despacho_id => params[:despacho_id]).order(:id).last
+          resultado=Despacho.find(params[:despacho_id]).location
+
 
         else
           if params[:id].present?
 
-            resultado=Ubicacion.find(params[:id])
+            resultado=Location.find(params[:id])
 
 
           else

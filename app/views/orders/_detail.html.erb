@@ -6,8 +6,16 @@
   </tr>
   <tr>
     <td>FECHA ACTUALIZACIÓN</td>
-    <td><%= @order.fechacambio %></td>
+    <td><%= @order.updated_at %></td>
   </tr>
-  <tr></tr>
+  <tr>
+    <td>EMPRESA DESPACHO</td>
+    <td><%= @order.payment.delivery_company.nombre %></td>
+  </tr>
+  <tr>
+
+    <td>DIRECCION EMPRESA DESPACHO  </td>
+    <td> <%= @order.payment.delivery_company.address.direccionCompuesta %></td>
+  </tr>
   </table>
 

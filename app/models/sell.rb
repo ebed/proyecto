@@ -10,4 +10,14 @@ class Sell < ApplicationRecord
   belongs_to :estadoitemdespacho
 
 
+
+  def nameproduct
+    self.article.product.name
+  end
+
+
+  def idproduct
+    self.article.id
+  end
+
 end

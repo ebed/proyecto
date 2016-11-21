@@ -1,0 +1,52 @@
+<div class="well">
+
+<% if @articulosBodegas.size > 0 %>
+  <%= bootstrap_form_for @despacho do |f| %>
+  <%= f.select :despachador_id,  @despachadores.collect {|p| [ p.user.name, p.id ] }, :label => "ESCOJA DESPACHADOR"  %>
+
+
+
+
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            CREACION DE PAQUETE
+          </div>
+
+              <div class="panel-body">
+
+              <%= fields_for :paquetes do |fp| %>
+
+              <% @articulosBodegas.each do |venta| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <strong>TIENDA:</strong> <%= venta[:bodega].tienda.name %>, <strong>DIRECCION:</strong> <%= venta[:bodega].address.direccionCompuesta %>
+                </div>
+                <div class="panel-body">
+
+                  <%= fp.collection_check_boxes :sells, venta[:articulos], :id, :nameproduct ,  label: "ARTICULOS DISPONIBLES" %>
+                </div>
+
+
+              </div>
+              <% end %>
+              </div>
+
+
+         <% end %>
+        </div>
+
+
+
+
+
+  <%= f.submit %>
+
+
+  <% end %>
+<% else %>
+  <h3><strong>NO HAY ARTICULOS PARA ENTREGA</strong></h3>
+<% end %>
+
+</div>

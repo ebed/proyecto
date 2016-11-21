@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <strong>BODEGAS</strong>
+    <%= link_to new_bodegastienda_path(@tienda.id) do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+
+      <%= link_to tienda_path(@tienda.id) do %> VOLVER <% end %>
+  </div>
+
+  <table class="table">
+  <tr>
+    <th>ID</th>
+    <th>TIENDA</th>
+    <th>DIRECCION</th>
+    <th>COORDENADAS</th>
+  </tr>
+
+<% @bodegas.each do |bodega| %>
+  <tr>
+    <td> <%= bodega.id %></td>
+    <td> <%= bodega.tienda.name %></td>
+    <td> <% if bodega.address.blank? %>
+      <%= link_to "NUEVA BODEGA", new_bodegastienda_path(bodega.tienda.id) %>
+    <% else %>
+      <%= bodega.address.direccionCompuesta %>
+
+    <% end %>
+    </td>
+    <td>
+    <% unless bodega.address.blank? or bodega.address.location.blank? %>
+      <%= bodega.address.location.longitud %> , <%= bodega.address.location.latitud %>
+    <% end %>
+    </td>
+    <td>
+        <%= link_to bodega_path(bodega) do %>
+            <%=  fa_icon 'eye'  %>
+        <% end %>
+        <%= link_to edit_bodega_path(bodega) do %>
+            <%=  fa_icon 'edit'  %>
+        <% end %>
+        <%= link_to  bodega_path(bodega),:method =>:delete do %>
+           <%=  fa_icon 'remove'  %>
+     <% end %>
+    </td>
+    </tr>
+
+<% end %>
+</table>
+</div>

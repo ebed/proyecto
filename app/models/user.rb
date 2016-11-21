@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :permisos, :dependent => :destroy
   has_one :despachador, :dependent => :destroy
 
-  belongs_to :direccion
+  belongs_to :address
 
   belongs_to :profile
 

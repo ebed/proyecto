@@ -5,7 +5,10 @@
 
   <% if current_user.profile.present? && current_user.profile.canadmin %>
     <%= f.select :profile_id, Profile.all.collect {|p| [ p.name, p.id ] } %>
-
   <% end %>
+
+  <%= render :partial => 'addresses/formulario' %>
+
+
   <%= f.submit %>
 <% end %>

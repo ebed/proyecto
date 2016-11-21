@@ -4,10 +4,10 @@ class OrdersController < ApplicationController
 
   def create
     p "creando la orden y se va a seleccionar medio de pago"
+    p params
 
 
-
-  @morder = MainOrder.create(user_id: current_user.id,statusorder_id: 1 )
+  @morder = MainOrder.create(user_id: current_user.id,statusorder_id: 1, :valordespacho => params[:valordespacho], :valortotal => params[:total] )
 
   current_user.totalxtienda.each do |item|
     idtienda = item[:tienda]
@@ -21,6 +21,8 @@ class OrdersController < ApplicationController
      end
 
    end
+   p "TIENDA",params[:delivery_company_id]
+  session[:delivery]=params[:delivery_company_id]
     session[:order_id]=@morder.id
     redirect_to new_payment_path
   end
@@ -75,10 +77,18 @@ end
     else
       @articulos = Sell.joins(order: :main_order).where(main_orders: {id: session[:order_id]})
     end
+    totalPagar=0
+    @articulos.each do |art|
+      totalPagar = totalPagar + art.article.price
+    end
+
+    gon.totalorden = totalPagar
 
   end
 
  def pagar_orden
+
+  ## SE crea SELL que guarda la informacion de la venta pagada
     @order.statusorder_id = 3
     @order.save
     current_user.selectedarticles.each do |art|
@@ -86,7 +96,8 @@ end
       p art.order_id
       p art.order.main_order.id
 
-      Sell.create(:user_id => current_user.id, :article_id => art.article_id, :order_id => art.order_id, :precio_venta => art.article.price, :cantidad => art.qty )
+      s=Sell.create(:user_id => current_user.id, :article_id => art.article_id, :order_id => art.order_id, :precio_venta => art.article.price, :cantidad => art.qty )
+      p s
     end
     current_user.destroyCarro
 

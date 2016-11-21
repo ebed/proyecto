@@ -7,6 +7,9 @@ module Api
         render :json => desp.crea_json.to_json
       end
 
+      def index
+        render :json => Despacho.all
+      end
 
       def create
 

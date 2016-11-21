@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :delivery_companies
   resources :tipobanners
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1 do
@@ -22,6 +23,12 @@ Rails.application.routes.draw do
       resources :imagenes
       resources :despachos
       resources :paquetes
+      resources :delivery_companies
+      resources :stocks_tiendas
+      resources :articulos_stocks
+      resources :bodegas
+      resources :sells
+      resources :preciosdeliveries
     end
 
   end
@@ -76,11 +83,16 @@ get '/500', to: 'errors#server_error'
   resources :product_images
   resources :banners
 
+  resources :addresses
+
+  resources :paquetes
   resources :imagenes_articulos
 
 
   resources :colors
   resources :tallas
+  resources :stocks
+  resources :bodegas
 
   root 'static_pages#destacados'
 
@@ -109,4 +121,7 @@ get '/500', to: 'errors#server_error'
   get 'ultimos', to: 'static_pages#ultimos', as: :ultimos
   get 'masvendidos', to: 'static_pages#masvendidos', as: :masvendidos
   get 'addimagenarticle/:id', to: 'articles#addimages', as: :addimagenarticle
+  get 'bodegastienda/:id', to: 'bodegas#index', as: :bodegastienda
+  get 'new_bodegastienda/:id', to: 'bodegas#new', as: :new_bodegastienda
+  get 'adminstocks/:id', to: 'tiendas#adminstocks', as: :adminstocks
 end

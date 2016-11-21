@@ -2,6 +2,8 @@ class Article < ApplicationRecord
   belongs_to :product
   belongs_to :tienda
 
+  has_many :stocks, :dependent => :delete_all
+
   has_many :sells, :dependent => :delete_all
   has_many :selectedarticles, :dependent => :delete_all
 
@@ -18,6 +20,27 @@ class Article < ApplicationRecord
      textoEnc = Digest::MD5.hexdigest( texto )
      return RQRCode::QRCode.new( texto, :size => 4, :level => :h )
   end
+
+  def bodegaEscogida
+    stocks = Stock.where(:article_id => self.id)
+    maximo = 0
+    resultado = Bodega.new
+    stocks.each do |stock|
+      if maximo == 0 or stock.stock >= maximo
+        maximo = stock.stock
+        resultado = stock.bodega
+      end
+
+    end
+    return resultado
+
+  end
+
+
+  def totalstock
+    Stock.where(:article_id => self.id).sum(:stock)
+  end
+
 
   def self.articulo(product_id, talla, color, tienda_id, sexo)
     articulos = Article.where(:product_id => product_id, :tienda_id => tienda_id)

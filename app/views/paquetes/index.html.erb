@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    LISTADO DE PAQUETES
+    <%= link_to new_paquete_path do%>
+      <%= fa_icon 'plus-square-o' %>
+    <% end %>
+  </div>
+
+  <table class="table table-bordered">
+    <tr class="active">
+      <th>ID PAQUETE</th>
+      <th>ESTADO</th>
+      <th>ID DESPACHO</th>
+      <th>TIENDA</th>
+      <th>DIRECCION</th>
+      <th></th>
+    </tr>
+    <% @paquetes.each do |paq| %>
+      <tr><td> <%= paq.id %></td><td><%= paq.estadopaquete.nombre %>
+      <td><%= paq.despacho_id %></td>
+      <td><%= paq.bodega.tienda.name %></td>
+      <td><%= paq.bodega.address.direccionCompuesta %></td>
+
+
+      <td>
+          <%= link_to edit_paquete_path(paq), class: "enlaces3"  do %>
+            <%=  fa_icon 'edit'  %>
+          <% end %>
+           <%= link_to paquete_path(paq), method: :delete, class: "enlaces3"  do %>
+            <%=  fa_icon 'remove'  %>
+          <% end %>
+        </td>
+      </tr>
+
+
+    <% end %>
+
+
+  </table>
+
+
+</div>

@@ -163,3 +163,60 @@ app.factory('Imagenes',['$resource',function($resource) {
             query: {method: 'GET',isArray:true }
         })
 }])
+
+
+app.factory('DeliveryCompany',['$resource',function($resource) {
+    return $resource(
+        '/api/delivery_companies',
+        {},
+        {
+            query: {method: 'GET'  }
+        })
+}])
+
+
+app.factory('StocksTiendas',['$resource',function($resource) {
+    return $resource(
+        '/api/stocks_tiendas',
+        {},
+        {
+            query: {method: 'GET'},
+
+        })
+}])
+
+app.factory('StocksTiendas2',['$resource',function($resource) {
+    return $resource(
+        '/api/stocks_tiendas/:id',
+        {},
+        {
+            delete: {method: 'DELETE'}
+        })
+}])
+
+app.factory('StocksArticulos',['$resource',function($resource) {
+    return $resource(
+        '/api/articulos_stocks',
+        {},
+        {
+            query: {method: 'GET'},
+            create: {method: 'POST'}
+        })
+}])
+
+app.factory('Bodegas',['$resource',function($resource) {
+    return $resource(
+        '/api/bodegas',
+        {},
+        {
+            query: {method: 'GET'}
+        })
+}])
+app.factory('PreciosDelivery',['$resource',function($resource) {
+    return $resource(
+        '/api/preciosdeliveries/:id',
+        {},
+        {
+            get: {method: 'get'}
+        })
+}])

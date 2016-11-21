@@ -12,7 +12,7 @@ class Tienda < ApplicationRecord
 
   has_many :bodegas, :dependent => :delete_all
 
-  belongs_to :location
+  belongs_to :address
 
   accepts_nested_attributes_for :contacts
 

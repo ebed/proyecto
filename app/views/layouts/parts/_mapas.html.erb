@@ -1,0 +1,28 @@
+  <div class="well">
+    <div id="map-container">
+      <div id="map-canvas">
+        <div id="map"></div>
+      </div>
+    </div>
+
+ <script>
+      var map;
+      var marker;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: <%= @address.location.latitud %>, lng:  <%= @address.location.longitud %>},
+          zoom: 16
+        });
+        marker = new google.maps.Marker({
+          position: {lat: <%= @address.location.latitud %>, lng:  <%= @address.location.longitud %>},
+          map: map,
+          title: "<%= @address.direccionCompuesta %>"
+        });
+      }
+
+
+
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR6a93hPH7kllOiNjoV1oJxiPB5fbKT4w&callback=initMap"
+    async defer></script>

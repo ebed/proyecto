@@ -2,8 +2,16 @@ class SellsController < ApplicationController
 
 def new
 
+  @cambiaDelivery = true
   @order = Order.new
   @articulos = current_user.selectedarticles
+  totalPagar = 0
+  @articulos.each do |art|
+    totalPagar = totalPagar + art.article.price
+  end
+  gon.idcliente = current_user.id
+  gon.totalorden = totalPagar
+  session[:total]= totalPagar
 end
 
 def create
@@ -20,7 +28,9 @@ def create
     end
   end
 
+
   session[:order_id]=@mainorder.id
+
   redirect_to new_payment_path
 end
 

@@ -1,0 +1,12 @@
+<%= bootstrap_form_for @delivery_company do |f| %>
+
+    <%= f.text_field :nombre %>
+
+    <%= f.text_field :telefono %>
+
+
+<%= render :partial => 'addresses/formulario' %>
+
+    <%= f.submit  %>
+
+<% end %>

@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  DETALLE BODEGA
+
+  <%= link_to bodegastienda_path(@bodega.tienda.id) do %> VOLVER <% end %>
+  </div>
+  <div class="panel-body">
+
+  <div class="well">
+
+
+  <%= render :partial => 'layouts/parts/mapas' %>
+
+    <br/>
+
+
+    <%= @bodega.tienda.name %>
+    <br/>
+    <%= @bodega.address.direccionCompuesta %>
+
+  </div>
+
+
+</div>
+
+
+
+</div>

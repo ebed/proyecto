@@ -1,0 +1,47 @@
+<%= bootstrap_form_for  @bodega,:html => { :multipart => true }  do |f| %>
+
+  <%= f.hidden_field :tienda_id,value: @tienda.id %>
+
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>DIRECCION BODEGA</strong>
+
+    </div>
+    <div class="panel-body">
+      <%= fields_for @address do |fdir| %>
+      <div class="form-group">
+         <label for="calle">CALLE</label>
+          <%= fdir.text_field :calle, :id => "calle", :class=>"form-control" %>
+      </div>
+      <div class="form-group">
+         <label for="numero">NUMERO</label>
+          <%= fdir.text_field :numero, :id => "numero", :class=>"form-control" %>
+      </div>
+      <div class="form-group">
+         <label for="detalle">DETALLE</label>
+          <%= fdir.text_field :detalle, :id => "detalle", :class=>"form-control" %>
+      </div>
+      <div class="form-group">
+         <label for="comuna">COMUNA</label>
+          <%= fdir.text_field :comuna, :id => "comuna", :class=>"form-control" %>
+      </div>
+      <div class="form-group">
+         <label for="ciudad">CIUDAD</label>
+          <%= fdir.text_field :ciudad, :id => "ciudad", :class=>"form-control" %>
+      </div>
+      <div class="form-group">
+         <label for="pais">PAIS</label>
+          <%= fdir.text_field :pais, :id => "pais", :class=>"form-control" %>
+      </div>
+    </div>
+  <% end %>
+
+
+
+
+  <%= f.submit %>
+
+<% end %>

@@ -103,8 +103,8 @@
                 <% end %>
               </td>
               <td>
-                <% unless articulo.stock.blank? %>
-                  <%= articulo.stock %>
+                <% unless articulo.stocks.blank? %>
+                  <%= articulo.totalstock %>
                 <% end %>
               </td>
               <td>

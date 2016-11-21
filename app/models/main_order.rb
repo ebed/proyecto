@@ -4,6 +4,7 @@ class MainOrder < ApplicationRecord
   belongs_to :user
   belongs_to :statusorder
 
+  belongs_to :payment
 
 
 
@@ -29,6 +30,13 @@ class MainOrder < ApplicationRecord
 
   def fechacambio
     Order.where(:main_order_id => self.id).maximum(:fechacambio)
+
+  end
+
+  def bodegas
+
+     Bodega.joins(tienda: :orders).where(orders: {:main_order_id => self.id}).pluck(:id)
+            #bodegas = Bodega.first.tienda.orders.where(:main_order => self.id).pluck(:id)
 
   end
 

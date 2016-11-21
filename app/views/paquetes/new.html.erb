@@ -1,0 +1,41 @@
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    CREACION DE PAQUETE
+  </div>
+
+      <div class="panel-body">
+<% if @articulosBodegas.size > 0 %>
+      <%= bootstrap_form_for @paquete do |f| %>
+
+      <% @articulosBodegas.each do |bodega| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>TIENDA:</strong> <%= bodega[:bodega].tienda.name %>, <strong>DIRECCION:</strong> <%= bodega[:bodega].address.direccionCompuesta %>
+        </div>
+        <div class="panel-body">
+
+          <%= f.collection_check_boxes :sells, bodega[:articulos], :id, :nameproduct ,  label: "ARTICULOS DISPONIBLES" %>
+        </div>
+
+
+      </div>
+      <% end %>
+      </div>
+    <div class="panel-footer">
+    <%= f.submit %>
+    <%= link_to "VOLVER A LISTA PAQUETES", paquetes_path, :class => "btn btn-default  " %>
+    </div>
+
+
+ <% end %>
+
+ <% else %>
+  <h3><strong>NO HAY ARTICULOS PARA ENTREGA</strong></h3>
+<% end %>
+
+</div>
+
+

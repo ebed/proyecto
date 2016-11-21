@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+
+  <strong> <%= @delivery_company.nombre %></strong>
+  </div>
+
+  <%= render :partial => 'layouts/parts/mapas' %>
+
+    <br/>
+    <strong>Direccion:</strong>
+  <%= @delivery_company.address.direccionCompuesta %>
+  <br/>
+  <strong>Telefono</strong>
+  <%= @delivery_company.telefono %>
+
+  </div>
+
+
+
+
+</div>
+<%= link_to 'Edit', edit_delivery_company_path(@delivery_company) %> |
+<%= link_to 'Back', delivery_companies_path %>

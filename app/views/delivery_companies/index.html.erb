@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Compañias de Delivery</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Address</th>
+      <th>Telefono</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @delivery_companies.each do |delivery_company| %>
+      <tr>
+        <td><%= delivery_company.nombre %></td>
+        <td><%= delivery_company.address_id %></td>
+        <td><%= delivery_company.telefono %></td>
+        <td><%= link_to 'Show', delivery_company %></td>
+        <td><%= link_to 'Edit', edit_delivery_company_path(delivery_company) %></td>
+        <td><%= link_to 'Destroy', delivery_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delivery Company', new_delivery_company_path %>

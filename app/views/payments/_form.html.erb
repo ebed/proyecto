@@ -1,8 +1,13 @@
 <%= bootstrap_form_for (@payment) do |f| %>
+
+  <td>EMPRESA DE DESPACHO</td><td> <%=  @delivery_company.nombre  %>
+
+
+  <%= f.hidden_field :delivery_company_id, :value => @delivery_company.id %>
   <%= f.select :paymentmethod_id, Paymentmethod.all.collect {|p| [ p.name, p.id ] } , :label => "METODO DE PAGO" %>
 
-
-
+  <%= f.hidden_field :total, :value => session[:total] %>
   <%= f.submit "Proceder Pago", class: "btn btn-primary" %>
+
 
 <% end %>

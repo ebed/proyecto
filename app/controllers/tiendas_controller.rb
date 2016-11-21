@@ -25,11 +25,22 @@ class TiendasController < ApplicationController
      @tienda = Tienda.find(params[:id])
      @vendedor = Seller.where(user_id: current_user.id).first
 
+     if @tienda.address.blank?
+      p "Direccion tienda vacia"
+      @address = Address.new
+    else
+      p "Direccion tienda existente"
+      @address = @tienda.address
+    end
+    p @address
   end
 
   def update
     @tienda = Tienda.find(params[:id])
     p tienda_params
+
+    @address = Address.create(address_params)
+    @tienda.address = @address
     @tienda.update(tienda_params)
     redirect_to @tienda
   end
@@ -93,9 +104,31 @@ class TiendasController < ApplicationController
 
   end
 
+
+  def adminstocks
+
+    p params[:id]
+
+    gon.tienda_id = params[:id]
+    @bodegas = Bodega.where(:tienda_id => params[:id])
+    ids = []
+    ids_qry = "("
+    @bodegas.each do |bodega|
+      ids_qry = ids_qry + bodega.id.to_s
+    end
+    ids_qry =ids_qry + ")"
+
+    @stocks = Stock.where("bodega_id in "+ids_qry).order(:bodega_id)
+
+    p @stocks
+  end
+
+
   private
 
-
+  def address_params
+    params.require(:address).permit(:calle, :numero, :detalle, :comuna, :ciudad, :pais, :location_id)
+  end
 
   def tienda_params
     params.require(:tienda).permit(:name, :seller_id, :imagen,  contacts_attributes:[:contactype_id, :value])

@@ -13,12 +13,13 @@
         <td colspan=3>
 
           <div class="btn-group" role="group" aria-label="...">
-
+          <%= link_to "ADMINISTRA BODEGAS", bodegastienda_path(@tienda), class: "btn btn-default ", role: "button" %>
             <%= link_to "AGREGAR ARTICULO", addarticle_path(@tienda), class: "btn btn-default ", role: "button" %>
             <%= link_to "MODIFICAR TIENDA", edit_tienda_path(@tienda), class: "btn btn-default" %>
             <%= link_to "ELIMINAR TIENDA", tienda_path(@tienda), method: :delete, class: "btn btn-default" %>
             <%= link_to "DASHBOARD TIENDA", dashboard_path(@tienda), class: "btn btn-default" %>
             <%= link_to "ACCESOS A TIENDA", editarAccesos_path(@tienda), class: "btn btn-default" %>
+            <%= link_to "ADMINISTRAR STOCK", adminstocks_path(@tienda), class: "btn btn-default" %>
           </div>
         </td>
         <td align='right'>Creada el <%= @tienda.created_at.strftime("%d/%m/%Y ") %></td>
