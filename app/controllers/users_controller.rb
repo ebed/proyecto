@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
   before_action :setMantenedores
   def edit
-    @address = current_user.address
+    if current_user.address.blank?
+      @address = Address.new
+    else
+      @address = current_user.address
+    end
   end
 
   def update

@@ -2,9 +2,14 @@ module Api
   module V1
     class DespachosController <  ApiController
 
+
+
+
+
+
       def show
         if params[:id_despachador].present?
-         desp = Despacho.joins(:estadodespacho).where(:despachador_id =>  params[:id_despachador], estadodespachos: {:inicial => true}).
+         desp = Despacho.joins(:estadodespacho).where(:despachador_id =>  params[:id_despachador], estadodespachos: {:inicial => true})
          first
 
 
