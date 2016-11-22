@@ -25,7 +25,7 @@ class Despacho < ApplicationRecord
       paquetes << {:idPaquete => paq.id, :bodegaId => paq.bodega.id, :bodegaDireccion => paq.bodega.address.direccionCompuesta, :articulos => articulos}
 
     end
-    mensaje = {:despachoId => self.id, :paquetes => paquetes}
+    mensaje = {:despachoId => self.id,:ubicacion => self.location,  :paquetes => paquetes}
     return  mensaje
   end
 

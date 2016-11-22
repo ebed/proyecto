@@ -55,6 +55,22 @@ module Api
         Ubicacion.find(params[:id]).destroy
       end
 
+
+
+      def update
+        p "Actualizando"
+        if params[:despacho_id].present?
+          location = Despacho.find(params[:despacho_id]).location
+          location.longitud = params[:longitud]
+          location.latitud = params[:latitud]
+          location.save
+        end
+
+
+      end
+
+
+
     end
   end
 end

@@ -3,9 +3,19 @@ module Api
     class DespachosController <  ApiController
 
       def show
-        desp=Despacho.find(params[:id])
-        render :json => desp.crea_json.to_json
+        if params[:id_despachador].present?
+         desp = Despacho.joins(:estadodespacho).where(:despachador_id =>  params[:id_despachador], estadodespachos: {:inicial => true}).
+         first
+
+
+        else
+
+          desp=Despacho.find(params[:id])
+        end
+          render :json => desp.crea_json.to_json
       end
+
+
 
       def index
         render :json => Despacho.all
