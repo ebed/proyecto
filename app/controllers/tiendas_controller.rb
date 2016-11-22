@@ -54,7 +54,7 @@ class TiendasController < ApplicationController
 
   def new
     @vendedor = Seller.where(user_id: current_user.id).first
-
+    @address = Address.new
     @tienda = Tienda.new
     @tienda.contacts.new
     @contact = Contact.new
