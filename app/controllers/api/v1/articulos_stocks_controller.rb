@@ -63,7 +63,7 @@ module Api
 
 
                   productos_id = Article.where.not(:id => idarts).where(:tienda_id => params[:tienda_id]).
-                  joins(:product).order("products.name").distinct(:product_id).pluck(:product_id)
+                  joins(:product).order("products.name").distinct(:product_id).select("products.name").pluck(:product_id)
 
                   productos_id.each do |idprod|
                     p = Product.find(idprod)
@@ -76,7 +76,7 @@ module Api
                   if params[:tienda_id].present?
                   p "Buscando productos"
                   productos_id = Article.left_outer_joins(:stocks).where("stocks.stock is null").where(:tienda_id => params[:tienda_id]).
-                  joins(:product).order("products.name").distinct(:product_id).pluck(:product_id)
+                  joins(:product).order("products.name").distinct(:product_id).select("products.name").pluck(:product_id)
 
                   productos_id.each do |idprod|
                     p = Product.find(idprod)
