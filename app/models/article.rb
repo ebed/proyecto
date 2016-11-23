@@ -18,7 +18,7 @@ class Article < ApplicationRecord
      texto = self.id.to_s+";"+self.nombre + ";"+self.product.marca.name+";"+self.tienda.id.to_s+";"+self.tienda.name
 
      textoEnc = Digest::MD5.hexdigest( texto )
-     return RQRCode::QRCode.new( texto, :size => 4, :level => :h )
+     return RQRCode::QRCode.new( texto, :size => 6, :level => :h )
   end
 
   def bodegaEscogida
