@@ -110,6 +110,7 @@ class TiendasController < ApplicationController
     p params[:id]
 
     gon.tienda_id = params[:id]
+    @tienda=Tienda.find(params[:id])
     @bodegas = Bodega.where(:tienda_id => params[:id])
     ids = []
     ids_qry = "("

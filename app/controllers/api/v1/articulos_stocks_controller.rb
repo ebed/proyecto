@@ -1,4 +1,4 @@
-module Api
+Amodule Api
   module V1
     class ArticulosStocksController <  ApiController
 
@@ -15,8 +15,12 @@ module Api
                 end
 
             colores =
-            Article.where.not(:id => idarts).where(:tienda_id => params[:tienda_id]).
-              order(:color).distinct(:color).pluck(:color)
+             Article.left_joins(:stocks).where.not(:id => idarts).
+                    where(:tienda_id => params[:tienda_id], :product_id =>  params[:producto_id], :sexo => params[:sexo], :talla =>params[:talla]).
+                    where.not(stocks: {:bodega_id => params[:bodega_id])}).
+                    order(:color).distinct(:color).pluck(:color)
+
+
 
               resultado = {tipo: "colores", resultado: colores}
 
@@ -30,8 +34,10 @@ module Api
                 end
 
               tallas =
-              Article.where.not(:id => idarts).where(:tienda_id => params[:tienda_id]).
-                order(:talla).distinct(:talla).pluck(:talla)
+              Article.where.not(:id => idarts).
+                    where(:tienda_id => params[:tienda_id], :product_id =>  params[:producto_id], :sexo => params[:sexo]).
+                    where.not(stocks: {:bodega_id => params[:bodega_id])}).
+                    order(:talla).distinct(:talla).pluck(:talla)
 
                 p tallas
                 resultado = {tipo: "tallas", resultado: tallas}
