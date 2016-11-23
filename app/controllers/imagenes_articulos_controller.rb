@@ -4,6 +4,7 @@ class ImagenesArticulosController < ApplicationController
 
     p "Atributos ",params
     @imagen = ImagenesArticulo.create(imagenesarticuloparams)
+    @article = Article.find(imagenesarticuloparams[:article_id])
 
   end
 

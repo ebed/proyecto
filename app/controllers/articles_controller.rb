@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+  before_action :setMantenedores
+
   def show
 
   end
@@ -60,6 +63,7 @@ class ArticlesController < ApplicationController
 
   def addimages
     @article = Article.find(params[:id])
+    @tienda = @article.tienda
   end
 
 
