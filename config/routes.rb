@@ -88,11 +88,14 @@ get '/500', to: 'errors#server_error'
   resources :paquetes
   resources :imagenes_articulos
 
-
+  resources :estadodespachos
+  resources :estadoitemdespachos
+  resources :estadopaquetes
   resources :colors
   resources :tallas
   resources :stocks
   resources :bodegas
+  resources :preciosdeliveries
 
   root 'static_pages#destacados'
 

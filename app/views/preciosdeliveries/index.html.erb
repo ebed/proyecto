@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    TABLA DE PRECIOS DESPACHO
+    <%= link_to new_preciosdelivery_path do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+  </div>
+  <table class="table">
+  <tr class="active">
+    <th>COMPAÑIA</th>
+    <th>DISTANCIA MINIMA</th>
+    <th>DISTANCIA MAXIMA</th>
+
+    <th>UNIDAD DE MEDIDA</th>
+    <th>PRECIO</th>
+    <th></th>
+  </tr>
+<% @precios.each do |pdesp| %>
+  <tr>
+    <td><%= pdesp.delivery_company.nombre %></td>
+    <td><%= pdesp.distanciaMinima %></td>
+    <td><%= pdesp.distanciaMaxima %></td>
+    <td><%= pdesp.unidadMedida %></td>
+    <td><%= number_to_currency(pdesp.precio , precision: 0) %></td>
+    <td>
+          <%= link_to preciosdelivery_path(pdesp) do %>
+            <%=  fa_icon 'eye'  %>
+        <% end %>
+        <%= link_to edit_preciosdelivery_path(pdesp) do %>
+            <%=  fa_icon 'edit'  %>
+        <% end %>
+        <%= link_to  preciosdelivery_path(pdesp),:method =>:delete do %>
+           <%=  fa_icon 'remove'  %>
+           <% end %>
+    </td>
+  </tr>
+
+
+<% end %>
+
+
+</table>
+</div>

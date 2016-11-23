@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 before_action :set_product, only: [ :edit, :update, :destroy]
 before_action :setmenucategorias, only: [:show]
-before_action :setMantenedores, only: [:index, :new, :create, :edit, :update, :destroy]
+before_action :setMantenedores, only: [:index, :new, :create, :edit, :update, :destroy, :addimages]
   def index
   end
 

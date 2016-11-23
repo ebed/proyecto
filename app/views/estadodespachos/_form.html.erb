@@ -1,0 +1,10 @@
+<%= bootstrap_form_for @estado  do |f| %>
+
+  <%= f.text_field :nombre %>
+  <%= f.checkbox :inicial %>
+  <%= f.checkbox :final %>
+
+
+  <%= f.submit "CREAR" %>
+
+<% end %>

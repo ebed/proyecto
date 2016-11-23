@@ -1,0 +1,12 @@
+<%= bootstrap_form_for @precio  do |f| %>
+
+  <%= f.select :delivery_company_id, @deliverycompanies.collect {|p| [ p.nombre, p.id ] },
+        :label => "COMPAÑIA DE DELIVERY" %>
+  <%= f.text_field :distanciaMinima, label: "DISTANCIA MINIMA" %>
+  <%= f.text_field :distanciaMaxima, label: "DISTANCIA MAXIMA"  %>
+  <%= f.text_field :unidadMedida, label: "UNIDAD DE MEDIDA"  %>
+  <%= f.text_field :precio, label: "PRECIO"  %>
+
+  <%= f.submit "CREAR" %>
+
+<% end %>

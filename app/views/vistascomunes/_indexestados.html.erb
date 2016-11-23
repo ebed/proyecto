@@ -1,0 +1,23 @@
+ <table class="table">
+    <tr class="active">
+    <th>NOMBRE ESTADO</th>
+    <th>ES INICIAL?</th>
+    <th>ES FINAL?</th>
+    </tr>
+<% @estados.each do |estado| %>
+  <tr>
+    <td>
+      <%= estado.nombre %>
+    </td>
+    <td>
+        <%= estado.inicial %>
+    </td>
+    <td>
+      <%= estado.final %>
+    </td>
+    <td>
+        <%= link_to estado %>
+    </td>
+    </tr>
+
+<% end %>

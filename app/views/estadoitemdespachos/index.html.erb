@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    ESTADOS DE ITEM DESPACHO
+    <%= link_to new_estadoitemdespacho_path do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+  </div>
+
+   <td>
+    <table class="table">
+    <tr class="active">
+    <th>NOMBRE ESTADO</th>
+    <th>ES INICIAL?</th>
+    <th>ES FINAL?</th>
+    <th></th>
+    </tr>
+    <% @estados.each do |estado| %>
+      <tr>
+        <td>
+          <%= estado.nombre %>
+        </td>
+        <td>
+            <%= estado.inicial %>
+        </td>
+        <td>
+          <%= estado.final %>
+        </td>
+        <td>
+
+          <%= link_to edit_estadoitemdespacho_path(estado) do %>
+              <%=  fa_icon 'edit'  %>
+          <% end %>
+          <%= link_to  estadoitemdespacho_path(estado),:method =>:delete do %>
+             <%=  fa_icon 'remove'  %>
+          <% end %>
+        </td>
+        </tr>
+
+        <% end %>
+</table>

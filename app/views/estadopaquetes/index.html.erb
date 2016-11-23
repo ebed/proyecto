@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    ESTADOS DE PAQUETES
+    <%= link_to new_estadopaquete_path do%>
+        <%= fa_icon 'plus-square-o' %>
+      <% end %>
+  </div>
+   <table class="table">
+      <tr class="active">
+      <th>NOMBRE ESTADO</th>
+      <th>ES INICIAL?</th>
+      <th>ES FINAL?</th>
+      <th></th>
+      </tr>
+      <% @estados.each do |estado| %>
+        <tr>
+          <td>
+            <%= estado.nombre %>
+          </td>
+          <td>
+              <%= estado.inicial %>
+          </td>
+          <td>
+            <%= estado.final %>
+          </td>
+         <td>
+
+
+              <%= link_to edit_estadopaquete_path(estado) do %>
+                  <%=  fa_icon 'edit'  %>
+              <% end %>
+              <%= link_to  estadopaquete_path(estado),:method =>:delete do %>
+                 <%=  fa_icon 'remove'  %>
+              <% end %>
+            </td>
+            </tr>
+        <% end %>
+</table>
